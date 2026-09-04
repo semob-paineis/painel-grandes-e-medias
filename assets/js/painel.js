@@ -122,7 +122,7 @@
 
     montarSelecao('filtroAno', opcoes.anos || [], 'ano', 'Todos os anos');
     montarSelecao('filtroRegiao', opcoes.regioes || [], 'regiao', 'Todas as regiões');
-    montarSelecao('filtroModo', opcoes.modos || [], 'modo', 'Todos os modos');
+    montarSelecao('filtroModo', opcoes.modos || [], 'modo', 'Todos os tipos');
 
     var limpar = document.getElementById('btnLimparFiltros');
     if (limpar) {
@@ -347,7 +347,11 @@
         '</strong> (' + F.percentual(regiaoLider.participacao, 1) + ' do valor)' : '') + '.'
     ];
 
-    alvo.innerHTML = partes.map(function (p) { return '<p>' + p + '</p>'; }).join('');
+    alvo.innerHTML =
+      '<div class="resumo-numeros">' +
+        '<div class="resumo-numeros__titulo">Números principais</div>' +
+        partes.map(function (p) { return '<p>' + p + '</p>'; }).join('') +
+      '</div>';
   }
 
   /* --- Qualidade da base --------------------------------------------------
