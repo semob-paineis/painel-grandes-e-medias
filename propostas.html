@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="claro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar de Propostas — Grandes e Médias Cidades | SEMOB</title>
+<meta name="description" content="Listagem detalhada das propostas do subeixo
+      Mobilidade Grandes e Médias Cidades do Novo PAC.">
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/painel.css">
+</head>
+
+<body>
+
+<div class="barra-gov">
+  <div class="barra-gov__interna">
+    <span class="barra-gov__marca">Brasil</span>
+    <span class="barra-gov__sep">|</span>
+    <span>Ministério das Cidades</span>
+  </div>
+</div>
+
+<header class="cabecalho">
+  <div class="cabecalho__interno">
+    <div class="cabecalho__identidade">
+      <div class="cabecalho__programa">Novo PAC · Mobilidade Urbana Sustentável</div>
+      <h1 class="cabecalho__titulo">Radar de Propostas</h1>
+      <p class="cabecalho__orgao">Listagem detalhada — Grandes e Médias Cidades</p>
+    </div>
+
+    <div class="cabecalho__acoes">
+      <span class="selo-data">
+        <span class="selo-data__ponto" aria-hidden="true"></span>
+        <span id="dataAtualizacao">Base atualizada em —</span>
+      </span>
+      <a class="botao" href="index.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6"/></svg>
+        Voltar ao painel
+      </a>
+      <button class="botao botao--icone" id="btnTema" aria-label="Alternar tema">☾</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <section class="grade grade--indicadores" id="resumoCards"
+             aria-label="Resumo por situação"></section>
+
+    <section class="bloco" id="tabelaPropostas">
+      <div class="barra-ferramentas">
+        <div class="busca">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input type="text" id="buscaGlobal" autocomplete="off"
+                 placeholder="Buscar por município, proponente, empreendimento…"
+                 aria-label="Buscar em todas as colunas">
+        </div>
+
+        <button class="botao" type="button" id="btnLimpar">Limpar filtros</button>
+        <button class="botao" type="button" id="btnCSV">Exportar CSV</button>
+
+        <span class="barra-ferramentas__contagem" id="contagemResultados"></span>
+      </div>
+
+      <div class="tabela-envolucro">
+        <table class="tabela tabela--fixa">
+          <thead><tr id="cabecalhoTabela"></tr></thead>
+          <tbody id="corpoTabela"></tbody>
+        </table>
+      </div>
+
+      <div class="paginacao" id="paginacao"></div>
+    </section>
+
+    <section class="bloco">
+      <div class="bloco__cabecalho">
+        <h2 class="bloco__titulo">Como ler a coluna Situação</h2>
+      </div>
+      <div class="bloco__corpo">
+        <div class="legenda" id="legendaGrupos" style="flex-direction:column;gap:8px"></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <p>Clique no cabeçalho para ordenar e no ícone ao lado do título para filtrar
+       valores daquela coluna. A busca percorre todas as colunas ao mesmo tempo.</p>
+    <p>Elaboração: Ministério das Cidades / Secretaria Nacional de Mobilidade — SEMOB.</p>
+  </div>
+</footer>
+
+<script src="assets/js/propostas-embutido.js"></script>
+<script src="assets/js/nucleo/formato.js"></script>
+<script src="assets/js/nucleo/dica.js"></script>
+<script src="assets/js/componentes/tabelas.js"></script>
+<script src="assets/js/propostas.js"></script>
+</body>
+</html>

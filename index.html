@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="claro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel Grandes e Médias Cidades — Novo PAC | SEMOB</title>
+<meta name="description" content="Monitoramento das propostas de infraestrutura
+      de transporte público do subeixo Mobilidade Grandes e Médias Cidades do
+      Novo PAC — Ministério das Cidades / SEMOB.">
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/painel.css">
+
+<!-- Bibliotecas de terceiros em cópia local (ver assets/js/vendor/LEIA-ME.txt):
+     o painel precisa abrir em máquina sem internet. Se algum arquivo faltar,
+     gráficos e exportação avisam a indisponibilidade e o resto continua operando. -->
+<script src="assets/js/vendor/chart.umd.min.js"></script>
+<script src="assets/js/vendor/html2canvas.min.js" defer></script>
+<script src="assets/js/vendor/jspdf.umd.min.js" defer></script>
+</head>
+
+<body>
+
+<!-- ====================================================== BARRA INSTITUCIONAL -->
+<div class="barra-gov">
+  <div class="barra-gov__interna">
+    <span class="barra-gov__marca">Brasil</span>
+    <span class="barra-gov__sep">|</span>
+    <span>Ministério das Cidades</span>
+  </div>
+</div>
+
+<!-- ================================================================ CABEÇALHO -->
+<header class="cabecalho">
+  <div class="cabecalho__interno">
+    <div class="cabecalho__identidade">
+      <div class="cabecalho__programa" id="programaPainel">Novo PAC · Mobilidade Urbana Sustentável</div>
+      <h1 class="cabecalho__titulo" id="tituloPainel">Painel de Monitoramento — Grandes e Médias Cidades</h1>
+      <p class="cabecalho__orgao" id="orgaoPainel">Secretaria Nacional de Mobilidade — SEMOB</p>
+    </div>
+
+    <div class="cabecalho__acoes">
+      <span class="selo-data">
+        <span class="selo-data__ponto" aria-hidden="true"></span>
+        <span id="dataAtualizacao">Base atualizada em —</span>
+      </span>
+
+      <a class="botao" href="propostas.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        Radar de Propostas
+      </a>
+
+      <div class="menu-suspenso">
+        <button class="botao" id="btnExportar" aria-haspopup="true" aria-expanded="false">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>
+          Exportar
+        </button>
+        <div class="menu-suspenso__lista" id="menuExportar" role="menu">
+          <button type="button" id="expImagem" role="menuitem">Baixar imagem (PNG)</button>
+          <button type="button" id="expPDF" role="menuitem">Gerar PDF</button>
+          <button type="button" id="expCSV" role="menuitem">Exportar dados filtrados (CSV)</button>
+        </div>
+      </div>
+
+      <button class="botao botao--icone" id="btnTema" aria-label="Alternar tema">☾</button>
+    </div>
+  </div>
+</header>
+
+<!-- =================================================================== FILTROS -->
+<section class="filtros" aria-label="Filtros do painel">
+  <div class="filtros__interno">
+
+    <div class="filtro">
+      <span class="filtro__rotulo" id="rotuloCenario">Modalidade</span>
+      <div class="segmentado" id="filtroCenario" role="group" aria-labelledby="rotuloCenario"></div>
+    </div>
+
+    <div class="filtro">
+      <span class="filtro__rotulo" id="rotuloVisao">Visão</span>
+      <div class="segmentado" id="filtroVisao" role="group" aria-labelledby="rotuloVisao"></div>
+    </div>
+
+    <div class="filtro">
+      <label class="filtro__rotulo" for="filtroAno">Ano da portaria</label>
+      <select class="filtro__campo" id="filtroAno"></select>
+    </div>
+
+    <div class="filtro">
+      <label class="filtro__rotulo" for="filtroRegiao">Região</label>
+      <select class="filtro__campo" id="filtroRegiao"></select>
+    </div>
+
+    <div class="filtro">
+      <label class="filtro__rotulo" for="filtroModo">Modo de transporte</label>
+      <select class="filtro__campo" id="filtroModo"></select>
+    </div>
+
+    <div class="filtros__resumo">
+      <span class="filtros__contagem" id="contagemFiltro"></span>
+      <button class="botao" id="btnLimparFiltros" type="button">Limpar filtros</button>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== PAINEL -->
+<main>
+  <div class="container" id="areaExportavel">
+
+    <div class="aviso aviso--mock oculto" id="avisoMock" role="status"></div>
+
+    <!-- Indicadores -------------------------------------------------------->
+    <section class="grade grade--indicadores" id="indicadores"
+             aria-label="Indicadores principais"></section>
+
+    <!-- Infraestrutura por modo — componente central ----------------------->
+    <section class="bloco">
+      <div class="bloco__cabecalho">
+        <h2 class="bloco__titulo">O que o investimento entrega</h2>
+        <span class="bloco__apoio">Extensão, unidades e valor por modo de transporte</span>
+        <div class="bloco__acoes infra__metricas">
+          <div class="segmentado" id="metricaInfra" role="group"
+               aria-label="Métrica exibida"></div>
+        </div>
+      </div>
+      <div class="bloco__corpo">
+        <div class="infra" id="infraestrutura"></div>
+        <p class="bloco__apoio" style="margin-top:16px">
+          Clique em um modo para filtrar todo o painel por ele. Modos medidos em
+          quilômetros e modos medidos em unidades não se somam entre si.
+        </p>
+      </div>
+    </section>
+
+    <!-- Funil --------------------------------------------------------------->
+    <section class="bloco">
+      <div class="bloco__cabecalho">
+        <h2 class="bloco__titulo">Funil de conversão das propostas</h2>
+        <span class="bloco__apoio">Da seleção à execução</span>
+      </div>
+      <div class="bloco__corpo">
+        <div class="funil" id="funil"></div>
+      </div>
+    </section>
+
+    <!-- Território e tempo -------------------------------------------------->
+    <div class="grade grade--2">
+      <section class="bloco">
+        <div class="bloco__cabecalho">
+          <h2 class="bloco__titulo">Distribuição regional</h2>
+          <span class="bloco__apoio">Valor <span data-rotulo-visao>contratado</span> por região</span>
+        </div>
+        <div class="bloco__corpo">
+          <div class="grafico grafico--medio"><canvas id="graficoRegioes"></canvas></div>
+          <div id="tabelaRegioes" style="margin-top:16px"></div>
+        </div>
+      </section>
+
+      <section class="bloco">
+        <div class="bloco__cabecalho">
+          <h2 class="bloco__titulo">Evolução por ano</h2>
+          <span class="bloco__apoio">Ano da portaria de seleção</span>
+        </div>
+        <div class="bloco__corpo">
+          <div class="grafico grafico--medio"><canvas id="graficoAnos"></canvas></div>
+          <div class="legenda" id="legendaAnos"></div>
+          <div id="tabelaAnos" style="margin-top:16px"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Mapa ---------------------------------------------------------------->
+    <section class="bloco">
+      <div class="bloco__cabecalho">
+        <h2 class="bloco__titulo">Investimento por unidade da federação</h2>
+        <span class="bloco__apoio">Valor <span data-rotulo-visao>contratado</span>, em escala de intensidade</span>
+      </div>
+      <div class="bloco__corpo">
+        <div class="grade grade--2-1">
+          <div>
+            <div class="mapa" id="mapa"></div>
+            <div class="mapa__escala" id="mapaEscala"></div>
+          </div>
+          <div id="tabelaUFs"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Financiamento -------------------------------------------------------->
+    <div class="grade grade--3">
+      <section class="bloco">
+        <div class="bloco__cabecalho">
+          <h2 class="bloco__titulo">Fonte de recursos</h2>
+        </div>
+        <div class="bloco__corpo">
+          <div class="grafico grafico--baixo"><canvas id="graficoFontes"></canvas></div>
+          <div class="legenda" id="legendaFontes"></div>
+        </div>
+      </section>
+
+      <section class="bloco">
+        <div class="bloco__cabecalho">
+          <h2 class="bloco__titulo">Agente financeiro</h2>
+        </div>
+        <div class="bloco__corpo">
+          <div class="grafico grafico--baixo"><canvas id="graficoAgentes"></canvas></div>
+          <div class="legenda" id="legendaAgentes"></div>
+        </div>
+      </section>
+
+      <section class="bloco">
+        <div class="bloco__cabecalho">
+          <h2 class="bloco__titulo">Natureza do apoio</h2>
+        </div>
+        <div class="bloco__corpo">
+          <div class="grafico grafico--baixo"><canvas id="graficoCategorias"></canvas></div>
+          <div class="legenda" id="legendaCategorias"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Resumo executivo ------------------------------------------------------>
+    <section class="bloco">
+      <div class="bloco__cabecalho">
+        <h2 class="bloco__titulo">Resumo executivo</h2>
+        <span class="bloco__apoio">Números recalculados conforme os filtros ativos</span>
+      </div>
+      <div class="bloco__corpo">
+        <div class="resumo" id="resumoTexto"></div>
+        <div class="resumo" id="resumoNumeros" style="margin-top:12px"></div>
+      </div>
+    </section>
+
+    <!-- Qualidade da base ----------------------------------------------------->
+    <section class="bloco">
+      <div class="bloco__cabecalho">
+        <h2 class="bloco__titulo">Qualidade da base</h2>
+        <span class="bloco__apoio" id="qualidadeNota"></span>
+      </div>
+      <div class="bloco__corpo">
+        <div class="aviso aviso--info">
+          Pontos levantados automaticamente na leitura da planilha. Não indicam erro
+          no programa: indicam campos que merecem conferência antes da divulgação
+          externa dos números.
+        </div>
+        <div id="qualidade"></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- =================================================================== RODAPÉ -->
+<footer class="rodape">
+  <div class="container">
+    <p id="rodapeFonte"></p>
+    <p id="rodapeAviso"></p>
+    <p id="rodapeOrigem"></p>
+  </div>
+</footer>
+
+<!-- Base embutida: permite abrir o arquivo por duplo clique, sem servidor.
+     Quando servido por HTTP, dados.json tem precedência (sempre a base mais nova). -->
+<script src="assets/js/dados-embutido.js"></script>
+<script src="assets/js/geo-uf.js"></script>
+
+<script src="assets/js/nucleo/formato.js"></script>
+<script src="assets/js/nucleo/dica.js"></script>
+<script src="assets/js/nucleo/dados.js"></script>
+
+<script src="assets/js/componentes/indicadores.js"></script>
+<script src="assets/js/componentes/funil.js"></script>
+<script src="assets/js/componentes/infraestrutura.js"></script>
+<script src="assets/js/componentes/graficos.js"></script>
+<script src="assets/js/componentes/mapa.js"></script>
+<script src="assets/js/componentes/tabelas.js"></script>
+<script src="assets/js/componentes/exportar.js"></script>
+
+<script src="assets/js/painel.js"></script>
+</body>
+</html>
