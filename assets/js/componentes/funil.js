@@ -4,11 +4,14 @@
    Etapas: Habilitadas -> Selecionadas -> Contratadas -> Em execução
 
    Proporcionalidade (implementada desde a v1):
-     largura da barra = quantidade da etapa / quantidade da maior etapa
+     largura da barra = valor da etapa / valor da maior etapa
      com piso de 6% para que uma etapa pequena continue clicável e legível.
 
    A base do cálculo pode ser trocada entre "propostas" e "investimento" sem
    alterar a marcação: a função desenhar() recebe a métrica como parâmetro.
+   Padrão do painel: comparação por valor financeiro (R$), não por contagem
+   de propostas — etapas com poucas propostas de alto valor não devem
+   aparecer como "pequenas" no funil.
    O formato visual (barra horizontal) está isolado em desenharEtapa(); trocar
    por outro desenho no futuro afeta só essa função.
    ========================================================================== */
@@ -24,7 +27,7 @@ window.PG = window.PG || {};
 
   var Funil = {
 
-    metrica: 'propostas',   // 'propostas' | 'valor'
+    metrica: 'valor',   // 'propostas' | 'valor' — comparação sempre pelo valor financeiro
 
     /**
      * @param {Element} container
@@ -126,10 +129,10 @@ window.PG = window.PG || {};
       linhas.push(['Conversão desde ' + etapas[indice - 1].nome.toLowerCase(),
         F.percentual(etapa.conversao, 1)]);
     }
-    // Conversão acumulada tem as selecionadas como marco zero.
-    if (indice > 1 && etapas[1].quantidade) {
+    // Conversão acumulada tem as selecionadas como marco zero, medida em valor.
+    if (indice > 1 && etapas[1].valor) {
       linhas.push(['Sobre as selecionadas',
-        F.razao(etapa.quantidade, etapas[1].quantidade, 1)]);
+        F.razao(etapa.valor, etapas[1].valor, 1)]);
     }
 
     var nota;
