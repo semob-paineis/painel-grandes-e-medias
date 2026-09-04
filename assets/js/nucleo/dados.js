@@ -257,12 +257,12 @@ window.PG = window.PG || {};
       }
     ];
 
-    // Conversão em relação à etapa anterior. A primeira etapa (Selecionadas)
-    // é o marco zero do funil e não tem conversão.
+    // Conversão em relação à etapa anterior, medida em valor financeiro (R$).
+    // A primeira etapa (Selecionadas) é o marco zero do funil e não tem conversão.
     etapas.forEach(function (e, i) {
       if (i === 0) { e.conversao = null; return; }
-      var anterior = etapas[i - 1].quantidade;
-      e.conversao = anterior ? e.quantidade / anterior : 0;
+      var anterior = etapas[i - 1].valor;
+      e.conversao = anterior ? e.valor / anterior : 0;
     });
 
     // Composição da carteira selecionada — usada no detalhe do funil.
