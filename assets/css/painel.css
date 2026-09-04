@@ -1,0 +1,743 @@
+/* ============================================================================
+   PAINEL GRANDES E MÉDIAS CIDADES — layout e componentes
+   ----------------------------------------------------------------------------
+   Ordem do arquivo:
+     1. Base e utilitários
+     2. Barra institucional e cabeçalho
+     3. Barra de filtros
+     4. Blocos e grades
+     5. Cartões de indicador
+     6. Funil de conversão
+     7. Painel de infraestrutura por modo (componente principal)
+     8. Gráficos
+     9. Mapa
+    10. Tabelas
+    11. Tooltip
+    12. Qualidade da base e rodapé
+    13. Radar de propostas
+    14. Responsividade
+    15. Impressão e exportação
+   ========================================================================== */
+
+/* ------------------------------------------------------------------ 1. BASE */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--fonte-base);
+  font-size: var(--texto-md);
+  line-height: 1.55;
+  color: var(--texto-padrao);
+  background: var(--fundo-pagina);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { margin: 0; color: var(--texto-forte); line-height: 1.25; }
+p { margin: 0; }
+a { color: var(--gov-azul); }
+
+:focus-visible {
+  outline: 2px solid var(--borda-foco);
+  outline-offset: 2px;
+  border-radius: var(--raio-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+.num { font-variant-numeric: tabular-nums; }
+.oculto { display: none !important; }
+.so-leitor {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.container {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 var(--e5);
+}
+
+/* --------------------------------------------- 2. BARRA E CABEÇALHO */
+
+.barra-gov {
+  background: var(--gov-marinho);
+  color: #fff;
+  font-size: var(--texto-xs);
+  letter-spacing: .02em;
+}
+.barra-gov__interna {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 7px var(--e5);
+  display: flex; align-items: center; gap: var(--e3);
+}
+.barra-gov__marca { font-weight: 700; }
+.barra-gov__sep { opacity: .45; }
+
+.cabecalho {
+  background: var(--fundo-superficie);
+  border-bottom: 1px solid var(--borda);
+  position: sticky; top: 0; z-index: 40;
+}
+.cabecalho__interno {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: var(--e4) var(--e5);
+  display: flex; align-items: center; gap: var(--e5);
+  flex-wrap: wrap;
+}
+.cabecalho__identidade { flex: 1 1 340px; min-width: 0; }
+.cabecalho__programa {
+  font-size: var(--texto-xs);
+  color: var(--gov-azul);
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.cabecalho__titulo {
+  font-size: var(--texto-xl);
+  font-weight: 700;
+  letter-spacing: -.015em;
+  margin-top: 1px;
+}
+.cabecalho__orgao { font-size: var(--texto-sm); color: var(--texto-suave); }
+.cabecalho__acoes { display: flex; align-items: center; gap: var(--e2); }
+
+.selo-data {
+  display: inline-flex; align-items: center; gap: var(--e2);
+  padding: 6px var(--e3);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-pill);
+  font-size: var(--texto-xs);
+  color: var(--texto-suave);
+  background: var(--fundo-sutil);
+  white-space: nowrap;
+}
+.selo-data__ponto {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--gov-verde);
+}
+
+.botao {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: inherit; font-size: var(--texto-sm); font-weight: 600;
+  padding: 8px var(--e3);
+  border: 1px solid var(--borda-forte);
+  border-radius: var(--raio-sm);
+  background: var(--fundo-superficie);
+  color: var(--texto-padrao);
+  cursor: pointer;
+  transition: background var(--transicao), border-color var(--transicao);
+}
+.botao:hover { background: var(--fundo-sutil); border-color: var(--gov-azul); }
+.botao--primario {
+  background: var(--gov-azul); border-color: var(--gov-azul); color: #fff;
+}
+.botao--primario:hover { background: var(--gov-azul-escuro); border-color: var(--gov-azul-escuro); }
+.botao--icone { padding: 8px 10px; }
+
+.menu-suspenso { position: relative; }
+.menu-suspenso__lista {
+  position: absolute; right: 0; top: calc(100% + 6px);
+  min-width: 190px;
+  background: var(--fundo-superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-3);
+  padding: var(--e1);
+  display: none; z-index: 60;
+}
+.menu-suspenso__lista.aberto { display: block; }
+.menu-suspenso__lista button {
+  display: block; width: 100%; text-align: left;
+  font: inherit; font-size: var(--texto-sm);
+  padding: 9px var(--e3);
+  border: 0; border-radius: var(--raio-sm);
+  background: none; color: var(--texto-padrao); cursor: pointer;
+}
+.menu-suspenso__lista button:hover { background: var(--fundo-realce); }
+
+/* ------------------------------------------------------- 3. FILTROS */
+
+.filtros {
+  background: var(--fundo-superficie);
+  border-bottom: 1px solid var(--borda);
+  position: sticky; top: 0; z-index: 30;
+}
+.filtros__interno {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: var(--e3) var(--e5);
+  display: flex; align-items: flex-end; gap: var(--e4);
+  flex-wrap: wrap;
+}
+.filtro { display: flex; flex-direction: column; gap: 5px; }
+.filtro__rotulo {
+  font-size: var(--texto-2xs);
+  font-weight: 700;
+  color: var(--texto-suave);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.filtro__campo {
+  font: inherit; font-size: var(--texto-sm);
+  padding: 7px var(--e2);
+  min-width: 132px;
+  border: 1px solid var(--borda-forte);
+  border-radius: var(--raio-sm);
+  background: var(--fundo-superficie);
+  color: var(--texto-padrao);
+}
+
+/* Alternador segmentado (cenário e visão) */
+.segmentado {
+  display: inline-flex;
+  background: var(--fundo-sutil);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-sm);
+  padding: 3px;
+  gap: 2px;
+}
+.segmentado button {
+  font: inherit; font-size: var(--texto-sm); font-weight: 600;
+  padding: 6px var(--e3);
+  border: 0; border-radius: 5px;
+  background: none; color: var(--texto-suave); cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transicao), color var(--transicao);
+}
+.segmentado button[aria-pressed="true"] {
+  background: var(--gov-azul); color: #fff;
+  box-shadow: var(--sombra-1);
+}
+.segmentado button:hover:not([aria-pressed="true"]) { color: var(--texto-forte); }
+
+.filtros__resumo {
+  margin-left: auto;
+  display: flex; align-items: center; gap: var(--e3);
+  font-size: var(--texto-xs); color: var(--texto-suave);
+}
+.filtros__contagem strong { color: var(--texto-forte); }
+
+/* ----------------------------------------------- 4. BLOCOS E GRADES */
+
+main { padding: var(--e6) 0 var(--e10); }
+
+.bloco {
+  background: var(--fundo-superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-1);
+  margin-bottom: var(--e5);
+}
+.bloco__cabecalho {
+  display: flex; align-items: baseline; gap: var(--e3);
+  padding: var(--e4) var(--e5);
+  border-bottom: 1px solid var(--borda);
+  flex-wrap: wrap;
+}
+.bloco__titulo { font-size: var(--texto-lg); font-weight: 700; }
+.bloco__apoio { font-size: var(--texto-sm); color: var(--texto-suave); }
+.bloco__acoes { margin-left: auto; display: flex; gap: var(--e2); align-items: center; }
+.bloco__corpo { padding: var(--e5); }
+
+.grade { display: grid; gap: var(--e5); }
+.grade--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grade--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grade--indicadores {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--e3);
+  margin-bottom: var(--e5);
+}
+.grade--2-1 { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+
+/* ------------------------------------------- 5. CARTÕES DE INDICADOR */
+
+.indicador {
+  background: var(--fundo-superficie);
+  border: 1px solid var(--borda);
+  border-left: 3px solid var(--gov-azul);
+  border-radius: var(--raio);
+  padding: var(--e4);
+  box-shadow: var(--sombra-1);
+  display: flex; flex-direction: column; gap: 2px;
+  cursor: default;
+}
+.indicador[data-acento="contratado"] { border-left-color: var(--etapa-contratada); }
+.indicador[data-acento="selecionado"] { border-left-color: var(--etapa-selecionada); }
+.indicador[data-acento="infra"]       { border-left-color: var(--modo-vlt); }
+.indicador[data-acento="rodante"]     { border-left-color: var(--modo-trens); }
+.indicador[data-acento="alcance"]     { border-left-color: var(--etapa-execucao); }
+.indicador[data-acento="atencao"]     { border-left-color: var(--etapa-preparacao); }
+
+.indicador__rotulo {
+  font-size: var(--texto-xs);
+  color: var(--texto-suave);
+  font-weight: 600;
+}
+.indicador__valor {
+  font-size: var(--texto-2xl);
+  font-weight: 700;
+  color: var(--texto-forte);
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+}
+.indicador__unidade { font-size: var(--texto-lg); font-weight: 600; color: var(--texto-suave); }
+.indicador__apoio { font-size: var(--texto-xs); color: var(--texto-suave); }
+
+/* --------------------------------------------------------- 6. FUNIL */
+
+.funil { display: flex; flex-direction: column; gap: var(--e2); }
+
+.funil__etapa {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: center;
+  gap: var(--e4);
+}
+.funil__rotulo { text-align: right; }
+.funil__nome { font-size: var(--texto-sm); font-weight: 600; color: var(--texto-forte); }
+.funil__descricao { font-size: var(--texto-2xs); color: var(--texto-suave); }
+
+.funil__trilho {
+  position: relative;
+  background: var(--fundo-sutil);
+  border-radius: var(--raio-sm);
+  height: 54px;
+  overflow: hidden;
+}
+/* A largura da barra é proporcional ao quantitativo da etapa em relação à
+   etapa de maior valor. Definida em JS (estilo inline) — aqui só a animação. */
+.funil__barra {
+  height: 100%;
+  border-radius: var(--raio-sm);
+  display: flex; align-items: center; gap: var(--e3);
+  padding: 0 var(--e4);
+  color: #fff;
+  width: 0;
+  transition: width 700ms cubic-bezier(.25, .8, .3, 1);
+  cursor: default;
+}
+.funil__quantidade {
+  font-size: var(--texto-xl); font-weight: 700;
+  font-variant-numeric: tabular-nums; line-height: 1;
+}
+.funil__valor { font-size: var(--texto-sm); opacity: .92; white-space: nowrap; }
+.funil__conversao {
+  margin-left: auto;
+  font-size: var(--texto-xs); font-weight: 700;
+  background: rgba(255, 255, 255, .18);
+  padding: 3px var(--e2);
+  border-radius: var(--raio-pill);
+  white-space: nowrap;
+}
+/* Quando a barra fica estreita demais, o texto sai para fora dela */
+.funil__fora {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  padding-left: var(--e3);
+  font-size: var(--texto-sm); font-weight: 700;
+  color: var(--texto-forte);
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+/* ------------------------------ 7. INFRAESTRUTURA POR MODO (destaque) */
+
+.infra { display: flex; flex-direction: column; gap: 2px; }
+
+.infra__linha {
+  display: grid;
+  grid-template-columns: 178px minmax(0, 1fr) 108px 96px;
+  align-items: center;
+  gap: var(--e3);
+  padding: var(--e2) var(--e2);
+  border-radius: var(--raio-sm);
+  transition: background var(--transicao);
+  cursor: default;
+}
+.infra__linha:hover { background: var(--fundo-sutil); }
+.infra__linha.esta-ativo { background: var(--fundo-realce); }
+
+.infra__modo { display: flex; align-items: center; gap: var(--e2); min-width: 0; }
+.infra__marca {
+  width: 10px; height: 10px; border-radius: 3px; flex: 0 0 auto;
+}
+.infra__nome {
+  font-size: var(--texto-sm); font-weight: 600; color: var(--texto-forte);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.infra__trilho {
+  background: var(--fundo-sutil);
+  border-radius: var(--raio-sm);
+  height: 22px; position: relative; overflow: hidden;
+}
+.infra__barra {
+  height: 100%; border-radius: var(--raio-sm);
+  width: 0;
+  transition: width 600ms cubic-bezier(.25, .8, .3, 1);
+}
+.infra__metrica {
+  text-align: right;
+  font-size: var(--texto-sm); font-weight: 700; color: var(--texto-forte);
+  font-variant-numeric: tabular-nums;
+}
+.infra__metrica span { font-weight: 500; color: var(--texto-suave); font-size: var(--texto-xs); }
+.infra__valor {
+  text-align: right; font-size: var(--texto-sm); color: var(--texto-suave);
+  font-variant-numeric: tabular-nums;
+}
+.infra__cabecalho {
+  display: grid;
+  grid-template-columns: 178px minmax(0, 1fr) 108px 96px;
+  gap: var(--e3);
+  padding: 0 var(--e2) var(--e2);
+  font-size: var(--texto-2xs); font-weight: 700;
+  color: var(--texto-suave); letter-spacing: .05em; text-transform: uppercase;
+  border-bottom: 1px solid var(--borda);
+  margin-bottom: var(--e2);
+}
+.infra__cabecalho span:nth-child(3),
+.infra__cabecalho span:nth-child(4) { text-align: right; }
+
+/* Alternador de métrica do componente (extensão / unidades / investimento) */
+.infra__metricas { display: flex; gap: var(--e2); align-items: center; }
+
+/* ------------------------------------------------------ 8. GRÁFICOS */
+
+.grafico { position: relative; }
+/* Mensagem de indisponibilidade ocupa a moldura do gráfico, sem invadir a legenda */
+.grafico .sem-resultado {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: var(--e4); font-size: var(--texto-sm);
+}
+.grafico--medio  { height: 280px; }
+.grafico--baixo  { height: 220px; }
+.grafico--alto   { height: 340px; }
+
+.legenda { display: flex; flex-wrap: wrap; gap: var(--e3); margin-top: var(--e3); }
+.legenda__item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: var(--texto-xs); color: var(--texto-suave);
+}
+.legenda__marca { width: 10px; height: 10px; border-radius: 3px; }
+.legenda__item strong { color: var(--texto-forte); font-weight: 600; }
+
+/* ---------------------------------------------------------- 9. MAPA */
+
+.mapa { position: relative; width: 100%; height: 470px; }
+.mapa svg { width: 100%; height: 100%; }
+.mapa__uf {
+  stroke: var(--fundo-superficie);
+  stroke-width: .8;
+  transition: opacity var(--transicao);
+  cursor: default;
+}
+.mapa__uf:hover { opacity: .78; }
+.mapa__escala { display: flex; align-items: center; gap: var(--e2); margin-top: var(--e2); }
+.mapa__gradiente {
+  flex: 1; height: 10px; border-radius: var(--raio-pill);
+  max-width: 260px;
+}
+.mapa__escala span { font-size: var(--texto-xs); color: var(--texto-suave); }
+
+/* ------------------------------------------------------ 10. TABELAS */
+
+.tabela-envolucro { overflow-x: auto; }
+
+table.tabela {
+  width: 100%; border-collapse: collapse; font-size: var(--texto-sm);
+}
+
+/* Tabela do Radar: largura fixa por coluna e rolagem horizontal quando não
+   couber. Sem isso, uma célula longa (portaria, empreendimento) espreme as
+   demais e a linha cresce em altura. */
+table.tabela--fixa { table-layout: fixed; min-width: 1240px; }
+table.tabela--fixa td {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  vertical-align: middle;
+}
+table.tabela--fixa td .celula-longa { white-space: normal; }
+table.tabela th, table.tabela td {
+  padding: 9px var(--e3);
+  text-align: left;
+  border-bottom: 1px solid var(--borda);
+  vertical-align: top;
+}
+table.tabela th {
+  font-size: var(--texto-2xs);
+  font-weight: 700; color: var(--texto-suave);
+  text-transform: uppercase; letter-spacing: .05em;
+  background: var(--fundo-sutil);
+  position: sticky; top: 0; z-index: 2;
+  white-space: nowrap;
+}
+table.tabela td.n, table.tabela th.n {
+  text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+table.tabela tbody tr:hover { background: var(--fundo-sutil); }
+table.tabela tfoot td {
+  font-weight: 700; color: var(--texto-forte);
+  background: var(--fundo-sutil); border-bottom: 0;
+}
+
+.selo {
+  display: inline-block;
+  padding: 2px var(--e2);
+  border-radius: var(--raio-pill);
+  font-size: var(--texto-2xs); font-weight: 700;
+  white-space: nowrap;
+}
+.selo--contratados  { background: #e3edfd; color: #0c326f; }
+.selo--acontratar   { background: #fdf0d8; color: #7a5410; }
+.selo--habilitados  { background: #eef1f6; color: #46536b; }
+.selo--desistencias { background: #fbe4de; color: #8e2f1c; }
+.selo--indefinido   { background: #eef1f6; color: #64748b; }
+
+html[data-tema="escuro"] .selo--contratados  { background: #16305c; color: #b8d2fb; }
+html[data-tema="escuro"] .selo--acontratar   { background: #453619; color: #f3d193; }
+html[data-tema="escuro"] .selo--habilitados  { background: #232d42; color: #b3bece; }
+html[data-tema="escuro"] .selo--desistencias { background: #4a2018; color: #f5b6a6; }
+
+/* ------------------------------------------------------ 11. TOOLTIP */
+
+.dica {
+  position: fixed;
+  z-index: 200;
+  max-width: 300px;
+  padding: var(--e3);
+  background: var(--gov-marinho);
+  color: #fff;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-3);
+  font-size: var(--texto-xs);
+  line-height: 1.5;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+.dica.visivel { opacity: 1; transform: translateY(0); }
+.dica__titulo {
+  font-size: var(--texto-sm); font-weight: 700;
+  margin-bottom: 5px; color: #fff;
+}
+.dica__linha {
+  display: flex; justify-content: space-between; gap: var(--e4);
+  padding: 1px 0;
+}
+.dica__linha dt { color: rgba(255, 255, 255, .72); }
+.dica__linha dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.dica__nota {
+  margin-top: 6px; padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, .18);
+  color: rgba(255, 255, 255, .72);
+}
+.dica dl { margin: 0; }
+
+/* ------------------------------------ 12. QUALIDADE, RESUMO E RODAPÉ */
+
+.aviso {
+  display: flex; gap: var(--e3); align-items: flex-start;
+  padding: var(--e3) var(--e4);
+  border-radius: var(--raio);
+  font-size: var(--texto-sm);
+  margin-bottom: var(--e5);
+}
+.aviso--mock { background: #fdf0d8; color: #7a5410; border: 1px solid #e8c98a; }
+.aviso--info { background: var(--fundo-realce); color: var(--gov-azul-escuro); border: 1px solid #c5d9f7; }
+html[data-tema="escuro"] .aviso--info { background: #1a2942; color: #b8d2fb; border-color: #2c4570; }
+
+.resumo p + p { margin-top: var(--e3); }
+.resumo { max-width: 78ch; color: var(--texto-padrao); }
+.resumo p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+.resumo strong { color: var(--texto-forte); }
+
+.rodape {
+  border-top: 1px solid var(--borda);
+  padding: var(--e5) 0 var(--e8);
+  font-size: var(--texto-xs);
+  color: var(--texto-suave);
+}
+.rodape p + p { margin-top: var(--e2); }
+
+/* ------------------------------------------- 13. RADAR DE PROPOSTAS */
+
+.barra-ferramentas {
+  display: flex; align-items: center; gap: var(--e3);
+  padding: var(--e3) var(--e5);
+  border-bottom: 1px solid var(--borda);
+  flex-wrap: wrap;
+}
+.busca {
+  position: relative; flex: 1 1 280px; max-width: 420px;
+}
+.busca input {
+  width: 100%;
+  font: inherit; font-size: var(--texto-sm);
+  padding: 8px var(--e3) 8px 34px;
+  border: 1px solid var(--borda-forte);
+  border-radius: var(--raio-sm);
+  background: var(--fundo-superficie);
+  color: var(--texto-padrao);
+}
+.busca svg {
+  position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  color: var(--texto-suave);
+}
+.barra-ferramentas__contagem {
+  font-size: var(--texto-sm); color: var(--texto-suave); margin-left: auto;
+}
+.barra-ferramentas__contagem strong { color: var(--texto-forte); }
+
+th.ordenavel { cursor: pointer; user-select: none; }
+th.ordenavel:hover { color: var(--texto-forte); }
+.th-interno { display: flex; align-items: center; gap: 5px; width: 100%; }
+.th-interno > span:first-child {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.th-seta { opacity: .35; font-size: 9px; }
+th[aria-sort] .th-seta { opacity: 1; color: var(--gov-azul); }
+
+.btn-filtro-coluna {
+  border: 0; background: none; cursor: pointer;
+  padding: 2px; margin-left: auto;
+  color: var(--texto-suave); line-height: 0;
+  border-radius: 3px;
+}
+.btn-filtro-coluna:hover { background: var(--borda); color: var(--texto-forte); }
+.btn-filtro-coluna.esta-ativo { color: var(--gov-azul); background: var(--fundo-realce); }
+.btn-filtro-coluna.esta-ativo { color: var(--gov-azul); }
+
+.painel-filtro {
+  position: fixed; z-index: 120;
+  width: 250px; max-height: 340px;
+  display: flex; flex-direction: column;
+  background: var(--fundo-superficie);
+  border: 1px solid var(--borda-forte);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-3);
+}
+.painel-filtro__busca { padding: var(--e2); border-bottom: 1px solid var(--borda); }
+.painel-filtro__busca input {
+  width: 100%; font: inherit; font-size: var(--texto-sm);
+  padding: 6px var(--e2);
+  border: 1px solid var(--borda); border-radius: var(--raio-sm);
+  background: var(--fundo-superficie); color: var(--texto-padrao);
+}
+.painel-filtro__acoes {
+  display: flex; gap: var(--e2); padding: var(--e2);
+  border-bottom: 1px solid var(--borda);
+}
+.painel-filtro__acoes button {
+  font: inherit; font-size: var(--texto-xs); font-weight: 600;
+  padding: 4px var(--e2);
+  border: 1px solid var(--borda); border-radius: var(--raio-sm);
+  background: var(--fundo-sutil); color: var(--texto-padrao); cursor: pointer;
+}
+.painel-filtro__lista { overflow-y: auto; padding: var(--e1); }
+.painel-filtro__lista label {
+  display: flex; align-items: center; gap: var(--e2);
+  padding: 5px var(--e2);
+  font-size: var(--texto-sm);
+  border-radius: var(--raio-sm);
+  cursor: pointer;
+}
+.painel-filtro__lista label:hover { background: var(--fundo-sutil); }
+.painel-filtro__lista .contagem {
+  margin-left: auto; font-size: var(--texto-2xs); color: var(--texto-suave);
+}
+.painel-filtro__lista span.rotulo {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.paginacao {
+  display: flex; align-items: center; gap: var(--e3);
+  padding: var(--e3) var(--e5);
+  border-top: 1px solid var(--borda);
+  font-size: var(--texto-sm); color: var(--texto-suave);
+  flex-wrap: wrap;
+}
+.paginacao__botoes { display: flex; gap: var(--e1); margin-left: auto; }
+.paginacao__botoes button {
+  font: inherit; font-size: var(--texto-sm);
+  min-width: 32px; padding: 5px 9px;
+  border: 1px solid var(--borda); border-radius: var(--raio-sm);
+  background: var(--fundo-superficie); color: var(--texto-padrao); cursor: pointer;
+}
+.paginacao__botoes button[aria-current="page"] {
+  background: var(--gov-azul); border-color: var(--gov-azul); color: #fff; font-weight: 700;
+}
+.paginacao__botoes button:disabled { opacity: .4; cursor: default; }
+
+.sem-resultado {
+  padding: var(--e10) var(--e5);
+  text-align: center; color: var(--texto-suave);
+}
+.sem-resultado strong { display: block; color: var(--texto-forte); margin-bottom: 4px; }
+
+.celula-longa {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.35;
+}
+
+/* ----------------------------------------------- 14. RESPONSIVIDADE */
+
+@media (max-width: 1100px) {
+  .grade--2, .grade--3, .grade--2-1 { grid-template-columns: minmax(0, 1fr); }
+  .mapa { height: 400px; }
+}
+
+@media (max-width: 780px) {
+  .container { padding: 0 var(--e4); }
+  .cabecalho { position: static; }
+  .filtros { position: static; }
+  .filtros__interno { gap: var(--e3); }
+  .filtro__campo { min-width: 0; width: 100%; }
+  .filtro { flex: 1 1 140px; }
+  .segmentado { overflow-x: auto; max-width: 100%; }
+  .filtros__resumo { margin-left: 0; width: 100%; }
+
+  .cabecalho__titulo { font-size: var(--texto-lg); }
+  .indicador__valor { font-size: var(--texto-xl); }
+
+  /* Funil: rótulo acima da barra em telas estreitas */
+  .funil__etapa { grid-template-columns: minmax(0, 1fr); gap: var(--e1); }
+  .funil__rotulo { text-align: left; display: flex; align-items: baseline; gap: var(--e2); }
+  .funil__trilho { height: 46px; }
+
+  /* Infraestrutura: barra some, ficam nome + métrica + valor */
+  .infra__linha, .infra__cabecalho { grid-template-columns: minmax(0, 1fr) 92px 92px; }
+  .infra__trilho { display: none; }
+  .infra__cabecalho span:nth-child(2) { display: none; }
+  .infra__cabecalho span:nth-child(3),
+  .infra__cabecalho span:nth-child(4) { text-align: right; }
+
+  .bloco__corpo { padding: var(--e4); }
+  .grafico--medio, .grafico--alto { height: 250px; }
+  .celula-longa { max-width: 240px; }
+}
+
+/* ------------------------------------ 15. IMPRESSÃO E EXPORTAÇÃO */
+
+@media print {
+  .filtros, .cabecalho__acoes, .bloco__acoes, .paginacao { display: none !important; }
+  body { background: #fff; }
+  .bloco { break-inside: avoid; box-shadow: none; }
+}
+
+/* Estado aplicado durante a exportação em imagem/PDF: garante fundo sólido
+   e desliga elementos flutuantes que atrapalhariam a captura. */
+body.exportando .dica,
+body.exportando .menu-suspenso__lista,
+body.exportando .painel-filtro { display: none !important; }

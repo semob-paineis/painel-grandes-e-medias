@@ -1,0 +1,17 @@
+BIBLIOTECAS DE TERCEIROS — CÓPIA LOCAL
+=======================================
+
+O painel roda em máquina sem acesso à internet. Por isso as bibliotecas ficam
+aqui, versionadas junto com o projeto, em vez de serem buscadas em CDN.
+
+  chart.umd.min.js     Chart.js 4.4.1      — gráficos          (licença MIT)
+  html2canvas.min.js   html2canvas 1.4.1   — captura de tela    (licença MIT)
+  jspdf.umd.min.js     jsPDF 2.5.1         — geração de PDF     (licença MIT)
+
+Para atualizar uma versão:
+  npm pack chart.js@<versão>
+  tar xzf chart.js-<versão>.tgz
+  cp package/dist/chart.umd.js assets/js/vendor/chart.umd.min.js
+
+Os textos completos das licenças estão nos repositórios oficiais de cada
+projeto. Todas são MIT, compatíveis com uso e redistribuição interna.

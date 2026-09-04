@@ -1,0 +1,159 @@
+/* ============================================================================
+   TOKENS DE DESIGN — Painel Grandes e Médias Cidades / SEMOB
+   ----------------------------------------------------------------------------
+   Todo valor visual reutilizável mora aqui. Mudança de identidade, de paleta
+   ou de escala tipográfica deve ser feita neste arquivo, não nos componentes.
+
+   Estrutura:
+     1. Paleta institucional (invariante entre temas)
+     2. Cores por modo de transporte (usadas em gráficos, selos e funil)
+     3. Tokens semânticos — tema claro
+     4. Tokens semânticos — tema escuro
+     5. Tipografia, espaçamento, raio, sombra, transição
+   ========================================================================== */
+
+:root {
+  /* --- 1. Paleta institucional (gov.br) ---------------------------------- */
+  --gov-marinho:      #071d41;
+  --gov-azul:         #1351b4;
+  --gov-azul-escuro:  #0c326f;
+  --gov-azul-claro:   #5992ed;
+  --gov-amarelo:      #ffcd07;
+  --gov-verde:        #168821;
+  --gov-vermelho:     #e52207;
+  --gov-laranja:      #d97706;
+
+  /* --- 2. Modos de transporte -------------------------------------------
+     Uma cor por modo, estável em todos os componentes: quem aprende a cor no
+     gráfico de barras reconhece o mesmo modo no mapa e na tabela.
+     Para incluir um modo novo, acrescente aqui e em CORES_MODO (formato.js). */
+  --modo-metro:       #1351b4;
+  --modo-trens:       #6a3fa0;
+  --modo-vlt:         #00857f;
+  --modo-brt:         #c2410c;
+  --modo-corredor:    #e8a33d;
+  --modo-terminais:   #2e7d5b;
+  --modo-sistemas:    #5a6b7c;
+  --modo-oae:         #7a5c3e;
+  --modo-ciclovias:   #4c9a2a;
+  --modo-abrigos:     #a05195;
+  --modo-planos:      #8c8f96;
+  --modo-aeromovel:   #00a0aa;
+  --modo-outros:      #9aa4b2;
+
+  /* --- Etapas do funil --------------------------------------------------- */
+  --etapa-habilitada:   #8c9bb0;
+  --etapa-selecionada:  #5992ed;
+  --etapa-contratada:   #1351b4;
+  --etapa-execucao:     #168821;
+  --etapa-desistencia:  #b8452f;
+  --etapa-preparacao:   #d19a2e;
+
+  /* --- 3. Tokens semânticos: tema claro ---------------------------------- */
+  --fundo-pagina:     #eef1f6;
+  --fundo-superficie: #ffffff;
+  --fundo-sutil:      #f5f7fa;
+  --fundo-inverso:    #071d41;
+  --fundo-realce:     #eaf1fd;
+
+  --texto-forte:      #12203a;
+  --texto-padrao:     #33415c;
+  --texto-suave:      #64748b;
+  --texto-inverso:    #ffffff;
+
+  --borda:            #dde3ec;
+  --borda-forte:      #c3ccda;
+  --borda-foco:       #1351b4;
+
+  --sombra-1: 0 1px 2px rgba(12, 32, 66, .06);
+  --sombra-2: 0 2px 10px rgba(12, 32, 66, .08);
+  --sombra-3: 0 12px 32px rgba(12, 32, 66, .16);
+
+  /* Gráficos: grade e eixo precisam de contraste próprio em cada tema */
+  --grafico-grade:    #e6eaf1;
+  --grafico-eixo:     #7c8798;
+
+  /* --- 5. Tipografia ------------------------------------------------------
+     Sem dependência de fonte externa: o painel precisa abrir igual em máquina
+     offline e em apresentação em telão. */
+  --fonte-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                "Helvetica Neue", Arial, sans-serif;
+  --fonte-numero: "SF Mono", "Segoe UI Mono", "Roboto Mono", ui-monospace,
+                  monospace;
+
+  --texto-2xs: 10.5px;
+  --texto-xs:  11.5px;
+  --texto-sm:  13px;
+  --texto-md:  14.5px;
+  --texto-lg:  17px;
+  --texto-xl:  21px;
+  --texto-2xl: 27px;
+  --texto-3xl: 34px;
+
+  /* --- Espaçamento (escala de 4px) --------------------------------------- */
+  --e1: 4px;   --e2: 8px;   --e3: 12px;  --e4: 16px;
+  --e5: 20px;  --e6: 24px;  --e8: 32px;  --e10: 40px;  --e12: 48px;
+
+  --raio-sm: 4px;
+  --raio:    8px;
+  --raio-lg: 14px;
+  --raio-pill: 999px;
+
+  --largura-max: 1360px;
+  --transicao: 180ms cubic-bezier(.2, .6, .3, 1);
+}
+
+/* --- 4. Tema escuro -------------------------------------------------------
+   Aplicado por atributo (data-tema="escuro") ou por preferência do sistema.
+   Só os tokens semânticos mudam; a paleta institucional permanece. */
+
+html[data-tema="escuro"] {
+  --fundo-pagina:     #0b1220;
+  --fundo-superficie: #141d2e;
+  --fundo-sutil:      #1b2536;
+  --fundo-inverso:    #050d1c;
+  --fundo-realce:     #1a2942;
+
+  --texto-forte:      #eef2f8;
+  --texto-padrao:     #c6d0de;
+  --texto-suave:      #8e9bad;
+
+  --borda:            #26324a;
+  --borda-forte:      #3a4763;
+
+  --sombra-1: 0 1px 2px rgba(0, 0, 0, .4);
+  --sombra-2: 0 2px 10px rgba(0, 0, 0, .45);
+  --sombra-3: 0 12px 32px rgba(0, 0, 0, .55);
+
+  --grafico-grade:    #263148;
+  --grafico-eixo:     #8e9bad;
+
+  /* Modos ganham um pouco de luminosidade para não sumirem no fundo escuro */
+  --modo-metro:     #5992ed;
+  --modo-trens:     #a077d6;
+  --modo-vlt:       #2bb3aa;
+  --modo-brt:       #f07a3c;
+  --modo-corredor:  #f0bd6a;
+  --modo-terminais: #4fb587;
+  --modo-oae:       #a98868;
+  --modo-ciclovias: #7cc95c;
+
+  --etapa-contratada: #5992ed;
+  --etapa-execucao:   #3aa347;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-tema="claro"]) {
+    --fundo-pagina:     #0b1220;
+    --fundo-superficie: #141d2e;
+    --fundo-sutil:      #1b2536;
+    --fundo-realce:     #1a2942;
+    --texto-forte:      #eef2f8;
+    --texto-padrao:     #c6d0de;
+    --texto-suave:      #8e9bad;
+    --borda:            #26324a;
+    --borda-forte:      #3a4763;
+    --grafico-grade:    #263148;
+    --grafico-eixo:     #8e9bad;
+  }
+}
