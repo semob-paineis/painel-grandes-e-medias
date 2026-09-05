@@ -365,9 +365,11 @@ main { padding: var(--e6) 0 var(--e10); }
 .infra__linha.esta-ativo { background: var(--fundo-realce); }
 
 .infra__modo { display: flex; align-items: center; gap: var(--e2); min-width: 0; }
-.infra__marca {
-  width: 10px; height: 10px; border-radius: 3px; flex: 0 0 auto;
+.infra__icone {
+  width: 18px; height: 18px; flex: 0 0 auto;
+  display: inline-flex; align-items: center; justify-content: center;
 }
+.infra__icone svg { width: 100%; height: 100%; }
 .infra__nome {
   font-size: var(--texto-sm); font-weight: 600; color: var(--texto-forte);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
