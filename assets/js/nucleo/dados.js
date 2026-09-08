@@ -165,7 +165,9 @@ window.PG = window.PG || {};
         if (f.cenario !== 'Consolidado' && r.tipo !== f.cenario) return false;
         if (f.ano !== 'todos' && r.rotuloAno !== f.ano) return false;
         if (f.regiao !== 'todas' && r.regiao !== f.regiao) return false;
-        if (f.modo !== 'todos' && r.modo !== f.modo) return false;
+        // Usa a mesma chave de porModo(): "Estudos e Projetos" é filtrado
+        // pela categoria, não pelo modo literal do registro (ver seção 4).
+        if (f.modo !== 'todos' && chaveModoOuCategoria(r) !== f.modo) return false;
         return true;
       });
     },
@@ -286,8 +288,25 @@ window.PG = window.PG || {};
   }
 
   /** Infraestrutura por modo — componente central do painel. */
+  // "Estudos e Projetos" é uma categoria (natureza do gasto), não um modo de
+  // transporte — mas um registro de estudo/projeto ainda carrega um modo
+  // (ex.: um projeto de VLT tem modo="VLTs"). Se agrupássemos só por modo,
+  // esse valor entraria misturado com obra física do mesmo modo, inflando
+  // "o que o investimento entrega" com dinheiro que ainda não virou km nem
+  // unidade nenhuma. Por isso esses registros ganham um item próprio aqui,
+  // à parte do modo a que se referem — a mesma separação que "Natureza do
+  // apoio" já faz, só que também no componente por modo e no filtro.
+  var CATEGORIA_ESTUDOS_PROJETOS = 'Estudos e Projetos';
+
+  function chaveModoOuCategoria(r) {
+    if (r.categoria === CATEGORIA_ESTUDOS_PROJETOS) {
+      return CATEGORIA_ESTUDOS_PROJETOS;
+    }
+    return r.modo || 'Não classificado';
+  }
+
   function porModo(lista, visao) {
-    var linhas = porDimensao(lista, visao, function (r) { return r.modo || 'Não classificado'; });
+    var linhas = porDimensao(lista, visao, chaveModoOuCategoria);
     linhas.forEach(function (l) {
       l.temExtensao = l.km > 0;
       l.temUnidades = l.unidades > 0;
