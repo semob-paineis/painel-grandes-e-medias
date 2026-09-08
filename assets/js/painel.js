@@ -100,6 +100,24 @@
     });
   }
 
+  // "Estudos e Projetos" é uma categoria, não um modo — mas dados.js agrupa
+  // esses registros à parte de qualquer modo (ver porModo em dados.js), e o
+  // componente de infraestrutura já os lista como um item próprio. Para o
+  // filtro "Tipo de investimento" oferecer a mesma opção, junta-se aqui a
+  // categoria à lista de modos, só quando ela de fato existe no escopo.
+  var CATEGORIA_ESTUDOS_PROJETOS = 'Estudos e Projetos';
+
+  function modosParaFiltro(opcoes) {
+    var modos = (opcoes.modos || []).slice();
+    var temEstudosProjetos = (opcoes.categorias || [])
+      .indexOf(CATEGORIA_ESTUDOS_PROJETOS) >= 0;
+    if (temEstudosProjetos && modos.indexOf(CATEGORIA_ESTUDOS_PROJETOS) < 0) {
+      modos.push(CATEGORIA_ESTUDOS_PROJETOS);
+      modos.sort();
+    }
+    return modos;
+  }
+
   function montarFiltros(meta) {
     var opcoes = meta.opcoes || {};
 
@@ -122,7 +140,7 @@
 
     montarSelecao('filtroAno', opcoes.anos || [], 'ano', 'Todos os anos');
     montarSelecao('filtroRegiao', opcoes.regioes || [], 'regiao', 'Todas as regiões');
-    montarSelecao('filtroModo', opcoes.modos || [], 'modo', 'Todos os tipos');
+    montarSelecao('filtroModo', modosParaFiltro(opcoes), 'modo', 'Todos os tipos');
 
     var limpar = document.getElementById('btnLimparFiltros');
     if (limpar) {
