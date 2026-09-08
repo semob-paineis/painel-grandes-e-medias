@@ -134,6 +134,14 @@ window.PG = window.PG || {};
       '<line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/>' +
       '<line x1="8" y1="18" x2="13" y2="18"/></svg>',
 
+    estudo:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+      'stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M13 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h9"/>' +
+      '<path d="M13 3l4 4v3"/>' +
+      '<line x1="7" y1="9" x2="12" y2="9"/><line x1="7" y1="13" x2="10" y2="13"/>' +
+      '<circle cx="16.5" cy="16.5" r="3"/><line x1="18.7" y1="18.7" x2="21" y2="21"/></svg>',
+
     oae:
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
       'stroke-linecap="round" stroke-linejoin="round">' +
@@ -155,6 +163,7 @@ window.PG = window.PG || {};
     ['terminal', ICONES.terminal],
     ['sistema', ICONES.sistema],
     ['plano', ICONES.plano],
+    ['estudo', ICONES.estudo],
     ['oae', ICONES.oae],
     ['obra de arte', ICONES.oae]
   ];
