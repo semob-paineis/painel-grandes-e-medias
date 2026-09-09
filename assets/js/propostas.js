@@ -295,6 +295,71 @@
     return undefined;
   }
 
+  /* ======================================================================
+     RESUMO EXECUTIVO DA SELEÇÃO
+     ----------------------------------------------------------------------
+     Independente de #resumoCards (topo da página, sempre por grupo/situação
+     para a listagem inteira): este bloco resume o que está filtrado AGORA
+     — busca + filtros de coluna — no mesmo formato .resumo-numeros usado
+     no Resumo Executivo do painel principal (ver painel.js/painel.css).
+     ====================================================================== */
+
+  /** Conta ocorrências de p[campo] na lista, tratando vazio/nulo à parte,
+   *  e devolve os pares já ordenados do mais para o menos frequente. */
+  function contarPor(lista, campo, rotuloVazio) {
+    var contagem = {};
+    lista.forEach(function (p) {
+      var v = p[campo];
+      v = (v === null || v === undefined || v === '') ? rotuloVazio : String(v);
+      contagem[v] = (contagem[v] || 0) + 1;
+    });
+    return Object.keys(contagem)
+      .sort(function (a, b) { return contagem[b] - contagem[a]; })
+      .map(function (chave) { return { chave: chave, quantidade: contagem[chave] }; });
+  }
+
+  function listaComContagem(pares) {
+    return pares.map(function (p) {
+      return Util.escapar(p.chave) + ' <strong>' + F.inteiro(p.quantidade) + '</strong>';
+    }).join(' · ');
+  }
+
+  function renderResumoExecutivo(lista) {
+    var alvo = document.getElementById('resumoExecutivoNumeros');
+    if (!alvo) return;
+
+    if (!lista.length) {
+      alvo.innerHTML =
+        '<div class="resumo-numeros">' +
+          '<div class="resumo-numeros__titulo">Números principais</div>' +
+          '<p>Nenhuma proposta corresponde à busca ou aos filtros aplicados.</p>' +
+        '</div>';
+      return;
+    }
+
+    var apoio = Util.soma(lista, function (p) { return p.apoio; });
+    var contratado = Util.soma(lista, function (p) { return p.valorContratado; });
+    var modalidades = contarPor(lista, 'tipo', 'Não informada');
+    var situacoes = contarPor(lista, 'situacao', 'Não informada');
+
+    var partes = [
+      'A seleção atual do Radar de Propostas traz <strong>' + F.inteiro(lista.length) +
+        '</strong> proposta' + (lista.length === 1 ? '' : 's') + ', somando <strong>' +
+        F.moeda(apoio) + '</strong> em apoio' +
+        (contratado > 0
+          ? ' e <strong>' + F.moeda(contratado) + '</strong> em valor contratado.'
+          : ', sem valor contratado registrado nesta seleção.'),
+      'Modalidade: ' + listaComContagem(modalidades) + '.',
+      'Situação do contrato: ' + listaComContagem(situacoes) + '.'
+    ];
+
+    alvo.innerHTML =
+      '<div class="resumo-numeros">' +
+        '<div class="resumo-numeros__titulo">Números principais</div>' +
+        partes.map(function (p) { return '<p>' + p + '</p>'; }).join('') +
+      '</div>';
+  }
+
   function renderPaginacao(total) {
     var container = document.getElementById('paginacao');
     container.innerHTML = '';
@@ -364,6 +429,7 @@
     renderCorpo(lista);
     renderPaginacao(lista.length);
     renderRodapeTabela(lista);
+    renderResumoExecutivo(lista);
   }
 
 
