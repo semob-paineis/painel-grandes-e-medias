@@ -341,6 +341,7 @@
     var contratado = Util.soma(lista, function (p) { return p.valorContratado; });
     var modalidades = contarPor(lista, 'tipo', 'Não informada');
     var situacoes = contarPor(lista, 'situacao', 'Não informada');
+    var situacoesExecucao = contarPor(lista, 'situacaoExecucao', 'Não informada');
 
     var partes = [
       'A seleção atual do Radar de Propostas traz <strong>' + F.inteiro(lista.length) +
@@ -350,7 +351,8 @@
           ? ' e <strong>' + F.moeda(contratado) + '</strong> em valor contratado.'
           : ', sem valor contratado registrado nesta seleção.'),
       'Modalidade: ' + listaComContagem(modalidades) + '.',
-      'Situação do contrato: ' + listaComContagem(situacoes) + '.'
+      'Situação do contrato: ' + listaComContagem(situacoes) + '.',
+      'Situação da execução: ' + listaComContagem(situacoesExecucao) + '.'
     ];
 
     alvo.innerHTML =
