@@ -183,8 +183,21 @@ window.PG = window.PG || {};
     },
 
     /** Valor que representa cada registro conforme a visão escolhida. */
+    /** Valor que representa cada registro conforme a visão escolhida.
+     *  Exceção: para "Migrado Novo PAC", o valor de apoio original das
+     *  propostas legadas está desatualizado/nulo em parte dos registros
+     *  antigos — a própria planilha-fonte (aba "Dados para Painel", tabela
+     *  "Evolução de Seleções por Ano") usa o Valor Contratado como o valor
+     *  de "selecionado" para esse tipo. Reproduzimos a mesma regra aqui,
+     *  no ponto único de cálculo, para que todo o painel fique consistente
+     *  com a conferência da planilha. */
     valorDe: function (registro, visao) {
-      return visao === 'selecionado' ? registro.apoio : registro.valorContratado;
+      if (visao === 'selecionado') {
+        return registro.tipo === 'Migrado Novo PAC'
+          ? registro.valorContratado
+          : registro.apoio;
+      }
+      return registro.valorContratado;
     },
 
     /** Universo de registros conforme a visão escolhida. */
@@ -243,7 +256,9 @@ window.PG = window.PG || {};
         chave: 'selecionada', nome: 'Selecionadas',
         descricao: 'Aprovadas e com recurso reservado',
         quantidade: selecionados.length,
-        valor: Util.soma(selecionados, function (r) { return r.apoio; })
+        // Mesma regra de Regras.valorDe('selecionado'): Migrado Novo PAC
+        // usa valorContratado, os demais usam apoio.
+        valor: Util.soma(selecionados, function (r) { return Regras.valorDe(r, 'selecionado'); })
       },
       {
         chave: 'contratado', nome: 'Contratadas',
@@ -280,9 +295,9 @@ window.PG = window.PG || {};
         { chave: 'contratado', nome: 'Contratadas', quantidade: contratados.length,
           valor: Util.soma(contratados, function (r) { return r.valorContratado; }) },
         { chave: 'aContratar', nome: 'A contratar', quantidade: aContratar.length,
-          valor: Util.soma(aContratar, function (r) { return r.apoio; }) },
+          valor: Util.soma(aContratar, function (r) { return Regras.valorDe(r, 'selecionado'); }) },
         { chave: 'desistencia', nome: 'Desistências', quantidade: desistencia.length,
-          valor: Util.soma(desistencia, function (r) { return r.apoio; }) }
+          valor: Util.soma(desistencia, function (r) { return Regras.valorDe(r, 'selecionado'); }) }
       ]
     };
   }
