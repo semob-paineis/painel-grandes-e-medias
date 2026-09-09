@@ -1,8 +1,8 @@
 {
  "meta": {
   "dataAtualizacao": "09/09/2026",
-  "geradoEm": "2026-09-09T11:40:27-03:00",
-  "origem": "teste_grandes_e_medias_0909.xlsx",
+  "geradoEm": "2026-09-09T12:28:59-03:00",
+  "origem": "teste_grandes_e_medias_0909_v3.xlsx",
   "total": 171,
   "colunas": [
    {
@@ -67,6 +67,13 @@
     "tipo": "texto",
     "filtro": true,
     "largura": "170px"
+   },
+   {
+    "chave": "situacaoExecucao",
+    "titulo": "Situação da execução",
+    "tipo": "texto",
+    "filtro": true,
+    "largura": "170px"
    }
   ],
   "legenda": [
@@ -91,7 +98,7 @@
    {
     "grupo": "Contratados",
     "quantidade": 118,
-    "apoio": 25546977460.76,
+    "apoio": 19686508766.27,
     "contratado": 18479550706.01
    },
    {
@@ -125,9 +132,10 @@
    "apoio": 1518586194.68,
    "valorContratado": 1518586194.68,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "Res. CGPAC Nº 6, de 22 de agosto de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -139,9 +147,10 @@
    "apoio": 237082848.6,
    "valorContratado": 237082848.6,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "Res. CGPAC Nº 5, de 21 de junho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -153,9 +162,10 @@
    "apoio": 7200000000.0,
    "valorContratado": 6000000000.0,
    "situacao": "Em andamento",
+   "situacaoExecucao": "Obra em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2023",
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -167,9 +177,10 @@
    "apoio": 20000000.0,
    "valorContratado": 20000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Suspensiva retirada",
    "grupo": "Contratados",
-   "anoPortaria": "2023",
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -181,9 +192,10 @@
    "apoio": 1500000000.0,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2023",
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -195,9 +207,10 @@
    "apoio": 400000000.0,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2024",
-   "portaria": "Res. CGPAC Nº 4, DE 20 DE MAIO DE 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -209,9 +222,10 @@
    "apoio": 975000000.0,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "TC em formalização",
    "grupo": "A contratar",
-   "anoPortaria": "2023",
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -223,9 +237,10 @@
    "apoio": 1148000000.0,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -237,9 +252,10 @@
    "apoio": 925313997.84,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -251,9 +267,10 @@
    "apoio": 386000000.0,
    "valorContratado": 386000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em resolutiva",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -265,9 +282,10 @@
    "apoio": 21000000.0,
    "valorContratado": 15403000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em resolutiva",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -279,9 +297,10 @@
    "apoio": 1736500000.0,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -293,9 +312,10 @@
    "apoio": 132518987.83,
    "valorContratado": 132518987.83,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -307,9 +327,10 @@
    "apoio": 182152974.66,
    "valorContratado": 182152974.66,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em resolutiva",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -321,9 +342,10 @@
    "apoio": 25000000.0,
    "valorContratado": 25000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em resolutiva",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -335,9 +357,10 @@
    "apoio": 136100000.0,
    "valorContratado": 136100000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -349,9 +372,10 @@
    "apoio": 154864809.03,
    "valorContratado": 154864809.03,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -363,9 +387,10 @@
    "apoio": 51361060.26,
    "valorContratado": 50000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -377,9 +402,10 @@
    "apoio": 12149619.24,
    "valorContratado": 0.0,
    "situacao": "Desistência",
+   "situacaoExecucao": "Desistência",
    "grupo": "Desistências",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -391,9 +417,10 @@
    "apoio": 0.0,
    "valorContratado": 0.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -405,9 +432,10 @@
    "apoio": 0.0,
    "valorContratado": 0.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -419,9 +447,10 @@
    "apoio": 1200000.0,
    "valorContratado": 1200000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -433,9 +462,10 @@
    "apoio": 6300000.0,
    "valorContratado": 6300000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -447,9 +477,10 @@
    "apoio": 12600000.0,
    "valorContratado": 12600000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -461,9 +492,10 @@
    "apoio": 15709500.0,
    "valorContratado": 15709500.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -475,9 +507,10 @@
    "apoio": 185909598.81,
    "valorContratado": 185909598.81,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -489,9 +522,10 @@
    "apoio": 24900000.0,
    "valorContratado": 0.0,
    "situacao": "Cancelada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Desistências",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -503,9 +537,10 @@
    "apoio": 70747653.86,
    "valorContratado": 0.0,
    "situacao": "Cancelada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Desistências",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -517,9 +552,10 @@
    "apoio": 27806522.52,
    "valorContratado": 0.0,
    "situacao": "Cancelada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Desistências",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -531,9 +567,10 @@
    "apoio": 178580958.4,
    "valorContratado": 0.0,
    "situacao": "Cancelada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Desistências",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -545,9 +582,10 @@
    "apoio": 37782000.02,
    "valorContratado": 37782000.02,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -559,9 +597,10 @@
    "apoio": 1500000.0,
    "valorContratado": 1500000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -573,9 +612,10 @@
    "apoio": 258770561.53,
    "valorContratado": 258770561.53,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -587,9 +627,10 @@
    "apoio": 58997747.84,
    "valorContratado": 58997747.84,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -601,9 +642,10 @@
    "apoio": 2371711.73,
    "valorContratado": 2371711.73,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -615,9 +657,10 @@
    "apoio": 1512033.7,
    "valorContratado": 1512033.7,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -629,9 +672,10 @@
    "apoio": 76170083.52,
    "valorContratado": 76170083.52,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -643,9 +687,10 @@
    "apoio": 2587603.99,
    "valorContratado": 2587603.99,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -657,9 +702,10 @@
    "apoio": 54754841.38,
    "valorContratado": 54754841.38,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -671,9 +717,10 @@
    "apoio": 174390000.0,
    "valorContratado": 174390000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -685,9 +732,10 @@
    "apoio": 8000000.0,
    "valorContratado": 8000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -699,9 +747,10 @@
    "apoio": 3000000.0,
    "valorContratado": 0.0,
    "situacao": "Cancelada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Desistências",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -713,9 +762,10 @@
    "apoio": 3522624.03,
    "valorContratado": 3522624.03,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -727,9 +777,10 @@
    "apoio": 143244700.7,
    "valorContratado": 143244700.7,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -741,9 +792,10 @@
    "apoio": 33000000.0,
    "valorContratado": 33000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Suspensiva retirada",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -755,9 +807,10 @@
    "apoio": 868533.54,
    "valorContratado": 868533.54,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -769,9 +822,10 @@
    "apoio": 979812.56,
    "valorContratado": 979812.56,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -783,9 +837,10 @@
    "apoio": 600000.0,
    "valorContratado": 600000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -797,9 +852,10 @@
    "apoio": 125565147.7,
    "valorContratado": 125565147.7,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -811,9 +867,10 @@
    "apoio": 12809700.0,
    "valorContratado": 12809700.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -825,9 +882,10 @@
    "apoio": 76132078.76,
    "valorContratado": 76132078.76,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -839,9 +897,10 @@
    "apoio": 3487092.86,
    "valorContratado": 3487092.86,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -853,9 +912,10 @@
    "apoio": 273229462.0,
    "valorContratado": 273229462.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em suspensiva",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -867,9 +927,10 @@
    "apoio": 1584333.9,
    "valorContratado": 1584333.9,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -881,9 +942,10 @@
    "apoio": 4243634.88,
    "valorContratado": 4243634.88,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -895,9 +957,10 @@
    "apoio": 4866723.42,
    "valorContratado": 4866723.42,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -909,9 +972,10 @@
    "apoio": 64696757.15,
    "valorContratado": 64696757.15,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Suspensiva retirada",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -923,9 +987,10 @@
    "apoio": 33216000.0,
    "valorContratado": 33216000.0,
    "situacao": "Em licitação",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -937,9 +1002,10 @@
    "apoio": 20145801.94,
    "valorContratado": 20145801.94,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -951,9 +1017,10 @@
    "apoio": 1953000.0,
    "valorContratado": 1953000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -965,9 +1032,10 @@
    "apoio": 41497626.91,
    "valorContratado": 41497626.91,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -979,9 +1047,10 @@
    "apoio": 990000.0,
    "valorContratado": 990000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -993,9 +1062,10 @@
    "apoio": 69116979.6,
    "valorContratado": 69116979.6,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1007,9 +1077,10 @@
    "apoio": 63749412.01,
    "valorContratado": 63749412.01,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Suspensiva retirada",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1021,9 +1092,10 @@
    "apoio": 7230000.0,
    "valorContratado": 7230000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1035,9 +1107,10 @@
    "apoio": 16084250.0,
    "valorContratado": 16084250.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Suspensiva retirada",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1049,9 +1122,10 @@
    "apoio": 150000000.0,
    "valorContratado": 150000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1063,9 +1137,10 @@
    "apoio": 2560844.0,
    "valorContratado": 2560844.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Suspensiva retirada",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1077,9 +1152,10 @@
    "apoio": 24666881.57,
    "valorContratado": 24666881.57,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1091,9 +1167,10 @@
    "apoio": 7850000.0,
    "valorContratado": 7850000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1105,9 +1182,10 @@
    "apoio": 1000000000.0,
    "valorContratado": 1000000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1119,9 +1197,10 @@
    "apoio": 237924958.98,
    "valorContratado": 237924958.98,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1133,9 +1212,10 @@
    "apoio": 95000000.0,
    "valorContratado": 95000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1147,9 +1227,10 @@
    "apoio": 42116100.0,
    "valorContratado": 42116100.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1161,9 +1242,10 @@
    "apoio": 30000000.0,
    "valorContratado": 30000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1175,9 +1257,10 @@
    "apoio": 25000000.0,
    "valorContratado": 0.0,
    "situacao": "Desistência",
+   "situacaoExecucao": "Desistência",
    "grupo": "Desistências",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1189,9 +1272,10 @@
    "apoio": 159150000.0,
    "valorContratado": 159150000.0,
    "situacao": "Em licitação",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1203,9 +1287,10 @@
    "apoio": 19889772.56,
    "valorContratado": 19889772.56,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Suspensiva retirada",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1217,9 +1302,10 @@
    "apoio": 2700000.0,
    "valorContratado": 2700000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1231,9 +1317,10 @@
    "apoio": 169000000.0,
    "valorContratado": 169000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/VRPL Emitido",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1245,9 +1332,10 @@
    "apoio": 7800000.0,
    "valorContratado": 7800000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/VRPL Emitido",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1259,9 +1347,10 @@
    "apoio": 5628000.0,
    "valorContratado": 5628000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1273,9 +1362,10 @@
    "apoio": 3045000.0,
    "valorContratado": 3045000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/VRPL Emitido",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1287,9 +1377,10 @@
    "apoio": 2175333.84,
    "valorContratado": 2175333.84,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação/Edital publicado",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1301,9 +1392,10 @@
    "apoio": 2878972.34,
    "valorContratado": 2878972.34,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2024",
-   "portaria": "nº 767, de 26 de julho de 2024"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1315,9 +1407,10 @@
    "apoio": 574604779.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": null,
@@ -1329,9 +1422,10 @@
    "apoio": 448902695.43,
    "valorContratado": 0.0,
    "situacao": "Desistência da Habilitação",
+   "situacaoExecucao": "Desistência da habilitação",
    "grupo": "Desistências",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1343,9 +1437,10 @@
    "apoio": 269727424.52,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1357,9 +1452,10 @@
    "apoio": 1022000000.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1371,9 +1467,10 @@
    "apoio": 39928417.78,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1385,9 +1482,10 @@
    "apoio": 22224157.5,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2025/2026",
-   "portaria": "nº 981, de 29 de agosto de 2025/ Nº 713, DE 23 DE JUNHO DE 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1399,9 +1497,10 @@
    "apoio": 22315469.61,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1413,9 +1512,10 @@
    "apoio": 20557161.52,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1427,9 +1527,10 @@
    "apoio": 50463468.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1441,9 +1542,10 @@
    "apoio": 103503171.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": null,
@@ -1455,9 +1557,10 @@
    "apoio": 2200000000.0,
    "valorContratado": 0.0,
    "situacao": "Desistência da Habilitação",
+   "situacaoExecucao": "Desistência da habilitação",
    "grupo": "Desistências",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1469,9 +1572,10 @@
    "apoio": 30587544.36,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2025/2026",
-   "portaria": "nº 981, de 29 de agosto de 2025 / Nº 123, DE 5 DE FEVEREIRO DE 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1483,9 +1587,10 @@
    "apoio": 46700575.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1497,9 +1602,10 @@
    "apoio": 25953853.7,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2025/2026",
-   "portaria": "nº 981, de 29 de agosto de 2025 / Nº 123, DE 5 DE FEVEREIRO DE 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1511,9 +1617,10 @@
    "apoio": 95306261.24,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2025/2026",
-   "portaria": "nº 981, de 29 de agosto de 2025 / Nº 123, DE 5 DE FEVEREIRO DE 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1525,9 +1632,10 @@
    "apoio": 22990000.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1539,9 +1647,10 @@
    "apoio": 21198000.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1553,9 +1662,10 @@
    "apoio": 25660327.3,
    "valorContratado": 25660327.3,
    "situacao": "Contratada",
+   "situacaoExecucao": "Não iniciada",
    "grupo": "Contratados",
-   "anoPortaria": "2025/2026",
-   "portaria": "nº 981, de 29 de agosto de 2025/Nº 806, DE 9 DE JULHO DE 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1567,9 +1677,10 @@
    "apoio": 62653460.82,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2025/2026",
-   "portaria": "nº 981, de 29 de agosto de 2025 / Nº 123, DE 5 DE FEVEREIRO DE 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1581,9 +1692,10 @@
    "apoio": 45715326.44,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2025/2026",
-   "portaria": "nº 981, de 29 de agosto de 2025 / Nº 123, DE 5 DE FEVEREIRO DE 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1595,9 +1707,10 @@
    "apoio": 22593194.5,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1609,9 +1722,10 @@
    "apoio": 19190000.59,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1623,9 +1737,10 @@
    "apoio": 48264165.21,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2025/2026",
-   "portaria": "nº 981, de 29 de agosto de 2025/ Nº 713, DE 23 DE JUNHO DE 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1637,9 +1752,10 @@
    "apoio": 21088100.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1651,9 +1767,10 @@
    "apoio": 293621459.57,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1665,9 +1782,10 @@
    "apoio": 22885923.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1679,9 +1797,10 @@
    "apoio": 413114840.87,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1693,9 +1812,10 @@
    "apoio": 29041500.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1707,9 +1827,10 @@
    "apoio": 28721117.4,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2025",
-   "portaria": "nº 981, de 29 de agosto de 2025"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1721,9 +1842,10 @@
    "apoio": 174261981.86,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2026",
-   "portaria": "nº 91, de 27 de janeiro de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1735,9 +1857,10 @@
    "apoio": 20900000.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2026",
-   "portaria": "nº 91, de 27 de janeiro de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1749,9 +1872,10 @@
    "apoio": 226074388.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2026",
-   "portaria": "nº 91, de 27 de janeiro de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1763,9 +1887,10 @@
    "apoio": 37800752.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2026",
-   "portaria": "nº 91, de 27 de janeiro de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1777,8 +1902,9 @@
    "apoio": 60000000.0,
    "valorContratado": 60000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2026",
+   "anoPortaria": null,
    "portaria": null
   },
   {
@@ -1791,8 +1917,9 @@
    "apoio": 57745653.93,
    "valorContratado": 57745653.93,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2026",
+   "anoPortaria": null,
    "portaria": null
   },
   {
@@ -1805,8 +1932,9 @@
    "apoio": 25000000.0,
    "valorContratado": 25000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2026",
+   "anoPortaria": null,
    "portaria": null
   },
   {
@@ -1819,9 +1947,10 @@
    "apoio": 838375230.55,
    "valorContratado": 838375230.55,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2026",
-   "portaria": "Res. GGCPAC Nº13, de 29 de abril de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1833,9 +1962,10 @@
    "apoio": 38707120.0,
    "valorContratado": 38707120.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Não iniciada",
    "grupo": "Contratados",
-   "anoPortaria": "2026",
-   "portaria": "Res. GGCPAC Nº 13, de 29 de abril de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1847,9 +1977,10 @@
    "apoio": 217000000.0,
    "valorContratado": 217000000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2026",
-   "portaria": "Res. CGPAC Nº13, de 29 de abril de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1861,9 +1992,10 @@
    "apoio": 1425000000.0,
    "valorContratado": 0.0,
    "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
    "grupo": "A contratar",
-   "anoPortaria": "2026/2026",
-   "portaria": "nº 278, de 18 de março de 2026 / Nº 312, DE 25 DE MARÇO DE 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1875,9 +2007,10 @@
    "apoio": 24900000.0,
    "valorContratado": 24900000.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados",
-   "anoPortaria": "2026",
-   "portaria": "Res. CGPAC Nº13, de 29 de abril de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": null,
@@ -1889,9 +2022,10 @@
    "apoio": 20200000.0,
    "valorContratado": 0.0,
    "situacao": "Desistência da Habilitação",
+   "situacaoExecucao": "Desistência da habilitação",
    "grupo": "Desistências",
-   "anoPortaria": "2026",
-   "portaria": "nº 591, de 20 de maio de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1903,9 +2037,10 @@
    "apoio": 21375000.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2026",
-   "portaria": "nº 591, de 20 de maio de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1917,9 +2052,10 @@
    "apoio": 20635505.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2026",
-   "portaria": "nº 591, de 20 de maio de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1931,9 +2067,10 @@
    "apoio": 114935189.55,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2026",
-   "portaria": "nº 591, de 20 de maio de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1945,9 +2082,10 @@
    "apoio": 3887000000.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2026",
-   "portaria": "nº 591, de 20 de maio de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1959,9 +2097,10 @@
    "apoio": 185865862.54,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2026",
-   "portaria": "nº 964, de 4 de agosto de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Habilitada",
@@ -1973,9 +2112,10 @@
    "apoio": 1250000000.0,
    "valorContratado": 0.0,
    "situacao": "Habilitada",
+   "situacaoExecucao": "Avaliação",
    "grupo": "Habilitados",
-   "anoPortaria": "2026",
-   "portaria": "nº 963, de 4 de agosto de 2026"
+   "anoPortaria": null,
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -1987,6 +2127,7 @@
    "apoio": 1000000000.0,
    "valorContratado": 1000000000.0,
    "situacao": "Em andamento",
+   "situacaoExecucao": "Contratada com resolutiva",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -1998,12 +2139,13 @@
    "municipio": "Fortaleza",
    "proponente": "Estado do Ceará",
    "empreendimento": "Implantação da Linha Leste do Metrô de Fortaleza",
-   "apoio": 660850000.0,
+   "apoio": 555024937.86,
    "valorContratado": 555024937.86,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em contratação",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 6, de 22 de agosto de 2024"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2012,9 +2154,10 @@
    "municipio": "Brasília",
    "proponente": "Governo do Distrito Federal",
    "empreendimento": "Sistema de Transporte de Passageiros Eixo Sul",
-   "apoio": 561522650.0,
+   "apoio": 170604224.17,
    "valorContratado": 170604224.17,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2026,9 +2169,10 @@
    "municipio": "Brasília",
    "proponente": "Governo do Distrito Federal",
    "empreendimento": "Sistema de Transporte de Passageiros Eixo Oeste",
-   "apoio": 517477350.0,
+   "apoio": 281896891.53,
    "valorContratado": 281896891.53,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2040,9 +2184,10 @@
    "municipio": "Santos, São Paulo",
    "proponente": "Estado de São Paulo",
    "empreendimento": "Implantação de linha de VLT Baixada Santista",
-   "apoio": 400000000.0,
+   "apoio": 67158258.33,
    "valorContratado": 67158258.33,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2054,9 +2199,10 @@
    "municipio": "Recife",
    "proponente": "Prefeitura de Recife",
    "empreendimento": "Implantação de Corredores Exclusivos de Ônibus no Recife - II Perimetral, III Perimetral e Radial Sul",
-   "apoio": 389000000.0,
+   "apoio": 352651134.36,
    "valorContratado": 352651134.36,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2068,12 +2214,13 @@
    "municipio": "São Paulo",
    "proponente": "Estado de São Paulo",
    "empreendimento": "Extensão da  Linha 9 CPTM - Grajaú-Varginha",
-   "apoio": 364816168.35,
+   "apoio": 88319886.1,
    "valorContratado": 88319886.1,
    "situacao": "Contratada",
+   "situacaoExecucao": "Equipamento em aquisição",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2082,9 +2229,10 @@
    "municipio": "Ribeirão Preto",
    "proponente": "Prefeitura de Ribeirão Preto",
    "empreendimento": "Implantação de corredores de transporte público coletivo nos eixos Norte/Sul e Leste/Oeste",
-   "apoio": 278763189.0,
+   "apoio": 93142931.4,
    "valorContratado": 93142931.4,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2096,9 +2244,10 @@
    "municipio": "Osasco",
    "proponente": "Estado de São Paulo",
    "empreendimento": "Implantação do Corredor Metropolitano - Trecho 2: Jandira/Carapicuíba, Trecho 3: Carapicuíba/Osasco, Trecho 4: Osasco/Vila Yara",
-   "apoio": 215000000.0,
+   "apoio": 113197222.0,
    "valorContratado": 113197222.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2110,9 +2259,10 @@
    "municipio": "Contagem",
    "proponente": "Prefeitura de Contagem",
    "empreendimento": "Implantação de Corredores, Terminais e Estações - Plano de integração intermodal de transporte - Contagem Integrada",
-   "apoio": 184188313.75,
+   "apoio": 46842474.3,
    "valorContratado": 46842474.3,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2124,12 +2274,13 @@
    "municipio": "Curitiba",
    "proponente": "Prefeitura de Curitiba",
    "empreendimento": "Complementação da Linha Verde – Linha Verde Norte e Linha Verde - Extensão Sul",
-   "apoio": 172739784.29,
+   "apoio": 98615982.29,
    "valorContratado": 98615982.29,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2138,12 +2289,13 @@
    "municipio": "São Paulo",
    "proponente": "Prefeitura de São Paulo",
    "empreendimento": "CORREDOR DE ONIBUS - SAO PAULO - TERMINAL ITAQUERA",
-   "apoio": 163775932.84,
+   "apoio": 6764976.57,
    "valorContratado": 6764976.57,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2152,12 +2304,13 @@
    "municipio": "Curitiba",
    "proponente": "Prefeitura de Curitiba",
    "empreendimento": "Aumento da Capacidade e Velocidade do BRT na Extensão do Eixo Norte – Sul, Eixo Leste-Oeste e Terminais",
-   "apoio": 149540000.0,
+   "apoio": 134679247.0,
    "valorContratado": 134679247.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2166,9 +2319,10 @@
    "municipio": "Belém",
    "proponente": "Prefeitura de Belém",
    "empreendimento": "BRT Belém - Corredor Centenário",
-   "apoio": 148324225.2,
+   "apoio": 85862532.0,
    "valorContratado": 85862532.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2180,9 +2334,10 @@
    "municipio": "Uberlândia",
    "proponente": "Prefeitura de Uberlândia",
    "empreendimento": "Implantação dos Corredores Estruturais Leste, Norte, Oeste, Sudeste e Sul e Terminais",
-   "apoio": 125666300.0,
+   "apoio": 37164691.06,
    "valorContratado": 37164691.06,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em contratação",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2194,12 +2349,13 @@
    "municipio": "Recife",
    "proponente": "Estado de Pernambuco",
    "empreendimento": "Implantação dos corredores II Perimetral - Via Metropolitana Norte,  IV Perimetral, e Binário Cajueiro Seco;",
-   "apoio": 123203031.54,
+   "apoio": 101554053.45,
    "valorContratado": 101554053.45,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2208,9 +2364,10 @@
    "municipio": "São Bernardo do Campo",
    "proponente": "Prefeitura de São Bernardo do Campo",
    "empreendimento": "Corredor Couros - Construção das Avenidas Marginais ao Ribeirão Couros - entre a Avenida Piraporinha e Corredor ABD, inclusive dois viadutos sobre a Avenida 31 de Março",
-   "apoio": 100000000.0,
+   "apoio": 87074570.0,
    "valorContratado": 87074570.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Desistência",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2222,9 +2379,10 @@
    "municipio": "Guarulhos",
    "proponente": "Prefeitura de Guarulhos",
    "empreendimento": "Programa de Mobilidade Urbana de Guarulhos",
-   "apoio": 92916069.04,
+   "apoio": 26638282.43,
    "valorContratado": 26638282.43,
    "situacao": "Contratada",
+   "situacaoExecucao": "Desistência",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2236,9 +2394,10 @@
    "municipio": "Contagem",
    "proponente": "Prefeitura de Contagem",
    "empreendimento": "Melhoria do Transporte Público Coletivo com Implantação do Corredor da Avenida Maracanã",
-   "apoio": 79292915.93,
+   "apoio": 60810032.0,
    "valorContratado": 60810032.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2250,12 +2409,13 @@
    "municipio": "Goiânia",
    "proponente": "Prefeitura de Goiânia",
    "empreendimento": "Implantação do BRT Norte Sul",
-   "apoio": 70000000.0,
+   "apoio": 40112915.64,
    "valorContratado": 40112915.64,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2264,12 +2424,13 @@
    "municipio": "Curitiba",
    "proponente": "Prefeitura de Curitiba",
    "empreendimento": "Ampliação da capacidade e velocidade da Linha Direta Inter 2",
-   "apoio": 69440000.0,
+   "apoio": 57622461.19,
    "valorContratado": 57622461.19,
    "situacao": "Contratada",
+   "situacaoExecucao": "Equipamento em aquisição",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2278,9 +2439,10 @@
    "municipio": "Teresina",
    "proponente": "Prefeitura de Teresina",
    "empreendimento": "CORREDOR NORTE – LESTE",
-   "apoio": 56563000.0,
+   "apoio": 43939955.0,
    "valorContratado": 43939955.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2292,12 +2454,13 @@
    "municipio": "Brasília",
    "proponente": "Governo do Distrito Federal",
    "empreendimento": "Expansão e Modernização do sistema de Metrô do DF",
-   "apoio": 53132612.0,
+   "apoio": 0.0,
    "valorContratado": 0.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Entregue",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2306,12 +2469,13 @@
    "municipio": "Salvador, Bahia",
    "proponente": "Estado da Bahia",
    "empreendimento": "Implantação de Corredor de Ônibus - Salvador/BA - Vias Estruturantes - Sistema de Corredores Transversais",
-   "apoio": 992800000.0,
+   "apoio": 466360052.0,
    "valorContratado": 466360052.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2320,12 +2484,13 @@
    "municipio": "Mauá",
    "proponente": "Prefeitura de Mauá",
    "empreendimento": "Plano de investimentos em infraestrutura para a mobilidade da regiao do ABC eixo corredor sudeste etapa Mauá",
-   "apoio": 23788483.76,
+   "apoio": 6984479.26,
    "valorContratado": 6984479.26,
    "situacao": "Contratada",
+   "situacaoExecucao": "Desistência",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2334,12 +2499,13 @@
    "municipio": "Diadema, São Paulo",
    "proponente": "Prefeitura de Diadema",
    "empreendimento": "Plano de Investimentos em Infraestrutura para a Mobilidade da Região do ABC Eixo: Alvarenga / Robert Kennedy / Couros e Ligação Leste-Oeste ETAPA: DIADEMA",
-   "apoio": 17714958.04,
+   "apoio": 5979745.49,
    "valorContratado": 5979745.49,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2348,9 +2514,10 @@
    "municipio": "Salvador, Bahia",
    "proponente": "Prefeitura de Salvador",
    "empreendimento": "BRT Lapa-Iguatemi - Trecho 1 - FIN",
-   "apoio": 300000000.0,
+   "apoio": 57134802.43,
    "valorContratado": 57134802.43,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2362,9 +2529,10 @@
    "municipio": "Salvador, Bahia",
    "proponente": "Estado da Bahia",
    "empreendimento": "Sistema Metroviário de Salvador e Lauro de Freitas - Linha 1, Tramo 3",
-   "apoio": 800000000.0,
+   "apoio": 195289044.61,
    "valorContratado": 195289044.61,
    "situacao": "Contratada",
+   "situacaoExecucao": "Desistência",
    "grupo": "Contratados",
    "anoPortaria": null,
    "portaria": null
@@ -2376,12 +2544,13 @@
    "municipio": "Salvador, Bahia",
    "proponente": "Estado da Bahia",
    "empreendimento": "BRT Lapa-Iguatemi - Trecho 2 - OGU, entre a Lapa  e a Estação ACM; Estações previstas: Pedrinhas, Rio Vermelho, HGE, Ogunjá, Vasco da Gama e Lapa (integração);",
-   "apoio": 125401738.76,
+   "apoio": 27373474.76,
    "valorContratado": 27373474.76,
    "situacao": "Contratada",
+   "situacaoExecucao": "Desistência",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2390,12 +2559,13 @@
    "municipio": "Goiânia",
    "proponente": "Prefeitura de Goiânia",
    "empreendimento": "BRT Norte Sul",
-   "apoio": 140000000.0,
+   "apoio": 7337569.76,
    "valorContratado": 7337569.76,
    "situacao": "Contratada",
+   "situacaoExecucao": "Desistência",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2404,12 +2574,13 @@
    "municipio": "Londrina",
    "proponente": "Prefeitura de Londrina",
    "empreendimento": "Implantação de corredor BRT Leste/Oeste e Norte/Sul",
-   "apoio": 106964188.21,
+   "apoio": 25377001.6,
    "valorContratado": 25377001.6,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2418,12 +2589,13 @@
    "municipio": "Rio de Janeiro",
    "proponente": "Prefeitura do Rio de Janeiro",
    "empreendimento": "BRT TRANSBRASIL",
-   "apoio": 1097000000.0,
+   "apoio": 34516030.0,
    "valorContratado": 34516030.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2432,12 +2604,13 @@
    "municipio": "Blumenau",
    "proponente": "Prefeitura de Blumenau",
    "empreendimento": "Implantação do corredor exclusivo Fonte/Garcia, ciclovia, abrigos, terminais e equipamentos para controle de tráfego e de operações",
-   "apoio": 61788000.0,
+   "apoio": 8410532.74,
    "valorContratado": 8410532.74,
    "situacao": "Contratada",
+   "situacaoExecucao": "Desistência",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2446,12 +2619,13 @@
    "municipio": "Aracaju",
    "proponente": "Prefeitura de Aracaju",
    "empreendimento": "Implantação de corredores de ônibus, construção e reforma de terminais de integração, implantação de bolsões de estacionamento, abrigos e centro de controle operacional",
-   "apoio": 107605504.97,
+   "apoio": 18971248.27,
    "valorContratado": 18971248.27,
    "situacao": "Contratada",
+   "situacaoExecucao": "Contratada com resolutiva",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2460,12 +2634,13 @@
    "municipio": "Campinas",
    "proponente": "Prefeitura de Campinas",
    "empreendimento": "Corredor Campo Grande – Trecho 2 e 3 – Campinas",
-   "apoio": 92686422.0,
+   "apoio": 0.0,
    "valorContratado": 0.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Equipamento em aquisição",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2474,12 +2649,13 @@
    "municipio": "Sorocaba",
    "proponente": "Prefeitura de Sorocaba",
    "empreendimento": "Implantação de BRT nos eixos Norte/Sul e Leste/Oeste",
-   "apoio": 127206198.47,
+   "apoio": 27643641.0,
    "valorContratado": 27643641.0,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2488,12 +2664,13 @@
    "municipio": "Campinas",
    "proponente": "Prefeitura de Campinas",
    "empreendimento": "Corredor Campo Grande – Trecho 1 e 4, Ouro Verde Perimetral – Campinas",
-   "apoio": 197000000.0,
+   "apoio": 9778237.91,
    "valorContratado": 9778237.91,
    "situacao": "Contratada",
+   "situacaoExecucao": "Cancelada",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   },
   {
    "classificacao": "Selecionada",
@@ -2502,12 +2679,13 @@
    "municipio": "São Bernardo do Campo",
    "proponente": "Prefeitura de São Bernardo do Campo",
    "empreendimento": "Ligação Leste-Oeste",
-   "apoio": 165000000.0,
+   "apoio": 29864823.15,
    "valorContratado": 29864823.15,
    "situacao": "Contratada",
+   "situacaoExecucao": "Em licitação",
    "grupo": "Contratados",
    "anoPortaria": null,
-   "portaria": "Res. CGPAC Nº 1, de 19 de dezembro de 2023"
+   "portaria": null
   }
  ]
 }
