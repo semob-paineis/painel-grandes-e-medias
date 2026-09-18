@@ -89,7 +89,7 @@
     campo.appendChild(Util.el('option', { value: PG.Estado.valores[chaveEstado] === 'todas'
       ? 'todas' : 'todos', texto: rotuloTodos }));
     // O valor "todos"/"todas" é definido pelo estado inicial da chave.
-    campo.firstChild.value = (chaveEstado === 'regiao') ? 'todas' : 'todos';
+    campo.firstChild.value = (chaveEstado === 'regiao' || chaveEstado === 'uf') ? 'todas' : 'todos';
 
     opcoes.forEach(function (op) {
       campo.appendChild(Util.el('option', { value: op, texto: op }));
@@ -118,6 +118,57 @@
     return modos;
   }
 
+  // Filtro de UF: a lista de UFs não vem pronta de meta.opcoes (a planilha
+  // não gera essa lista à parte) — é levantada aqui a partir da própria base,
+  // do mesmo jeito que modosParaFiltro complementa a lista de modos.
+  function ufsParaFiltro() {
+    var ufs = Util.unicos(
+      (PG.Dados.registros || []).filter(function (r) { return r.noEscopo; }),
+      function (r) { return r.uf; }
+    );
+    return ufs.sort(function (a, b) { return a.localeCompare(b, 'pt-BR'); });
+  }
+
+  // UF → região: geografia fixa do Brasil, não depende da base de dados.
+  // Usada só para a cascata do filtro de UF (ver ligarCascataUF): escolher
+  // uma UF ajusta a Região automaticamente, e trocar a Região para algo
+  // incompatível com a UF já escolhida limpa a UF — assim os dois filtros
+  // nunca ficam contradizendo um ao outro.
+  var REGIAO_DA_UF = {
+    AC: 'Norte', AP: 'Norte', AM: 'Norte', PA: 'Norte', RO: 'Norte', RR: 'Norte', TO: 'Norte',
+    AL: 'Nordeste', BA: 'Nordeste', CE: 'Nordeste', MA: 'Nordeste', PB: 'Nordeste',
+    PE: 'Nordeste', PI: 'Nordeste', RN: 'Nordeste', SE: 'Nordeste',
+    DF: 'Centro-Oeste', GO: 'Centro-Oeste', MT: 'Centro-Oeste', MS: 'Centro-Oeste',
+    ES: 'Sudeste', MG: 'Sudeste', RJ: 'Sudeste', SP: 'Sudeste',
+    PR: 'Sul', RS: 'Sul', SC: 'Sul'
+  };
+
+  /** Liga a cascata entre os filtros de Região e UF. Roda depois que os dois
+   *  já foram montados por montarSelecao (que cuida da parte "normal" de
+   *  cada um — preencher opções e aplicar a própria mudança); aqui só o
+   *  ajuste cruzado entre os dois. */
+  function ligarCascataUF() {
+    var campoUF = document.getElementById('filtroUF');
+    var campoRegiao = document.getElementById('filtroRegiao');
+    if (!campoUF || !campoRegiao) return;
+
+    campoUF.addEventListener('change', function () {
+      var regiaoDaUF = REGIAO_DA_UF[campoUF.value];
+      if (regiaoDaUF && PG.Estado.valores.regiao !== regiaoDaUF) {
+        PG.Estado.definirVarios({ regiao: regiaoDaUF });
+        campoRegiao.value = regiaoDaUF;
+      }
+    });
+
+    campoRegiao.addEventListener('change', function () {
+      var uf = PG.Estado.valores.uf;
+      if (uf !== 'todas' && REGIAO_DA_UF[uf] !== campoRegiao.value) {
+        PG.Estado.definirVarios({ uf: 'todas' });
+        campoUF.value = 'todas';
+      }
+    });
+  }
+
   function montarFiltros(meta) {
     var opcoes = meta.opcoes || {};
 
@@ -140,7 +191,9 @@
 
     montarSelecao('filtroAno', opcoes.anos || [], 'ano', 'Todos os anos');
     montarSelecao('filtroRegiao', opcoes.regioes || [], 'regiao', 'Todas as regiões');
+    montarSelecao('filtroUF', ufsParaFiltro(), 'uf', 'Todas as UFs');
     montarSelecao('filtroModo', modosParaFiltro(opcoes), 'modo', 'Todos os tipos');
+    ligarCascataUF();
 
     var limpar = document.getElementById('btnLimparFiltros');
     if (limpar) {
@@ -161,7 +214,7 @@
   /** Reflete o estado nos controles — necessário porque o filtro de modo
       também é acionado pelo componente de infraestrutura. */
   function sincronizarFiltros() {
-    [['filtroAno', 'ano'], ['filtroRegiao', 'regiao'], ['filtroModo', 'modo']]
+    [['filtroAno', 'ano'], ['filtroRegiao', 'regiao'], ['filtroUF', 'uf'], ['filtroModo', 'modo']]
       .forEach(function (par) {
         var campo = document.getElementById(par[0]);
         if (campo) campo.value = PG.Estado.valores[par[1]];
