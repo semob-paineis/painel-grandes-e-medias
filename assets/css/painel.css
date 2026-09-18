@@ -173,7 +173,7 @@ a { color: var(--gov-azul); }
   max-width: var(--largura-max);
   margin: 0 auto;
   padding: var(--e3) var(--e5);
-  display: flex; align-items: flex-end; gap: var(--e4);
+  display: flex; align-items: flex-end; gap: var(--e3);
   flex-wrap: wrap;
 }
 .filtro { display: flex; flex-direction: column; gap: 5px; }
@@ -193,6 +193,10 @@ a { color: var(--gov-azul); }
   background: var(--fundo-superficie);
   color: var(--texto-padrao);
 }
+/* UF só tem siglas de 2 letras — não precisa da mesma largura dos demais
+   selects, e liberar esse espaço ajuda "Tipo de investimento" a caber na
+   mesma linha dos outros filtros. */
+.filtro__campo--estreito { min-width: 84px; }
 
 /* Alternador segmentado (cenário e visão) */
 .segmentado {
