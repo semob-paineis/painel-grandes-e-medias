@@ -337,7 +337,22 @@ main { padding: var(--e6) 0 var(--e10); }
   border-radius: var(--raio-pill);
   white-space: nowrap;
 }
-/* Quando a barra fica estreita demais, o texto sai para fora dela */
+
+/* Barra estreita (12–26% de largura): mesmo conteúdo, dentro da barra, só
+   com fonte e espaçamento reduzidos para caber. Só sai da barra (.funil__fora,
+   abaixo) quando nem isso é suficiente. */
+.funil__barra--compacta {
+  gap: var(--e2);
+  padding: 0 var(--e2);
+}
+.funil__barra--compacta .funil__quantidade { font-size: var(--texto-sm); }
+.funil__barra--compacta .funil__valor { font-size: var(--texto-2xs); }
+.funil__barra--compacta .funil__conversao {
+  font-size: 10px;
+  padding: 2px 6px;
+}
+
+/* Só nos casos mais extremos (< 12%) o texto sai para fora da barra */
 .funil__fora {
   position: absolute; top: 50%; transform: translateY(-50%);
   padding-left: var(--e3);
@@ -353,7 +368,7 @@ main { padding: var(--e6) 0 var(--e10); }
 
 .infra__linha {
   display: grid;
-  grid-template-columns: 178px minmax(0, 1fr) 108px 96px;
+  grid-template-columns: 178px minmax(0, 1fr) 108px;
   align-items: center;
   gap: var(--e3);
   padding: var(--e2) var(--e2);
@@ -397,7 +412,7 @@ main { padding: var(--e6) 0 var(--e10); }
 }
 .infra__cabecalho {
   display: grid;
-  grid-template-columns: 178px minmax(0, 1fr) 108px 96px;
+  grid-template-columns: 178px minmax(0, 1fr) 108px;
   gap: var(--e3);
   padding: 0 var(--e2) var(--e2);
   font-size: var(--texto-2xs); font-weight: 700;
@@ -462,7 +477,7 @@ table.tabela {
 /* Tabela do Radar: largura fixa por coluna e rolagem horizontal quando não
    couber. Sem isso, uma célula longa (portaria, empreendimento) espreme as
    demais e a linha cresce em altura. */
-table.tabela--fixa { table-layout: fixed; min-width: 1240px; }
+table.tabela--fixa { table-layout: fixed; min-width: 1650px; }
 table.tabela--fixa td {
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   vertical-align: middle;
@@ -736,12 +751,11 @@ th[aria-sort] .th-seta { opacity: 1; color: var(--gov-azul); }
   .funil__rotulo { text-align: left; display: flex; align-items: baseline; gap: var(--e2); }
   .funil__trilho { height: 46px; }
 
-  /* Infraestrutura: barra some, ficam nome + métrica + valor */
-  .infra__linha, .infra__cabecalho { grid-template-columns: minmax(0, 1fr) 92px 92px; }
+  /* Infraestrutura: barra some, ficam nome + métrica */
+  .infra__linha, .infra__cabecalho { grid-template-columns: minmax(0, 1fr) 92px; }
   .infra__trilho { display: none; }
   .infra__cabecalho span:nth-child(2) { display: none; }
-  .infra__cabecalho span:nth-child(3),
-  .infra__cabecalho span:nth-child(4) { text-align: right; }
+  .infra__cabecalho span:nth-child(3) { text-align: right; }
 
   .bloco__corpo { padding: var(--e4); }
   .grafico--medio, .grafico--alto { height: 250px; }
