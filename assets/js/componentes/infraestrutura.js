@@ -209,11 +209,13 @@ window.PG = window.PG || {};
 
       var maior = metrica.obter(linhas[0]) || 1;
 
+      // Só a métrica escolhida na aba (Extensão | Unidades | Investimento) —
+      // sem uma coluna "Investimento" fixa ao lado, que duplicava a
+      // informação sempre que a aba escolhida já era "Investimento".
       container.appendChild(Util.el('div', { 'class': 'infra__cabecalho' }, [
         Util.el('span', { texto: 'Modo' }),
         Util.el('span', { texto: 'Distribuição' }),
-        Util.el('span', { texto: metrica.rotulo }),
-        Util.el('span', { texto: 'Investimento' })
+        Util.el('span', { texto: metrica.rotulo })
       ]));
 
       linhas.forEach(function (linha) {
@@ -267,9 +269,7 @@ window.PG = window.PG || {};
       Util.el('div', { 'class': 'infra__metrica' }, [
         document.createTextNode(metrica.formatar(metrica.obter(linha))),
         metrica.sufixo ? Util.el('span', { texto: ' ' + metrica.sufixo }) : null
-      ]),
-      Util.el('div', { 'class': 'infra__valor',
-                       texto: F.moedaCurta(linha.valor) })
+      ])
     ]);
 
     // Filtro cruzado: a linha funciona como controle do filtro global de modo.
