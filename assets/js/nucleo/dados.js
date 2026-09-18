@@ -117,7 +117,7 @@ window.PG = window.PG || {};
   var Estado = {
     valores: {
       cenario: 'Consolidado',   // Consolidado | Grandes e Médias | Governadores | ...
-      visao: 'contratado',      // contratado | selecionado
+      visao: 'selecionado',      // contratado | selecionado
       ano: 'todos',
       regiao: 'todas',
       modo: 'todos',
