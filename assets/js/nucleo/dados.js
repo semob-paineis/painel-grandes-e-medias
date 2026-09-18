@@ -120,6 +120,7 @@ window.PG = window.PG || {};
       visao: 'selecionado',      // contratado | selecionado
       ano: 'todos',
       regiao: 'todas',
+      uf: 'todas',
       modo: 'todos',
       metricaInfra: 'km'        // km | unidades | valor (componente de infraestrutura)
     },
@@ -135,6 +136,20 @@ window.PG = window.PG || {};
       Estado.notificar();
     },
 
+    /** Define vários campos de uma vez, notificando uma única vez — usado
+     *  quando um filtro precisa ajustar outro junto (ex.: escolher uma UF
+     *  ajusta a Região automaticamente, ver ligarCascataUF em painel.js). */
+    definirVarios: function (mudancas) {
+      var mudou = false;
+      Object.keys(mudancas).forEach(function (chave) {
+        if (Estado.valores[chave] !== mudancas[chave]) {
+          Estado.valores[chave] = mudancas[chave];
+          mudou = true;
+        }
+      });
+      if (mudou) Estado.notificar();
+    },
+
     notificar: function () {
       var resultado = Dados.calcular(Estado.valores);
       Estado.assinantes.forEach(function (fn) { fn(resultado, Estado.valores); });
@@ -143,6 +158,7 @@ window.PG = window.PG || {};
     limpar: function () {
       Estado.valores.ano = 'todos';
       Estado.valores.regiao = 'todas';
+      Estado.valores.uf = 'todas';
       Estado.valores.modo = 'todos';
       Estado.notificar();
     }
@@ -165,6 +181,7 @@ window.PG = window.PG || {};
         if (f.cenario !== 'Consolidado' && r.tipo !== f.cenario) return false;
         if (f.ano !== 'todos' && r.rotuloAno !== f.ano) return false;
         if (f.regiao !== 'todas' && r.regiao !== f.regiao) return false;
+        if (f.uf !== 'todas' && r.uf !== f.uf) return false;
         // Usa a mesma chave de porModo(): "Estudos e Projetos" é filtrado
         // pela categoria, não pelo modo literal do registro (ver seção 4).
         if (f.modo !== 'todos' && chaveModoOuCategoria(r) !== f.modo) return false;
