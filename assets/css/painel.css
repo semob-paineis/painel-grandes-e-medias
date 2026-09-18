@@ -174,8 +174,13 @@ a { color: var(--gov-azul); }
   margin: 0 auto;
   padding: var(--e3) var(--e5);
   display: flex; align-items: flex-end; gap: var(--e2);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: thin;
 }
+/* Cada bloco de filtro mantém sua largura natural — sem isso, nowrap
+   junto de flex faria os itens espremerem em vez de rolar. */
+.filtros__interno > .filtro { flex-shrink: 0; }
 .filtro { display: flex; flex-direction: column; gap: 5px; }
 .filtro__rotulo {
   font-size: var(--texto-2xs);
@@ -223,6 +228,7 @@ a { color: var(--gov-azul); }
 
 .filtros__resumo {
   margin-left: auto;
+  flex-shrink: 0;
   display: flex; align-items: center; gap: var(--e3);
   font-size: var(--texto-xs); color: var(--texto-suave);
 }
@@ -741,7 +747,10 @@ th[aria-sort] .th-seta { opacity: 1; color: var(--gov-azul); }
   .container { padding: 0 var(--e4); }
   .cabecalho { position: static; }
   .filtros { position: static; }
-  .filtros__interno { gap: var(--e3); }
+  /* Abaixo daqui, empilhado (rolagem lateral não ajuda numa tela de celular
+     estreita o bastante para isso importar). */
+  .filtros__interno { gap: var(--e3); flex-wrap: wrap; overflow-x: visible; }
+  .filtros__interno > .filtro { flex-shrink: 1; }
   .filtro__campo { min-width: 0; width: 100%; }
   .filtro { flex: 1 1 140px; }
   .segmentado { overflow-x: auto; max-width: 100%; }
