@@ -63,31 +63,45 @@ window.PG = window.PG || {};
   };
 
 
+  var LIMITE_COMPACTA = 26;  // % — abaixo disso, layout compacto (fonte menor), ainda dentro da barra
+  var LIMITE_FORA = 12;      // % — abaixo disso, nem o layout compacto cabe: sai da barra
+
   function desenharEtapa(etapa, indice, etapas, maior, metrica, resultado, filtros) {
     var base = metrica === 'valor' ? etapa.valor : etapa.quantidade;
     var largura = Math.max(LARGURA_MINIMA, maior ? (base / maior) * 100 : 0);
     var cor = Paleta.etapa(etapa.chave);
-    var estreita = largura < 26;
+    // Três níveis: cheia (>= 26%), compacta (12–26%, mesmo conteúdo com fonte
+    // menor, ainda dentro da barra) e fora (< 12%, não cabe nem compacto).
+    var compacta = largura < LIMITE_COMPACTA;
+    var fora = largura < LIMITE_FORA;
 
-    var barra = Util.el('div', {
-      'class': 'funil__barra',
-      'data-largura': largura.toFixed(1) + '%',
-      estilo: { background: cor }
-    }, estreita ? [] : [
+    var conteudoBarra = fora ? [] : [
       Util.el('span', { 'class': 'funil__quantidade',
                         texto: F.inteiro(etapa.quantidade) }),
       Util.el('span', { 'class': 'funil__valor',
                         texto: F.moedaCurta(etapa.valor) }),
       etapa.conversao !== null
-        ? Util.el('span', { 'class': 'funil__conversao',
-                            texto: F.percentual(etapa.conversao, 0) + ' da etapa anterior' })
+        ? Util.el('span', {
+            'class': 'funil__conversao',
+            // Compacto: só o percentual, sem "da etapa anterior" — a frase
+            // inteira não cabe nem no layout compacto.
+            texto: compacta
+              ? F.percentual(etapa.conversao, 0)
+              : F.percentual(etapa.conversao, 0) + ' da etapa anterior'
+          })
         : null
-    ]);
+    ];
+
+    var barra = Util.el('div', {
+      'class': 'funil__barra' + (compacta && !fora ? ' funil__barra--compacta' : ''),
+      'data-largura': largura.toFixed(1) + '%',
+      estilo: { background: cor }
+    }, conteudoBarra);
 
     var trilho = Util.el('div', { 'class': 'funil__trilho' }, [barra]);
 
-    // Quando a barra fica curta, os números vão para fora dela.
-    if (estreita) {
+    // Só nos casos extremos (< 12%) o texto sai para fora da barra.
+    if (fora) {
       trilho.appendChild(Util.el('div', {
         'class': 'funil__fora',
         estilo: { left: largura + '%' },
