@@ -45,7 +45,7 @@
     "titulo": "Empreendimento",
     "tipo": "texto",
     "filtro": false,
-    "largura": "auto"
+    "largura": "300px"
    },
    {
     "chave": "apoio",
