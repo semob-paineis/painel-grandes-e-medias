@@ -245,19 +245,117 @@
     renderizarRegioes(resultado, filtros);
     renderizarAnos(resultado, filtros);
     renderizarMapa(resultado, filtros);
+    renderizarPropostasSelecao(resultado, filtros);
     renderizarFinanciamento(resultado, filtros);
     renderizarResumo(resultado, filtros);
     renderizarQualidade(resultado);
     atualizarContadores(resultado, filtros);
   }
 
-  function atualizarContadores(resultado, filtros) {
-    var alvo = document.getElementById('contagemFiltro');
-    if (alvo) {
-      alvo.innerHTML = '<strong>' + F.inteiro(resultado.totais.propostas) +
-        '</strong> propostas · <strong>' + F.moedaCurta(resultado.totais.valor) +
-        '</strong> ' + rotuloValor(filtros).toLowerCase();
+  /* ======================================================================
+     PROPOSTAS DESTA SELEÇÃO (teste)
+     ----------------------------------------------------------------------
+     Uma linha por proposta, juntando os modos que ela contém — diferente do
+     Radar de Propostas (que lista uma linha por proposta a partir da aba
+     "Lista de Projetos", sem campo de modo), esta tabela vem da mesma base
+     analítica dos gráficos, então reflete os 6 filtros do topo ao mesmo
+     tempo, inclusive Tipo de investimento, que o Radar não tem como filtrar.
+     ====================================================================== */
+
+  /** Agrupa o universo filtrado por proposta. "s/n" (sem número) não
+   *  identifica uma proposta de verdade — várias propostas diferentes usam
+   *  esse mesmo texto — por isso cai num identificador composto para não
+   *  misturar propostas distintas numa linha só. */
+  function agregarPropostasSelecao(universo, filtros) {
+    var grupos = {};
+    var ordem = [];
+
+    universo.forEach(function (r) {
+      var chave = (r.proposta && r.proposta !== 's/n')
+        ? r.proposta
+        : [r.uf, r.municipio, r.empreendimento].join('|');
+
+      if (!grupos[chave]) {
+        grupos[chave] = {
+          chave: chave, tipo: r.tipo, uf: r.uf, municipio: r.municipio,
+          proponente: r.proponente, empreendimento: r.empreendimento,
+          situacao: r.situacao, modos: [], km: 0, unidades: 0, valor: 0
+        };
+        ordem.push(chave);
+      }
+
+      var g = grupos[chave];
+      if (r.modo && g.modos.indexOf(r.modo) < 0) g.modos.push(r.modo);
+      g.km += r.km || 0;
+      g.unidades += r.unidades || 0;
+      g.valor += PG.Regras.valorDe(r, filtros.visao) || 0;
+    });
+
+    return ordem.map(function (chave) { return grupos[chave]; });
+  }
+
+  function colunasPropostasSelecao(filtros) {
+    return [
+      { titulo: 'Modalidade', obter: function (l) { return l.tipo || '—'; } },
+      { titulo: 'UF', obter: function (l) { return l.uf || '—'; } },
+      { titulo: 'Município', obter: function (l) { return l.municipio || '—'; } },
+      { titulo: 'Proponente', obter: function (l) { return l.proponente || '—'; } },
+      { titulo: 'Empreendimento', obter: function (l) { return l.empreendimento || '—'; } },
+      { titulo: 'Modo', obter: function (l) { return l.modos.join(' + ') || '—'; } },
+      { titulo: 'Situação', obter: function (l) { return l.situacao || '—'; } },
+      { titulo: 'Extensão', numerica: true,
+        obter: function (l) { return l.km > 0 ? F.km(l.km) : '—'; } },
+      { titulo: 'Unidades', numerica: true,
+        obter: function (l) { return l.unidades > 0 ? F.inteiro(l.unidades) + ' un.' : '—'; } },
+      { titulo: rotuloValor(filtros), numerica: true,
+        obter: function (l) { return F.moedaCurta(l.valor); },
+        total: function (ls) {
+          return F.moedaCurta(Util.soma(ls, function (l) { return l.valor; }));
+        } }
+    ];
+  }
+
+  function renderizarPropostasSelecao(resultado, filtros) {
+    var linhas = Util.ordenarPor(
+      agregarPropostasSelecao(resultado.universo, filtros),
+      function (l) { return l.valor; }, true
+    );
+
+    var contagem = document.getElementById('propostasSelecaoContagem');
+    if (contagem) contagem.textContent = F.inteiro(linhas.length);
+
+    // Só desenha de fato se o bloco estiver aberto — evita montar uma
+    // tabela grande a cada mudança de filtro enquanto ninguém está vendo.
+    var corpo = document.getElementById('propostasSelecaoCorpo');
+    if (corpo && !corpo.classList.contains('oculto')) {
+      PG.Tabelas.desenhar(corpo, linhas, colunasPropostasSelecao(filtros));
+    } else if (corpo) {
+      corpo.dataset.pendente = '1';
     }
+  }
+
+  function ligarAlternarPropostasSelecao() {
+    var botao = document.getElementById('btnAlternarPropostasSelecao');
+    var corpo = document.getElementById('propostasSelecaoCorpo');
+    var verbo = document.getElementById('propostasSelecaoVerbo');
+    if (!botao || !corpo) return;
+
+    botao.addEventListener('click', function () {
+      var abrindo = corpo.classList.contains('oculto');
+      corpo.classList.toggle('oculto', !abrindo);
+      botao.setAttribute('aria-expanded', abrindo ? 'true' : 'false');
+      if (verbo) verbo.textContent = abrindo ? 'Ocultar' : 'Ver';
+
+      // Se alguma mudança de filtro aconteceu enquanto estava fechado, a
+      // tabela ainda não foi desenhada — desenha agora, na hora de abrir.
+      if (abrindo && corpo.dataset.pendente) {
+        renderizarPropostasSelecao(PG.Dados.calcular(PG.Estado.valores), PG.Estado.valores);
+        delete corpo.dataset.pendente;
+      }
+    });
+  }
+
+  function atualizarContadores(resultado, filtros) {
     // Rótulos que dependem da visão escolhida.
     Array.prototype.forEach.call(
       document.querySelectorAll('[data-rotulo-visao]'),
@@ -545,6 +643,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     Tema.iniciar();
     ligarExportacao();
+    ligarAlternarPropostasSelecao();
 
     PG.Dados.carregar().then(function () {
       var meta = PG.Dados.meta;
