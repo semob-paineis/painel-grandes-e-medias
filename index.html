@@ -106,7 +106,6 @@
     </div>
 
     <div class="filtros__resumo">
-      <span class="filtros__contagem" id="contagemFiltro"></span>
       <button class="botao" id="btnLimparFiltros" type="button">Limpar filtros</button>
     </div>
   </div>
@@ -191,6 +190,22 @@
           </div>
           <div id="tabelaUFs"></div>
         </div>
+      </div>
+    </section>
+
+    <!-- Propostas desta seleção (teste) ---------------------------------->
+    <section class="bloco">
+      <div class="bloco__cabecalho">
+        <h2 class="bloco__titulo">Propostas desta seleção</h2>
+        <span class="bloco__apoio">Uma linha por proposta — soma os modos que ela contém, conforme os filtros acima</span>
+      </div>
+      <div class="bloco__corpo">
+        <button class="botao" type="button" id="btnAlternarPropostasSelecao"
+                aria-expanded="false" aria-controls="propostasSelecaoCorpo">
+          <span id="propostasSelecaoVerbo">Ver</span> propostas desta seleção
+          (<span id="propostasSelecaoContagem">0</span>)
+        </button>
+        <div id="propostasSelecaoCorpo" class="oculto" style="margin-top:16px"></div>
       </div>
     </section>
 
