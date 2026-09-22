@@ -107,10 +107,15 @@ a { color: var(--gov-azul); }
 }
 .cabecalho__orgao { font-size: var(--texto-sm); color: var(--texto-suave); }
 .cabecalho__acoes { display: flex; align-items: center; gap: var(--e2); }
+/* Ajuste conservador: os próprios botões (Radar de Propostas, Exportar,
+   tema) ficam um pouco mais compactos aqui, sem mudar o padrão em outras
+   páginas — o texto continua legível, só com menos respiro nas laterais. */
+.cabecalho__acoes .botao { padding: 6px 10px; gap: 5px; }
+.cabecalho__acoes .botao--icone { padding: 6px 8px; }
 
 .selo-data {
-  display: inline-flex; align-items: center; gap: var(--e2);
-  padding: 6px var(--e3);
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px var(--e2);
   border: 1px solid var(--borda);
   border-radius: var(--raio-pill);
   font-size: var(--texto-xs);
