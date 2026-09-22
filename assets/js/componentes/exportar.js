@@ -87,6 +87,54 @@ window.PG = window.PG || {};
     });
   }
 
+  var ESPACO_ENTRE_SECOES = 4; // mm, só entre seções de primeiro nível
+
+  /** Mede cada seção de primeiro nível dentro de `elemento`. Uma seção com
+   *  tabela grande (mais de 6 linhas) é quebrada em sub-segmentos mais
+   *  finos — cabeçalho da seção, cada linha da tabela, e o que vier depois
+   *  — para a paginação poder respirar entre linhas em vez de cortar uma
+   *  linha ao meio quando a tabela não cabe inteira numa página. Só a
+   *  última parte de cada seção carrega o espaçamento entre seções; entre
+   *  sub-partes da mesma seção (linhas de uma mesma tabela) não há gap —
+   *  são coladas sem folga, exatamente como aparecem na tela. */
+  function medirSegmentos(elemento) {
+    var rectBase = elemento.getBoundingClientRect();
+    var resultado = [];
+
+    secoesExportaveis(elemento).forEach(function (el) {
+      var tbody = el.querySelector('tbody');
+      if (!tbody || tbody.rows.length <= 6) {
+        var r = el.getBoundingClientRect();
+        resultado.push({
+          topo: r.top - rectBase.top, altura: r.height,
+          gapDepois: ESPACO_ENTRE_SECOES
+        });
+        return;
+      }
+
+      var partes = [];
+      var rEl = el.getBoundingClientRect();
+      var rTbody = tbody.getBoundingClientRect();
+
+      if (rTbody.top > rEl.top) {
+        partes.push({ topo: rEl.top - rectBase.top, altura: rTbody.top - rEl.top });
+      }
+      Array.prototype.forEach.call(tbody.rows, function (tr) {
+        var rTr = tr.getBoundingClientRect();
+        partes.push({ topo: rTr.top - rectBase.top, altura: rTr.height });
+      });
+      if (rEl.bottom > rTbody.bottom) {
+        partes.push({ topo: rTbody.bottom - rectBase.top, altura: rEl.bottom - rTbody.bottom });
+      }
+      partes.forEach(function (p, i) {
+        p.gapDepois = (i === partes.length - 1) ? ESPACO_ENTRE_SECOES : 0;
+        resultado.push(p);
+      });
+    });
+
+    return resultado;
+  }
+
 
   /* --- Cabeçalho e rodapé do PDF, desenhados como texto (não foto) -------- */
 
@@ -202,7 +250,6 @@ window.PG = window.PG || {};
     var alturaUtil = 210 - MARGEM * 2;
     var mmPorCssPx = larguraUtil / cssWidth;
     var canvasPxPorCssPx = canvas.width / cssWidth;
-    var ESPACO_ENTRE_SECOES = 4; // mm
 
     var alturaCabecalho = desenharCabecalhoPdf(pdf, MARGEM, larguraUtil);
     var cursorY = MARGEM + alturaCabecalho;
@@ -212,17 +259,13 @@ window.PG = window.PG || {};
     var fatiaCanvas = document.createElement('canvas');
     var fatiaCtx = fatiaCanvas.getContext('2d');
 
-    function novaPagina() {
-      pdf.addPage();
-      cursorY = MARGEM;
-      restante = alturaUtil;
-      paginaTemConteudo = false;
-    }
+    // Segmentos contíguos (ex.: linhas seguidas de uma mesma tabela) são
+    // acumulados e desenhados numa imagem só — sem isso, uma tabela de 170
+    // linhas viraria 170 chamadas de captura/recorte, deixando a exportação
+    // bem mais lenta à toa.
+    var pendenteTopoPx = null, pendenteAlturaPx = 0, pendenteY = 0;
 
-    /** Recorta [topoPx, topoPx + alturaPx) do canvas grande e cola no PDF na
-     *  posição atual do cursor, avançando-o. Coordenadas em pixels do canvas
-     *  capturado (não em CSS px). */
-    function colarFatia(topoPx, alturaPx) {
+    function desenharImagem(topoPx, alturaPx, y) {
       var alturaMm = (alturaPx / canvasPxPorCssPx) * mmPorCssPx;
       fatiaCanvas.width = canvas.width;
       fatiaCanvas.height = alturaPx;
@@ -230,51 +273,79 @@ window.PG = window.PG || {};
       fatiaCtx.drawImage(canvas, 0, topoPx, canvas.width, alturaPx,
                                   0, 0, canvas.width, alturaPx);
       pdf.addImage(fatiaCanvas.toDataURL('image/png'), 'PNG',
-                   MARGEM, cursorY, larguraUtil, alturaMm);
-      cursorY += alturaMm;
-      restante -= alturaMm;
-      paginaTemConteudo = true;
+                   MARGEM, y, larguraUtil, alturaMm);
+    }
+
+    function flush() {
+      if (pendenteAlturaPx > 0) desenharImagem(pendenteTopoPx, pendenteAlturaPx, pendenteY);
+      pendenteTopoPx = null;
+      pendenteAlturaPx = 0;
+    }
+
+    function acumular(topoPx, alturaPx) {
+      if (pendenteTopoPx !== null &&
+          Math.abs((pendenteTopoPx + pendenteAlturaPx) - topoPx) < 0.5) {
+        pendenteAlturaPx += alturaPx; // contíguo ao que já está pendente: só estende
+        return;
+      }
+      flush();
+      pendenteTopoPx = topoPx;
+      pendenteAlturaPx = alturaPx;
+      pendenteY = cursorY;
+    }
+
+    function novaPagina() {
+      flush();
+      pdf.addPage();
+      cursorY = MARGEM;
+      restante = alturaUtil;
+      paginaTemConteudo = false;
     }
 
     segmentos.forEach(function (seg) {
       var topoPx = seg.topo * canvasPxPorCssPx;
       var alturaPx = seg.altura * canvasPxPorCssPx;
       var alturaMm = seg.altura * mmPorCssPx;
+      var gap = seg.gapDepois || 0;
+
+      function colocar() {
+        acumular(topoPx, alturaPx);
+        cursorY += alturaMm + gap;
+        restante -= (alturaMm + gap);
+        paginaTemConteudo = true;
+        if (gap > 0) flush(); // fim de uma seção de verdade: pode fechar a imagem acumulada
+      }
 
       // Cabe no que resta desta página — caso comum.
-      if (alturaMm <= restante) {
-        colarFatia(topoPx, alturaPx);
-        cursorY += ESPACO_ENTRE_SECOES;
-        restante -= ESPACO_ENTRE_SECOES;
-        return;
-      }
+      if (alturaMm <= restante) { colocar(); return; }
 
-      // Não coube — a seção inteira vai para a página seguinte.
+      // Não coube — a seção (ou linha) inteira vai para a página seguinte.
       if (paginaTemConteudo) novaPagina();
-
-      if (alturaMm <= restante) {
-        colarFatia(topoPx, alturaPx);
-        cursorY += ESPACO_ENTRE_SECOES;
-        restante -= ESPACO_ENTRE_SECOES;
-        return;
-      }
+      if (alturaMm <= restante) { colocar(); return; }
 
       // Nem numa página vazia cabe inteira: é mais alta que uma página
       // inteira sozinha. Único caso em que ainda cortamos — o mínimo
-      // necessário, fatia por fatia.
+      // necessário, fatia por fatia. Não deveria mais acontecer com linhas
+      // de tabela (cada uma é bem menor que uma página), só em algum bloco
+      // sem tabela que seja, sozinho, gigante.
+      flush();
       var restantePx = alturaPx, offsetPx = topoPx;
       while (restantePx > 0) {
         var capacidadePx = (restante / mmPorCssPx) * canvasPxPorCssPx;
         var pedacoPx = Math.min(capacidadePx, restantePx);
-        colarFatia(offsetPx, pedacoPx);
+        desenharImagem(offsetPx, pedacoPx, cursorY);
+        cursorY += (pedacoPx / canvasPxPorCssPx) * mmPorCssPx;
+        restante -= (pedacoPx / canvasPxPorCssPx) * mmPorCssPx;
+        paginaTemConteudo = true;
         offsetPx += pedacoPx;
         restantePx -= pedacoPx;
         if (restantePx > 0) novaPagina();
       }
-      cursorY += ESPACO_ENTRE_SECOES;
-      restante -= ESPACO_ENTRE_SECOES;
+      cursorY += gap;
+      restante -= gap;
     });
 
+    flush();
     desenharRodapePdf(pdf, MARGEM, larguraUtil, alturaUtil);
     pdf.save(nomeArquivo('pdf'));
   }
@@ -306,28 +377,27 @@ window.PG = window.PG || {};
       }
 
       var alvo = Exportar.alvo();
-      var secoes = secoesExportaveis(alvo);
 
-      // "Propostas desta seleção" pode ficar bem grande quando aberto — não
-      // é o formato pensado pro PDF (o Radar de Propostas já cobre a
-      // listagem detalhada, com paginação própria). Exporta sempre fechado,
-      // e devolve a tela ao estado em que estava logo depois da foto.
+      // A lista de "Propostas desta seleção" só é desenhada quando o
+      // painel está aberto (por performance — ver painel.js). Para o PDF
+      // sempre trazer a lista, não só o botão fechado, abre-o aqui se
+      // estiver fechado (o próprio clique já dispara o desenho, se
+      // pendente) e fecha de novo depois, devolvendo a tela ao estado em
+      // que estava.
+      var botaoPropostas = document.getElementById('btnAlternarPropostasSelecao');
       var corpoPropostas = document.getElementById('propostasSelecaoCorpo');
-      var propostasEstavaAberta = !!(corpoPropostas &&
-        !corpoPropostas.classList.contains('oculto'));
-      if (propostasEstavaAberta) corpoPropostas.classList.add('oculto');
+      var precisaRefechar = !!(botaoPropostas && corpoPropostas &&
+        corpoPropostas.classList.contains('oculto'));
+      if (precisaRefechar) botaoPropostas.click();
 
       var rectContainer = alvo.getBoundingClientRect();
-      var segmentos = secoes.map(function (el) {
-        var r = el.getBoundingClientRect();
-        return { topo: r.top - rectContainer.top, altura: r.height };
-      });
+      var segmentos = medirSegmentos(alvo);
 
       capturar(alvo).then(function (canvas) {
-        if (propostasEstavaAberta) corpoPropostas.classList.remove('oculto');
+        if (precisaRefechar) botaoPropostas.click();
         montarPdfPorSecoes(jsPDFRef, canvas, rectContainer.width, segmentos);
       }).catch(function () {
-        if (propostasEstavaAberta) corpoPropostas.classList.remove('oculto');
+        if (precisaRefechar) botaoPropostas.click();
         /* já avisado */
       });
     },
