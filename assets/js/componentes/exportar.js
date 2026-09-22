@@ -95,6 +95,17 @@ window.PG = window.PG || {};
       var el = document.getElementById(id);
       return el ? el.textContent.trim() : '';
     };
+    var valorSelect = function (id) {
+      var el = document.getElementById(id);
+      var opt = el && el.options[el.selectedIndex];
+      return opt ? opt.textContent.trim() : '';
+    };
+    var valorSegmentado = function (id) {
+      var el = document.getElementById(id);
+      var ativo = el && el.querySelector('[aria-pressed="true"]');
+      return ativo ? ativo.textContent.trim() : '';
+    };
+
     var y = margem;
 
     pdf.setFont('helvetica', 'bold');
@@ -130,7 +141,34 @@ window.PG = window.PG || {};
     var data = texto('dataAtualizacao');
     pdf.setFontSize(8.5);
     pdf.text(data, margem + largura - pdf.getTextWidth(data), y);
-    y += 4;
+    y += 5;
+
+    // Filtros ativos — a barra de filtros (Modalidade | Visão | Ano | Região
+    // | UF | Tipo de investimento) fica fora de #areaExportavel, então nunca
+    // aparecia no PDF. Lê o texto exibido em cada controle, não o valor
+    // interno (ex.: "Selecionado", não "selecionado"), para bater 100% com
+    // o que a pessoa vê na tela.
+    var filtros = [
+      'Modalidade: ' + (valorSegmentado('filtroCenario') || '—'),
+      'Visão: ' + (valorSegmentado('filtroVisao') || '—'),
+      'Ano: ' + (valorSelect('filtroAno') || '—'),
+      'Região: ' + (valorSelect('filtroRegiao') || '—'),
+      'UF: ' + (valorSelect('filtroUF') || '—'),
+      'Tipo de investimento: ' + (valorSelect('filtroModo') || '—')
+    ].join('   ·   ');
+
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(7);
+    pdf.setTextColor(130, 137, 148);
+    pdf.text('FILTROS APLICADOS', margem, y);
+    y += 3.8;
+
+    pdf.setFont('helvetica', 'normal');
+    pdf.setFontSize(8);
+    pdf.setTextColor(60, 66, 76);
+    var linhasFiltros = pdf.splitTextToSize(filtros, largura);
+    pdf.text(linhasFiltros, margem, y);
+    y += linhasFiltros.length * 3.8 + 3;
 
     pdf.setDrawColor(222, 226, 232);
     pdf.line(margem, y, margem + largura, y);
