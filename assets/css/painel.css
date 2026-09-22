@@ -237,6 +237,7 @@ a { color: var(--gov-azul); }
   display: flex; align-items: center; gap: var(--e3);
   font-size: var(--texto-xs); color: var(--texto-suave);
 }
+.filtros__resumo .botao { padding: 6px 10px; font-size: var(--texto-xs); }
 .filtros__contagem strong { color: var(--texto-forte); }
 
 /* ----------------------------------------------- 4. BLOCOS E GRADES */
