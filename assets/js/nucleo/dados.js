@@ -63,7 +63,7 @@ window.PG = window.PG || {};
       var modos = ['Metrô', 'VLTs', 'Trens', 'BRTs', 'Corredores de Ônibus', 'Terminais'];
       var ufs = [['SP', 'Sudeste'], ['BA', 'Nordeste'], ['DF', 'Centro-Oeste'],
                  ['PR', 'Sul'], ['PA', 'Norte']];
-      var etapas = ['contratado', 'contratado', 'aContratar', 'habilitada', 'desistencia'];
+      var etapas = ['contratado', 'contratado', 'aContratar', 'desistencia'];
       var registros = [];
       for (var i = 0; i < 40; i++) {
         var uf = ufs[i % ufs.length], modo = modos[i % modos.length];
@@ -122,7 +122,7 @@ window.PG = window.PG || {};
       regiao: 'todas',
       uf: 'todas',
       modo: 'todos',
-      metricaInfra: 'km'        // km | unidades | valor (componente de infraestrutura)
+      metricaInfra: 'entregas'  // entregas | km | unidades | valor (componente de infraestrutura)
     },
 
     assinantes: [],
@@ -217,6 +217,15 @@ window.PG = window.PG || {};
       return registro.valorContratado;
     },
 
+    /** Valor usado para medir CUSTO por unidade entregue (R$/km).
+     *  Em "Migrado Novo PAC" o valor exibido é só a parcela migrada, mas o km
+     *  é do empreendimento inteiro — dividir um pelo outro subestima o custo.
+     *  Por isso o custo usa o investimento federal ORIGINAL (coluna Apoio;
+     *  a contrapartida dos entes ainda não está levantada). */
+    valorCusto: function (registro, visao) {
+      return registro.migrado ? registro.apoio : Regras.valorDe(registro, visao);
+    },
+
     /** Universo de registros conforme a visão escolhida. */
     universo: function (lista, visao) {
       return visao === 'selecionado'
@@ -248,11 +257,14 @@ window.PG = window.PG || {};
       function (acc, r) {
         acc.propostas += 1;
         acc.valor += Regras.valorDe(r, visao);
+        acc.valorCusto += Regras.valorCusto(r, visao);
+        acc.migrados += r.migrado ? 1 : 0;
         acc.km += r.km;
         acc.unidades += r.unidades;
       },
       function (chave) {
-        return { chave: chave, propostas: 0, valor: 0, km: 0, unidades: 0 };
+        return { chave: chave, propostas: 0, valor: 0, valorCusto: 0,
+                 migrados: 0, km: 0, unidades: 0 };
       }
     );
     var total = Util.soma(linhas, function (l) { return l.valor; });
@@ -346,6 +358,74 @@ window.PG = window.PG || {};
     return Util.ordenarPor(linhas, function (l) { return l.valor; }, true);
   }
 
+  /* ----------------------------------------------------------------------
+     ENTREGAS — tudo o que os empreendimentos entregam (aba "Indicadores de
+     Obra"). Cada empreendimento carrega suas quantidades em UM registro
+     (r.entregas); aqui elas são somadas para o universo filtrado.
+     ---------------------------------------------------------------------- */
+
+  var ROTULO_COMPONENTE_OAE = {
+    viadutos: 'Viadutos',
+    pontes: 'Pontes',
+    outrasOAE: 'Túneis, trincheiras, elevados e outras'
+  };
+
+  /** Resumo dos empreendimentos "Migrado Novo PAC" do universo: o valor
+   *  exibido no painel é só a parcela migrada; o investimento original é o
+   *  apoio federal do empreendimento inteiro. */
+  function resumirMigrados(universo) {
+    var migrados = universo.filter(function (r) { return r.migrado; });
+    var parcela = Util.soma(migrados, function (r) { return r.valorContratado; });
+    var original = Util.soma(migrados, function (r) { return r.apoio; });
+    return {
+      propostas: migrados.length,
+      parcela: parcela,
+      original: original,
+      percentual: original ? parcela / original : 0
+    };
+  }
+
+  function agregarEntregas(universo) {
+    var metaEntregas = (Dados.meta && Dados.meta.entregas) || null;
+    if (!metaEntregas || !metaEntregas.dicionario) return null;
+
+    var itens = metaEntregas.dicionario.map(function (d) {
+      return {
+        chave: d.chave, rotulo: d.rotulo, unidade: d.unidade, grupo: d.grupo,
+        valor: 0, empreendimentos: 0, valorMigrado: 0, empreendimentosMigrados: 0,
+        componentes: null
+      };
+    });
+    var base = universo.filter(function (r) { return r.entregas; });
+
+    base.forEach(function (r) {
+      itens.forEach(function (it) {
+        var v = r.entregas[it.chave] || 0;
+        if (v > 0) {
+          it.valor += v;
+          it.empreendimentos += 1;
+          if (r.migrado) { it.valorMigrado += v; it.empreendimentosMigrados += 1; }
+        }
+      });
+    });
+
+    // Composição da OAE (viadutos + pontes + outras), usada na dica.
+    itens.forEach(function (it) {
+      if (it.chave !== 'oae') return;
+      it.componentes = (metaEntregas.composicaoOAE || []).map(function (k) {
+        return {
+          chave: k, rotulo: ROTULO_COMPONENTE_OAE[k] || k,
+          valor: Util.soma(base, function (r) { return r.entregas[k] || 0; })
+        };
+      }).filter(function (c) { return c.valor > 0; });
+    });
+
+    var porChave = {};
+    itens.forEach(function (it) { porChave[it.chave] = it; });
+
+    return { itens: itens, porChave: porChave, empreendimentos: base.length };
+  }
+
   /** Ordena anos com "Anterior a 2023" sempre na frente. */
   function ordenarAnos(linhas) {
     return linhas.slice().sort(function (a, b) {
@@ -383,6 +463,8 @@ window.PG = window.PG || {};
 
       funil: montarFunil(recorte),
       modos: porModo(universo, f.visao),
+      entregas: agregarEntregas(universo),
+      migrados: resumirMigrados(universo),
       regioes: regioes,
       anos: ordenarAnos(porDimensao(universo, f.visao, function (r) { return r.rotuloAno; })),
       ufs: Util.ordenarPor(
