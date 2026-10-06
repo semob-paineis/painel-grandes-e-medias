@@ -89,7 +89,7 @@
     })[0];
     if (!col) return lista;
 
-    var numerica = col.tipo === 'moeda' || col.tipo === 'numero';
+    var numerica = col.tipo === 'moeda' || col.tipo === 'numero' || col.tipo === 'percentual';
     var sinal = estado.ordem.direcao === 'desc' ? -1 : 1;
 
     return lista.slice().sort(function (a, b) {
@@ -109,7 +109,7 @@
     var mapa = {
       'Contratados': 'selo--contratados',
       'A contratar': 'selo--acontratar',
-      'Habilitados': 'selo--habilitados',
+      'Migrado': 'selo--migrado',
       'Desistências': 'selo--desistencias'
     };
     return mapa[grupo] || 'selo--indefinido';
@@ -119,6 +119,7 @@
     var v = valorDe(proposta, col.chave);
     if (col.tipo === 'moeda') return v ? F.moeda(v) : '—';
     if (col.tipo === 'numero') return v ? F.inteiro(v) : '—';
+    if (col.tipo === 'percentual') return v == null ? '—' : F.percentual(v, 0);
     return v == null || v === '' ? '—' : String(v);
   }
 
@@ -129,7 +130,7 @@
     colunas().forEach(function (col) {
       var ordenando = estado.ordem.coluna === col.chave;
       var th = Util.el('th', {
-        'class': 'ordenavel' + (col.tipo === 'moeda' ? ' n' : ''),
+        'class': 'ordenavel' + (col.tipo === 'moeda' || col.tipo === 'percentual' ? ' n' : ''),
         scope: 'col',
         style: col.largura && col.largura !== 'auto' ? 'width:' + col.largura : null
       });
@@ -203,13 +204,18 @@
       var tr = Util.el('tr', {});
 
       colunas().forEach(function (col) {
-        var td = Util.el('td', { 'class': col.tipo === 'moeda' ? 'n' : '' });
+        var td = Util.el('td', { 'class': col.tipo === 'moeda' || col.tipo === 'percentual' ? 'n' : '' });
 
         if (col.tipo === 'selo') {
           td.appendChild(Util.el('span', {
             'class': 'selo ' + classeSelo(proposta.grupo),
             texto: proposta.grupo || '—'
           }));
+          if (proposta.migrado) {
+            td.appendChild(Util.el('span', {
+              'class': 'selo selo--migrado', texto: 'Migrado'
+            }));
+          }
         } else if (col.chave === 'empreendimento') {
           td.appendChild(Util.el('span', {
             'class': 'celula-longa', texto: formatarCelula(proposta, col)
@@ -232,13 +238,16 @@
       ['Situação', p.situacao || '—'],
       ['Modalidade', p.tipo || '—'],
       ['Local', (p.municipio || '—') + ' / ' + (p.uf || '—')],
-      ['Apoio', F.moeda(p.apoio)],
-      ['Contratado', p.valorContratado ? F.moeda(p.valorContratado) : 'não contratado']
+      [p.migrado ? 'Apoio federal original' : 'Apoio', F.moeda(p.apoio)],
+      [p.migrado ? 'Parcela migrada ao Novo PAC' : 'Contratado',
+        p.valorContratado ? F.moeda(p.valorContratado) : (p.migrado ? 'R$ 0 (sem parcela contratada)' : 'não contratado')]
     ];
-    if (p.apoio && p.valorContratado) {
+    if (p.migrado) {
+      linhas.push(['Migrado / original',
+        p.pctMigrado == null ? '—' : F.razao(p.valorContratado, p.apoio, 1)]);
+    } else if (p.apoio && p.valorContratado) {
       linhas.push(['Contratado / apoio', F.razao(p.valorContratado, p.apoio, 1)]);
     }
-    if (p.portaria) linhas.push(['Portaria', F.resumirTexto(p.portaria, 44)]);
 
     return {
       titulo: F.resumirTexto(p.empreendimento, 90),
@@ -256,12 +265,12 @@
     lista.forEach(function (p) {
       var g = grupos[p.grupo] || (grupos[p.grupo] =
         { grupo: p.grupo, quantidade: 0, apoio: 0, contratado: 0 });
-      g.quantidade++; g.apoio += p.apoio; g.contratado += p.valorContratado;
+      g.quantidade++; g.apoio += p.migrado ? p.valorContratado : p.apoio; g.contratado += p.valorContratado;
     });
 
-    var ordem = ['Contratados', 'A contratar', 'Habilitados', 'Desistências'];
+    var ordem = ['Contratados', 'A contratar', 'Desistências'];
     var acentos = { 'Contratados': 'contratado', 'A contratar': 'atencao',
-                    'Habilitados': 'selecionado', 'Desistências': 'atencao' };
+                    'Desistências': 'atencao' };
 
     ordem.filter(function (g) { return grupos[g]; }).forEach(function (nome) {
       var g = grupos[nome];
@@ -337,7 +346,8 @@
       return;
     }
 
-    var apoio = Util.soma(lista, function (p) { return p.apoio; });
+    var apoio = Util.soma(lista, function (p) { return p.migrado ? p.valorContratado : p.apoio; });
+    var migrados = lista.filter(function (p) { return p.migrado; });
     var contratado = Util.soma(lista, function (p) { return p.valorContratado; });
     var modalidades = contarPor(lista, 'tipo', 'Não informada');
     var situacoes = contarPor(lista, 'situacao', 'Não informada');
@@ -350,10 +360,18 @@
         (contratado > 0
           ? ' e <strong>' + F.moeda(contratado) + '</strong> em valor contratado.'
           : ', sem valor contratado registrado nesta seleção.'),
+      migrados.length
+        ? 'Inclui <strong>' + F.inteiro(migrados.length) + '</strong> empreendimento' +
+          (migrados.length === 1 ? '' : 's') + ' migrado' + (migrados.length === 1 ? '' : 's') +
+          ' de programas anteriores: apenas a parcela migrada (' +
+          F.moedaCurta(Util.soma(migrados, function (p) { return p.valorContratado; })) +
+          ', de ' + F.moedaCurta(Util.soma(migrados, function (p) { return p.apoio; })) +
+          ' de apoio federal original) entra nos valores.'
+        : null,
       'Modalidade: ' + listaComContagem(modalidades) + '.',
       'Situação do contrato: ' + listaComContagem(situacoes) + '.',
       'Situação da execução: ' + listaComContagem(situacoesExecucao) + '.'
-    ];
+    ].filter(Boolean);
 
     alvo.innerHTML =
       '<div class="resumo-numeros">' +
@@ -416,7 +434,7 @@
 
   function renderRodapeTabela(lista) {
     var alvo = document.getElementById('contagemResultados');
-    var apoio = Util.soma(lista, function (p) { return p.apoio; });
+    var apoio = Util.soma(lista, function (p) { return p.migrado ? p.valorContratado : p.apoio; });
     var contratado = Util.soma(lista, function (p) { return p.valorContratado; });
     alvo.innerHTML = '<strong>' + F.inteiro(lista.length) + '</strong> de ' +
       F.inteiro(base.propostas.length) + ' propostas · apoio <strong>' +
@@ -578,7 +596,7 @@
         lista.map(function (p) {
           return colunas().map(function (c) {
             var v = valorDe(p, c.chave);
-            return c.tipo === 'moeda' ? (v || 0) : (v == null ? '' : v);
+            return c.tipo === 'moeda' ? (v || 0) : c.tipo === 'percentual' ? (v == null ? '' : v) : (v == null ? '' : v);
           });
         })
       );
