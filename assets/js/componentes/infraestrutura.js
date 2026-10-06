@@ -401,7 +401,11 @@ window.PG = window.PG || {};
       texto: 'Quantidades do levantamento por empreendimento (aba "Indicadores ' +
              'de Obra" da planilha). Cada empreendimento aparece uma única vez, ' +
              'na proposta que o representa. "Linha na base" é a linha da ' +
-             'BASEDEDADOS, a mesma referência usada na aba de indicadores.'
+             'BASEDEDADOS, a mesma referência usada na aba de indicadores.' +
+             (item.unidade === 'km'
+               ? ' As extensões aparecem arredondadas em uma casa decimal; por isso a ' +
+                 'soma das linhas pode diferir do total em alguns décimos.'
+               : '')
     }));
     caixa.style.borderLeftColor = cor;
     return caixa;

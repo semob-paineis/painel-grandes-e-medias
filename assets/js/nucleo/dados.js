@@ -493,6 +493,14 @@ window.PG = window.PG || {};
     };
   };
 
+  // Funções de agregação expostas para componentes que precisam recalcular
+  // sobre uma sub-lista do universo (ex.: o assistente, ao responder sobre um
+  // município) sem reimplementar nenhuma regra: o cálculo continua sendo este.
+  Dados.totalizar = totalizar;
+  Dados.porDimensao = porDimensao;
+  Dados.agregarEntregas = agregarEntregas;
+  Dados.chaveModoOuCategoria = chaveModoOuCategoria;
+
   PG.Dados = Dados;
   PG.Estado = Estado;
   PG.Regras = Regras;
