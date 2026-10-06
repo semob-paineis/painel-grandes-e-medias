@@ -436,10 +436,15 @@
     var alvo = document.getElementById('contagemResultados');
     var apoio = Util.soma(lista, function (p) { return p.migrado ? p.valorContratado : p.apoio; });
     var contratado = Util.soma(lista, function (p) { return p.valorContratado; });
+    var migrados = lista.filter(function (p) { return p.migrado; }).length;
     alvo.innerHTML = '<strong>' + F.inteiro(lista.length) + '</strong> de ' +
       F.inteiro(base.propostas.length) + ' propostas · apoio <strong>' +
       F.moedaCurta(apoio) + '</strong> · contratado <strong>' +
-      F.moedaCurta(contratado) + '</strong>';
+      F.moedaCurta(contratado) + '</strong>' +
+      (migrados ? ' <span title="Nos empreendimentos migrados, o total ' +
+                  'considera apenas a parcela migrada ao Novo PAC; a coluna ' +
+                  'Apoio federal mostra o investimento original.">· migrados ' +
+                  'somam pela parcela migrada</span>' : '');
   }
 
   function render() {

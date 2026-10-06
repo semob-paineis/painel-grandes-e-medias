@@ -417,14 +417,17 @@ window.PG = window.PG || {};
       });
     },
 
-    /** Base filtrada em CSV — o recorte que está na tela vira arquivo. */
+    /** Base filtrada em CSV — exatamente as propostas que o painel está
+     *  somando (o universo da visão escolhida), para que qualquer total da
+     *  tela possa ser refeito por fora, no Excel. */
     dados: function (resultado) {
       var F = PG.Formato;
-      var cabecalhos = ['Modalidade', 'UF', 'Região', 'Município', 'Proponente',
+      var cabecalhos = ['Proposta', 'Modalidade', 'UF', 'Região', 'Município', 'Proponente',
                         'Empreendimento', 'Tipologia', 'Modo (item principal)', 'Categoria', 'Situação',
                         'Etapa', 'Ano portaria', 'Fonte', 'Agente',
-                        'Apoio (R$)', 'Contratado (R$)', 'Extensão (km)',
-                        'Unidades', 'Migrado Novo PAC',
+                        'Apoio (R$)', 'Contratado (R$)', 'Valor considerado (R$)',
+                        'Extensão do item principal (km)',
+                        'Unidades do item principal', 'Migrado Novo PAC',
                         'Corredores/BRT (km)', 'Trilhos (km)',
                         'Sistema viário (km)', 'Ciclovias (km)', 'Estações',
                         'Terminais', 'Abrigos/paradas', 'OAE', 'Passarelas',
@@ -435,14 +438,21 @@ window.PG = window.PG || {};
       var CHAVES_ENTREGAS = ['corredorKm', 'trilhosKm', 'viarioKm', 'cicloKm',
         'estacoes', 'terminais', 'abrigos', 'oae', 'passarelas', 'veiculos',
         'its', 'cco', 'patios', 'projetos'];
-      var linhas = resultado.recorte.map(function (r) {
-        return [r.tipo, r.uf, r.regiao, r.municipio, r.proponente,
+      // Quebras de linha vindas da planilha viram " / ": uma proposta por
+      // linha do arquivo, do jeito que o Excel e o Sheets esperam.
+      var limpar = function (v) {
+        return typeof v === 'string' ? v.replace(/\s*[\r\n]+\s*/g, ' / ') : v;
+      };
+      var visao = PG.Estado.valores.visao;
+      var linhas = resultado.universo.map(function (r) {
+        return [r.proposta, r.tipo, r.uf, r.regiao, r.municipio, r.proponente,
                 r.empreendimento, r.tipologia || '', r.modo, r.categoria, r.situacao, r.etapa,
                 r.rotuloAno, r.fonte, r.agente,
-                r.apoio, r.valorContratado, r.km, r.unidades,
+                r.apoio, r.valorContratado, PG.Regras.valorDe(r, visao),
+                r.km, r.unidades,
                 r.migrado ? 'Sim' : 'Não'].concat(CHAVES_ENTREGAS.map(function (k) {
                   return r.entregas ? r.entregas[k] : '';
-                }));
+                })).map(limpar);
       });
       PG.Tabelas.exportarCSV(nomeArquivo('csv'), cabecalhos, linhas);
     }

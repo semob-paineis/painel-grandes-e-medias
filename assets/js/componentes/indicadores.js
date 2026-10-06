@@ -95,8 +95,12 @@ window.PG = window.PG || {};
       },
       unidade: 'km',
       apoio: function (r) {
-        var t = entrega(r, 'trilhosKm');
-        if (t !== null) return F.decimal(t, 1) + ' km sobre trilhos';
+        var t = entrega(r, 'trilhosKm'), c = entrega(r, 'corredorKm');
+        // Diz a composição do número, para o cartão ser conferível de imediato.
+        if (t !== null) {
+          return F.decimal(c, 1) + ' km de corredores + ' +
+                 F.decimal(t, 1) + ' km sobre trilhos';
+        }
         var trilhos = r.modos.filter(function (m) {
           return ['Metrô', 'VLTs', 'Trens'].indexOf(m.chave) >= 0;
         });
@@ -144,8 +148,9 @@ window.PG = window.PG || {};
       apoio: function (r) {
         var v = entrega(r, 'veiculos');
         if (v !== null) {
-          return F.inteiro(v) + ' veículos · ' + F.inteiro(entrega(r, 'its')) +
-                 ' ITS · ' + F.inteiro(entrega(r, 'cco')) + ' CCO';
+          return F.inteiro(v) + ' veículos + ' + F.inteiro(entrega(r, 'its')) +
+                 ' ITS + ' + F.inteiro(entrega(r, 'cco')) + ' CCO + ' +
+                 F.inteiro(entrega(r, 'patios')) + ' pátios';
         }
         var m = r.modos.filter(function (x) { return x.unidades > 0; });
         m = Util.ordenarPor(m, function (x) { return x.unidades; }, true);

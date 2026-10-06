@@ -271,7 +271,7 @@ window.PG = window.PG || {};
       });
       grupo.itens.forEach(function (item) {
         container.appendChild(desenharLinhaEntrega(
-          item, maiores[item.unidade] || 1, cor, resultado, filtros));
+          item, maiores[item.unidade] || 1, cor, resultado, filtros, container));
       });
     });
 
@@ -283,10 +283,12 @@ window.PG = window.PG || {};
     });
   }
 
-  function desenharLinhaEntrega(item, maior, cor, resultado, filtros) {
+  function desenharLinhaEntrega(item, maior, cor, resultado, filtros, container) {
     var largura = Math.max(1.5, (item.valor / maior) * 100);
     var el = Util.el('div', {
-      'class': 'infra__linha infra__linha--estatica', tabindex: '0'
+      'class': 'infra__linha infra__linha--abrivel', tabindex: '0',
+      role: 'button', 'aria-expanded': 'false',
+      title: 'Clique para ver os empreendimentos que compõem este número'
     }, [
       Util.el('div', { 'class': 'infra__modo' }, [
         Util.el('span', {
@@ -303,11 +305,106 @@ window.PG = window.PG || {};
       ]),
       Util.el('div', { 'class': 'infra__metrica' }, [
         document.createTextNode(formatarEntrega(item, item.valor)),
-        Util.el('span', { texto: ' ' + item.unidade })
+        Util.el('span', { texto: ' ' + item.unidade }),
+        Util.el('span', { 'class': 'infra__seta', texto: '▸', 'aria-hidden': 'true' })
       ])
     ]);
+
+    // Rastreabilidade: a linha abre a lista dos empreendimentos que formam
+    // o número, com a proposta de cada um — a mesma chave do Radar.
+    function alternarDetalhe() {
+      var aberto = el.getAttribute('aria-expanded') === 'true';
+      var seguinte = el.nextSibling;
+      if (seguinte && seguinte.classList &&
+          seguinte.classList.contains('infra__detalhe')) {
+        container.removeChild(seguinte);
+      }
+      el.setAttribute('aria-expanded', aberto ? 'false' : 'true');
+      el.classList.toggle('esta-aberto', !aberto);
+      if (!aberto) {
+        container.insertBefore(
+          montarDetalheEntrega(item, resultado, cor), el.nextSibling);
+      }
+    }
+    el.addEventListener('click', alternarDetalhe);
+    el.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); alternarDetalhe(); }
+    });
+
     Dica.ligar(el, function () { return montarDicaEntrega(item, resultado, filtros); });
     return el;
+  }
+
+
+  /** Como identificar a proposta fora do painel: o número da proposta
+   *  quando existe, senão o ID Governa — e, em último caso, a própria linha
+   *  da BASEDEDADOS, que a coluna ao lado sempre traz. */
+  function identificacao(r) {
+    if (r.proposta && r.proposta !== 's/n') return r.proposta;
+    if (r.idGoverna) return 'ID Governa ' + r.idGoverna;
+    return 'sem nº';
+  }
+
+  /** Lista dos empreendimentos que compõem uma entrega — um por linha, com
+   *  a proposta, para conferir o número contra a planilha e contra o Radar. */
+  function montarDetalheEntrega(item, resultado, cor) {
+    var registros = resultado.universo.filter(function (r) {
+      return r.entregas && (r.entregas[item.chave] || 0) > 0;
+    });
+    registros = Util.ordenarPor(registros, function (r) {
+      return r.entregas[item.chave];
+    }, true);
+
+    var caixa = Util.el('div', { 'class': 'infra__detalhe' });
+    caixa.appendChild(Util.el('div', {
+      'class': 'infra__detalhe__titulo',
+      html: '<strong>' + Util.escapar(item.rotulo) + '</strong> — ' +
+            formatarEntrega(item, item.valor) + ' ' + item.unidade + ' em ' +
+            F.inteiro(registros.length) + ' empreendimento' +
+            (registros.length === 1 ? '' : 's')
+    }));
+
+    var tabela = Util.el('table', { 'class': 'tabela tabela--compacta' });
+    tabela.appendChild(Util.el('thead', {}, [
+      Util.el('tr', {}, [
+        Util.el('th', { texto: 'Empreendimento' }),
+        Util.el('th', { texto: 'UF / Município' }),
+        Util.el('th', { texto: 'Proposta' }),
+        Util.el('th', { 'class': 'n', texto: 'Linha na base' }),
+        Util.el('th', { texto: 'Situação' }),
+        Util.el('th', { 'class': 'n', texto: item.unidade === 'km' ? 'Extensão' : 'Unidades' })
+      ])
+    ]));
+    tabela.appendChild(Util.el('tbody', {}, registros.map(function (r) {
+      return Util.el('tr', {}, [
+        Util.el('td', {}, [Util.el('span', {
+          'class': 'celula-longa', texto: r.empreendimento || '—',
+          title: r.empreendimento || '' })]),
+        Util.el('td', { texto: (r.uf || '—') + ' · ' + (r.municipio || '—') }),
+        Util.el('td', { texto: identificacao(r) }),
+        Util.el('td', { 'class': 'n', texto: String(r.id) }),
+        Util.el('td', { texto: r.situacao || '—' }),
+        Util.el('td', { 'class': 'n',
+          texto: formatarEntrega(item, r.entregas[item.chave]) + ' ' + item.unidade })
+      ]);
+    })));
+    tabela.appendChild(Util.el('tfoot', {}, [
+      Util.el('tr', {}, [
+        Util.el('td', { colspan: '5', texto: 'Total' }),
+        Util.el('td', { 'class': 'n',
+          texto: formatarEntrega(item, item.valor) + ' ' + item.unidade })
+      ])
+    ]));
+    caixa.appendChild(tabela);
+    caixa.appendChild(Util.el('p', {
+      'class': 'infra__detalhe__nota',
+      texto: 'Quantidades do levantamento por empreendimento (aba "Indicadores ' +
+             'de Obra" da planilha). Cada empreendimento aparece uma única vez, ' +
+             'na proposta que o representa. "Linha na base" é a linha da ' +
+             'BASEDEDADOS, a mesma referência usada na aba de indicadores.'
+    }));
+    caixa.style.borderLeftColor = cor;
+    return caixa;
   }
 
   function montarDicaEntrega(item, resultado, filtros) {

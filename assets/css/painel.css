@@ -451,6 +451,40 @@ main { padding: var(--e6) 0 var(--e10); }
 /* Alternador de métrica do componente (extensão / unidades / investimento) */
 .infra__metricas { display: flex; gap: var(--e2); align-items: center; }
 
+/* Rastreabilidade: a linha abre a lista dos empreendimentos que a compõem */
+.infra__linha--abrivel { cursor: pointer; }
+.infra__linha--abrivel:focus-visible { outline: 2px solid var(--gov-azul); outline-offset: 2px; }
+.infra__seta {
+  display: inline-block; margin-left: 6px;
+  color: var(--texto-suave); font-size: var(--texto-xs);
+  transition: transform var(--transicao);
+}
+.infra__linha.esta-aberto { background: var(--fundo-realce); }
+.infra__linha.esta-aberto .infra__seta { transform: rotate(90deg); }
+
+.infra__detalhe {
+  margin: var(--e1) var(--e2) var(--e3);
+  padding: var(--e3);
+  border: 1px solid var(--borda);
+  border-left: 3px solid var(--gov-azul);
+  border-radius: var(--raio-sm);
+  background: var(--fundo-sutil);
+  overflow-x: auto;
+}
+.infra__detalhe__titulo {
+  font-size: var(--texto-sm); color: var(--texto-forte); margin-bottom: var(--e2);
+}
+.infra__detalhe table.tabela { background: var(--fundo); }
+.infra__detalhe table.tabela th { position: static; }
+.infra__detalhe table.tabela td { white-space: nowrap; }
+.infra__detalhe table.tabela td .celula-longa {
+  white-space: normal; display: inline-block; max-width: 420px; min-width: 260px;
+}
+.infra__detalhe__nota {
+  margin: var(--e2) 0 0;
+  font-size: var(--texto-xs); color: var(--texto-suave);
+}
+
 /* ------------------------------------------------------ 8. GRÁFICOS */
 
 .grafico { position: relative; }
@@ -490,6 +524,28 @@ main { padding: var(--e6) 0 var(--e10); }
   max-width: 260px;
 }
 .mapa__escala span { font-size: var(--texto-xs); color: var(--texto-suave); }
+
+/* --------------------------------------- 9.1 "COMO LER ESTE PAINEL" */
+
+.como-ler { margin-top: var(--e4); max-width: 900px; }
+.como-ler h3 {
+  font-size: var(--texto-sm); color: var(--texto-forte);
+  margin: var(--e4) 0 var(--e2);
+}
+.como-ler h3:first-child { margin-top: 0; }
+.como-ler__lista { margin: 0; font-size: var(--texto-sm); }
+.como-ler__lista dt {
+  font-weight: 700; color: var(--texto-forte); margin-top: var(--e3);
+}
+.como-ler__lista dd {
+  margin: 2px 0 0; color: var(--texto-suave); line-height: 1.55;
+}
+.como-ler__regras, .como-ler__passos {
+  margin: 0; padding-left: var(--e4);
+  font-size: var(--texto-sm); color: var(--texto-suave); line-height: 1.55;
+}
+.como-ler__regras li, .como-ler__passos li { margin-bottom: var(--e2); }
+.como-ler strong { color: var(--texto-forte); }
 
 /* ------------------------------------------------------ 10. TABELAS */
 

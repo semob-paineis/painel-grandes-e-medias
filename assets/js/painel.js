@@ -313,36 +313,100 @@
 
       if (!grupos[chave]) {
         grupos[chave] = {
-          chave: chave, tipo: r.tipo, uf: r.uf, municipio: r.municipio,
-          proponente: r.proponente, empreendimento: r.empreendimento,
-          situacao: r.situacao, modos: [], km: 0, unidades: 0, valor: 0
+          chave: chave, proposta: r.proposta, tipo: r.tipo, uf: r.uf,
+          municipio: r.municipio, proponente: r.proponente,
+          empreendimento: r.empreendimento, tipologia: r.tipologia,
+          idGoverna: r.idGoverna, linhas: [],
+          situacao: r.situacao, modos: [], km: 0, unidades: 0, valor: 0,
+          entregas: null
         };
         ordem.push(chave);
       }
 
       var g = grupos[chave];
+      g.linhas.push(r.id);
+      if (!g.idGoverna && r.idGoverna) g.idGoverna = r.idGoverna;
       if (r.modo && g.modos.indexOf(r.modo) < 0) g.modos.push(r.modo);
       g.km += r.km || 0;
       g.unidades += r.unidades || 0;
       g.valor += PG.Regras.valorDe(r, filtros.visao) || 0;
+      // As quantidades do levantamento ficam em um registro por
+      // empreendimento (o mesmo que alimenta "O que o investimento entrega").
+      if (r.entregas) g.entregas = r.entregas;
     });
 
     return ordem.map(function (chave) { return grupos[chave]; });
   }
 
+  // Rótulos curtos das entregas, para caber em uma célula da tabela.
+  var ENTREGA_CURTA = {
+    corredorKm: 'corredor/BRT', trilhosKm: 'trilhos', viarioKm: 'sist. viário',
+    cicloKm: 'ciclovia', estacoes: 'estações', terminais: 'terminais',
+    abrigos: 'abrigos', oae: 'OAE', passarelas: 'passarelas',
+    veiculos: 'veículos', its: 'ITS', cco: 'CCO', patios: 'pátios',
+    projetos: 'projetos', extProjetadaKm: 'km projetados'
+  };
+
+  /** "14,9 km trilhos · 44 veículos · 6 estações" — o que aquela proposta
+   *  entrega, nas mesmas quantidades somadas no bloco de entregas. */
+  function textoEntregasDaProposta(linha) {
+    var dic = (PG.Dados.meta.entregas || {}).dicionario;
+    if (!dic || !linha.entregas) return null;
+    var partes = [];
+    dic.forEach(function (d) {
+      var v = linha.entregas[d.chave] || 0;
+      if (v <= 0) return;
+      partes.push((d.unidade === 'km' ? F.decimal(v, 1) + ' km' : F.inteiro(v)) +
+                  ' ' + (ENTREGA_CURTA[d.chave] || d.rotulo));
+    });
+    return partes.length ? partes.join(' · ') : null;
+  }
+
+  function dicaPropostaSelecao(linha, filtros) {
+    var dic = (PG.Dados.meta.entregas || {}).dicionario || [];
+    var linhas = [
+      ['Proposta', linha.proposta || '—'],
+      ['Tipologia', linha.tipologia || '—'],
+      ['Modo do item principal', linha.modos.join(' + ') || '—'],
+      [rotuloValor(filtros), F.moeda(linha.valor)]
+    ];
+    if (linha.entregas) {
+      dic.forEach(function (d) {
+        var v = linha.entregas[d.chave] || 0;
+        if (v > 0) {
+          linhas.push([d.rotulo, (d.unidade === 'km' ? F.decimal(v, 1) + ' km'
+                                                     : F.inteiro(v) + ' un.')]);
+        }
+      });
+    }
+    return {
+      titulo: F.resumirTexto(linha.empreendimento, 90),
+      linhas: linhas,
+      nota: linha.entregas
+        ? 'Quantidades do levantamento por empreendimento — as mesmas somadas ' +
+          'em "O que o investimento entrega".'
+        : 'Esta proposta compõe um empreendimento cujas quantidades estão ' +
+          'lançadas em outra proposta do mesmo empreendimento.'
+    };
+  }
+
   function colunasPropostasSelecao(filtros) {
     return [
+      { titulo: 'Proposta', obter: function (l) {
+          if (l.proposta && l.proposta !== 's/n') return l.proposta;
+          return l.idGoverna ? 'ID Governa ' + l.idGoverna : 'sem nº';
+        } },
+      { titulo: 'Linha na base', numerica: true,
+        obter: function (l) { return l.linhas.join(', '); } },
       { titulo: 'Modalidade', obter: function (l) { return l.tipo || '—'; } },
       { titulo: 'UF', obter: function (l) { return l.uf || '—'; } },
       { titulo: 'Município', obter: function (l) { return l.municipio || '—'; } },
       { titulo: 'Proponente', obter: function (l) { return l.proponente || '—'; } },
       { titulo: 'Empreendimento', obter: function (l) { return l.empreendimento || '—'; } },
-      { titulo: 'Modo', obter: function (l) { return l.modos.join(' + ') || '—'; } },
+      { titulo: 'Tipologia', obter: function (l) { return l.tipologia || '—'; } },
       { titulo: 'Situação', obter: function (l) { return l.situacao || '—'; } },
-      { titulo: 'Extensão', numerica: true,
-        obter: function (l) { return l.km > 0 ? F.km(l.km) : '—'; } },
-      { titulo: 'Unidades', numerica: true,
-        obter: function (l) { return l.unidades > 0 ? F.inteiro(l.unidades) + ' un.' : '—'; } },
+      { titulo: 'Entregas levantadas',
+        obter: function (l) { return textoEntregasDaProposta(l) || '—'; } },
       { titulo: rotuloValor(filtros), numerica: true,
         obter: function (l) { return F.moedaCurta(l.valor); },
         total: function (ls) {
@@ -364,10 +428,26 @@
     // tabela grande a cada mudança de filtro enquanto ninguém está vendo.
     var corpo = document.getElementById('propostasSelecaoCorpo');
     if (corpo && !corpo.classList.contains('oculto')) {
-      PG.Tabelas.desenhar(corpo, linhas, colunasPropostasSelecao(filtros));
+      PG.Tabelas.desenhar(corpo, linhas, colunasPropostasSelecao(filtros), {
+        dica: function (linha) { return dicaPropostaSelecao(linha, filtros); }
+      });
     } else if (corpo) {
       corpo.dataset.pendente = '1';
     }
+  }
+
+  /** Bloco "Como ler este painel": explicação das fontes e das regras. */
+  function ligarAlternarComoLer() {
+    var botao = document.getElementById('btnAlternarComoLer');
+    var corpo = document.getElementById('comoLerCorpo');
+    var verbo = document.getElementById('comoLerVerbo');
+    if (!botao || !corpo) return;
+    botao.addEventListener('click', function () {
+      var abrindo = corpo.classList.contains('oculto');
+      corpo.classList.toggle('oculto', !abrindo);
+      botao.setAttribute('aria-expanded', abrindo ? 'true' : 'false');
+      if (verbo) verbo.textContent = abrindo ? 'Ocultar' : 'Ver';
+    });
   }
 
   function ligarAlternarPropostasSelecao() {
@@ -717,6 +797,7 @@
     Tema.iniciar();
     ligarExportacao();
     ligarAlternarPropostasSelecao();
+    ligarAlternarComoLer();
 
     PG.Dados.carregar().then(function () {
       var meta = PG.Dados.meta;

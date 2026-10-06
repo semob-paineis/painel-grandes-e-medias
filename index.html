@@ -8,15 +8,15 @@
       de transporte público do subeixo Mobilidade Grandes e Médias Cidades do
       Novo PAC — Ministério das Cidades / SEMOB.">
 
-<link rel="stylesheet" href="assets/css/tokens.css?v=20261006c">
-<link rel="stylesheet" href="assets/css/painel.css?v=20261006c">
+<link rel="stylesheet" href="assets/css/tokens.css?v=20261006d">
+<link rel="stylesheet" href="assets/css/painel.css?v=20261006d">
 
 <!-- Bibliotecas de terceiros em cópia local (ver assets/js/vendor/LEIA-ME.txt):
      o painel precisa abrir em máquina sem internet. Se algum arquivo faltar,
      gráficos e exportação avisam a indisponibilidade e o resto continua operando. -->
-<script src="assets/js/vendor/chart.umd.min.js?v=20261006c"></script>
-<script src="assets/js/vendor/html2canvas.min.js?v=20261006c" defer></script>
-<script src="assets/js/vendor/jspdf.umd.min.js?v=20261006c" defer></script>
+<script src="assets/js/vendor/chart.umd.min.js?v=20261006d"></script>
+<script src="assets/js/vendor/html2canvas.min.js?v=20261006d" defer></script>
+<script src="assets/js/vendor/jspdf.umd.min.js?v=20261006d" defer></script>
 </head>
 
 <body>
@@ -197,7 +197,7 @@
     <section class="bloco">
       <div class="bloco__cabecalho">
         <h2 class="bloco__titulo">Propostas desta seleção</h2>
-        <span class="bloco__apoio">Uma linha por proposta — soma os modos que ela contém, conforme os filtros acima</span>
+        <span class="bloco__apoio">Uma linha por proposta, com o que cada uma entrega — a origem dos números mostrados acima</span>
       </div>
       <div class="bloco__corpo">
         <button class="botao" type="button" id="btnAlternarPropostasSelecao"
@@ -242,6 +242,78 @@
       </section>
     </div>
 
+    <!-- Como ler este painel -------------------------------------------------->
+    <section class="bloco">
+      <div class="bloco__cabecalho">
+        <h2 class="bloco__titulo">Como ler este painel</h2>
+        <span class="bloco__apoio">De onde vem cada número e como conferi-lo</span>
+      </div>
+      <div class="bloco__corpo">
+        <button class="botao" type="button" id="btnAlternarComoLer"
+                aria-expanded="false" aria-controls="comoLerCorpo">
+          <span id="comoLerVerbo">Ver</span> explicação dos números
+        </button>
+
+        <div id="comoLerCorpo" class="oculto como-ler">
+          <h3>As três fontes da planilha</h3>
+          <dl class="como-ler__lista">
+            <dt>BASEDEDADOS — uma linha por proposta</dt>
+            <dd>Traz o dinheiro (apoio e valor contratado), a situação do
+                contrato, a localização e o <em>item principal</em> de cada
+                proposta. É a base de todos os valores em R$, do funil, dos
+                mapas e dos gráficos.</dd>
+
+            <dt>Indicadores de Obra — uma linha por empreendimento</dt>
+            <dd>Levantamento do que cada empreendimento entrega: quilômetros,
+                estações, veículos, OAE e assim por diante. É a base do bloco
+                “O que o investimento entrega” e dos cartões de extensão e de
+                material rodante. Um empreendimento pode reunir várias
+                propostas; as quantidades ficam registradas uma única vez, na
+                proposta que o representa.</dd>
+
+            <dt>Lista de Projetos — uma linha por proposta</dt>
+            <dd>É a fonte do <a href="propostas.html">Radar de Propostas</a>.
+                Tem os mesmos 139 registros desta base, conferidos um a um.</dd>
+          </dl>
+
+          <h3>Regras que explicam as diferenças entre os blocos</h3>
+          <ul class="como-ler__regras">
+            <li><strong>Valor por tipologia ≠ valor por entrega.</strong> Cada
+                empreendimento tem uma única tipologia e entra inteiro nela. O
+                dinheiro não é repartido entre as entregas, porque a planilha
+                não traz custo por componente: um corredor com abrigos e
+                estações tem um valor só.</li>
+            <li><strong>Quilômetros e unidades não se somam entre si.</strong>
+                Cada indicador tem a sua própria unidade de medida.</li>
+            <li><strong>Selecionado × Contratado.</strong> No modo Contratado
+                entram apenas as propostas com contrato assinado, e com elas as
+                entregas dos empreendimentos correspondentes.</li>
+            <li><strong>Migrado Novo PAC.</strong> O valor exibido é só a
+                parcela migrada; os quilômetros e as unidades são do
+                empreendimento inteiro; o custo por km usa o apoio federal
+                original.</li>
+            <li><strong>Fora do escopo.</strong> Propostas apenas habilitadas e
+                desistências da habilitação não entram em nenhum número, nem
+                aqui nem no Radar.</li>
+          </ul>
+
+          <h3>Como conferir um número</h3>
+          <ol class="como-ler__passos">
+            <li>No bloco “O que o investimento entrega”, clique na linha do
+                indicador: abre a lista dos empreendimentos que o compõem, com
+                a quantidade de cada um e o número da proposta.</li>
+            <li>Em “Propostas desta seleção”, a coluna <em>Entregas
+                levantadas</em> mostra o que cada proposta entrega; passe o
+                mouse na linha para ver o detalhamento completo.</li>
+            <li>Com o número da proposta, localize o registro no Radar de
+                Propostas e na planilha de origem.</li>
+            <li>Em Exportar › CSV, a base filtrada sai com uma coluna por
+                indicador, para refazer qualquer soma por fora.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <!-- Resumo executivo ------------------------------------------------------>
     <section class="bloco">
       <div class="bloco__cabecalho">
@@ -270,21 +342,21 @@
 
 <!-- Base embutida: permite abrir o arquivo por duplo clique, sem servidor.
      Quando servido por HTTP, dados.json tem precedência (sempre a base mais nova). -->
-<script src="assets/js/dados-embutido.js?v=20261006c"></script>
-<script src="assets/js/geo-uf.js?v=20261006c"></script>
+<script src="assets/js/dados-embutido.js?v=20261006d"></script>
+<script src="assets/js/geo-uf.js?v=20261006d"></script>
 
-<script src="assets/js/nucleo/formato.js?v=20261006c"></script>
-<script src="assets/js/nucleo/dica.js?v=20261006c"></script>
-<script src="assets/js/nucleo/dados.js?v=20261006c"></script>
+<script src="assets/js/nucleo/formato.js?v=20261006d"></script>
+<script src="assets/js/nucleo/dica.js?v=20261006d"></script>
+<script src="assets/js/nucleo/dados.js?v=20261006d"></script>
 
-<script src="assets/js/componentes/indicadores.js?v=20261006c"></script>
-<script src="assets/js/componentes/funil.js?v=20261006c"></script>
-<script src="assets/js/componentes/infraestrutura.js?v=20261006c"></script>
-<script src="assets/js/componentes/graficos.js?v=20261006c"></script>
-<script src="assets/js/componentes/mapa.js?v=20261006c"></script>
-<script src="assets/js/componentes/tabelas.js?v=20261006c"></script>
-<script src="assets/js/componentes/exportar.js?v=20261006c"></script>
+<script src="assets/js/componentes/indicadores.js?v=20261006d"></script>
+<script src="assets/js/componentes/funil.js?v=20261006d"></script>
+<script src="assets/js/componentes/infraestrutura.js?v=20261006d"></script>
+<script src="assets/js/componentes/graficos.js?v=20261006d"></script>
+<script src="assets/js/componentes/mapa.js?v=20261006d"></script>
+<script src="assets/js/componentes/tabelas.js?v=20261006d"></script>
+<script src="assets/js/componentes/exportar.js?v=20261006d"></script>
 
-<script src="assets/js/painel.js?v=20261006c"></script>
+<script src="assets/js/painel.js?v=20261006d"></script>
 </body>
 </html>
