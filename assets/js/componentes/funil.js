@@ -1,7 +1,7 @@
 /* ============================================================================
    COMPONENTE / FUNIL — progressão das propostas entre etapas
    ----------------------------------------------------------------------------
-   Etapas: Habilitadas -> Selecionadas -> Contratadas -> Em execução
+   Etapas: Selecionadas -> Contratadas -> Em execução
 
    Proporcionalidade (implementada desde a v1):
      largura da barra = valor da etapa / valor da maior etapa
@@ -155,8 +155,6 @@ window.PG = window.PG || {};
       nota = 'Composição: ' + c.map(function (x) {
         return x.nome.toLowerCase() + ' ' + F.inteiro(x.quantidade);
       }).join(' · ') + '.';
-    } else if (etapa.chave === 'habilitada') {
-      nota = 'Propostas habilitadas que ainda não passaram pela seleção final.';
     } else if (etapa.chave === 'contratado') {
       nota = 'Inclui contratação parcial, em licitação e concluída.';
     } else {
