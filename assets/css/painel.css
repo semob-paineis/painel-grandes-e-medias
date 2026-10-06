@@ -439,6 +439,15 @@ main { padding: var(--e6) 0 var(--e10); }
 .infra__cabecalho span:nth-child(3),
 .infra__cabecalho span:nth-child(4) { text-align: right; }
 
+/* Aba "Todas as entregas": linhas sem filtro cruzado e títulos de grupo */
+.infra__linha--estatica { cursor: default; }
+.infra__grupo {
+  margin: var(--e4) var(--e2) var(--e1);
+  font-size: var(--texto-2xs); font-weight: 700;
+  color: var(--texto-suave); letter-spacing: .05em; text-transform: uppercase;
+}
+.infra__grupo:first-of-type { margin-top: var(--e2); }
+
 /* Alternador de métrica do componente (extensão / unidades / investimento) */
 .infra__metricas { display: flex; gap: var(--e2); align-items: center; }
 
@@ -531,13 +540,13 @@ table.tabela tfoot td {
 }
 .selo--contratados  { background: #e3edfd; color: #0c326f; }
 .selo--acontratar   { background: #fdf0d8; color: #7a5410; }
-.selo--habilitados  { background: #eef1f6; color: #46536b; }
+.selo--migrado      { background: #fdf0d8; color: #7a5410; margin-left: 6px; }
 .selo--desistencias { background: #fbe4de; color: #8e2f1c; }
 .selo--indefinido   { background: #eef1f6; color: #64748b; }
 
 html[data-tema="escuro"] .selo--contratados  { background: #16305c; color: #b8d2fb; }
 html[data-tema="escuro"] .selo--acontratar   { background: #453619; color: #f3d193; }
-html[data-tema="escuro"] .selo--habilitados  { background: #232d42; color: #b3bece; }
+html[data-tema="escuro"] .selo--migrado      { background: #453619; color: #f3d193; }
 html[data-tema="escuro"] .selo--desistencias { background: #4a2018; color: #f5b6a6; }
 
 /* ------------------------------------------------------ 11. TOOLTIP */
@@ -587,6 +596,8 @@ html[data-tema="escuro"] .selo--desistencias { background: #4a2018; color: #f5b6
 }
 .aviso--mock { background: #fdf0d8; color: #7a5410; border: 1px solid #e8c98a; }
 .aviso--info { background: var(--fundo-realce); color: var(--gov-azul-escuro); border: 1px solid #c5d9f7; }
+.aviso--migrado { background: #fdf0d8; color: #7a5410; border: 1px solid #e8c98a; line-height: 1.45; }
+html[data-tema="escuro"] .aviso--migrado { background: #453619; color: #f3d193; border-color: #6b5426; }
 html[data-tema="escuro"] .aviso--info { background: #1a2942; color: #b8d2fb; border-color: #2c4570; }
 
 .resumo p + p { margin-top: var(--e3); }
