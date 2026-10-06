@@ -116,6 +116,7 @@
   <div class="container" id="areaExportavel">
 
     <div class="aviso aviso--mock oculto" id="avisoMock" role="status"></div>
+    <div class="aviso aviso--migrado oculto" id="avisoMigrado" role="note"></div>
 
     <!-- Indicadores -------------------------------------------------------->
     <section class="grade grade--indicadores" id="indicadores"
@@ -125,7 +126,7 @@
     <section class="bloco">
       <div class="bloco__cabecalho">
         <h2 class="bloco__titulo">O que o investimento entrega</h2>
-        <span class="bloco__apoio">Extensão, unidades e valor por modo de transporte</span>
+        <span class="bloco__apoio">Tudo o que as obras entregam — e extensão, unidades e valor por modo de transporte</span>
         <div class="bloco__acoes infra__metricas">
           <div class="segmentado" id="metricaInfra" role="group"
                aria-label="Métrica exibida"></div>
@@ -133,10 +134,9 @@
       </div>
       <div class="bloco__corpo">
         <div class="infra" id="infraestrutura"></div>
-        <p class="bloco__apoio" style="margin-top:16px">
-          Clique em um modo para filtrar todo o painel por ele. Modos medidos em
-          quilômetros e modos medidos em unidades não se somam entre si.
-        </p>
+        <p class="bloco__apoio" id="infraNota" style="margin-top:16px"></p>
+        <div class="aviso aviso--migrado oculto" id="infraAvisoMigrado" role="note"
+             style="margin:12px 0 0"></div>
       </div>
     </section>
 

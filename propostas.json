@@ -1,9 +1,9 @@
 {
  "meta": {
-  "dataAtualizacao": "09/09/2026",
-  "geradoEm": "2026-09-09T12:28:59-03:00",
-  "origem": "teste_grandes_e_medias_0909_v3.xlsx",
-  "total": 171,
+  "dataAtualizacao": "06/10/2026",
+  "geradoEm": "2026-10-06T12:30:40-03:00",
+  "origem": "projeto_grandes_e_medias_INDICADORES_06102026_FINAL.xlsx",
+  "total": 139,
   "colunas": [
    {
     "chave": "grupo",
@@ -49,10 +49,10 @@
    },
    {
     "chave": "apoio",
-    "titulo": "Apoio (R$)",
+    "titulo": "Apoio federal (R$)",
     "tipo": "moeda",
     "filtro": false,
-    "largura": "140px"
+    "largura": "150px"
    },
    {
     "chave": "valorContratado",
@@ -60,6 +60,13 @@
     "tipo": "moeda",
     "filtro": false,
     "largura": "140px"
+   },
+   {
+    "chave": "pctMigrado",
+    "titulo": "Migrado ao Novo PAC",
+    "tipo": "percentual",
+    "filtro": false,
+    "largura": "120px"
    },
    {
     "chave": "situacao",
@@ -86,12 +93,12 @@
     "descricao": "Selecionada, em ação preparatória para contratação"
    },
    {
-    "grupo": "Habilitados",
-    "descricao": "Habilitada, aguardando análise de crédito e seleção final"
-   },
-   {
     "grupo": "Desistências",
     "descricao": "Desistência e cancelamento, em qualquer etapa"
+   },
+   {
+    "grupo": "Migrado",
+    "descricao": "Empreendimento vindo de programa anterior: o apoio federal é o investimento original do empreendimento; o contratado é só a parcela migrada ao Novo PAC"
    }
   ],
   "resumo": [
@@ -108,15 +115,9 @@
     "contratado": 0.0
    },
    {
-    "grupo": "Habilitados",
-    "quantidade": 29,
-    "apoio": 8983093281.31,
-    "contratado": 0.0
-   },
-   {
     "grupo": "Desistências",
-    "quantidade": 10,
-    "apoio": 3011287449.45,
+    "quantidade": 7,
+    "apoio": 342184754.02,
     "contratado": 0.0
    }
   ]
@@ -131,11 +132,11 @@
    "empreendimento": "Expansão do sistema metroviário Salvador Lauro de Freitas - SMSL no sentido sul da cidade de Salvador, com objetivo de ligar a estação da Lapa, no bairro da Piedade, aos bairros do Campo Grande, Garcia e Vitória, com extensão de 1,2 km, em via subterrânea e adição de uma estação, a ser localizada no Largo do Campo Grande (Praça 2 de Julho)",
    "apoio": 1518586194.68,
    "valorContratado": 1518586194.68,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -146,11 +147,11 @@
    "empreendimento": "Implantação de extensão da avenida Litorânea com faixas exclusivas para o transporte público",
    "apoio": 237082848.6,
    "valorContratado": 237082848.6,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -161,11 +162,11 @@
    "empreendimento": "Extensão da linha 2 verde do metrô trecho vila Prudente-Penha e Penha-Guarulhos",
    "apoio": 7200000000.0,
    "valorContratado": 6000000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em andamento",
    "situacaoExecucao": "Obra em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -176,11 +177,11 @@
    "empreendimento": "Elaboração de Projeto para construção da linha 3 do metrô do Rio de Janeiro",
    "apoio": 20000000.0,
    "valorContratado": 20000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Suspensiva retirada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -191,11 +192,11 @@
    "empreendimento": "Construção do BRT Norte: ligação Plano Piloto até Planaltina",
    "apoio": 1500000000.0,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -206,11 +207,11 @@
    "empreendimento": "Expansão do metrô de Samambaia",
    "apoio": 400000000.0,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -221,11 +222,11 @@
    "empreendimento": "BRT-Luziânia: Sistema de Transporte Rápido de Passageiros entre Luziânia (GO) e a Região Administrativa de Santa Maria (DF).",
    "apoio": 975000000.0,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "TC em formalização",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -236,11 +237,11 @@
    "empreendimento": "Complementação para implantação da linha leste do metrô de Fortaleza – fase 1",
    "apoio": 1148000000.0,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -251,11 +252,11 @@
    "empreendimento": "Implantação BRT Eixo Sudoeste",
    "apoio": 925313997.84,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -266,11 +267,11 @@
    "empreendimento": "BRT radial leste - trecho 1: terminal Parque Dom Pedro a estação Penha do metrô",
    "apoio": 386000000.0,
    "valorContratado": 386000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em resolutiva",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -281,11 +282,11 @@
    "empreendimento": "Construção de edificação e aquisição de mobiliário e equipamentos para centro de controle operacional de transporte municipal - CCO",
    "apoio": 21000000.0,
    "valorContratado": 15403000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em resolutiva",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -296,11 +297,11 @@
    "empreendimento": "Metrô SP - extensão da linha 5 lilás - trecho: Capão Redondo e Jardim Ângela",
    "apoio": 1736500000.0,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -311,11 +312,11 @@
    "empreendimento": "Faixas exclusivas em diversas ruas do município de Belo Horizonte",
    "apoio": 132518987.83,
    "valorContratado": 132518987.83,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -326,11 +327,11 @@
    "empreendimento": "VLT Niterói",
    "apoio": 182152974.66,
    "valorContratado": 182152974.66,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em resolutiva",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -341,11 +342,11 @@
    "empreendimento": "Semáforos inteligentes para aumento da eficiência do BRT de Sorocaba",
    "apoio": 25000000.0,
    "valorContratado": 25000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em resolutiva",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -356,11 +357,11 @@
    "empreendimento": "Obras emergenciais de recuperação de vias da CBTU",
    "apoio": 136100000.0,
    "valorContratado": 136100000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -371,11 +372,11 @@
    "empreendimento": "Fornecimento e implantação dos sistemas de telecomunicações e sinalização do VLT de Salvador e Simões Filho",
    "apoio": 154864809.03,
    "valorContratado": 154864809.03,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -386,11 +387,11 @@
    "empreendimento": "Implantação do corredor de transporte público da BR 116 / CE",
    "apoio": 51361060.26,
    "valorContratado": 50000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -401,11 +402,11 @@
    "empreendimento": "CCO - Cascavel",
    "apoio": 12149619.24,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Desistência",
    "situacaoExecucao": "Desistência",
-   "grupo": "Desistências",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Desistências"
   },
   {
    "classificacao": "Selecionada",
@@ -416,11 +417,11 @@
    "empreendimento": "Corredor de ônibus - Av. Carlos Lindenberg",
    "apoio": 0.0,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -431,11 +432,11 @@
    "empreendimento": "Estudos de estruturação - VLT Centro Cívico/Aeroporto",
    "apoio": 0.0,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -446,11 +447,11 @@
    "empreendimento": "Elaboração de Projetos - corredor de ônibus - central",
    "apoio": 1200000.0,
    "valorContratado": 1200000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -461,11 +462,11 @@
    "empreendimento": "Elaboração de Projetos - corredor de ônibus - norte e leste",
    "apoio": 6300000.0,
    "valorContratado": 6300000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -476,11 +477,11 @@
    "empreendimento": "Elaboração de Projetos - corredor de ônibus - extremo norte e sul",
    "apoio": 12600000.0,
    "valorContratado": 12600000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -491,11 +492,11 @@
    "empreendimento": "Elaboração de Projetos - corredores alimentadores do eixo estruturante de Cuiabá",
    "apoio": 15709500.0,
    "valorContratado": 15709500.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -506,11 +507,11 @@
    "empreendimento": "Implantação de faixa exclusiva, ponte, abrigos, terminal, calçadas, ciclovias e sinalização",
    "apoio": 185909598.81,
    "valorContratado": 185909598.81,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -521,11 +522,11 @@
    "empreendimento": "Eletroterminal de recarga em São Raimundo",
    "apoio": 24900000.0,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Cancelada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Desistências",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Desistências"
   },
   {
    "classificacao": "Selecionada",
@@ -536,11 +537,11 @@
    "empreendimento": "Faixa exclusiva - Barão - Zaira",
    "apoio": 70747653.86,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Cancelada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Desistências",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Desistências"
   },
   {
    "classificacao": "Selecionada",
@@ -551,11 +552,11 @@
    "empreendimento": "Construção de Garagem e Ponto de Recarga de ônibus elétrico",
    "apoio": 27806522.52,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Cancelada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Desistências",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Desistências"
   },
   {
    "classificacao": "Selecionada",
@@ -566,11 +567,11 @@
    "empreendimento": "Corredor de Ônibus Miguel Yunes",
    "apoio": 178580958.4,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Cancelada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Desistências",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Desistências"
   },
   {
    "classificacao": "Selecionada",
@@ -581,11 +582,11 @@
    "empreendimento": "Faixa exclusiva - implantação nas av Santos Dumont e Giovanni Pirelli",
    "apoio": 37782000.02,
    "valorContratado": 37782000.02,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -596,11 +597,11 @@
    "empreendimento": "Elaboração de Estudos - VLT Bauru",
    "apoio": 1500000.0,
    "valorContratado": 1500000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -611,11 +612,11 @@
    "empreendimento": "Obras de implantação / requalificação de corredores exclusivos de ônibus: norte-sul e Leste-Oeste na região metropolitana de Recife",
    "apoio": 258770561.53,
    "valorContratado": 258770561.53,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -626,11 +627,11 @@
    "empreendimento": "Faixa exclusiva - av Robert Kennedy",
    "apoio": 58997747.84,
    "valorContratado": 58997747.84,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -641,11 +642,11 @@
    "empreendimento": "Elaboração de Estudos e Projetos do terminal vila São Pedro e centro de controle operacional - CCO",
    "apoio": 2371711.73,
    "valorContratado": 2371711.73,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -656,11 +657,11 @@
    "empreendimento": "Elaboração de Projetos - terminais e requalificação do entorno - município de Campo Grande",
    "apoio": 1512033.7,
    "valorContratado": 1512033.7,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -671,11 +672,11 @@
    "empreendimento": "Faixa exclusiva - Barão - Zaira",
    "apoio": 76170083.52,
    "valorContratado": 76170083.52,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -686,11 +687,11 @@
    "empreendimento": "Elaboração de Projetos básico e executivo para a construção do terminal Campo Belo e remodelação do terminal Amarais",
    "apoio": 2587603.99,
    "valorContratado": 2587603.99,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -701,11 +702,11 @@
    "empreendimento": "Corredor de ônibus na área central",
    "apoio": 54754841.38,
    "valorContratado": 54754841.38,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -716,11 +717,11 @@
    "empreendimento": "Implantação de faixas exclusivas, abrigos, ciclovias ciclofaixas e requalificação de calçadas",
    "apoio": 174390000.0,
    "valorContratado": 174390000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -731,11 +732,11 @@
    "empreendimento": "Elaboração de Estudos e Projetos - corredor interligação linha Pimentas",
    "apoio": 8000000.0,
    "valorContratado": 8000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -746,11 +747,11 @@
    "empreendimento": "BRT na BR-116 entre Curitiba, Fazenda Rio Grande e Colombo",
    "apoio": 3000000.0,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Cancelada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Desistências",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Desistências"
   },
   {
    "classificacao": "Selecionada",
@@ -761,11 +762,11 @@
    "empreendimento": "Estudos e Projetos - corredores av 24 de outubro, av T63, av Independência, av 85, av Mutirão",
    "apoio": 3522624.03,
    "valorContratado": 3522624.03,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -776,11 +777,11 @@
    "empreendimento": "Corredor de ônibus - ligação terceira ponte ao corredor da av Carlos Lindenberg",
    "apoio": 143244700.7,
    "valorContratado": 143244700.7,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -791,11 +792,11 @@
    "empreendimento": "Corredor de ônibus - trecho: av das Fronteiras até a BR-101 sul",
    "apoio": 33000000.0,
    "valorContratado": 33000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Suspensiva retirada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -806,11 +807,11 @@
    "empreendimento": "Estudos e Projetos - corredor av Dr João Medeiros Filho",
    "apoio": 868533.54,
    "valorContratado": 868533.54,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -821,11 +822,11 @@
    "empreendimento": "Elaboração de Estudos e Projetos - faixa exclusiva - avenida Engenheiro Roberto Freire",
    "apoio": 979812.56,
    "valorContratado": 979812.56,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -836,11 +837,11 @@
    "empreendimento": "Elaboração de Projeto do corredor de transporte na localidade do bairro Jardim Petrópolis, Maceió",
    "apoio": 600000.0,
    "valorContratado": 600000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -851,11 +852,11 @@
    "empreendimento": "Tratamento viário para implantação de sistema BRS em corredores emergenciais na região metropolitana de Belo Horizonte (RMBH)",
    "apoio": 125565147.7,
    "valorContratado": 125565147.7,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -866,11 +867,11 @@
    "empreendimento": "Elaboração de Projetos para o corredor de ônibus – norte e sul",
    "apoio": 12809700.0,
    "valorContratado": 12809700.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -881,11 +882,11 @@
    "empreendimento": "Implantação do corredor de transporte público da BR 116 / CE",
    "apoio": 76132078.76,
    "valorContratado": 76132078.76,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -896,11 +897,11 @@
    "empreendimento": "Implantação do centro de controle e de operações – CCO do transporte público coletivo por ônibus no município de Maceió",
    "apoio": 3487092.86,
    "valorContratado": 3487092.86,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -911,11 +912,11 @@
    "empreendimento": "Novo PAC - mobilidade urbana sustentável - mobilidade grandes e médias cidades - VLT de Niterói",
    "apoio": 273229462.0,
    "valorContratado": 273229462.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em suspensiva",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -926,11 +927,11 @@
    "empreendimento": "Elaboração de Projetos - faixa exclusiva na av Hilton Souto Maior",
    "apoio": 1584333.9,
    "valorContratado": 1584333.9,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -941,11 +942,11 @@
    "empreendimento": "Elaboração de Projetos - faixa exclusiva nas av Hilton Souto Maior e av Epitácio Pessoa",
    "apoio": 4243634.88,
    "valorContratado": 4243634.88,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -956,11 +957,11 @@
    "empreendimento": "Elaboração de Projetos - faixa exclusiva nas av Dois de Fevereiro, av Epitácio Pessoa e av Tancredo Neves",
    "apoio": 4866723.42,
    "valorContratado": 4866723.42,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -971,11 +972,11 @@
    "empreendimento": "Faixa exclusiva - implantação na av Ruyce Alvim e rua Antônio Adorno",
    "apoio": 64696757.15,
    "valorContratado": 64696757.15,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Suspensiva retirada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -986,11 +987,11 @@
    "empreendimento": "Elaboração e adequação de projetos executivos para reabilitação das avenidas Dilson de Oliveira e Carmelita Drumond Diniz, compatibilizando com o corredor de transporte urbano norte sul, com a implantação de três estações - tipo b do BRT",
    "apoio": 33216000.0,
    "valorContratado": 33216000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em licitação",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1001,11 +1002,11 @@
    "empreendimento": "Implantação de terminal de ônibus na av Tancredo Neves",
    "apoio": 20145801.94,
    "valorContratado": 20145801.94,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1016,11 +1017,11 @@
    "empreendimento": "Elaboração de Projetos - corredor de ônibus - corredor norte / industrial",
    "apoio": 1953000.0,
    "valorContratado": 1953000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1031,11 +1032,11 @@
    "empreendimento": "Estudos e Projetos para mobilidade urbana nos municípios do Consórcio ABC",
    "apoio": 41497626.91,
    "valorContratado": 41497626.91,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1046,11 +1047,11 @@
    "empreendimento": "Elaboração do anteprojeto do VLT trecho Comércio x Ribeira com integração ao VLT do subúrbio pela estação da Calçada",
    "apoio": 990000.0,
    "valorContratado": 990000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1061,11 +1062,11 @@
    "empreendimento": "Implantação e requalificação de terminais e implantação de abrigos no sistema de TPC",
    "apoio": 69116979.6,
    "valorContratado": 69116979.6,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1076,11 +1077,11 @@
    "empreendimento": "Construção de cinco terminais de transporte público no município de Natal",
    "apoio": 63749412.01,
    "valorContratado": 63749412.01,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Suspensiva retirada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1091,11 +1092,11 @@
    "empreendimento": "Estudos e Projetos - VLT de Campina Grande",
    "apoio": 7230000.0,
    "valorContratado": 7230000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1106,11 +1107,11 @@
    "empreendimento": "Elaboração de Anteprojeto de expansão do VLT de Salvador e RMS - trecho Ilha de São João - Mapele Camaçari - Alagoinhas",
    "apoio": 16084250.0,
    "valorContratado": 16084250.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Suspensiva retirada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1121,11 +1122,11 @@
    "empreendimento": "Projeto, fornecimento e implantação dos sistemas de telecomunicações e sinalização para atender ao VLT Ilha de São João até Calçada e Paripe até Piatã",
    "apoio": 150000000.0,
    "valorContratado": 150000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1136,11 +1137,11 @@
    "empreendimento": "Elaboração de Projetos - requalificação do corredor na av Bezerra de Menezes e implantação de corredor na av Mr Hull",
    "apoio": 2560844.0,
    "valorContratado": 2560844.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Suspensiva retirada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1151,11 +1152,11 @@
    "empreendimento": "Corredor de ônibus - requalificação av Nevaldo Rocha",
    "apoio": 24666881.57,
    "valorContratado": 24666881.57,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1166,11 +1167,11 @@
    "empreendimento": "Estudos e Projetos - implementação do sistema de transporte coletivo eixo Águas Lindas de Goiás/DF",
    "apoio": 7850000.0,
    "valorContratado": 7850000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1181,11 +1182,11 @@
    "empreendimento": "Complementação para implantação da linha leste do metrô de Fortaleza – fase 1",
    "apoio": 1000000000.0,
    "valorContratado": 1000000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1196,11 +1197,11 @@
    "empreendimento": "Requalificação - trem urbano de Teresina",
    "apoio": 237924958.98,
    "valorContratado": 237924958.98,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1211,11 +1212,11 @@
    "empreendimento": "Reconstrução com ampliação de dois terminais de integração – terminais Campo Comprido e Centenário",
    "apoio": 95000000.0,
    "valorContratado": 95000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1226,11 +1227,11 @@
    "empreendimento": "Elaboração de Projetos - expansão do BRT Transbrasil de Deodoro à Santa Cruz",
    "apoio": 42116100.0,
    "valorContratado": 42116100.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1241,11 +1242,11 @@
    "empreendimento": "Implantação e requalificação de terminais aquaviários da grande Vitória",
    "apoio": 30000000.0,
    "valorContratado": 30000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1256,11 +1257,11 @@
    "empreendimento": "Implantação de faixa exclusiva - trecho 1: caminho do meio e projetos para os trechos 1 e 2",
    "apoio": 25000000.0,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Desistência",
    "situacaoExecucao": "Desistência",
-   "grupo": "Desistências",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Desistências"
   },
   {
    "classificacao": "Selecionada",
@@ -1271,11 +1272,11 @@
    "empreendimento": "BRT de Florianópolis - trechos 1 e 2 (Titri até Saco dos Limões) e faixa exclusiva na av Mauro Ramos",
    "apoio": 159150000.0,
    "valorContratado": 159150000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em licitação",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1286,11 +1287,11 @@
    "empreendimento": "Reforma e ampliação do terminal central de Araucária",
    "apoio": 19889772.56,
    "valorContratado": 19889772.56,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Suspensiva retirada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1301,11 +1302,11 @@
    "empreendimento": "Elaboração de Projetos - implantação e requalificação de terminais",
    "apoio": 2700000.0,
    "valorContratado": 2700000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1316,11 +1317,11 @@
    "empreendimento": "Implantação de corredor de transporte publico coletivo por ônibus em Palmas - trecho 1 e 2",
    "apoio": 169000000.0,
    "valorContratado": 169000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/VRPL Emitido",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1331,11 +1332,11 @@
    "empreendimento": "Implantação de centro de controle operacional para o transporte coletivo - CCO",
    "apoio": 7800000.0,
    "valorContratado": 7800000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/VRPL Emitido",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1346,11 +1347,11 @@
    "empreendimento": "Elaboração de Projetos - faixas exclusivas no município de Campos dos Goytacazes",
    "apoio": 5628000.0,
    "valorContratado": 5628000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1361,11 +1362,11 @@
    "empreendimento": "Elaboração de Projetos - implantação de abrigos, terminais, ciclofaixas e faixas exclusivas",
    "apoio": 3045000.0,
    "valorContratado": 3045000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/VRPL Emitido",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1376,11 +1377,11 @@
    "empreendimento": "Elaboração de Projetos - faixa exclusiva - Cachoeirinha",
    "apoio": 2175333.84,
    "valorContratado": 2175333.84,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação/Edital publicado",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1391,86 +1392,11 @@
    "empreendimento": "Elaboração de Estudos e Projetos para o sistema de transporte coletivo da av Norte",
    "apoio": 2878972.34,
    "valorContratado": 2878972.34,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "BA",
-   "municipio": "Salvador, Bahia",
-   "proponente": "Estado da Bahia",
-   "empreendimento": "Expansão Oeste do VLT - Corredor de Veículo Leve sobre Trilhos (VLT), interligando Cidade Baixa a Cidade Alta",
-   "apoio": 574604779.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": null,
-   "tipo": "Grandes e Médias",
-   "uf": "BA",
-   "municipio": "Salvador, Bahia",
-   "proponente": "Prefeitura de Salvador",
-   "empreendimento": "Túnel de Pedestres para Acesso ao Metrô Comércio - Pelourinho",
-   "apoio": 448902695.43,
-   "valorContratado": 0.0,
-   "situacao": "Desistência da Habilitação",
-   "situacaoExecucao": "Desistência da habilitação",
-   "grupo": "Desistências",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "MA",
-   "municipio": "São Luís, Maranhão",
-   "proponente": "Prefeitura de São Luís",
-   "empreendimento": "Modernização e Integração do Sistema de Transporte Público em São Luís",
-   "apoio": 269727424.52,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "MG",
-   "municipio": "Belo Horizonte",
-   "proponente": "Concessionária Metrô BH SA",
-   "empreendimento": "Ampliação da Linha 1 do metrô de BH - Trecho: Novo Eldorado e Beatriz",
-   "apoio": 1022000000.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "MG",
-   "municipio": "Ipatinga",
-   "proponente": "Prefeitura de Ipatinga",
-   "empreendimento": "Implantação de terminais de integração no município de Ipatinga",
-   "apoio": 39928417.78,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1481,86 +1407,11 @@
    "empreendimento": "Implantação de abrigos de ônibus no município de Poços de Caldas",
    "apoio": 22224157.5,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "MT",
-   "municipio": "Rondonópolis",
-   "proponente": "Prefeitura de Rondonópolis",
-   "empreendimento": "Implantação de ciclovia e faixas exclusivas de ônibus no município de Rondonópolis",
-   "apoio": 22315469.61,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "PA",
-   "municipio": "Parauapebas",
-   "proponente": "Prefeitura de Parauapebas",
-   "empreendimento": "Abrigos de ônibus em Parauapebas",
-   "apoio": 20557161.52,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "PI",
-   "municipio": "Teresina",
-   "proponente": "Estado do Piauí",
-   "empreendimento": "Projeto de expansão do trem urbano de Teresina",
-   "apoio": 50463468.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "PI",
-   "municipio": "Teresina",
-   "proponente": "Estado do Piauí",
-   "empreendimento": "Modernização de 18,1 km da Linha Sudoeste do trem urbano de Teresina",
-   "apoio": 103503171.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": null,
-   "tipo": "Grandes e Médias",
-   "uf": "PR",
-   "municipio": "Curitiba",
-   "proponente": "Estado do Paraná",
-   "empreendimento": "VLT Centro Cívico - Aeroporto",
-   "apoio": 2200000000.0,
-   "valorContratado": 0.0,
-   "situacao": "Desistência da Habilitação",
-   "situacaoExecucao": "Desistência da habilitação",
-   "grupo": "Desistências",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -1571,26 +1422,11 @@
    "empreendimento": "Semáforos inteligentes para priorização do transporte público coletivo",
    "apoio": 30587544.36,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "RS",
-   "municipio": "Porto Alegre",
-   "proponente": "Prefeitura de Porto Alegre",
-   "empreendimento": "Reforma com ampliação de 2 terminais para o transporte coletivo",
-   "apoio": 46700575.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -1601,11 +1437,11 @@
    "empreendimento": "Implantação de Centro de Controle Operacional e abrigos em paradas de ônibus",
    "apoio": 25953853.7,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -1616,41 +1452,11 @@
    "empreendimento": "Faixa exclusiva - Binário Rua Monsenhor Gercino e Rua Florianópolis",
    "apoio": 95306261.24,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "SP",
-   "municipio": "Bragança Paulista",
-   "proponente": "Prefeitura de Bragança Paulista",
-   "empreendimento": "Requalificação de terminais e implantação de abrigos para ponto de ônibus",
-   "apoio": 22990000.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "SP",
-   "municipio": "Embu das Artes",
-   "proponente": "Prefeitura de Embu das Artes",
-   "empreendimento": "Implantação de abrigos de ônibus no município de Embu das Artes",
-   "apoio": 21198000.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -1661,11 +1467,11 @@
    "empreendimento": "Implantação e qualificação de infraestrutura cicloviária e terminais de ônibus",
    "apoio": 25660327.3,
    "valorContratado": 25660327.3,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Não iniciada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1676,11 +1482,11 @@
    "empreendimento": "Corredor de ônibus - Montanhão",
    "apoio": 62653460.82,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -1691,41 +1497,11 @@
    "empreendimento": "Corredor de ônibus - 31 de março",
    "apoio": 45715326.44,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "SP",
-   "municipio": "São Carlos",
-   "proponente": "Prefeitura de São Carlos",
-   "empreendimento": "Implantação de terminais de integração de transporte público coletivo",
-   "apoio": 22593194.5,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "SP",
-   "municipio": "São Carlos",
-   "proponente": "Prefeitura de São Carlos",
-   "empreendimento": "Implantação de abrigos de ônibus no município de São Carlos",
-   "apoio": 19190000.59,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -1736,161 +1512,11 @@
    "empreendimento": "Áreas de Integração do Novo Sistema de Transporte Público Coletivo de São José dos Campos",
    "apoio": 48264165.21,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "SP",
-   "municipio": "São José dos Campos",
-   "proponente": "Prefeitura de São José dos Campos",
-   "empreendimento": "Abrigos para pontos de parada do transporte público",
-   "apoio": 21088100.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "SP",
-   "municipio": "Sorocaba",
-   "proponente": "Prefeitura de Sorocaba",
-   "empreendimento": "Corredor Norte/Industrial",
-   "apoio": 293621459.57,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "SP",
-   "municipio": "Sorocaba",
-   "proponente": "Prefeitura de Sorocaba",
-   "empreendimento": "Ampliação e reforma de rede cicloviária existente",
-   "apoio": 22885923.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "TO",
-   "municipio": "Palmas, Tocantins",
-   "proponente": "Prefeitura de Palmas",
-   "empreendimento": "Implantação de corredor na região Centro-Norte",
-   "apoio": 413114840.87,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "TO",
-   "municipio": "Palmas, Tocantins",
-   "proponente": "Prefeitura de Palmas",
-   "empreendimento": "Implantação de infraestrutura cicloviária interligada ao transporte público nas regiões Norte (Arnos e Arnes) e Sul (Aureny III)",
-   "apoio": 29041500.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "TO",
-   "municipio": "Palmas, Tocantins",
-   "proponente": "Prefeitura de Palmas",
-   "empreendimento": "Implantação, substituição, adequação e realocação de abrigos de passageiros em pontos de parada de ônibus",
-   "apoio": 28721117.4,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "GO",
-   "municipio": "Anápolis",
-   "proponente": "Prefeitura de Anápolis",
-   "empreendimento": "Construção de terminais de integração e requalificação de Corredores",
-   "apoio": 174261981.86,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "MA",
-   "municipio": "Imperatriz",
-   "proponente": "Prefeitura de Imperatriz",
-   "empreendimento": "Requalificação e implantação de terminais de ônibus e implantação de estações e paradas de ônibus",
-   "apoio": 20900000.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "PB",
-   "municipio": "Campina Grande",
-   "proponente": "Prefeitura de Campina Grande",
-   "empreendimento": "Implantação de sistema VLT contemplando aquisição de material rodante, estações, oficina de manutenção e CCO",
-   "apoio": 226074388.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "SE",
-   "municipio": "Nossa Senhora do Socorro",
-   "proponente": "Prefeitura de Nossa Senhora do Socorro",
-   "empreendimento": "Abrigos, ciclovias e terminais",
-   "apoio": 37800752.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -1901,11 +1527,11 @@
    "empreendimento": "Aquisição Trens BH",
    "apoio": 60000000.0,
    "valorContratado": 60000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1916,11 +1542,11 @@
    "empreendimento": "Reforma de estaçãoes",
    "apoio": 57745653.93,
    "valorContratado": 57745653.93,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1931,11 +1557,11 @@
    "empreendimento": "Cessão de Trens Unidade Elétrica (TUEs) da Trensurb para a CBTU/PE",
    "apoio": 25000000.0,
    "valorContratado": 25000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1946,11 +1572,11 @@
    "empreendimento": "Complexo Viário entre Aracaju e Barra dos Coqueiros no Estado de Sergipe",
    "apoio": 838375230.55,
    "valorContratado": 838375230.55,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1961,11 +1587,11 @@
    "empreendimento": "Recuperação do Sistema Aeromóvel da Trensurb em Porto Alegre",
    "apoio": 38707120.0,
    "valorContratado": 38707120.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Não iniciada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1976,11 +1602,11 @@
    "empreendimento": "Modernização do Trem Urbano de Teresina - Etapa 1",
    "apoio": 217000000.0,
    "valorContratado": 217000000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -1991,11 +1617,11 @@
    "empreendimento": "Requalificação da Linha 7 Rubi no escopo da PPP do Trem Intercidades",
    "apoio": 1425000000.0,
    "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Em ação preparatória",
    "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "A contratar"
   },
   {
    "classificacao": "Selecionada",
@@ -2006,116 +1632,11 @@
    "empreendimento": "Implementação de Binário e Modernização Semafórica em Natal/RN",
    "apoio": 24900000.0,
    "valorContratado": 24900000.0,
+   "migrado": false,
+   "pctMigrado": null,
    "situacao": "Contratada",
    "situacaoExecucao": "Em execução",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": null,
-   "tipo": "Grandes e Médias",
-   "uf": "MS",
-   "municipio": "Dourados",
-   "proponente": "Município de Dourados",
-   "empreendimento": "500 abrigos, sendo 450 do tipo simples e 50 do tipo miniterminal",
-   "apoio": 20200000.0,
-   "valorContratado": 0.0,
-   "situacao": "Desistência da Habilitação",
-   "situacaoExecucao": "Desistência da habilitação",
-   "grupo": "Desistências",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "RO",
-   "municipio": "Porto Velho",
-   "proponente": "Município de Porto Velho",
-   "empreendimento": "Implantação de 500 abrigos de ônibus acessíveis em Porto Velho, visando melhorar o conforto, a segurança e a infraestrutura do transporte coletivo urbano",
-   "apoio": 21375000.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "SP",
-   "municipio": "Jacareí",
-   "proponente": "Município de Jacarei",
-   "empreendimento": "Requalificação e modernização da infraestrutura do transporte público coletivo urbano do Município de Jacareí/SP - abrigos, terminais, estações, calçadas, ciclovias e bicicletários/paraciclos",
-   "apoio": 20635505.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "SP",
-   "municipio": "São Paulo",
-   "proponente": "Concessionária Terminais Bloco Leste SPE AS",
-   "empreendimento": "Terminais Bloco Leste SP: Requalificação de 13 terminais e 6 estações do Corredor Expresso Tiradentes",
-   "apoio": 114935189.55,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "RJ",
-   "municipio": "Rio de Janeiro",
-   "proponente": "Município de Rio de Janeiro",
-   "empreendimento": "Conversão dos corredores do sistema BRT (Bus Rapid Transit) TransOeste e TransCarioca pelo sistema de veículo leve sobre trilhos (VLT), aproveitando a estrutura já existente, para revolucionar o sistema viário da cidade através de Parceria Público Privada.",
-   "apoio": 3887000000.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "MG",
-   "municipio": "Belo Horizonte",
-   "proponente": "Município de Belo Horizonte",
-   "empreendimento": "Construção e qualificação de terminais, estações e integrações associadas ao sistema BRT, além da\nimplantação e melhoria de corredores de transporte, também inclui soluções de mobilidade ativa.",
-   "apoio": 185865862.54,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
-  },
-  {
-   "classificacao": "Habilitada",
-   "tipo": "Grandes e Médias",
-   "uf": "SP",
-   "municipio": "São Paulo",
-   "proponente": "Concessionária da Linha 4 do Metrô de São Paulo S/A",
-   "empreendimento": "Linha 4 (amarela) do Metrô de São Paulo Extensão da linha até Taboão da Serra.",
-   "apoio": 1250000000.0,
-   "valorContratado": 0.0,
-   "situacao": "Habilitada",
-   "situacaoExecucao": "Avaliação",
-   "grupo": "Habilitados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2126,11 +1647,11 @@
    "empreendimento": "Implantação da Linha Leste do Metrô de Fortaleza",
    "apoio": 1000000000.0,
    "valorContratado": 1000000000.0,
+   "migrado": true,
+   "pctMigrado": 1.0,
    "situacao": "Em andamento",
    "situacaoExecucao": "Contratada com resolutiva",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2139,13 +1660,13 @@
    "municipio": "Fortaleza",
    "proponente": "Estado do Ceará",
    "empreendimento": "Implantação da Linha Leste do Metrô de Fortaleza",
-   "apoio": 555024937.86,
+   "apoio": 660850000.0,
    "valorContratado": 555024937.86,
+   "migrado": true,
+   "pctMigrado": 0.8399,
    "situacao": "Contratada",
    "situacaoExecucao": "Em contratação",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2154,13 +1675,13 @@
    "municipio": "Brasília",
    "proponente": "Governo do Distrito Federal",
    "empreendimento": "Sistema de Transporte de Passageiros Eixo Sul",
-   "apoio": 170604224.17,
+   "apoio": 561522650.0,
    "valorContratado": 170604224.17,
+   "migrado": true,
+   "pctMigrado": 0.3038,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2169,13 +1690,13 @@
    "municipio": "Brasília",
    "proponente": "Governo do Distrito Federal",
    "empreendimento": "Sistema de Transporte de Passageiros Eixo Oeste",
-   "apoio": 281896891.53,
+   "apoio": 517477350.0,
    "valorContratado": 281896891.53,
+   "migrado": true,
+   "pctMigrado": 0.5448,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2184,13 +1705,13 @@
    "municipio": "Santos, São Paulo",
    "proponente": "Estado de São Paulo",
    "empreendimento": "Implantação de linha de VLT Baixada Santista",
-   "apoio": 67158258.33,
+   "apoio": 400000000.0,
    "valorContratado": 67158258.33,
+   "migrado": true,
+   "pctMigrado": 0.1679,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2199,13 +1720,13 @@
    "municipio": "Recife",
    "proponente": "Prefeitura de Recife",
    "empreendimento": "Implantação de Corredores Exclusivos de Ônibus no Recife - II Perimetral, III Perimetral e Radial Sul",
-   "apoio": 352651134.36,
+   "apoio": 389000000.0,
    "valorContratado": 352651134.36,
+   "migrado": true,
+   "pctMigrado": 0.9066,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2214,13 +1735,13 @@
    "municipio": "São Paulo",
    "proponente": "Estado de São Paulo",
    "empreendimento": "Extensão da  Linha 9 CPTM - Grajaú-Varginha",
-   "apoio": 88319886.1,
+   "apoio": 364816168.35,
    "valorContratado": 88319886.1,
+   "migrado": true,
+   "pctMigrado": 0.2421,
    "situacao": "Contratada",
    "situacaoExecucao": "Equipamento em aquisição",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2229,13 +1750,13 @@
    "municipio": "Ribeirão Preto",
    "proponente": "Prefeitura de Ribeirão Preto",
    "empreendimento": "Implantação de corredores de transporte público coletivo nos eixos Norte/Sul e Leste/Oeste",
-   "apoio": 93142931.4,
+   "apoio": 278763189.0,
    "valorContratado": 93142931.4,
+   "migrado": true,
+   "pctMigrado": 0.3341,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2244,13 +1765,13 @@
    "municipio": "Osasco",
    "proponente": "Estado de São Paulo",
    "empreendimento": "Implantação do Corredor Metropolitano - Trecho 2: Jandira/Carapicuíba, Trecho 3: Carapicuíba/Osasco, Trecho 4: Osasco/Vila Yara",
-   "apoio": 113197222.0,
+   "apoio": 215000000.0,
    "valorContratado": 113197222.0,
+   "migrado": true,
+   "pctMigrado": 0.5265,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2259,13 +1780,13 @@
    "municipio": "Contagem",
    "proponente": "Prefeitura de Contagem",
    "empreendimento": "Implantação de Corredores, Terminais e Estações - Plano de integração intermodal de transporte - Contagem Integrada",
-   "apoio": 46842474.3,
+   "apoio": 184188313.75,
    "valorContratado": 46842474.3,
+   "migrado": true,
+   "pctMigrado": 0.2543,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2274,13 +1795,13 @@
    "municipio": "Curitiba",
    "proponente": "Prefeitura de Curitiba",
    "empreendimento": "Complementação da Linha Verde – Linha Verde Norte e Linha Verde - Extensão Sul",
-   "apoio": 98615982.29,
+   "apoio": 172739784.29,
    "valorContratado": 98615982.29,
+   "migrado": true,
+   "pctMigrado": 0.5709,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2289,13 +1810,13 @@
    "municipio": "São Paulo",
    "proponente": "Prefeitura de São Paulo",
    "empreendimento": "CORREDOR DE ONIBUS - SAO PAULO - TERMINAL ITAQUERA",
-   "apoio": 6764976.57,
+   "apoio": 163775932.84,
    "valorContratado": 6764976.57,
+   "migrado": true,
+   "pctMigrado": 0.0413,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2304,13 +1825,13 @@
    "municipio": "Curitiba",
    "proponente": "Prefeitura de Curitiba",
    "empreendimento": "Aumento da Capacidade e Velocidade do BRT na Extensão do Eixo Norte – Sul, Eixo Leste-Oeste e Terminais",
-   "apoio": 134679247.0,
+   "apoio": 149540000.0,
    "valorContratado": 134679247.0,
+   "migrado": true,
+   "pctMigrado": 0.9006,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2319,13 +1840,13 @@
    "municipio": "Belém",
    "proponente": "Prefeitura de Belém",
    "empreendimento": "BRT Belém - Corredor Centenário",
-   "apoio": 85862532.0,
+   "apoio": 148324225.2,
    "valorContratado": 85862532.0,
+   "migrado": true,
+   "pctMigrado": 0.5789,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2334,13 +1855,13 @@
    "municipio": "Uberlândia",
    "proponente": "Prefeitura de Uberlândia",
    "empreendimento": "Implantação dos Corredores Estruturais Leste, Norte, Oeste, Sudeste e Sul e Terminais",
-   "apoio": 37164691.06,
+   "apoio": 125666300.0,
    "valorContratado": 37164691.06,
+   "migrado": true,
+   "pctMigrado": 0.2957,
    "situacao": "Contratada",
    "situacaoExecucao": "Em contratação",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2349,13 +1870,13 @@
    "municipio": "Recife",
    "proponente": "Estado de Pernambuco",
    "empreendimento": "Implantação dos corredores II Perimetral - Via Metropolitana Norte,  IV Perimetral, e Binário Cajueiro Seco;",
-   "apoio": 101554053.45,
+   "apoio": 123203031.54,
    "valorContratado": 101554053.45,
+   "migrado": true,
+   "pctMigrado": 0.8243,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2364,13 +1885,13 @@
    "municipio": "São Bernardo do Campo",
    "proponente": "Prefeitura de São Bernardo do Campo",
    "empreendimento": "Corredor Couros - Construção das Avenidas Marginais ao Ribeirão Couros - entre a Avenida Piraporinha e Corredor ABD, inclusive dois viadutos sobre a Avenida 31 de Março",
-   "apoio": 87074570.0,
+   "apoio": 100000000.0,
    "valorContratado": 87074570.0,
+   "migrado": true,
+   "pctMigrado": 0.8707,
    "situacao": "Contratada",
    "situacaoExecucao": "Desistência",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2379,13 +1900,13 @@
    "municipio": "Guarulhos",
    "proponente": "Prefeitura de Guarulhos",
    "empreendimento": "Programa de Mobilidade Urbana de Guarulhos",
-   "apoio": 26638282.43,
+   "apoio": 92916069.04,
    "valorContratado": 26638282.43,
+   "migrado": true,
+   "pctMigrado": 0.2867,
    "situacao": "Contratada",
    "situacaoExecucao": "Desistência",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2394,13 +1915,13 @@
    "municipio": "Contagem",
    "proponente": "Prefeitura de Contagem",
    "empreendimento": "Melhoria do Transporte Público Coletivo com Implantação do Corredor da Avenida Maracanã",
-   "apoio": 60810032.0,
+   "apoio": 79292915.93,
    "valorContratado": 60810032.0,
+   "migrado": true,
+   "pctMigrado": 0.7669,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2409,13 +1930,13 @@
    "municipio": "Goiânia",
    "proponente": "Prefeitura de Goiânia",
    "empreendimento": "Implantação do BRT Norte Sul",
-   "apoio": 40112915.64,
+   "apoio": 70000000.0,
    "valorContratado": 40112915.64,
+   "migrado": true,
+   "pctMigrado": 0.573,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2424,13 +1945,13 @@
    "municipio": "Curitiba",
    "proponente": "Prefeitura de Curitiba",
    "empreendimento": "Ampliação da capacidade e velocidade da Linha Direta Inter 2",
-   "apoio": 57622461.19,
+   "apoio": 69440000.0,
    "valorContratado": 57622461.19,
+   "migrado": true,
+   "pctMigrado": 0.8298,
    "situacao": "Contratada",
    "situacaoExecucao": "Equipamento em aquisição",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2439,13 +1960,13 @@
    "municipio": "Teresina",
    "proponente": "Prefeitura de Teresina",
    "empreendimento": "CORREDOR NORTE – LESTE",
-   "apoio": 43939955.0,
+   "apoio": 56563000.0,
    "valorContratado": 43939955.0,
+   "migrado": true,
+   "pctMigrado": 0.7768,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2454,13 +1975,13 @@
    "municipio": "Brasília",
    "proponente": "Governo do Distrito Federal",
    "empreendimento": "Expansão e Modernização do sistema de Metrô do DF",
-   "apoio": 0.0,
+   "apoio": 53132612.0,
    "valorContratado": 0.0,
+   "migrado": true,
+   "pctMigrado": 0.0,
    "situacao": "Contratada",
    "situacaoExecucao": "Entregue",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2469,13 +1990,13 @@
    "municipio": "Salvador, Bahia",
    "proponente": "Estado da Bahia",
    "empreendimento": "Implantação de Corredor de Ônibus - Salvador/BA - Vias Estruturantes - Sistema de Corredores Transversais",
-   "apoio": 466360052.0,
+   "apoio": 992800000.0,
    "valorContratado": 466360052.0,
+   "migrado": true,
+   "pctMigrado": 0.4697,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2484,13 +2005,13 @@
    "municipio": "Mauá",
    "proponente": "Prefeitura de Mauá",
    "empreendimento": "Plano de investimentos em infraestrutura para a mobilidade da regiao do ABC eixo corredor sudeste etapa Mauá",
-   "apoio": 6984479.26,
+   "apoio": 23788483.76,
    "valorContratado": 6984479.26,
+   "migrado": true,
+   "pctMigrado": 0.2936,
    "situacao": "Contratada",
    "situacaoExecucao": "Desistência",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2499,13 +2020,13 @@
    "municipio": "Diadema, São Paulo",
    "proponente": "Prefeitura de Diadema",
    "empreendimento": "Plano de Investimentos em Infraestrutura para a Mobilidade da Região do ABC Eixo: Alvarenga / Robert Kennedy / Couros e Ligação Leste-Oeste ETAPA: DIADEMA",
-   "apoio": 5979745.49,
+   "apoio": 17714958.04,
    "valorContratado": 5979745.49,
+   "migrado": true,
+   "pctMigrado": 0.3376,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2514,13 +2035,13 @@
    "municipio": "Salvador, Bahia",
    "proponente": "Prefeitura de Salvador",
    "empreendimento": "BRT Lapa-Iguatemi - Trecho 1 - FIN",
-   "apoio": 57134802.43,
+   "apoio": 300000000.0,
    "valorContratado": 57134802.43,
+   "migrado": true,
+   "pctMigrado": 0.1904,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2529,13 +2050,13 @@
    "municipio": "Salvador, Bahia",
    "proponente": "Estado da Bahia",
    "empreendimento": "Sistema Metroviário de Salvador e Lauro de Freitas - Linha 1, Tramo 3",
-   "apoio": 195289044.61,
+   "apoio": 800000000.0,
    "valorContratado": 195289044.61,
+   "migrado": true,
+   "pctMigrado": 0.2441,
    "situacao": "Contratada",
    "situacaoExecucao": "Desistência",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2544,13 +2065,13 @@
    "municipio": "Salvador, Bahia",
    "proponente": "Estado da Bahia",
    "empreendimento": "BRT Lapa-Iguatemi - Trecho 2 - OGU, entre a Lapa  e a Estação ACM; Estações previstas: Pedrinhas, Rio Vermelho, HGE, Ogunjá, Vasco da Gama e Lapa (integração);",
-   "apoio": 27373474.76,
+   "apoio": 125401738.76,
    "valorContratado": 27373474.76,
+   "migrado": true,
+   "pctMigrado": 0.2183,
    "situacao": "Contratada",
    "situacaoExecucao": "Desistência",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2559,13 +2080,13 @@
    "municipio": "Goiânia",
    "proponente": "Prefeitura de Goiânia",
    "empreendimento": "BRT Norte Sul",
-   "apoio": 7337569.76,
+   "apoio": 140000000.0,
    "valorContratado": 7337569.76,
+   "migrado": true,
+   "pctMigrado": 0.0524,
    "situacao": "Contratada",
    "situacaoExecucao": "Desistência",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2574,13 +2095,13 @@
    "municipio": "Londrina",
    "proponente": "Prefeitura de Londrina",
    "empreendimento": "Implantação de corredor BRT Leste/Oeste e Norte/Sul",
-   "apoio": 25377001.6,
+   "apoio": 106964188.21,
    "valorContratado": 25377001.6,
+   "migrado": true,
+   "pctMigrado": 0.2372,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2589,13 +2110,13 @@
    "municipio": "Rio de Janeiro",
    "proponente": "Prefeitura do Rio de Janeiro",
    "empreendimento": "BRT TRANSBRASIL",
-   "apoio": 34516030.0,
+   "apoio": 1097000000.0,
    "valorContratado": 34516030.0,
+   "migrado": true,
+   "pctMigrado": 0.0315,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2604,13 +2125,13 @@
    "municipio": "Blumenau",
    "proponente": "Prefeitura de Blumenau",
    "empreendimento": "Implantação do corredor exclusivo Fonte/Garcia, ciclovia, abrigos, terminais e equipamentos para controle de tráfego e de operações",
-   "apoio": 8410532.74,
+   "apoio": 61788000.0,
    "valorContratado": 8410532.74,
+   "migrado": true,
+   "pctMigrado": 0.1361,
    "situacao": "Contratada",
    "situacaoExecucao": "Desistência",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2619,13 +2140,13 @@
    "municipio": "Aracaju",
    "proponente": "Prefeitura de Aracaju",
    "empreendimento": "Implantação de corredores de ônibus, construção e reforma de terminais de integração, implantação de bolsões de estacionamento, abrigos e centro de controle operacional",
-   "apoio": 18971248.27,
+   "apoio": 107605504.97,
    "valorContratado": 18971248.27,
+   "migrado": true,
+   "pctMigrado": 0.1763,
    "situacao": "Contratada",
    "situacaoExecucao": "Contratada com resolutiva",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2634,13 +2155,13 @@
    "municipio": "Campinas",
    "proponente": "Prefeitura de Campinas",
    "empreendimento": "Corredor Campo Grande – Trecho 2 e 3 – Campinas",
-   "apoio": 0.0,
+   "apoio": 92686422.0,
    "valorContratado": 0.0,
+   "migrado": true,
+   "pctMigrado": 0.0,
    "situacao": "Contratada",
    "situacaoExecucao": "Equipamento em aquisição",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2649,13 +2170,13 @@
    "municipio": "Sorocaba",
    "proponente": "Prefeitura de Sorocaba",
    "empreendimento": "Implantação de BRT nos eixos Norte/Sul e Leste/Oeste",
-   "apoio": 27643641.0,
+   "apoio": 127206198.47,
    "valorContratado": 27643641.0,
+   "migrado": true,
+   "pctMigrado": 0.2173,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2664,13 +2185,13 @@
    "municipio": "Campinas",
    "proponente": "Prefeitura de Campinas",
    "empreendimento": "Corredor Campo Grande – Trecho 1 e 4, Ouro Verde Perimetral – Campinas",
-   "apoio": 9778237.91,
+   "apoio": 197000000.0,
    "valorContratado": 9778237.91,
+   "migrado": true,
+   "pctMigrado": 0.0496,
    "situacao": "Contratada",
    "situacaoExecucao": "Cancelada",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",
@@ -2679,13 +2200,13 @@
    "municipio": "São Bernardo do Campo",
    "proponente": "Prefeitura de São Bernardo do Campo",
    "empreendimento": "Ligação Leste-Oeste",
-   "apoio": 29864823.15,
+   "apoio": 165000000.0,
    "valorContratado": 29864823.15,
+   "migrado": true,
+   "pctMigrado": 0.181,
    "situacao": "Contratada",
    "situacaoExecucao": "Em licitação",
-   "grupo": "Contratados",
-   "anoPortaria": null,
-   "portaria": null
+   "grupo": "Contratados"
   }
  ]
 }
