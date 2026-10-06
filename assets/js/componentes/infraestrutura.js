@@ -13,6 +13,12 @@
    Clicar em uma linha aplica o filtro global de modo — o painel inteiro passa
    a mostrar apenas aquele modo. Clicar de novo desfaz.
 
+   Aba "Todas as entregas" (padrão): em vez de agrupar por modo, lista TUDO o
+   que os empreendimentos entregam — corredores, trilhos, sistema viário,
+   ciclovias, estações, terminais, abrigos, OAE, passarelas, veículos, ITS,
+   CCO, pátios, projetos —, a partir da aba "Indicadores de Obra" da planilha
+   (ver agregarEntregas em dados.js). Cada empreendimento entra uma vez só.
+
    Ícones (seção 1.1): cada modo ganha um ícone SVG embutido — sem fonte de
    ícones externa, para manter o painel funcionando sem internet. O ícone
    herda a cor do modo via currentColor, então nunca fica dessincronizado da
@@ -27,6 +33,12 @@ window.PG = window.PG || {};
   var F = PG.Formato, Util = PG.Util, Paleta = PG.Paleta, Dica = PG.Dica;
 
   var METRICAS = {
+    entregas: {
+      rotulo: 'Entregas',
+      obter: function (linha) { return linha.valor; },
+      formatar: function (v) { return F.numeroCurto(v); },
+      sufixo: ''
+    },
     km: {
       rotulo: 'Extensão',
       obter: function (linha) { return linha.km; },
@@ -161,6 +173,7 @@ window.PG = window.PG || {};
     ['vlt', ICONES.trilho],
     ['tren', ICONES.trilho],
     ['terminal', ICONES.terminal],
+    ['viario', ICONES.corredor],
     ['sistema', ICONES.sistema],
     ['plano', ICONES.plano],
     ['estudo', ICONES.estudo],
@@ -184,11 +197,194 @@ window.PG = window.PG || {};
   }
 
 
+
+  /* ======================================================================
+     1.2 ABA "TODAS AS ENTREGAS"
+     ====================================================================== */
+
+  // Ícone de cada entrega (reaproveita os SVG de modo, já embutidos).
+  var ICONE_ENTREGA = {
+    corredorKm: ICONES.corredor,  trilhosKm: ICONES.trilho,
+    viarioKm: ICONES.corredor,    cicloKm: ICONES.ciclovia,
+    estacoes: ICONES.trilho,      terminais: ICONES.terminal,
+    abrigos: ICONES.terminal,     oae: ICONES.oae,
+    passarelas: ICONES.oae,       veiculos: ICONES.brt,
+    its: ICONES.sistema,          cco: ICONES.sistema,
+    patios: ICONES.sistema,       projetos: ICONES.estudo,
+    extProjetadaKm: ICONES.estudo
+  };
+
+  function formatarEntrega(item, valor) {
+    return item.unidade === 'km' ? F.decimal(valor, 1) : F.inteiro(valor);
+  }
+
+  function renderizarEntregas(container, resultado, filtros) {
+    var e = resultado.entregas;
+    var temDados = e && e.itens.some(function (i) { return i.valor > 0; });
+
+    if (!temDados) {
+      container.appendChild(Util.el('div', {
+        'class': 'sem-resultado',
+        html: '<strong>Nenhuma entrega registrada</strong>' +
+              'Ajuste os filtros ou escolha outra aba.'
+      }));
+      return;
+    }
+
+    container.appendChild(Util.el('div', { 'class': 'infra__cabecalho' }, [
+      Util.el('span', { texto: 'Entrega' }),
+      Util.el('span', { texto: 'Distribuição' }),
+      Util.el('span', { texto: 'Total' })
+    ]));
+
+    // Agrupa mantendo a ordem do dicionário (gerar_dados.py).
+    var grupos = [], porGrupo = {};
+    e.itens.forEach(function (item) {
+      if (item.valor <= 0) return;
+      if (!porGrupo[item.grupo]) {
+        porGrupo[item.grupo] = { nome: item.grupo, itens: [] };
+        grupos.push(porGrupo[item.grupo]);
+      }
+      porGrupo[item.grupo].itens.push(item);
+    });
+
+    grupos.forEach(function (grupo, g) {
+      container.appendChild(Util.el('div', {
+        'class': 'infra__grupo', texto: grupo.nome
+      }));
+      var cor = Paleta.sequencia(g);
+      // km e unidades não se comparam: a barra é proporcional ao maior da
+      // mesma unidade dentro do grupo.
+      var maiores = {};
+      grupo.itens.forEach(function (i) {
+        maiores[i.unidade] = Math.max(maiores[i.unidade] || 0, i.valor);
+      });
+      grupo.itens.forEach(function (item) {
+        container.appendChild(desenharLinhaEntrega(
+          item, maiores[item.unidade] || 1, cor, resultado, filtros));
+      });
+    });
+
+    requestAnimationFrame(function () {
+      Array.prototype.forEach.call(
+        container.querySelectorAll('.infra__barra'),
+        function (b) { b.style.width = b.dataset.largura; }
+      );
+    });
+  }
+
+  function desenharLinhaEntrega(item, maior, cor, resultado, filtros) {
+    var largura = Math.max(1.5, (item.valor / maior) * 100);
+    var el = Util.el('div', {
+      'class': 'infra__linha infra__linha--estatica', tabindex: '0'
+    }, [
+      Util.el('div', { 'class': 'infra__modo' }, [
+        Util.el('span', {
+          'class': 'infra__icone', estilo: { color: cor },
+          html: ICONE_ENTREGA[item.chave] || ICONE_PADRAO, 'aria-hidden': 'true'
+        }),
+        Util.el('span', { 'class': 'infra__nome', texto: item.rotulo, title: item.rotulo })
+      ]),
+      Util.el('div', { 'class': 'infra__trilho' }, [
+        Util.el('div', {
+          'class': 'infra__barra', 'data-largura': largura.toFixed(1) + '%',
+          estilo: { background: cor }
+        })
+      ]),
+      Util.el('div', { 'class': 'infra__metrica' }, [
+        document.createTextNode(formatarEntrega(item, item.valor)),
+        Util.el('span', { texto: ' ' + item.unidade })
+      ])
+    ]);
+    Dica.ligar(el, function () { return montarDicaEntrega(item, resultado, filtros); });
+    return el;
+  }
+
+  function montarDicaEntrega(item, resultado, filtros) {
+    var linhas = [
+      ['Total', formatarEntrega(item, item.valor) + ' ' + item.unidade],
+      ['Empreendimentos', F.inteiro(item.empreendimentos) + ' de ' +
+                          F.inteiro(resultado.entregas.empreendimentos)]
+    ];
+    if (item.componentes) {
+      item.componentes.forEach(function (c) {
+        linhas.push([c.rotulo, F.inteiro(c.valor) + ' un.']);
+      });
+    }
+    if (item.empreendimentosMigrados > 0) {
+      linhas.push(['Em empreendimentos Migrados',
+        formatarEntrega(item, item.valorMigrado) + ' ' + item.unidade +
+        ' (' + F.inteiro(item.empreendimentosMigrados) + ')']);
+    }
+    var nota = {
+      oae: 'Viadutos + pontes + túneis, trincheiras, elevados e outras OAE. ' +
+           'Passarelas são contadas à parte.',
+      viarioKm: 'Melhorias no sistema viário e acessos, sem exclusividade de ' +
+                'um modo (BRT, VLT ou metrô).',
+      cicloKm: 'Ciclovias e ciclofaixas implantadas junto aos empreendimentos.',
+      extProjetadaKm: 'Extensão prevista em estudos e projetos — ainda não é obra.',
+      projetos: 'Estudos e projetos contratados — ainda não são obra.'
+    }[item.chave] || 'Soma dos empreendimentos do recorte atual.';
+    if (item.empreendimentosMigrados > 0) {
+      nota += ' Nos empreendimentos Migrados Novo PAC, a quantidade refere-se ' +
+              'ao empreendimento inteiro, não só à parcela migrada.';
+    }
+    return { titulo: item.rotulo, linhas: linhas, nota: nota };
+  }
+
+  /* --- Notas do rodapé do componente ------------------------------------- */
+
+  function atualizarNotas(resultado, filtros) {
+    var nota = document.getElementById('infraNota');
+    var aviso = document.getElementById('infraAvisoMigrado');
+    var e = resultado.entregas;
+
+    if (nota) {
+      if (filtros.metricaInfra === 'entregas') {
+        var n = e ? e.empreendimentos : 0;
+        nota.textContent = 'Cada empreendimento é contado uma única vez. ' +
+          'Quilômetros e unidades não se somam entre si. Obras de arte ' +
+          'especiais (OAE) reúnem viadutos, pontes e túneis/trincheiras/' +
+          'elevados; passarelas aparecem separadas. Fonte: levantamento ' +
+          'por empreendimento (' + F.inteiro(n) + ' no recorte).';
+      } else {
+        nota.textContent = 'Clique em um modo para filtrar todo o painel por ' +
+          'ele. Modos medidos em quilômetros e modos medidos em unidades não ' +
+          'se somam entre si. Esta aba considera apenas o item principal de ' +
+          'cada proposta; veja "Todas as entregas" para o conjunto completo.';
+      }
+    }
+
+    if (aviso) {
+      var m = resultado.migrados;
+      if (m && m.propostas > 0) {
+        aviso.classList.remove('oculto');
+        aviso.innerHTML = '<strong>Migrado Novo PAC.</strong> ' +
+          F.inteiro(m.propostas) + ' registro(s) deste recorte migraram de ' +
+          'programas anteriores: as quantidades acima referem-se ao ' +
+          'empreendimento inteiro, mas o investimento exibido é só a parcela ' +
+          'migrada ao Novo PAC (' + F.moedaCurta(m.parcela) + ' de ' +
+          F.moedaCurta(m.original) + ' de apoio federal original, ' +
+          F.percentual(m.percentual, 1) + '). O custo por km usa o apoio ' +
+          'federal original.';
+      } else {
+        aviso.classList.add('oculto');
+        aviso.innerHTML = '';
+      }
+    }
+  }
+
   var Infraestrutura = {
 
     renderizar: function (container, resultado, filtros) {
       if (!container) return;
       container.innerHTML = '';
+      atualizarNotas(resultado, filtros);
+
+      if (filtros.metricaInfra === 'entregas') {
+        renderizarEntregas(container, resultado, filtros);
+        return;
+      }
 
       var metrica = METRICAS[filtros.metricaInfra] || METRICAS.km;
 
@@ -296,8 +492,11 @@ window.PG = window.PG || {};
     ];
     if (linha.km > 0) linhas.push(['Extensão', F.km(linha.km)]);
     if (linha.unidades > 0) linhas.push(['Unidades', F.inteiro(linha.unidades) + ' un.']);
-    if (linha.km > 0 && linha.valor > 0) {
-      linhas.push(['Custo por km', F.moedaCurta(linha.valor / linha.km)]);
+    if (linha.km > 0 && linha.valorCusto > 0) {
+      linhas.push(['Custo por km', F.moedaCurta(linha.valorCusto / linha.km)]);
+    }
+    if (linha.migrados > 0) {
+      linhas.push(['Migrado Novo PAC', F.inteiro(linha.migrados) + ' registro(s)']);
     }
 
     // Onde esse modo está concentrado — contexto útil na conversa com o gestor.
@@ -314,6 +513,10 @@ window.PG = window.PG || {};
           return u.chave + ' ' + F.moedaCurta(u.valor);
         }).join(' · ') + '. Clique para filtrar o painel por este modo.'
       : 'Clique para filtrar o painel por este modo.';
+    if (linha.migrados > 0) {
+      nota += ' O custo por km usa o apoio federal original dos registros ' +
+              'Migrado Novo PAC, não só a parcela migrada.';
+    }
 
     return { titulo: linha.chave, linhas: linhas, nota: nota };
   }
