@@ -106,11 +106,11 @@ window.PG = window.PG || {};
     'Ciclovias':                   '--modo-ciclovias',
     'Abrigos':                     '--modo-abrigos',
     'Planos de Mobilidade Urbana': '--modo-planos',
-    'Aeromóvel':                   '--modo-aeromovel'
+    'Aeromóvel':                   '--modo-aeromovel',
+    'Sistema Viário':              '--modo-corredor'
   };
 
   var CORES_ETAPA = {
-    habilitada:   '--etapa-habilitada',
     selecionada:  '--etapa-selecionada',
     contratado:   '--etapa-contratada',
     aContratar:   '--etapa-preparacao',
