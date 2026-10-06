@@ -204,9 +204,11 @@
     }
 
     montarSegmentado(document.getElementById('metricaInfra'), [
-      { valor: 'km', rotulo: 'Extensão', descricao: 'Quilômetros de via' },
+      { valor: 'entregas', rotulo: 'Todas as entregas',
+        descricao: 'Corredores, trilhos, estações, terminais, OAE, abrigos, veículos...' },
+      { valor: 'km', rotulo: 'Extensão', descricao: 'Quilômetros de via (item principal)' },
       { valor: 'unidades', rotulo: 'Unidades',
-        descricao: 'Material rodante, terminais, abrigos e sistemas' },
+        descricao: 'Material rodante, terminais, abrigos e sistemas (item principal)' },
       { valor: 'valor', rotulo: 'Investimento', descricao: 'Valor por modo' }
     ], 'metricaInfra');
   }
@@ -242,6 +244,7 @@
     PG.Infraestrutura.renderizar(
       document.getElementById('infraestrutura'), resultado, filtros);
 
+    renderizarAvisoMigrado(resultado, filtros);
     renderizarRegioes(resultado, filtros);
     renderizarAnos(resultado, filtros);
     renderizarMapa(resultado, filtros);
@@ -250,6 +253,37 @@
     renderizarResumo(resultado, filtros);
     renderizarQualidade(resultado);
     atualizarContadores(resultado, filtros);
+  }
+
+  /* ======================================================================
+     AVISO "MIGRADO NOVO PAC"
+     ----------------------------------------------------------------------
+     No cenário Migrado Novo PAC o valor exibido é só a parcela migrada ao
+     Novo PAC, enquanto km e unidades são do empreendimento inteiro. O aviso
+     fica dentro de #areaExportavel, então também sai no PNG e no PDF.
+     ====================================================================== */
+
+  function renderizarAvisoMigrado(resultado, filtros) {
+    var alvo = document.getElementById('avisoMigrado');
+    if (!alvo) return;
+    var m = resultado.migrados;
+    if (filtros.cenario !== 'Migrado Novo PAC' || !m || !m.propostas) {
+      alvo.classList.add('oculto');
+      alvo.innerHTML = '';
+      return;
+    }
+    alvo.classList.remove('oculto');
+    alvo.innerHTML =
+      '<div><strong>Leitura do cenário Migrado Novo PAC.</strong> Estes ' +
+      'empreendimentos já existiam em programas anteriores e apenas parte do ' +
+      'investimento migrou para o Novo PAC. O <strong>valor</strong> exibido é ' +
+      'a parcela migrada (<strong>' + F.moedaCurta(m.parcela) + '</strong>); o ' +
+      '<strong>investimento federal original</strong> desses ' +
+      F.inteiro(m.propostas) + ' registros é <strong>' + F.moedaCurta(m.original) +
+      '</strong> (a parcela migrada equivale a ' + F.percentual(m.percentual, 1) +
+      '). Já <strong>km e unidades</strong> referem-se ao empreendimento inteiro, ' +
+      'e o custo por km usa o investimento federal original. A contrapartida ' +
+      'dos entes não está incluída.</div>';
   }
 
   /* ======================================================================
@@ -478,6 +512,47 @@
      O texto vem da base (TEXTOS em gerar_dados.py); os números são calculados
      no recorte atual e inseridos ao final, para nunca ficarem defasados.    */
 
+  /** Parágrafo sobre o que o conjunto entrega. Usa o levantamento por
+   *  empreendimento ("Indicadores de Obra") quando a base o traz; sem ele,
+   *  volta ao item principal de cada proposta. */
+  function textoEntregas(resultado, filtros, kmTrilhos) {
+    var e = resultado.entregas;
+    var pre = 'O conjunto ' + rotuloValor(filtros).toLowerCase() + ' corresponde a <strong>';
+    if (!e) {
+      return pre + F.km(resultado.totais.km) + '</strong> de infraestrutura, dos ' +
+        'quais <strong>' + F.km(kmTrilhos) + '</strong> em sistemas sobre trilhos ' +
+        '(metrô, VLT e trem urbano), além de <strong>' +
+        F.inteiro(resultado.totais.unidades) + ' unidades</strong> de material ' +
+        'rodante, terminais, abrigos e sistemas.';
+    }
+    var v = function (chave) { return e.porChave[chave] ? e.porChave[chave].valor : 0; };
+    var partes = [];
+    partes.push('<strong>' + F.km(v('corredorKm')) + '</strong> de corredores, BRT e ' +
+                'faixas exclusivas');
+    partes.push('<strong>' + F.km(v('trilhosKm')) + '</strong> sobre trilhos (metrô, ' +
+                'VLT e trem urbano)');
+    if (v('viarioKm') > 0) partes.push('<strong>' + F.km(v('viarioKm')) + '</strong> de sistema viário');
+    if (v('cicloKm') > 0) partes.push('<strong>' + F.km(v('cicloKm')) + '</strong> de ciclovias');
+    var obras = [];
+    if (v('estacoes') > 0) obras.push('<strong>' + F.inteiro(v('estacoes')) + '</strong> estações');
+    if (v('terminais') > 0) obras.push('<strong>' + F.inteiro(v('terminais')) + '</strong> terminais');
+    if (v('abrigos') > 0) obras.push('<strong>' + F.inteiro(v('abrigos')) + '</strong> abrigos e paradas');
+    if (v('oae') > 0) obras.push('<strong>' + F.inteiro(v('oae')) + '</strong> obras de arte especiais');
+    if (v('passarelas') > 0) obras.push('<strong>' + F.inteiro(v('passarelas')) + '</strong> passarelas');
+    if (v('veiculos') > 0) obras.push('<strong>' + F.inteiro(v('veiculos')) + '</strong> veículos');
+    var texto = 'O conjunto ' + rotuloValor(filtros).toLowerCase() + ' entrega, em ' +
+      F.inteiro(e.empreendimentos) + ' empreendimentos, ' + partes.join(', ') +
+      (obras.length ? ', além de ' + obras.join(', ') : '') + '.';
+    var m = resultado.migrados;
+    if (m && m.propostas > 0) {
+      texto += ' Nos ' + F.inteiro(m.propostas) + ' registros Migrado Novo PAC, ' +
+        'as quantidades são do empreendimento inteiro e o valor exibido é só a ' +
+        'parcela migrada (' + F.moedaCurta(m.parcela) + ' de ' +
+        F.moedaCurta(m.original) + ' de apoio federal original).';
+    }
+    return texto;
+  }
+
   function renderizarResumo(resultado, filtros) {
     var alvo = document.getElementById('resumoNumeros');
     if (!alvo) return;
@@ -501,11 +576,7 @@
       F.razao(resultado.totaisContratado.valor, resultado.totaisSelecionado.valor, 1) +
       ' do valor selecionado.',
 
-      'O conjunto ' + rotuloValor(filtros).toLowerCase() + ' corresponde a <strong>' +
-      F.km(resultado.totais.km) + '</strong> de infraestrutura, dos quais <strong>' +
-      F.km(kmTrilhos) + '</strong> em sistemas sobre trilhos (metrô, VLT e trem urbano), ' +
-      'além de <strong>' + F.inteiro(resultado.totais.unidades) + ' unidades</strong> ' +
-      'de material rodante, terminais, abrigos e sistemas.' +
+      textoEntregas(resultado, filtros, kmTrilhos) +
       (lider ? ' O modo de maior investimento é <strong>' + Util.escapar(lider.chave) +
         '</strong>, com ' + F.percentual(lider.participacao, 1) + ' do total.' : ''),
 
