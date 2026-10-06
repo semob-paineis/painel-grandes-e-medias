@@ -15,6 +15,41 @@ NOME_UF = {'AC':'Acre','AL':'Alagoas','AM':'Amazonas','BA':'Bahia','CE':'Ceará'
 FRASE_TIP = {'Metrô e trens':'metrô','VLT':'VLT','BRT e corredores de ônibus':'BRT','Sistema viário e OAE':'sistema viário','Mobilidade ativa':'mobilidade ativa','Terminais e sistemas':'terminais e sistemas','Estudos e projetos':'estudos e projetos'}
 TELA = dict(cenario='Consolidado', visao='selecionado')
 
+import unicodedata
+def norm(t):
+    t = unicodedata.normalize('NFD', str(t or '').lower())
+    t = ''.join(c for c in t if unicodedata.category(c) != 'Mn')
+    t = re.sub(r'[^a-z0-9\s]', ' ', t)
+    return re.sub(r'\s+', ' ', t).strip()
+
+def chave_proposta(r):
+    """Mesma chave de agregarPropostasSelecao (painel.js)."""
+    p = r.get('proposta')
+    return p if (p and p != 's/n') else '|'.join([r['uf'], r['municipio'], r['empreendimento']])
+
+def agente_de(r):
+    a = (r.get('agente') or 'Não informado').upper()
+    if 'CAIXA' in a: return 'CAIXA'
+    if 'BNDES' in a: return 'BNDES'
+    if 'BRDE' in a or 'BDRE' in a: return 'BRDE'
+    return 'Outros'
+
+CHAVE_DIM = {
+    'uf': lambda r: r['uf'],
+    'regiao': lambda r: r['regiao'],
+    'ano': lambda r: r['rotuloAno'],
+    'tipologia': lambda r: tip(r),
+    'municipio': lambda r: f"{r['municipio']} ({r['uf']})",
+    'proposta': chave_proposta,
+    'empreendimento': lambda r: r.get('empreendimento') or '—',
+    'proponente': lambda r: (r.get('proponente') or 'Não informado') + ' (' + r['uf'] + ')',
+    'situacao': lambda r: r.get('situacao') or 'Não informada',
+    'execucao': lambda r: r.get('execucao') or 'Não informado',
+    'modalidade': lambda r: r['tipo'],
+    'fonte': lambda r: 'OGU' if r['fonte'] == 'OGU' else 'Financiamento',
+    'agente': agente_de,
+}
+
 def tip(r):
     return r.get('tipologia') or ('Estudos e Projetos' if r['categoria']=='Estudos e Projetos' else (r['modo'] or 'Não classificado'))
 
@@ -96,17 +131,53 @@ def monta():
         if s.get('uf') or s.get('municipio'): continue
         for sub, p in (('pontes','pontes'),('viadutos','viadutos')):
             Q.append((f"Quantas {p} {fmt_scope(s)}?", 'entrega', dict(s, visao='selecionado'), {'chave': sub}))
-    PL = {'uf':'UFs','regiao':'regiões','ano':'anos','tipologia':'tipologias','municipio':'municípios','fonte':'fontes','agente':'agentes'}
-    for dim, pal in (('uf','UF'),('regiao','região'),('ano','ano'),('tipologia','tipologia'),('municipio','município'),('fonte','fonte'),('agente','agente')):
+    PL = {'uf':'UFs','regiao':'regiões','ano':'anos','tipologia':'tipologias','municipio':'municípios',
+          'fonte':'fontes','agente':'agentes','proposta':'propostas','empreendimento':'empreendimentos',
+          'proponente':'proponentes','situacao':'situações','execucao':'estágios de execução',
+          'modalidade':'modalidades'}
+    SG = {'uf':'UF','regiao':'região','ano':'ano','tipologia':'tipologia','municipio':'município',
+          'fonte':'fonte','agente':'agente','empreendimento':'empreendimento','proponente':'proponente',
+          'situacao':'situação','modalidade':'modalidade'}
+    for dim in PL:
         for s in escopos():
-            if dim=='uf' and (s.get('uf') or s.get('municipio') or s.get('regiao')): continue
-            if dim=='regiao' and (s.get('uf') or s.get('municipio') or s.get('regiao')): continue
-            if dim=='ano' and s.get('ano'): continue
-            if dim=='tipologia' and s.get('modo'): continue
-            if dim=='municipio' and s.get('municipio'): continue
+            if dim == 'uf' and (s.get('uf') or s.get('municipio') or s.get('regiao')): continue
+            if dim == 'regiao' and (s.get('uf') or s.get('municipio') or s.get('regiao')): continue
+            if dim == 'ano' and s.get('ano'): continue
+            if dim == 'tipologia' and s.get('modo'): continue
+            if dim == 'modalidade' and s['cenario'] != 'Consolidado': continue
             if s.get('municipio'): continue
             for v in ('selecionado','contratado'):
-                Q.append((f"Quais as maiores {PL[dim]} em investimento {v} {fmt_scope(s)}?", 'ranking', dict(s, visao=v), {'dim': dim}))
+                Q.append((f"Quais as maiores {PL[dim]} em investimento {v} {fmt_scope(s)}?",
+                          'ranking', dict(s, visao=v), {'dim': dim, 'metrica': 'valor'}))
+            if dim in SG:
+                Q.append((f"Qual {SG[dim]} tem mais propostas {fmt_scope(s)}?",
+                          'ranking', dict(s, visao='selecionado'), {'dim': dim, 'metrica': 'propostas'}))
+    # Rankings de uma entrega por dimensão ("qual UF tem mais estações")
+    for dim in ('uf','regiao','tipologia','empreendimento','proposta','municipio'):
+        for k in ('estacoes','veiculos','trilhosKm','corredorKm','abrigos','oae'):
+            for s in escopos()[:14]:
+                if s.get('municipio'): continue
+                if dim in ('uf','regiao') and (s.get('uf') or s.get('regiao')): continue
+                if dim == 'tipologia' and s.get('modo'): continue
+                pal = {'estacoes':'estações','veiculos':'veículos','trilhosKm':'km de trilhos',
+                       'corredorKm':'km de corredores','abrigos':'abrigos','oae':'OAE'}[k]
+                art = {'uf':'UF','regiao':'região','tipologia':'tipologia',
+                       'empreendimento':'empreendimento','proposta':'proposta','municipio':'município'}[dim]
+                Q.append((f"Qual {art} tem mais {pal} {fmt_scope(s)}?",
+                          'ranking', dict(s, visao='selecionado'),
+                          {'dim': dim, 'metrica': 'entrega', 'chave': k}))
+    # Ficha: toda proposta identificável da base, pelo número e pelo ID Governa
+    for r in D['registros']:
+        pr = str(r.get('proposta') or '').strip()
+        if pr and pr != 's/n':
+            Q.append((f"Me fale sobre a proposta {pr}", 'ficha', None, {'token': pr}))
+        for g in str(r.get('idGoverna') or '').split(','):
+            g = g.strip()
+            if len(g) >= 4 and not re.match(r'^(19|20)\d{2}$', g):
+                Q.append((f"Detalhes do ID Governa {g}", 'ficha', None, {'token': 'gov:' + g}))
+                break
+    for r in REG[:25]:
+        Q.append((f"linha {r['id']} da base", 'ficha', None, {'linha': r['id']}))
     return Q
 
 def igual(a, b, tol=1e-6):
@@ -125,6 +196,40 @@ def verificar(q, tipo, s, extra, resp, falhas):
               (F['modo']==(s.get('modo') or 'todos')) and (municipio==s.get('municipio')))
         if not ok: falha(f"recorte interpretado errado: pedido {({k:v for k,v in s.items() if not k.startswith('_')})}, veio {F} mun={municipio}")
         return ok
+    if tipo == 'ficha':
+        token, linha = extra.get('token'), extra.get('linha')
+        alvo = None
+        for r in D['registros']:
+            ids = []
+            pr = str(r.get('proposta') or '').strip()
+            if pr and pr != 's/n': ids.append(pr)
+            if r.get('contrato'): ids.append(str(r['contrato']).strip())
+            for g in str(r.get('idGoverna') or '').split(','):
+                g = g.strip()
+                if len(g) >= 4 and not re.match(r'^(19|20)\d{2}$', g): ids.append('gov:' + g)
+            if (token and token in ids) or (linha is not None and r['id'] == linha):
+                alvo = r; break
+        if alvo is None:
+            falha('pergunta de ficha sem registro correspondente na base'); return
+        esperados = [r for r in D['registros']
+                     if norm(r.get('empreendimento')) == norm(alvo.get('empreendimento'))
+                     and r['uf'] == alvo['uf']]
+        if f.get('ambiguo'): falha('ficha devolveu lista de candidatos'); return
+        ids_resp = sorted(p['id'] for p in f.get('propostas', []))
+        if ids_resp != sorted(r['id'] for r in esperados):
+            falha(f"ficha: linhas {ids_resp} x esperado {sorted(r['id'] for r in esperados)}"); return
+        if f.get('empreendimento') != alvo.get('empreendimento'): falha('ficha: empreendimento diferente')
+        if f.get('uf') != alvo['uf']: falha('ficha: UF diferente')
+        if not igual(f.get('apoio'), sum(r['apoio'] or 0 for r in esperados)): falha('ficha: soma do apoio')
+        if not igual(f.get('contratado'), sum(r['valorContratado'] or 0 for r in esperados)):
+            falha('ficha: soma do contratado')
+        comEnt = [r for r in esperados if r.get('entregas')]
+        if comEnt and f.get('entregas') != comEnt[0]['entregas']: falha('ficha: entregas diferentes')
+        if not comEnt and f.get('entregas'): falha('ficha: entregas inventadas')
+        no_universo = len([r for r in esperados if r['noEscopo'] and r['etapa'] in ('contratado','aContratar','desistencia')])
+        if f.get('noUniverso') != no_universo: falha(f"ficha: propostas no painel {f.get('noUniverso')} x {no_universo}")
+        return
+
     rec = recorte(s); sel = selec(rec); con = contr(rec)
     vis = s['visao']; uni = sel if vis=='selecionado' else con
     if tipo == 'valor':
@@ -167,23 +272,39 @@ def verificar(q, tipo, s, extra, resp, falhas):
         e = ent(uni, extra['chave'])
         if not igual(it['total'], e): falha(f"entrega {extra['chave']}: assistente {it['total']} x independente {e}")
     elif tipo == 'ranking':
-        if f.get('dimensao') != extra['dim']: falha(f"dimensão {f.get('dimensao')} x {extra['dim']}"); return
-        F = f['filtros']
+        if f.get('dimensao') != extra['dim']:
+            falha(f"dimensão {f.get('dimensao')} x {extra['dim']}"); return
+        met = extra.get('metrica', 'valor')
+        if f.get('metrica') != met: falha(f"métrica {f.get('metrica')} x {met}")
         # o ranking ignora o filtro da própria dimensão
         s2 = dict(s)
-        if extra['dim'] in ('uf','regiao'): s2.pop('uf', None); s2.pop('regiao', None)
+        if extra['dim'] in ('uf', 'regiao'): s2.pop('uf', None); s2.pop('regiao', None)
         if extra['dim'] == 'ano': s2.pop('ano', None)
         if extra['dim'] == 'tipologia': s2.pop('modo', None)
-        rec2 = recorte(s2); uni2 = selec(rec2) if vis=='selecionado' else contr(rec2)
-        chave = {'uf':lambda r:r['uf'],'regiao':lambda r:r['regiao'],'ano':lambda r:r['rotuloAno'],'tipologia':tip,'municipio':lambda r:f"{r['municipio']} ({r['uf']})",'fonte':lambda r:'OGU' if r['fonte']=='OGU' else 'Financiamento','agente':lambda r:('CAIXA' if 'CAIXA' in (r['agente'] or '').upper() else 'BNDES' if 'BNDES' in (r['agente'] or '').upper() else 'BRDE' if ('BRDE' in (r['agente'] or '').upper() or 'BDRE' in (r['agente'] or '').upper()) else 'Outros')}[extra['dim']]
-        g = collections.defaultdict(float)
-        for r in uni2: g[chave(r)] += val(r, vis)
-        exp = sorted(g.items(), key=lambda kv: -kv[1])
+        if extra['dim'] == 'municipio': s2.pop('municipio', None)
+        rec2 = recorte(s2); uni2 = selec(rec2) if vis == 'selecionado' else contr(rec2)
+        chave = CHAVE_DIM[extra['dim']]
+        grupos = collections.OrderedDict()
+        for r in uni2: grupos.setdefault(chave(r), []).append(r)
+        linhas = []
+        for k, lst in grupos.items():
+            if met == 'valor': v = soma(lst, lambda r: val(r, vis))
+            elif met == 'propostas': v = len({chave_proposta(r) for r in lst})
+            else: v = ent(lst, extra['chave'])
+            if v > 0: linhas.append((k, v))
+        linhas.sort(key=lambda kv: -kv[1])
         got = f['linhas']
-        if not igual(f['total'], sum(g.values())): falha(f"total do ranking {f['total']} x {sum(g.values())}")
+        if not igual(f['total'], sum(v for _, v in linhas)):
+            falha(f"total do ranking {f['total']} x {sum(v for _, v in linhas)}")
+        if len(got) > len(linhas):
+            falha(f"linhas demais: {len(got)} x {len(linhas)} | resposta={[(l.get('id'), l['valor']) for l in got[:4]]} | esperado={linhas[:4]}"); return
         for i, l in enumerate(got):
-            if not igual(l['valor'], exp[i][1]): falha(f"ranking posição {i+1}: {l['chave']}={l['valor']} x {exp[i][0]}={exp[i][1]}")
-            elif l['chave'] != exp[i][0] and not any(igual(exp[i][1], kv[1]) and kv[0]==l['chave'] for kv in exp): falha(f"ranking chave posição {i+1}: {l['chave']} x {exp[i][0]}")
+            if not igual(l['valor'], linhas[i][1]):
+                falha(f"posição {i+1}: {l.get('id')}={l['valor']} x {linhas[i][0]}={linhas[i][1]}")
+            elif l.get('id', l['chave']) != linhas[i][0]:
+                empatados = [k for k, v in linhas if igual(v, linhas[i][1])]
+                if l.get('id', l['chave']) not in empatados:
+                    falha(f"chave na posição {i+1}: {l.get('id')} x {linhas[i][0]}")
 
 def main():
     Q = monta()

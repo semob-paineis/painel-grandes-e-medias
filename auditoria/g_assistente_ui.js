@@ -144,6 +144,74 @@ const num = t => { const m = String(t).replace(/\./g, '').replace(',', '.').matc
   const comoLerAberto = await p.$eval('#comoLerCorpo', e => !e.classList.contains('oculto'));
   if (!comoLerAberto) falhas.push('botão "Ver Como ler este painel" não abriu o bloco');
 
+  // ----- 3b) ranking de propostas x tabela "Propostas desta seleção" -----------------
+  // A lista do assistente e a da tela têm de ser a MESMA lista, na mesma ordem.
+  for (const [q, filtro] of [['quais as maiores propostas?', null],
+                             ['quais as maiores propostas em SP?', { uf: 'SP' }],
+                             ['quais as maiores propostas contratadas?', { visao: 'contratado' }],
+                             ['quais as maiores propostas de metrô e trens?', { modo: 'Metrô e trens' }]]) {
+    await reset();
+    r = await perguntar(q);
+    const fatos = await p.evaluate(q => PG.Assistente.responder(q).fatos, q);
+    const aplicar = r.botoes.find(x => /Aplicar este recorte/.test(x));
+    if (aplicar) await clicar(aplicar);
+    await p.evaluate(() => {
+      const c = document.getElementById('propostasSelecaoCorpo');
+      if (c.classList.contains('oculto')) document.getElementById('btnAlternarPropostasSelecao').click();
+    });
+    await p.waitForTimeout(250);
+    const tabela = await p.evaluate(() => {
+      const c = document.getElementById('propostasSelecaoCorpo');
+      const trs = Array.from(c.querySelectorAll('tbody tr'));
+      const cel = tr => Array.from(tr.querySelectorAll('td')).map(td => td.textContent.trim());
+      return { linhas: trs.length, primeira: trs.length ? cel(trs[0]) : null,
+               total: (function () {
+                 const tds = c.querySelectorAll('tfoot td');
+                 return tds.length ? tds[tds.length - 1].textContent.trim() : null;
+               })() };
+    });
+    if (filtro) {
+      const tela = await filtrosTela();
+      for (const k in filtro) if (tela[k] !== filtro[k]) falhas.push(`[${q}] filtro ${k}: ${tela[k]} x ${filtro[k]}`);
+    }
+    if (fatos.dimensao !== 'proposta') { falhas.push(`[${q}] dimensão ${fatos.dimensao}`); continue; }
+    const topo = await p.evaluate(v => PG.Formato.moedaCurta(v), fatos.linhas[0].valor);
+    const totalFmt = await p.evaluate(v => PG.Formato.moedaCurta(v), fatos.total);
+    if (!tabela.primeira) { falhas.push(`[${q}] tabela vazia`); continue; }
+    if (tabela.primeira[tabela.primeira.length - 1] !== topo)
+      falhas.push(`[${q}] 1ª linha da tabela ${tabela.primeira[tabela.primeira.length - 1]} x assistente ${topo}`);
+    if (tabela.total !== totalFmt) falhas.push(`[${q}] total da tabela ${tabela.total} x assistente ${totalFmt}`);
+    const nomeAssistente = fatos.linhas[0].chave.replace(/…$/, '');
+    const nomeTabela = tabela.primeira[6] || '';
+    if (nomeTabela.indexOf(nomeAssistente.slice(0, 30)) < 0)
+      falhas.push(`[${q}] empreendimento da 1ª linha: "${nomeTabela.slice(0, 40)}" x "${nomeAssistente.slice(0, 40)}"`);
+    verificados++;
+  }
+
+  // ----- 3c) ficha de uma proposta --------------------------------------------------
+  for (const [q, uf, proposta] of [['Me fale sobre a proposta 8654/2024', 'BA', '8654/2024'],
+                                   ['proposta 56000001868/2023', 'DF', '56000001868/2023'],
+                                   ['detalhes do ID Governa 4575', 'SP', null]]) {
+    await reset();
+    r = await perguntar(q);
+    const fatos = await p.evaluate(q => PG.Assistente.responder(q).fatos, q);
+    if (fatos.tipo !== 'ficha') { falhas.push(`[${q}] veio ${fatos.tipo}`); continue; }
+    if (fatos.uf !== uf) falhas.push(`[${q}] UF ${fatos.uf} x ${uf}`);
+    const bt = r.botoes.find(x => /Ver no painel/.test(x));
+    if (!bt) { falhas.push(`[${q}] sem botão "Ver no painel"`); continue; }
+    await clicar(bt);
+    const tela = await filtrosTela();
+    if (tela.uf !== uf) falhas.push(`[${q}] filtro de UF na tela: ${tela.uf} x ${uf}`);
+    const achou = await p.evaluate(pr => {
+      const c = document.getElementById('propostasSelecaoCorpo');
+      if (c.classList.contains('oculto')) return 'fechado';
+      if (!pr) return 'ok';
+      return Array.from(c.querySelectorAll('tbody tr')).some(tr => tr.innerText.indexOf(pr) >= 0) ? 'ok' : 'ausente';
+    }, proposta);
+    if (achou !== 'ok') falhas.push(`[${q}] proposta na tabela: ${achou}`);
+    verificados++;
+  }
+
   // ----- 4) acessibilidade/UX da janela ---------------------------------------------
   await p.keyboard.press('Escape');
   const fechado = await p.$eval('#assistentePainel', e => e.classList.contains('oculto'));

@@ -793,6 +793,15 @@
      INÍCIO
      ====================================================================== */
 
+  // Exposto para que o assistente responda sobre propostas usando EXATAMENTE o
+  // mesmo agrupamento da tabela "Propostas desta seleção" — um único critério
+  // de "o que é uma proposta" no painel inteiro.
+  PG.Painel = {
+    agregarPropostasSelecao: agregarPropostasSelecao,
+    textoEntregasDaProposta: textoEntregasDaProposta
+  };
+
+
   document.addEventListener('DOMContentLoaded', function () {
     Tema.iniciar();
     ligarExportacao();
