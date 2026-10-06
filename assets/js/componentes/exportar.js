@@ -218,6 +218,21 @@ window.PG = window.PG || {};
     pdf.text(linhasFiltros, margem, y);
     y += linhasFiltros.length * 3.8 + 3;
 
+    // Cenário Migrado Novo PAC: o valor é só a parcela migrada, enquanto km e
+    // unidades são do empreendimento inteiro — o leitor do PDF precisa saber.
+    if (valorSegmentado('filtroCenario') === 'Migrado Novo PAC') {
+      pdf.setFont('helvetica', 'bold');
+      pdf.setFontSize(7.5);
+      pdf.setTextColor(122, 84, 16);
+      var nota = 'Leitura do cenário Migrado Novo PAC: o valor exibido é a ' +
+        'parcela migrada ao Novo PAC; extensões e unidades referem-se ao ' +
+        'empreendimento inteiro; o investimento original considera apenas ' +
+        'recursos federais (apoio), sem contrapartida dos entes.';
+      var linhasNota = pdf.splitTextToSize(nota, largura);
+      pdf.text(linhasNota, margem, y);
+      y += linhasNota.length * 3.5 + 3;
+    }
+
     pdf.setDrawColor(222, 226, 232);
     pdf.line(margem, y, margem + largura, y);
     y += 4;
@@ -409,12 +424,25 @@ window.PG = window.PG || {};
                         'Empreendimento', 'Modo', 'Categoria', 'Situação',
                         'Etapa', 'Ano portaria', 'Fonte', 'Agente',
                         'Apoio (R$)', 'Contratado (R$)', 'Extensão (km)',
-                        'Unidades'];
+                        'Unidades', 'Migrado Novo PAC',
+                        'Corredores/BRT (km)', 'Trilhos (km)',
+                        'Sistema viário (km)', 'Ciclovias (km)', 'Estações',
+                        'Terminais', 'Abrigos/paradas', 'OAE', 'Passarelas',
+                        'Veículos', 'ITS/semáforos', 'CCO', 'Pátios',
+                        'Projetos/estudos'];
+      // As quantidades de "Indicadores de Obra" vêm em um único registro por
+      // empreendimento; nos demais a coluna fica vazia (evita contar em dobro).
+      var CHAVES_ENTREGAS = ['corredorKm', 'trilhosKm', 'viarioKm', 'cicloKm',
+        'estacoes', 'terminais', 'abrigos', 'oae', 'passarelas', 'veiculos',
+        'its', 'cco', 'patios', 'projetos'];
       var linhas = resultado.recorte.map(function (r) {
         return [r.tipo, r.uf, r.regiao, r.municipio, r.proponente,
                 r.empreendimento, r.modo, r.categoria, r.situacao, r.etapa,
                 r.rotuloAno, r.fonte, r.agente,
-                r.apoio, r.valorContratado, r.km, r.unidades];
+                r.apoio, r.valorContratado, r.km, r.unidades,
+                r.migrado ? 'Sim' : 'Não'].concat(CHAVES_ENTREGAS.map(function (k) {
+                  return r.entregas ? r.entregas[k] : '';
+                }));
       });
       PG.Tabelas.exportarCSV(nomeArquivo('csv'), cabecalhos, linhas);
     }
