@@ -1,7 +1,7 @@
 {
  "meta": {
   "dataAtualizacao": "06/10/2026",
-  "geradoEm": "2026-10-06T12:30:39-03:00",
+  "geradoEm": "2026-10-06T14:14:10-03:00",
   "origem": "projeto_grandes_e_medias_INDICADORES_06102026_FINAL.xlsx",
   "escopo": {
    "tiposNoEscopo": [
@@ -82,6 +82,15 @@
     "Trens",
     "VLTs"
    ],
+   "tipologias": [
+    "Metrô e trens",
+    "VLT",
+    "BRT e corredores de ônibus",
+    "Sistema viário e OAE",
+    "Mobilidade ativa",
+    "Terminais e sistemas",
+    "Estudos e projetos"
+   ],
    "categorias": [
     "Equipamentos",
     "Estudos e Projetos",
@@ -111,24 +120,24 @@
     "Não se aplica": 1
    },
    "totais": {
-    "oae": 143.0,
-    "projetos": 41.0,
-    "estacoes": 383.0,
-    "trilhosKm": 179.03,
-    "outrasOAE": 89.0,
-    "pontes": 17.0,
-    "cicloKm": 241.61,
-    "cco": 12.0,
-    "abrigos": 2227.0,
-    "corredorKm": 931.12,
-    "extProjetadaKm": 325.58,
-    "viadutos": 37.0,
     "passarelas": 57.0,
+    "trilhosKm": 179.03,
+    "estacoes": 383.0,
     "terminais": 123.0,
+    "extProjetadaKm": 325.58,
+    "cicloKm": 241.61,
+    "corredorKm": 931.12,
     "veiculos": 60.0,
-    "its": 230.0,
+    "cco": 12.0,
+    "outrasOAE": 89.0,
     "patios": 2.0,
-    "viarioKm": 11.1
+    "abrigos": 2227.0,
+    "oae": 143.0,
+    "pontes": 17.0,
+    "projetos": 41.0,
+    "viadutos": 37.0,
+    "viarioKm": 11.1,
+    "its": 230.0
    },
    "dicionario": [
     {
@@ -324,6 +333,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "4561"
   },
   {
@@ -385,6 +395,7 @@
     "oae": 1.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "119022"
   },
   {
@@ -446,6 +457,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "4575"
   },
   {
@@ -507,6 +519,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "4573"
   },
   {
@@ -568,6 +581,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "4562"
   },
   {
@@ -629,6 +643,7 @@
     "oae": 3.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "4564"
   },
   {
@@ -690,6 +705,7 @@
     "oae": 8.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "4566"
   },
   {
@@ -731,7 +747,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Metrô e trens"
   },
   {
    "id": 11,
@@ -792,6 +809,7 @@
     "oae": 13.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120994"
   },
   {
@@ -853,6 +871,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120941"
   },
   {
@@ -914,6 +933,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "120944"
   },
   {
@@ -975,6 +995,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "121006"
   },
   {
@@ -1036,6 +1057,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120993"
   },
   {
@@ -1077,7 +1099,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "VLT"
   },
   {
    "id": 17,
@@ -1138,6 +1161,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "121010"
   },
   {
@@ -1199,6 +1223,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "121009, 140856, 140980, 140855"
   },
   {
@@ -1262,6 +1287,7 @@
    "alertas": [
     "unidadeSuspeita"
    ],
+   "tipologia": "VLT",
    "idGoverna": "121013, 121012"
   },
   {
@@ -1303,7 +1329,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "BRT e corredores de ônibus"
   },
   {
    "id": 21,
@@ -1364,6 +1391,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "120942"
   },
   {
@@ -1427,6 +1455,7 @@
    "alertas": [
     "contratadaSemValor"
    ],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120953"
   },
   {
@@ -1490,6 +1519,7 @@
    "alertas": [
     "contratadaSemValor"
    ],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120984"
   },
   {
@@ -1551,6 +1581,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120959"
   },
   {
@@ -1612,6 +1643,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120966"
   },
   {
@@ -1673,6 +1705,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120965"
   },
   {
@@ -1734,6 +1767,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120970"
   },
   {
@@ -1795,6 +1829,7 @@
     "oae": 1.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120998"
   },
   {
@@ -1856,6 +1891,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": null
   },
   {
@@ -1917,6 +1953,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": null
   },
   {
@@ -1978,6 +2015,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": null
   },
   {
@@ -2039,6 +2077,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": null
   },
   {
@@ -2100,6 +2139,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120988"
   },
   {
@@ -2161,6 +2201,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120985"
   },
   {
@@ -2222,6 +2263,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "121710"
   },
   {
@@ -2283,6 +2325,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120991"
   },
   {
@@ -2344,6 +2387,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120957"
   },
   {
@@ -2405,6 +2449,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120980"
   },
   {
@@ -2466,6 +2511,7 @@
     "oae": 2.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120989"
   },
   {
@@ -2527,6 +2573,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120981"
   },
   {
@@ -2588,6 +2635,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120951"
   },
   {
@@ -2649,6 +2697,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120999"
   },
   {
@@ -2710,6 +2759,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120956"
   },
   {
@@ -2771,6 +2821,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": null
   },
   {
@@ -2832,6 +2883,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120963"
   },
   {
@@ -2893,6 +2945,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120952"
   },
   {
@@ -2954,6 +3007,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120949"
   },
   {
@@ -3015,6 +3069,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120964"
   },
   {
@@ -3076,6 +3131,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120986"
   },
   {
@@ -3137,6 +3193,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120967"
   },
   {
@@ -3198,6 +3255,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120945"
   },
   {
@@ -3259,6 +3317,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120969"
   },
   {
@@ -3320,6 +3379,7 @@
     "oae": 1.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "121001, 121002"
   },
   {
@@ -3381,6 +3441,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "120943"
   },
   {
@@ -3442,6 +3503,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "VLT",
    "idGoverna": "121017, 121018"
   },
   {
@@ -3503,6 +3565,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120972"
   },
   {
@@ -3564,6 +3627,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120974"
   },
   {
@@ -3625,6 +3689,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120973"
   },
   {
@@ -3686,6 +3751,7 @@
     "oae": 1.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120992"
   },
   {
@@ -3747,6 +3813,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120958"
   },
   {
@@ -3808,6 +3875,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "121000"
   },
   {
@@ -3869,6 +3937,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120968"
   },
   {
@@ -3930,6 +3999,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120987"
   },
   {
@@ -3991,6 +4061,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120940"
   },
   {
@@ -4052,6 +4123,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "121005"
   },
   {
@@ -4113,6 +4185,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "121014"
   },
   {
@@ -4174,6 +4247,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120982"
   },
   {
@@ -4235,6 +4309,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120983"
   },
   {
@@ -4278,7 +4353,8 @@
    "entregas": null,
    "alertas": [
     "unidadeSuspeita"
-   ]
+   ],
+   "tipologia": "VLT"
   },
   {
    "id": 70,
@@ -4339,6 +4415,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120979"
   },
   {
@@ -4400,6 +4477,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120948"
   },
   {
@@ -4461,6 +4539,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120978"
   },
   {
@@ -4502,7 +4581,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Metrô e trens"
   },
   {
    "id": 74,
@@ -4563,6 +4643,7 @@
     "oae": 2.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "121016"
   },
   {
@@ -4624,6 +4705,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "121008"
   },
   {
@@ -4685,6 +4767,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120960"
   },
   {
@@ -4746,6 +4829,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "121011"
   },
   {
@@ -4807,6 +4891,7 @@
     "oae": 1.0
    },
    "alertas": [],
+   "tipologia": "Sistema viário e OAE",
    "idGoverna": "120954"
   },
   {
@@ -4868,6 +4953,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "121003"
   },
   {
@@ -4929,6 +5015,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "121015"
   },
   {
@@ -4990,6 +5077,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120977"
   },
   {
@@ -5051,6 +5139,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "120997"
   },
   {
@@ -5112,6 +5201,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "120955"
   },
   {
@@ -5173,6 +5263,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120975"
   },
   {
@@ -5234,6 +5325,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120976"
   },
   {
@@ -5295,6 +5387,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120971"
   },
   {
@@ -5356,6 +5449,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Estudos e projetos",
    "idGoverna": "120961"
   },
   {
@@ -5397,7 +5491,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "VLT"
   },
   {
    "id": 89,
@@ -5438,7 +5533,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Sistema viário e OAE"
   },
   {
    "id": 90,
@@ -5479,7 +5575,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 91,
@@ -5520,7 +5617,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Metrô e trens"
   },
   {
    "id": 92,
@@ -5561,7 +5659,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 93,
@@ -5622,6 +5721,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": null
   },
   {
@@ -5663,7 +5763,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Mobilidade ativa"
   },
   {
    "id": 95,
@@ -5704,7 +5805,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 96,
@@ -5745,7 +5847,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Estudos e projetos"
   },
   {
    "id": 97,
@@ -5786,7 +5889,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "VLT"
   },
   {
    "id": 98,
@@ -5827,7 +5931,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "VLT"
   },
   {
    "id": 99,
@@ -5888,6 +5993,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "141270"
   },
   {
@@ -5929,7 +6035,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 101,
@@ -5990,6 +6097,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "141271"
   },
   {
@@ -6051,6 +6159,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "141272"
   },
   {
@@ -6092,7 +6201,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 104,
@@ -6133,7 +6243,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 105,
@@ -6194,6 +6305,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Mobilidade ativa",
    "idGoverna": null
   },
   {
@@ -6255,6 +6367,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "141273"
   },
   {
@@ -6316,6 +6429,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "141274"
   },
   {
@@ -6357,7 +6471,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 109,
@@ -6398,7 +6513,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 110,
@@ -6459,6 +6575,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": null
   },
   {
@@ -6500,7 +6617,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 112,
@@ -6541,7 +6659,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "BRT e corredores de ônibus"
   },
   {
    "id": 113,
@@ -6582,7 +6701,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Mobilidade ativa"
   },
   {
    "id": 114,
@@ -6623,7 +6743,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "BRT e corredores de ônibus"
   },
   {
    "id": 115,
@@ -6664,7 +6785,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Mobilidade ativa"
   },
   {
    "id": 116,
@@ -6705,7 +6827,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 117,
@@ -6746,7 +6869,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "BRT e corredores de ônibus"
   },
   {
    "id": 118,
@@ -6787,7 +6911,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 119,
@@ -6828,7 +6953,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "VLT"
   },
   {
    "id": 120,
@@ -6869,7 +6995,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Mobilidade ativa"
   },
   {
    "id": 121,
@@ -6912,7 +7039,8 @@
    "entregas": null,
    "alertas": [
     "unidadeSuspeita"
-   ]
+   ],
+   "tipologia": "Metrô e trens"
   },
   {
    "id": 122,
@@ -6953,7 +7081,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Metrô e trens"
   },
   {
    "id": 123,
@@ -6996,7 +7125,8 @@
    "entregas": null,
    "alertas": [
     "unidadeSuspeita"
-   ]
+   ],
+   "tipologia": "Metrô e trens"
   },
   {
    "id": 124,
@@ -7057,6 +7187,7 @@
     "oae": 4.0
    },
    "alertas": [],
+   "tipologia": "Sistema viário e OAE",
    "idGoverna": "141269"
   },
   {
@@ -7118,6 +7249,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "141268"
   },
   {
@@ -7179,6 +7311,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "141070"
   },
   {
@@ -7240,6 +7373,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "141275"
   },
   {
@@ -7301,6 +7435,7 @@
     "oae": 1.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "141267"
   },
   {
@@ -7342,7 +7477,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 130,
@@ -7383,7 +7519,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 131,
@@ -7424,7 +7561,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 132,
@@ -7465,7 +7603,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 133,
@@ -7506,7 +7645,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "VLT"
   },
   {
    "id": 134,
@@ -7547,7 +7687,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 135,
@@ -7588,7 +7729,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Metrô e trens"
   },
   {
    "id": 136,
@@ -7631,7 +7773,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 137,
@@ -7674,7 +7817,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 138,
@@ -7717,7 +7861,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 139,
@@ -7760,7 +7905,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 140,
@@ -7803,7 +7949,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 141,
@@ -7846,7 +7993,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 142,
@@ -7889,7 +8037,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 143,
@@ -7932,7 +8081,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 144,
@@ -7975,7 +8125,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 145,
@@ -8018,7 +8169,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 146,
@@ -8061,7 +8213,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 147,
@@ -8104,7 +8257,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 148,
@@ -8147,7 +8301,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 149,
@@ -8190,7 +8345,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 150,
@@ -8233,7 +8389,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 151,
@@ -8276,7 +8433,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 152,
@@ -8319,7 +8477,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 153,
@@ -8362,7 +8521,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 154,
@@ -8405,7 +8565,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 155,
@@ -8448,7 +8609,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 156,
@@ -8491,7 +8653,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 157,
@@ -8534,7 +8697,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 158,
@@ -8577,7 +8741,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 159,
@@ -8620,7 +8785,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 160,
@@ -8663,7 +8829,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 161,
@@ -8706,7 +8873,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 162,
@@ -8749,7 +8917,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 163,
@@ -8792,7 +8961,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 164,
@@ -8835,7 +9005,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 165,
@@ -8878,7 +9049,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 166,
@@ -8921,7 +9093,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 167,
@@ -8964,7 +9137,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 168,
@@ -9007,7 +9181,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 169,
@@ -9050,7 +9225,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 170,
@@ -9093,7 +9269,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 171,
@@ -9136,7 +9313,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 172,
@@ -9179,7 +9357,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 173,
@@ -9222,7 +9401,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 174,
@@ -9265,7 +9445,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 175,
@@ -9308,7 +9489,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 176,
@@ -9351,7 +9533,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 177,
@@ -9394,7 +9577,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 178,
@@ -9437,7 +9621,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 179,
@@ -9480,7 +9665,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 180,
@@ -9523,7 +9709,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 181,
@@ -9566,7 +9753,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 182,
@@ -9609,7 +9797,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 183,
@@ -9652,7 +9841,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 184,
@@ -9695,7 +9885,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 185,
@@ -9738,7 +9929,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 186,
@@ -9781,7 +9973,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 187,
@@ -9824,7 +10017,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 188,
@@ -9867,7 +10061,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 189,
@@ -9910,7 +10105,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 190,
@@ -9953,7 +10149,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 191,
@@ -9996,7 +10193,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 192,
@@ -10039,7 +10237,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 193,
@@ -10082,7 +10281,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 194,
@@ -10125,7 +10325,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 195,
@@ -10168,7 +10369,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 196,
@@ -10211,7 +10413,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 197,
@@ -10254,7 +10457,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 198,
@@ -10297,7 +10501,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 199,
@@ -10340,7 +10545,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 200,
@@ -10383,7 +10589,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 201,
@@ -10426,7 +10633,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 202,
@@ -10469,7 +10677,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 203,
@@ -10512,7 +10721,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 204,
@@ -10555,7 +10765,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 205,
@@ -10598,7 +10809,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 206,
@@ -10641,7 +10853,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 207,
@@ -10684,7 +10897,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 208,
@@ -10727,7 +10941,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 209,
@@ -10770,7 +10985,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 210,
@@ -10813,7 +11029,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 211,
@@ -10856,7 +11073,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 212,
@@ -10899,7 +11117,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 213,
@@ -10942,7 +11161,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 214,
@@ -10986,7 +11206,8 @@
    "alertas": [
     "situacaoDesconhecida",
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 215,
@@ -11030,7 +11251,8 @@
    "alertas": [
     "situacaoDesconhecida",
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 216,
@@ -11073,7 +11295,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 217,
@@ -11116,7 +11339,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 218,
@@ -11159,7 +11383,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 219,
@@ -11202,7 +11427,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 220,
@@ -11245,7 +11471,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 221,
@@ -11288,7 +11515,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 222,
@@ -11331,7 +11559,8 @@
    "entregas": null,
    "alertas": [
     "situacaoDesconhecida"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 223,
@@ -11374,7 +11603,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 224,
@@ -11417,7 +11647,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 225,
@@ -11460,7 +11691,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 226,
@@ -11503,7 +11735,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 227,
@@ -11546,7 +11779,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 228,
@@ -11589,7 +11823,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 229,
@@ -11632,7 +11867,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 230,
@@ -11675,7 +11911,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 231,
@@ -11718,7 +11955,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 232,
@@ -11761,7 +11999,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 233,
@@ -11804,7 +12043,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 234,
@@ -11847,7 +12087,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 235,
@@ -11890,7 +12131,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 236,
@@ -11933,7 +12175,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 237,
@@ -11976,7 +12219,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 238,
@@ -12019,7 +12263,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 239,
@@ -12062,7 +12307,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 240,
@@ -12105,7 +12351,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 241,
@@ -12148,7 +12395,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 242,
@@ -12191,7 +12439,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 243,
@@ -12234,7 +12483,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 244,
@@ -12277,7 +12527,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 245,
@@ -12320,7 +12571,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 246,
@@ -12363,7 +12615,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 247,
@@ -12406,7 +12659,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 248,
@@ -12449,7 +12703,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 249,
@@ -12492,7 +12747,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 250,
@@ -12535,7 +12791,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 251,
@@ -12578,7 +12835,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 252,
@@ -12621,7 +12879,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 253,
@@ -12664,7 +12923,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 254,
@@ -12707,7 +12967,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 255,
@@ -12750,7 +13011,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 256,
@@ -12793,7 +13055,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 257,
@@ -12836,7 +13099,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 258,
@@ -12880,7 +13144,8 @@
    "alertas": [
     "semModo",
     "valorAcimaApoio"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 259,
@@ -12923,7 +13188,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 260,
@@ -12966,7 +13232,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 261,
@@ -13009,7 +13276,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 262,
@@ -13052,7 +13320,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 263,
@@ -13095,7 +13364,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 264,
@@ -13138,7 +13408,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 265,
@@ -13181,7 +13452,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 266,
@@ -13224,7 +13496,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 267,
@@ -13267,7 +13540,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 268,
@@ -13310,7 +13584,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 269,
@@ -13353,7 +13628,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 270,
@@ -13396,7 +13672,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 271,
@@ -13439,7 +13716,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 272,
@@ -13482,7 +13760,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 273,
@@ -13525,7 +13804,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 274,
@@ -13568,7 +13848,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 275,
@@ -13611,7 +13892,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 276,
@@ -13654,7 +13936,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 277,
@@ -13697,7 +13980,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 278,
@@ -13740,7 +14024,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 279,
@@ -13783,7 +14068,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 280,
@@ -13826,7 +14112,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 281,
@@ -13869,7 +14156,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 282,
@@ -13912,7 +14200,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 283,
@@ -13955,7 +14244,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 284,
@@ -13998,7 +14288,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 285,
@@ -14041,7 +14332,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 286,
@@ -14084,7 +14376,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 287,
@@ -14127,7 +14420,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 288,
@@ -14170,7 +14464,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 289,
@@ -14213,7 +14508,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 290,
@@ -14256,7 +14552,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 291,
@@ -14299,7 +14596,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 292,
@@ -14342,7 +14640,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 293,
@@ -14385,7 +14684,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 294,
@@ -14428,7 +14728,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 295,
@@ -14471,7 +14772,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 296,
@@ -14514,7 +14816,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 297,
@@ -14557,7 +14860,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 298,
@@ -14600,7 +14904,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 299,
@@ -14643,7 +14948,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 300,
@@ -14686,7 +14992,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 301,
@@ -14729,7 +15036,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 302,
@@ -14772,7 +15080,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 303,
@@ -14815,7 +15124,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 304,
@@ -14858,7 +15168,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 305,
@@ -14901,7 +15212,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 306,
@@ -14944,7 +15256,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 307,
@@ -14987,7 +15300,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 308,
@@ -15030,7 +15344,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 309,
@@ -15073,7 +15388,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 310,
@@ -15116,7 +15432,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 311,
@@ -15159,7 +15476,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 312,
@@ -15202,7 +15520,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 313,
@@ -15245,7 +15564,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 314,
@@ -15288,7 +15608,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 315,
@@ -15331,7 +15652,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 316,
@@ -15374,7 +15696,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 317,
@@ -15417,7 +15740,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 318,
@@ -15460,7 +15784,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 319,
@@ -15503,7 +15828,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 320,
@@ -15546,7 +15872,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 321,
@@ -15589,7 +15916,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 322,
@@ -15632,7 +15960,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 323,
@@ -15675,7 +16004,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 324,
@@ -15718,7 +16048,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 325,
@@ -15761,7 +16092,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 326,
@@ -15804,7 +16136,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 327,
@@ -15847,7 +16180,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 328,
@@ -15890,7 +16224,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 329,
@@ -15933,7 +16268,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 330,
@@ -15976,7 +16312,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 331,
@@ -16019,7 +16356,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 332,
@@ -16062,7 +16400,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 333,
@@ -16105,7 +16444,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 334,
@@ -16148,7 +16488,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 335,
@@ -16191,7 +16532,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 336,
@@ -16234,7 +16576,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 337,
@@ -16277,7 +16620,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 338,
@@ -16320,7 +16664,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 339,
@@ -16363,7 +16708,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 340,
@@ -16406,7 +16752,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 341,
@@ -16449,7 +16796,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 342,
@@ -16492,7 +16840,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 343,
@@ -16535,7 +16884,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 344,
@@ -16578,7 +16928,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 345,
@@ -16621,7 +16972,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 346,
@@ -16664,7 +17016,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 347,
@@ -16707,7 +17060,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 348,
@@ -16750,7 +17104,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 349,
@@ -16793,7 +17148,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 350,
@@ -16836,7 +17192,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 351,
@@ -16879,7 +17236,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 352,
@@ -16922,7 +17280,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 353,
@@ -16965,7 +17324,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 354,
@@ -17008,7 +17368,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 355,
@@ -17051,7 +17412,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 356,
@@ -17094,7 +17456,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 357,
@@ -17137,7 +17500,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 358,
@@ -17180,7 +17544,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 359,
@@ -17223,7 +17588,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 360,
@@ -17266,7 +17632,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 361,
@@ -17309,7 +17676,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 362,
@@ -17352,7 +17720,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 363,
@@ -17395,7 +17764,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 364,
@@ -17438,7 +17808,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 365,
@@ -17481,7 +17852,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 366,
@@ -17524,7 +17896,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 367,
@@ -17567,7 +17940,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 368,
@@ -17610,7 +17984,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 369,
@@ -17653,7 +18028,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 370,
@@ -17696,7 +18072,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 371,
@@ -17739,7 +18116,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 372,
@@ -17782,7 +18160,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 373,
@@ -17825,7 +18204,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 374,
@@ -17868,7 +18248,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 375,
@@ -17911,7 +18292,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 376,
@@ -17954,7 +18336,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 377,
@@ -17997,7 +18380,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 378,
@@ -18040,7 +18424,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 379,
@@ -18083,7 +18468,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 380,
@@ -18126,7 +18512,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 381,
@@ -18169,7 +18556,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 382,
@@ -18212,7 +18600,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 383,
@@ -18255,7 +18644,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 384,
@@ -18298,7 +18688,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 385,
@@ -18341,7 +18732,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 386,
@@ -18384,7 +18776,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 387,
@@ -18427,7 +18820,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 388,
@@ -18470,7 +18864,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 389,
@@ -18513,7 +18908,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 390,
@@ -18556,7 +18952,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 391,
@@ -18599,7 +18996,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 392,
@@ -18642,7 +19040,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 393,
@@ -18685,7 +19084,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 394,
@@ -18728,7 +19128,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 395,
@@ -18771,7 +19172,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 396,
@@ -18814,7 +19216,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 397,
@@ -18857,7 +19260,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 398,
@@ -18900,7 +19304,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 399,
@@ -18943,7 +19348,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 400,
@@ -18986,7 +19392,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 401,
@@ -19029,7 +19436,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 402,
@@ -19072,7 +19480,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 403,
@@ -19115,7 +19524,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 404,
@@ -19158,7 +19568,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 405,
@@ -19201,7 +19612,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 406,
@@ -19244,7 +19656,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 407,
@@ -19287,7 +19700,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 408,
@@ -19330,7 +19744,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 409,
@@ -19373,7 +19788,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 410,
@@ -19416,7 +19832,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 411,
@@ -19459,7 +19876,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 412,
@@ -19502,7 +19920,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 413,
@@ -19545,7 +19964,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 414,
@@ -19588,7 +20008,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 415,
@@ -19631,7 +20052,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 416,
@@ -19674,7 +20096,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 417,
@@ -19717,7 +20140,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 418,
@@ -19760,7 +20184,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 419,
@@ -19803,7 +20228,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 420,
@@ -19846,7 +20272,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 421,
@@ -19889,7 +20316,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 422,
@@ -19932,7 +20360,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 423,
@@ -19975,7 +20404,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 424,
@@ -20018,7 +20448,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 425,
@@ -20061,7 +20492,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 426,
@@ -20104,7 +20536,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 427,
@@ -20147,7 +20580,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 428,
@@ -20190,7 +20624,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 429,
@@ -20233,7 +20668,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 430,
@@ -20276,7 +20712,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 431,
@@ -20319,7 +20756,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 432,
@@ -20362,7 +20800,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 433,
@@ -20405,7 +20844,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 434,
@@ -20448,7 +20888,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 435,
@@ -20491,7 +20932,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 436,
@@ -20534,7 +20976,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 437,
@@ -20577,7 +21020,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 438,
@@ -20620,7 +21064,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 439,
@@ -20663,7 +21108,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 440,
@@ -20706,7 +21152,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 441,
@@ -20749,7 +21196,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 442,
@@ -20792,7 +21240,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 443,
@@ -20835,7 +21284,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 444,
@@ -20878,7 +21328,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 445,
@@ -20921,7 +21372,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 446,
@@ -20964,7 +21416,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 447,
@@ -21007,7 +21460,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 448,
@@ -21050,7 +21504,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 449,
@@ -21093,7 +21548,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 450,
@@ -21136,7 +21592,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 451,
@@ -21179,7 +21636,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 452,
@@ -21222,7 +21680,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 453,
@@ -21265,7 +21724,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 454,
@@ -21308,7 +21768,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 455,
@@ -21351,7 +21812,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 456,
@@ -21394,7 +21856,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 457,
@@ -21437,7 +21900,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 458,
@@ -21480,7 +21944,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 459,
@@ -21523,7 +21988,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 460,
@@ -21566,7 +22032,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 461,
@@ -21609,7 +22076,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 462,
@@ -21652,7 +22120,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 463,
@@ -21695,7 +22164,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 464,
@@ -21738,7 +22208,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 465,
@@ -21781,7 +22252,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 466,
@@ -21824,7 +22296,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 467,
@@ -21867,7 +22340,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 468,
@@ -21910,7 +22384,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 469,
@@ -21953,7 +22428,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 470,
@@ -21996,7 +22472,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 471,
@@ -22039,7 +22516,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 472,
@@ -22082,7 +22560,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 473,
@@ -22125,7 +22604,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 474,
@@ -22168,7 +22648,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 475,
@@ -22211,7 +22692,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 476,
@@ -22254,7 +22736,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 477,
@@ -22297,7 +22780,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 478,
@@ -22340,7 +22824,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 479,
@@ -22383,7 +22868,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 480,
@@ -22426,7 +22912,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 481,
@@ -22469,7 +22956,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 482,
@@ -22512,7 +23000,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 483,
@@ -22555,7 +23044,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 484,
@@ -22598,7 +23088,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 485,
@@ -22641,7 +23132,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 486,
@@ -22684,7 +23176,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 487,
@@ -22727,7 +23220,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 488,
@@ -22770,7 +23264,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 489,
@@ -22813,7 +23308,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 490,
@@ -22856,7 +23352,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 491,
@@ -22899,7 +23396,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 492,
@@ -22942,7 +23440,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 493,
@@ -22985,7 +23484,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 494,
@@ -23028,7 +23528,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 495,
@@ -23071,7 +23572,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 496,
@@ -23114,7 +23616,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 497,
@@ -23157,7 +23660,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 498,
@@ -23200,7 +23704,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 499,
@@ -23243,7 +23748,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 500,
@@ -23286,7 +23792,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 501,
@@ -23329,7 +23836,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 502,
@@ -23372,7 +23880,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 503,
@@ -23415,7 +23924,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 504,
@@ -23458,7 +23968,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 505,
@@ -23501,7 +24012,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 506,
@@ -23544,7 +24056,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 507,
@@ -23587,7 +24100,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 508,
@@ -23630,7 +24144,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 509,
@@ -23673,7 +24188,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 510,
@@ -23716,7 +24232,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 511,
@@ -23759,7 +24276,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 512,
@@ -23802,7 +24320,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 513,
@@ -23863,6 +24382,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "120996, 120995, 3055, 471"
   },
   {
@@ -23904,7 +24424,8 @@
    "noEscopo": true,
    "migrado": true,
    "entregas": null,
-   "alertas": []
+   "alertas": [],
+   "tipologia": "Metrô e trens"
   },
   {
    "id": 515,
@@ -23965,6 +24486,7 @@
     "oae": 19.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3050"
   },
   {
@@ -24026,6 +24548,7 @@
     "oae": 4.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3053"
   },
   {
@@ -24087,6 +24610,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "VLT",
    "idGoverna": "3042"
   },
   {
@@ -24148,6 +24672,7 @@
     "oae": 3.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3070"
   },
   {
@@ -24209,6 +24734,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "482"
   },
   {
@@ -24270,6 +24796,7 @@
     "oae": 12.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3052"
   },
   {
@@ -24331,6 +24858,7 @@
     "oae": 1.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3066"
   },
   {
@@ -24392,6 +24920,7 @@
     "oae": 5.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3046"
   },
   {
@@ -24453,6 +24982,7 @@
     "oae": 2.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "479"
   },
   {
@@ -24514,6 +25044,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "476"
   },
   {
@@ -24575,6 +25106,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "480"
   },
   {
@@ -24636,6 +25168,7 @@
     "oae": 2.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "3054"
   },
   {
@@ -24697,6 +25230,7 @@
     "oae": 3.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3051"
   },
   {
@@ -24758,6 +25292,7 @@
     "oae": 4.0
    },
    "alertas": [],
+   "tipologia": "Sistema viário e OAE",
    "idGoverna": "467"
   },
   {
@@ -24819,6 +25354,7 @@
     "oae": 2.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "4672"
   },
   {
@@ -24880,6 +25416,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3059"
   },
   {
@@ -24941,6 +25478,7 @@
     "oae": 8.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "4673"
   },
   {
@@ -25002,6 +25540,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "470"
   },
   {
@@ -25063,6 +25602,7 @@
     "oae": 1.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "481"
   },
   {
@@ -25124,6 +25664,7 @@
     "oae": 1.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3068"
   },
   {
@@ -25187,6 +25728,7 @@
    "alertas": [
     "contratadaSemValor"
    ],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "472"
   },
   {
@@ -25248,6 +25790,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "473"
   },
   {
@@ -25309,6 +25852,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Terminais e sistemas",
    "idGoverna": "487"
   },
   {
@@ -25370,6 +25914,7 @@
     "oae": 3.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "486"
   },
   {
@@ -25431,6 +25976,7 @@
     "oae": 5.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3045"
   },
   {
@@ -25492,6 +26038,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "Metrô e trens",
    "idGoverna": "3048"
   },
   {
@@ -25553,6 +26100,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "488"
   },
   {
@@ -25614,6 +26162,7 @@
     "oae": 3.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3040"
   },
   {
@@ -25675,6 +26224,7 @@
     "oae": 7.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3049"
   },
   {
@@ -25736,6 +26286,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3039"
   },
   {
@@ -25797,6 +26348,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3041"
   },
   {
@@ -25858,6 +26410,7 @@
     "oae": 2.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3043"
   },
   {
@@ -25921,6 +26474,7 @@
    "alertas": [
     "contratadaSemValor"
    ],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "4671"
   },
   {
@@ -25982,6 +26536,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3047"
   },
   {
@@ -26043,6 +26598,7 @@
     "oae": 0.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3056"
   },
   {
@@ -26104,6 +26660,7 @@
     "oae": 3.0
    },
    "alertas": [],
+   "tipologia": "BRT e corredores de ônibus",
    "idGoverna": "3044"
   },
   {
@@ -26147,7 +26704,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 552,
@@ -26190,7 +26748,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 553,
@@ -26233,7 +26792,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 554,
@@ -26276,7 +26836,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 555,
@@ -26319,7 +26880,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 556,
@@ -26362,7 +26924,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 557,
@@ -26405,7 +26968,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 558,
@@ -26448,7 +27012,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 559,
@@ -26491,7 +27056,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 560,
@@ -26534,7 +27100,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 561,
@@ -26577,7 +27144,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 562,
@@ -26620,7 +27188,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 563,
@@ -26663,7 +27232,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 564,
@@ -26706,7 +27276,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 565,
@@ -26749,7 +27320,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 566,
@@ -26792,7 +27364,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 567,
@@ -26835,7 +27408,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 568,
@@ -26878,7 +27452,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 569,
@@ -26921,7 +27496,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 570,
@@ -26964,7 +27540,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 571,
@@ -27007,7 +27584,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 572,
@@ -27050,7 +27628,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 573,
@@ -27093,7 +27672,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 574,
@@ -27136,7 +27716,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 575,
@@ -27179,7 +27760,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 576,
@@ -27222,7 +27804,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 577,
@@ -27265,7 +27848,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 578,
@@ -27308,7 +27892,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 579,
@@ -27351,7 +27936,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 580,
@@ -27394,7 +27980,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 581,
@@ -27437,7 +28024,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 582,
@@ -27480,7 +28068,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 583,
@@ -27523,7 +28112,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 584,
@@ -27566,7 +28156,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 585,
@@ -27609,7 +28200,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 586,
@@ -27652,7 +28244,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 587,
@@ -27695,7 +28288,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 588,
@@ -27738,7 +28332,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 589,
@@ -27781,7 +28376,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 590,
@@ -27824,7 +28420,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 591,
@@ -27867,7 +28464,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 592,
@@ -27910,7 +28508,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 593,
@@ -27953,7 +28552,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 594,
@@ -27996,7 +28596,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 595,
@@ -28039,7 +28640,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 596,
@@ -28082,7 +28684,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 597,
@@ -28125,7 +28728,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 598,
@@ -28168,7 +28772,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 599,
@@ -28211,7 +28816,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 600,
@@ -28254,7 +28860,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 601,
@@ -28297,7 +28904,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 602,
@@ -28340,7 +28948,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 603,
@@ -28383,7 +28992,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   },
   {
    "id": 604,
@@ -28426,7 +29036,8 @@
    "entregas": null,
    "alertas": [
     "semModo"
-   ]
+   ],
+   "tipologia": "Terminais e sistemas"
   }
  ]
 }

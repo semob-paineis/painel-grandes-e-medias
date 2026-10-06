@@ -343,6 +343,9 @@ window.PG = window.PG || {};
   var CATEGORIA_ESTUDOS_PROJETOS = 'Estudos e Projetos';
 
   function chaveModoOuCategoria(r) {
+    // Tipologia do empreendimento (aba 'Indicadores de Obra'): classificação
+    // única por empreendimento, que soma 100% do valor sem sobreposição.
+    if (r.tipologia) return r.tipologia;
     if (r.categoria === CATEGORIA_ESTUDOS_PROJETOS) {
       return CATEGORIA_ESTUDOS_PROJETOS;
     }

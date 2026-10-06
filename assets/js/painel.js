@@ -108,6 +108,8 @@
   var CATEGORIA_ESTUDOS_PROJETOS = 'Estudos e Projetos';
 
   function modosParaFiltro(opcoes) {
+    // Preferência: tipologias do empreendimento (classificação única).
+    if (opcoes.tipologias && opcoes.tipologias.length) return opcoes.tipologias.slice();
     var modos = (opcoes.modos || []).slice();
     var temEstudosProjetos = (opcoes.categorias || [])
       .indexOf(CATEGORIA_ESTUDOS_PROJETOS) >= 0;
@@ -209,7 +211,7 @@
       { valor: 'km', rotulo: 'Extensão', descricao: 'Quilômetros de via (item principal)' },
       { valor: 'unidades', rotulo: 'Unidades',
         descricao: 'Material rodante, terminais, abrigos e sistemas (item principal)' },
-      { valor: 'valor', rotulo: 'Investimento', descricao: 'Valor por modo' }
+      { valor: 'valor', rotulo: 'Investimento', descricao: 'Valor por tipologia' }
     ], 'metricaInfra');
   }
 
@@ -577,7 +579,7 @@
       ' do valor selecionado.',
 
       textoEntregas(resultado, filtros, kmTrilhos) +
-      (lider ? ' O modo de maior investimento é <strong>' + Util.escapar(lider.chave) +
+      (lider ? ' A tipologia de maior investimento é <strong>' + Util.escapar(lider.chave) +
         '</strong>, com ' + F.percentual(lider.participacao, 1) + ' do total.' : ''),
 
       'A distribuição alcança <strong>' + F.inteiro(resultado.totais.municipios) +

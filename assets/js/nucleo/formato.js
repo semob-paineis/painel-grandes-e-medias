@@ -107,7 +107,15 @@ window.PG = window.PG || {};
     'Abrigos':                     '--modo-abrigos',
     'Planos de Mobilidade Urbana': '--modo-planos',
     'Aeromóvel':                   '--modo-aeromovel',
-    'Sistema Viário':              '--modo-corredor'
+    'Sistema Viário':              '--modo-corredor',
+    // Tipologias do empreendimento (aba Investimento e filtro)
+    'Metrô e trens':               '--modo-metro',
+    'VLT':                         '--modo-vlt',
+    'BRT e corredores de ônibus':  '--modo-brt',
+    'Sistema viário e OAE':        '--modo-oae',
+    'Mobilidade ativa':            '--modo-ciclovias',
+    'Terminais e sistemas':        '--modo-terminais',
+    'Estudos e projetos':          '--modo-planos'
   };
 
   var CORES_ETAPA = {

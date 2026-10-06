@@ -167,6 +167,7 @@ window.PG = window.PG || {};
     ['metro', ICONES.metro],
     ['aeromovel', ICONES.aeromovel],
     ['ciclovia', ICONES.ciclovia],
+    ['ativa', ICONES.ciclovia],
     ['bicicl', ICONES.ciclovia],
     ['brt', ICONES.brt],
     ['corredor', ICONES.corredor],
@@ -357,10 +358,11 @@ window.PG = window.PG || {};
           'elevados; passarelas aparecem separadas. Fonte: levantamento ' +
           'por empreendimento (' + F.inteiro(n) + ' no recorte).';
       } else {
-        nota.textContent = 'Clique em um modo para filtrar todo o painel por ' +
-          'ele. O investimento é classificado pelo modo do item principal de ' +
-          'cada proposta e não pode ser repartido entre as entregas; para ' +
-          'quilômetros e unidades, veja as abas Extensão e Unidades.';
+        nota.textContent = 'Clique em uma tipologia para filtrar todo o painel por ' +
+          'ela. Cada empreendimento pertence a uma única tipologia, definida ' +
+          'pela sua natureza geral; por isso os valores somam o total sem ' +
+          'repetição. O investimento não é repartido entre as entregas — ' +
+          'para quilômetros e unidades, veja as abas Extensão e Unidades.';
       }
     }
 
@@ -406,7 +408,7 @@ window.PG = window.PG || {};
       if (!linhas.length) {
         container.appendChild(Util.el('div', {
           'class': 'sem-resultado',
-          html: '<strong>Nenhum modo com ' + metrica.rotulo.toLowerCase() +
+          html: '<strong>Nenhuma tipologia com ' + metrica.rotulo.toLowerCase() +
                 ' registrada</strong>Ajuste os filtros ou troque a métrica.'
         }));
         return;
@@ -418,7 +420,7 @@ window.PG = window.PG || {};
       // sem uma coluna "Investimento" fixa ao lado, que duplicava a
       // informação sempre que a aba escolhida já era "Investimento".
       container.appendChild(Util.el('div', { 'class': 'infra__cabecalho' }, [
-        Util.el('span', { texto: 'Modo' }),
+        Util.el('span', { texto: 'Tipologia' }),
         Util.el('span', { texto: 'Distribuição' }),
         Util.el('span', { texto: metrica.rotulo })
       ]));
@@ -510,7 +512,7 @@ window.PG = window.PG || {};
 
     // Onde esse modo está concentrado — contexto útil na conversa com o gestor.
     var ufs = Util.agrupar(
-      resultado.universo.filter(function (r) { return r.modo === linha.chave; }),
+      resultado.universo.filter(function (r) { return (r.tipologia || r.modo) === linha.chave; }),
       function (r) { return r.uf; },
       function (acc, r) { acc.valor += PG.Regras.valorDe(r, filtros.visao); },
       function (c) { return { chave: c, valor: 0 }; }
@@ -520,8 +522,8 @@ window.PG = window.PG || {};
     var nota = ufs.length
       ? 'Concentração: ' + ufs.map(function (u) {
           return u.chave + ' ' + F.moedaCurta(u.valor);
-        }).join(' · ') + '. Clique para filtrar o painel por este modo.'
-      : 'Clique para filtrar o painel por este modo.';
+        }).join(' · ') + '. Clique para filtrar o painel por esta tipologia.'
+      : 'Clique para filtrar o painel por esta tipologia.';
     if (linha.migrados > 0) {
       nota += ' O custo por km usa o apoio federal original dos registros ' +
               'Migrado Novo PAC, não só a parcela migrada.';
