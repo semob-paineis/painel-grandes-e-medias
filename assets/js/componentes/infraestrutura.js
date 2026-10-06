@@ -218,8 +218,17 @@ window.PG = window.PG || {};
     return item.unidade === 'km' ? F.decimal(valor, 1) : F.inteiro(valor);
   }
 
+  var UNIDADE_DA_ABA = { km: 'km', unidades: 'un.' };
+
   function renderizarEntregas(container, resultado, filtros) {
     var e = resultado.entregas;
+    // Abas Extensão/Unidades usam o mesmo levantamento por empreendimento
+    // da aba "Todas as entregas", apenas filtrando a unidade de medida.
+    var unidadeAba = UNIDADE_DA_ABA[filtros.metricaInfra] || null;
+    if (e && unidadeAba) {
+      e = { itens: e.itens.filter(function (i) { return i.unidade === unidadeAba; }),
+            porChave: e.porChave, empreendimentos: e.empreendimentos };
+    }
     var temDados = e && e.itens.some(function (i) { return i.valor > 0; });
 
     if (!temDados) {
@@ -234,7 +243,7 @@ window.PG = window.PG || {};
     container.appendChild(Util.el('div', { 'class': 'infra__cabecalho' }, [
       Util.el('span', { texto: 'Entrega' }),
       Util.el('span', { texto: 'Distribuição' }),
-      Util.el('span', { texto: 'Total' })
+      Util.el('span', { texto: unidadeAba === 'km' ? 'Extensão' : unidadeAba === 'un.' ? 'Unidades' : 'Total' })
     ]));
 
     // Agrupa mantendo a ordem do dicionário (gerar_dados.py).
@@ -340,7 +349,7 @@ window.PG = window.PG || {};
     var e = resultado.entregas;
 
     if (nota) {
-      if (filtros.metricaInfra === 'entregas') {
+      if (filtros.metricaInfra !== 'valor') {
         var n = e ? e.empreendimentos : 0;
         nota.textContent = 'Cada empreendimento é contado uma única vez. ' +
           'Quilômetros e unidades não se somam entre si. Obras de arte ' +
@@ -349,9 +358,9 @@ window.PG = window.PG || {};
           'por empreendimento (' + F.inteiro(n) + ' no recorte).';
       } else {
         nota.textContent = 'Clique em um modo para filtrar todo o painel por ' +
-          'ele. Modos medidos em quilômetros e modos medidos em unidades não ' +
-          'se somam entre si. Esta aba considera apenas o item principal de ' +
-          'cada proposta; veja "Todas as entregas" para o conjunto completo.';
+          'ele. O investimento é classificado pelo modo do item principal de ' +
+          'cada proposta e não pode ser repartido entre as entregas; para ' +
+          'quilômetros e unidades, veja as abas Extensão e Unidades.';
       }
     }
 
@@ -381,7 +390,7 @@ window.PG = window.PG || {};
       container.innerHTML = '';
       atualizarNotas(resultado, filtros);
 
-      if (filtros.metricaInfra === 'entregas') {
+      if (filtros.metricaInfra !== 'valor') {
         renderizarEntregas(container, resultado, filtros);
         return;
       }
