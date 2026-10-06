@@ -25,6 +25,13 @@ window.PG = window.PG || {};
     return f.visao === 'selecionado' ? 'selecionado' : 'contratado';
   }
 
+  /** Total de uma entrega (aba "Indicadores de Obra") no recorte atual;
+   *  null quando a base não traz o levantamento (cai no item principal). */
+  function entrega(r, chave) {
+    if (!r.entregas || !r.entregas.porChave[chave]) return null;
+    return r.entregas.porChave[chave].valor;
+  }
+
   var CARTOES = [
     {
       chave: 'investimento',
@@ -82,9 +89,14 @@ window.PG = window.PG || {};
       chave: 'extensao',
       acento: 'infra',
       rotulo: function () { return 'Extensão de sistemas'; },
-      valor: function (r) { return F.decimal(r.totais.km, 1); },
+      valor: function (r) {
+        var c = entrega(r, 'corredorKm'), t = entrega(r, 'trilhosKm');
+        return F.decimal(c === null ? r.totais.km : c + t, 1);
+      },
       unidade: 'km',
       apoio: function (r) {
+        var t = entrega(r, 'trilhosKm');
+        if (t !== null) return F.decimal(t, 1) + ' km sobre trilhos';
         var trilhos = r.modos.filter(function (m) {
           return ['Metrô', 'VLTs', 'Trens'].indexOf(m.chave) >= 0;
         });
@@ -92,6 +104,21 @@ window.PG = window.PG || {};
         return F.decimal(km, 1) + ' km sobre trilhos';
       },
       dica: function (r, f) {
+        if (entrega(r, 'corredorKm') !== null) {
+          return {
+            titulo: 'Extensão de sistemas',
+            linhas: [
+              ['Corredores, BRT e faixas', F.km(entrega(r, 'corredorKm'))],
+              ['Trilhos (metrô, VLT, trem)', F.km(entrega(r, 'trilhosKm'))],
+              ['Sistema viário (à parte)', F.km(entrega(r, 'viarioKm') || 0)],
+              ['Ciclovias (à parte)', F.km(entrega(r, 'cicloKm') || 0)]
+            ],
+            nota: 'Soma de corredores/BRT/faixas exclusivas e trilhos nos ' +
+                  'empreendimentos ' + rotuloVisao(f) + 's. Sistema viário e ' +
+                  'ciclovias são indicadores próprios. Nos Migrado Novo PAC, ' +
+                  'a extensão é a do empreendimento inteiro.'
+          };
+        }
         var linhas = r.modos
           .filter(function (m) { return m.km > 0; })
           .slice(0, 6)
@@ -108,9 +135,18 @@ window.PG = window.PG || {};
       chave: 'unidades',
       acento: 'rodante',
       rotulo: function () { return 'Material rodante e equipamentos'; },
-      valor: function (r) { return F.inteiro(r.totais.unidades); },
+      valor: function (r) {
+        var v = entrega(r, 'veiculos');
+        if (v === null) return F.inteiro(r.totais.unidades);
+        return F.inteiro(v + entrega(r, 'its') + entrega(r, 'cco') + entrega(r, 'patios'));
+      },
       unidade: 'un.',
       apoio: function (r) {
+        var v = entrega(r, 'veiculos');
+        if (v !== null) {
+          return F.inteiro(v) + ' veículos · ' + F.inteiro(entrega(r, 'its')) +
+                 ' ITS · ' + F.inteiro(entrega(r, 'cco')) + ' CCO';
+        }
         var m = r.modos.filter(function (x) { return x.unidades > 0; });
         m = Util.ordenarPor(m, function (x) { return x.unidades; }, true);
         return m.length
@@ -118,6 +154,19 @@ window.PG = window.PG || {};
           : 'Sem unidades registradas no recorte';
       },
       dica: function (r) {
+        if (entrega(r, 'veiculos') !== null) {
+          return {
+            titulo: 'Material rodante e equipamentos',
+            linhas: [
+              ['Veículos / material rodante', F.inteiro(entrega(r, 'veiculos')) + ' un.'],
+              ['ITS e semáforos inteligentes', F.inteiro(entrega(r, 'its')) + ' un.'],
+              ['Centros de controle (CCO)', F.inteiro(entrega(r, 'cco')) + ' un.'],
+              ['Pátios, oficinas e garagens', F.inteiro(entrega(r, 'patios')) + ' un.']
+            ],
+            nota: 'Estações, terminais, abrigos, OAE e passarelas estão em ' +
+                  '"O que o investimento entrega" › Todas as entregas.'
+          };
+        }
         var linhas = Util.ordenarPor(
           r.modos.filter(function (m) { return m.unidades > 0; }),
           function (m) { return m.unidades; }, true
