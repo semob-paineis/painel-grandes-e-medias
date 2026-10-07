@@ -395,7 +395,10 @@ window.PG = window.PG || {};
           texto: formatarEntrega(item, item.valor) + ' ' + item.unidade })
       ])
     ]));
-    caixa.appendChild(tabela);
+    // A tabela tem células que não quebram: a rolagem horizontal fica dentro
+    // deste envoltório, como nas demais tabelas do painel, em vez de empurrar
+    // a página inteira em telas estreitas.
+    caixa.appendChild(Util.el('div', { 'class': 'tabela-envolucro' }, [tabela]));
     caixa.appendChild(Util.el('p', {
       'class': 'infra__detalhe__nota',
       texto: 'Quantidades do levantamento por empreendimento (aba "Indicadores ' +

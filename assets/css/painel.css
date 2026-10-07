@@ -26,6 +26,10 @@
 body {
   margin: 0;
   font-family: var(--fonte-base);
+  /* Números de proposta e contrato são palavras longas sem espaço
+     ("56000003554/2023"): sem isto elas definem a largura mínima do bloco
+     que as contém e empurram a página em telas estreitas. */
+  overflow-wrap: break-word;
   font-size: var(--texto-md);
   line-height: 1.55;
   color: var(--texto-padrao);
@@ -106,7 +110,14 @@ a { color: var(--gov-azul); }
   margin-top: 1px;
 }
 .cabecalho__orgao { font-size: var(--texto-sm); color: var(--texto-suave); }
-.cabecalho__acoes { display: flex; align-items: center; gap: var(--e2); }
+/* min-width: 0 em toda caixa flex que contém conteúdo largo: sem isso o item
+   não encolhe abaixo da largura do próprio conteúdo (min-width: auto vale
+   min-content) e é ele, não o container, que passa a mandar na largura da
+   página. É a causa da maior parte do estouro horizontal no celular. */
+.cabecalho__acoes {
+  display: flex; align-items: center; gap: var(--e2);
+  min-width: 0; flex-wrap: wrap;
+}
 /* Ajuste conservador: os próprios botões (Radar de Propostas, Exportar,
    tema) ficam um pouco mais compactos aqui, sem mudar o padrão em outras
    páginas — o texto continua legível, só com menos respiro nas laterais. */
@@ -149,7 +160,7 @@ a { color: var(--gov-azul); }
 .menu-suspenso { position: relative; }
 .menu-suspenso__lista {
   position: absolute; right: 0; top: calc(100% + 6px);
-  min-width: 190px;
+  min-width: 190px; max-width: calc(100vw - 32px);
   background: var(--fundo-superficie);
   border: 1px solid var(--borda);
   border-radius: var(--raio);
@@ -179,14 +190,16 @@ a { color: var(--gov-azul); }
   margin: 0 auto;
   padding: var(--e3) var(--e5);
   display: flex; align-items: flex-end; gap: var(--e2);
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: thin;
+  /* A barra quebra para a linha de baixo quando os filtros não cabem. Antes
+     ela rolava para o lado, e o botão "Limpar filtros" ficava fora da tela em
+     qualquer monitor com menos de ~1430px de largura útil. */
+  flex-wrap: wrap;
+  row-gap: var(--e3);
 }
-/* Cada bloco de filtro mantém sua largura natural — sem isso, nowrap
-   junto de flex faria os itens espremerem em vez de rolar. */
+/* Cada bloco de filtro mantém sua largura natural e vai inteiro para a linha
+   seguinte, em vez de espremer o rótulo. */
 .filtros__interno > .filtro { flex-shrink: 0; }
-.filtro { display: flex; flex-direction: column; gap: 5px; }
+.filtro { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
 .filtro__rotulo {
   font-size: var(--texto-2xs);
   font-weight: 700;
@@ -257,9 +270,12 @@ main { padding: var(--e6) 0 var(--e10); }
   border-bottom: 1px solid var(--borda);
   flex-wrap: wrap;
 }
-.bloco__titulo { font-size: var(--texto-lg); font-weight: 700; }
-.bloco__apoio { font-size: var(--texto-sm); color: var(--texto-suave); }
-.bloco__acoes { margin-left: auto; display: flex; gap: var(--e2); align-items: center; }
+.bloco__titulo { font-size: var(--texto-lg); font-weight: 700; min-width: 0; }
+.bloco__apoio { font-size: var(--texto-sm); color: var(--texto-suave); min-width: 0; }
+.bloco__acoes {
+  margin-left: auto; display: flex; gap: var(--e2); align-items: center;
+  min-width: 0; flex-wrap: wrap;
+}
 .bloco__corpo { padding: var(--e5); }
 
 .grade { display: grid; gap: var(--e5); }
@@ -449,7 +465,7 @@ main { padding: var(--e6) 0 var(--e10); }
 .infra__grupo:first-of-type { margin-top: var(--e2); }
 
 /* Alternador de métrica do componente (extensão / unidades / investimento) */
-.infra__metricas { display: flex; gap: var(--e2); align-items: center; }
+.infra__metricas { display: flex; gap: var(--e2); align-items: center; min-width: 0; }
 
 /* Rastreabilidade: a linha abre a lista dos empreendimentos que a compõem */
 .infra__linha--abrivel { cursor: pointer; }
@@ -477,6 +493,9 @@ main { padding: var(--e6) 0 var(--e10); }
 .infra__detalhe table.tabela { background: var(--fundo); }
 .infra__detalhe table.tabela th { position: static; }
 .infra__detalhe table.tabela td { white-space: nowrap; }
+/* As células do detalhe não quebram: a rolagem fica dentro da própria caixa
+   (o envoltório é criado em montarDetalheEntrega). */
+.infra__detalhe .tabela-envolucro { overflow-x: auto; }
 .infra__detalhe table.tabela td .celula-longa {
   white-space: normal; display: inline-block; max-width: 420px; min-width: 260px;
 }
@@ -501,7 +520,7 @@ main { padding: var(--e6) 0 var(--e10); }
 
 .legenda { display: flex; flex-wrap: wrap; gap: var(--e3); margin-top: var(--e3); }
 .legenda__item {
-  display: flex; align-items: center; gap: 6px;
+  display: flex; align-items: center; gap: 6px; min-width: 0;
   font-size: var(--texto-xs); color: var(--texto-suave);
 }
 .legenda__marca { width: 10px; height: 10px; border-radius: 3px; }
@@ -610,7 +629,8 @@ html[data-tema="escuro"] .selo--desistencias { background: #4a2018; color: #f5b6
 .dica {
   position: fixed;
   z-index: 200;
-  max-width: 300px;
+  /* Nunca mais larga que a tela, mesmo num aparelho de 320px. */
+  max-width: min(300px, calc(100vw - 16px));
   padding: var(--e3);
   background: var(--gov-marinho);
   color: #fff;
@@ -644,7 +664,7 @@ html[data-tema="escuro"] .selo--desistencias { background: #4a2018; color: #f5b6
 /* ------------------------------------ 12. QUALIDADE, RESUMO E RODAPÉ */
 
 .aviso {
-  display: flex; gap: var(--e3); align-items: flex-start;
+  display: flex; gap: var(--e3); align-items: flex-start; min-width: 0;
   padding: var(--e3) var(--e4);
   border-radius: var(--raio);
   font-size: var(--texto-sm);
@@ -696,7 +716,7 @@ html[data-tema="escuro"] .resumo-numeros__titulo { color: #b8d2fb; }
   flex-wrap: wrap;
 }
 .busca {
-  position: relative; flex: 1 1 280px; max-width: 420px;
+  position: relative; flex: 1 1 280px; min-width: 0; max-width: 420px;
 }
 .busca input {
   width: 100%;
@@ -712,7 +732,8 @@ html[data-tema="escuro"] .resumo-numeros__titulo { color: #b8d2fb; }
   color: var(--texto-suave);
 }
 .barra-ferramentas__contagem {
-  font-size: var(--texto-sm); color: var(--texto-suave); margin-left: auto;
+  font-size: var(--texto-sm); color: var(--texto-suave);
+  margin-left: auto; min-width: 0;
 }
 .barra-ferramentas__contagem strong { color: var(--texto-forte); }
 
@@ -737,7 +758,7 @@ th[aria-sort] .th-seta { opacity: 1; color: var(--gov-azul); }
 
 .painel-filtro {
   position: fixed; z-index: 120;
-  width: 250px; max-height: 340px;
+  width: min(250px, calc(100vw - 16px)); max-height: 340px;
   display: flex; flex-direction: column;
   background: var(--fundo-superficie);
   border: 1px solid var(--borda-forte);
@@ -784,7 +805,7 @@ th[aria-sort] .th-seta { opacity: 1; color: var(--gov-azul); }
   font-size: var(--texto-sm); color: var(--texto-suave);
   flex-wrap: wrap;
 }
-.paginacao__botoes { display: flex; gap: var(--e1); margin-left: auto; }
+.paginacao__botoes { display: flex; gap: var(--e1); margin-left: auto; flex-wrap: wrap; }
 .paginacao__botoes button {
   font: inherit; font-size: var(--texto-sm);
   min-width: 32px; padding: 5px 9px;
@@ -822,7 +843,7 @@ th[aria-sort] .th-seta { opacity: 1; color: var(--gov-azul); }
   .filtros { position: static; }
   /* Abaixo daqui, empilhado (rolagem lateral não ajuda numa tela de celular
      estreita o bastante para isso importar). */
-  .filtros__interno { gap: var(--e3); flex-wrap: wrap; overflow-x: visible; }
+  .filtros__interno { gap: var(--e3); }
   .filtros__interno > .filtro { flex-shrink: 1; }
   .filtro__campo { min-width: 0; width: 100%; }
   .filtro { flex: 1 1 140px; }
@@ -838,7 +859,10 @@ th[aria-sort] .th-seta { opacity: 1; color: var(--gov-azul); }
   .funil__trilho { height: 46px; }
 
   /* Infraestrutura: barra some, ficam nome + métrica */
-  .infra__linha, .infra__cabecalho { grid-template-columns: minmax(0, 1fr) 92px; }
+    /* A coluna da métrica fica do tamanho do número ("1.110,2 km"), e é o nome
+     que encolhe com reticências — ao contrário dos 92px fixos, que cortavam
+     números maiores em telas estreitas. */
+  .infra__linha, .infra__cabecalho { grid-template-columns: minmax(0, 1fr) auto; }
   .infra__trilho { display: none; }
   .infra__cabecalho span:nth-child(2) { display: none; }
   .infra__cabecalho span:nth-child(3) { text-align: right; }
@@ -846,6 +870,90 @@ th[aria-sort] .th-seta { opacity: 1; color: var(--gov-azul); }
   .bloco__corpo { padding: var(--e4); }
   .grafico--medio, .grafico--alto { height: 250px; }
   .celula-longa { max-width: 240px; }
+}
+
+/* --------------------------------------------------------------- CELULAR
+   Até 560px tudo vira uma coluna só. A regra é: nenhum bloco da página rola
+   para o lado — a rolagem horizontal fica apenas onde ela é inevitável e
+   esperada (as abas segmentadas e as tabelas), sempre dentro da própria
+   caixa, nunca na página. */
+@media (max-width: 560px) {
+  /* Cabeçalho: identidade em cima, data e botões embaixo, em linha própria. */
+  .cabecalho__interno {
+    flex-direction: column; align-items: stretch; gap: var(--e3);
+    padding: var(--e3) var(--e4);
+  }
+  .cabecalho__identidade { flex: 1 1 auto; }
+  .cabecalho__titulo { font-size: var(--texto-md); line-height: 1.3; }
+  .cabecalho__orgao { font-size: var(--texto-xs); }
+  .cabecalho__acoes { width: 100%; gap: var(--e2); }
+  /* Duas linhas: a data com o botão de tema no canto, e abaixo os dois botões
+     de ação dividindo a largura. Sem a ordem explícita o botão de tema sobra
+     sozinho numa terceira linha. */
+  .cabecalho__acoes .selo-data {
+    flex: 1 1 auto; min-width: 0; order: 1;
+    justify-content: center; white-space: normal; text-align: center;
+  }
+  .cabecalho__acoes > .botao--icone { flex: 0 0 auto; order: 2; }
+  .cabecalho__acoes > .botao:not(.botao--icone) { order: 3; }
+  .cabecalho__acoes > .menu-suspenso { order: 4; }
+  .cabecalho__acoes > .botao:not(.botao--icone),
+  .cabecalho__acoes > .menu-suspenso { flex: 1 1 auto; min-width: 0; }
+  .cabecalho__acoes > .botao:not(.botao--icone) { justify-content: center; }
+  .cabecalho__acoes > .menu-suspenso > .botao { width: 100%; justify-content: center; }
+  .barra-gov__interna { padding: 6px var(--e4); }
+
+  /* Filtros: um por linha, cada um ocupando a largura toda. */
+  .filtros__interno {
+    flex-direction: column; align-items: stretch;
+    gap: var(--e3); padding: var(--e3) var(--e4);
+  }
+  .filtros__interno > .filtro { flex: 1 1 auto; width: 100%; }
+  .filtro__campo, .filtro__campo--estreito { width: 100%; min-width: 0; }
+  /* As abas segmentadas são o único lugar da barra que rola — dentro de si. */
+  .segmentado { width: 100%; max-width: 100%; overflow-x: auto; scrollbar-width: thin; }
+  .segmentado button { flex: 0 0 auto; }
+  /* Esmaece a borda direita enquanto houver opção escondida, para ficar claro
+     que a faixa rola (a marca vem de marcarRolagem, em painel.js). */
+  .segmentado.tem-rolagem {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 22px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 22px), transparent);
+  }
+  #btnLimparFiltros { width: 100%; justify-content: center; }
+
+  /* Cartões e blocos em coluna única. */
+  .grade--indicadores { grid-template-columns: minmax(0, 1fr); }
+  .indicador { padding: var(--e3) var(--e4); }
+  .indicador__valor { font-size: var(--texto-xl); }
+  .bloco__cabecalho { padding: var(--e3) var(--e4); gap: var(--e1); }
+  .bloco__acoes { margin-left: 0; width: 100%; }
+  .bloco__corpo { padding: var(--e3) var(--e4); }
+  .container { padding: 0 var(--e4); }
+
+  /* Barra do Radar e paginação: empilhadas, sem empurrar a linha. */
+  .barra-ferramentas { padding: var(--e3) var(--e4); gap: var(--e2); }
+  .busca { flex: 1 1 100%; max-width: none; }
+  .barra-ferramentas .botao { flex: 1 1 auto; justify-content: center; }
+  .barra-ferramentas__contagem { margin-left: 0; width: 100%; }
+  .paginacao { padding: var(--e3) var(--e4); gap: var(--e2); }
+  .paginacao__botoes { margin-left: 0; width: 100%; }
+
+  /* Gráficos e mapa acompanham a largura disponível. */
+  .grafico--medio, .grafico--alto { height: 230px; }
+  .grafico--baixo { height: 200px; }
+  .mapa { height: 320px; }
+  .mapa__gradiente { max-width: none; }
+  .celula-longa { max-width: 180px; }
+  .como-ler__lista dd { margin-left: var(--e3); }
+
+  /* No desktop o nome do indicador é cortado com reticências porque a coluna
+     é fixa; no celular ele passa a quebrar em duas linhas — numa tela
+     estreita, perder metade do rótulo custa mais do que uma linha a mais. */
+  .infra__nome {
+    white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.3;
+  }
+  .infra__linha, .infra__cabecalho { align-items: center; }
+  .infra__detalhe__titulo, .infra__detalhe__nota { font-size: var(--texto-xs); }
 }
 
 /* ------------------------------------ 15. IMPRESSÃO E EXPORTAÇÃO */
@@ -985,7 +1093,7 @@ body.exportando .painel-filtro { display: none !important; }
 .bloco, .infra__linha, .grade { scroll-margin-top: 140px; }
 
 @media (max-width: 780px) {
-  .assistente { right: 0; bottom: 0; width: 100vw; height: 82vh; border-radius: var(--raio-lg) var(--raio-lg) 0 0; }
+  .assistente { left: 0; right: 0; bottom: 0; width: auto; height: 82vh; border-radius: var(--raio-lg) var(--raio-lg) 0 0; }
   .assistente__fab { right: 14px; bottom: 14px; padding: 12px; }
   .assistente__fab-texto { display: none; }
 }

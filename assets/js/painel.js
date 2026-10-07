@@ -80,6 +80,27 @@
       });
       container.appendChild(botao);
     });
+    marcarRolagem(container);
+  }
+
+  /* Numa tela estreita as abas segmentadas rolam dentro da própria caixa (ver
+     .segmentado no CSS). Sem um indício, quem olha não percebe que há mais
+     opções à direita — daí a marca, que o CSS usa para esmaecer a borda. */
+  function marcarRolagem(container) {
+    if (!container) return;
+    var rola = container.scrollWidth > container.clientWidth + 1;
+    container.classList.toggle('tem-rolagem', rola);
+    if (rola && !container.dataset.ligadoRolagem) {
+      container.dataset.ligadoRolagem = '1';
+      container.addEventListener('scroll', function () {
+        var fim = container.scrollLeft + container.clientWidth >= container.scrollWidth - 2;
+        container.classList.toggle('tem-rolagem', !fim);
+      });
+    }
+  }
+
+  function remarcarRolagens() {
+    Array.prototype.forEach.call(document.querySelectorAll('.segmentado'), marcarRolagem);
   }
 
   function montarSelecao(id, opcoes, chaveEstado, rotuloTodos) {
@@ -801,6 +822,18 @@
     textoEntregasDaProposta: textoEntregasDaProposta
   };
 
+
+  /* Ao girar o aparelho, a largura disponível muda e com ela o que cabe em
+     cada bloco (o funil decide pelo espaço real, ver ajustarAoEspaco). Só
+     redesenha quando a LARGURA muda: no celular, esconder a barra de endereço
+     dispara resize a cada rolagem, e redesenhar ali seria desperdício. */
+  var larguraAnterior = window.innerWidth;
+  window.addEventListener('resize', Util.debounce(function () {
+    remarcarRolagens();
+    if (window.innerWidth === larguraAnterior) return;
+    larguraAnterior = window.innerWidth;
+    if (PG.Estado.assinantes.length) PG.Estado.notificar();
+  }, 180));
 
   document.addEventListener('DOMContentLoaded', function () {
     Tema.iniciar();

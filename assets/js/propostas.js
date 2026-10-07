@@ -556,7 +556,9 @@
 
     document.body.appendChild(painel);
     var r = ancora.getBoundingClientRect();
-    var esq = Math.min(r.left, window.innerWidth - 262);
+    // A largura do painel é responsiva (ver .painel-filtro no CSS), então a
+    // folga da direita vem da largura real, não de um número fixo.
+    var esq = Math.min(r.left, window.innerWidth - painel.offsetWidth - 8);
     painel.style.left = Math.max(8, esq) + 'px';
     painel.style.top = Math.min(r.bottom + 6,
       window.innerHeight - painel.offsetHeight - 8) + 'px';

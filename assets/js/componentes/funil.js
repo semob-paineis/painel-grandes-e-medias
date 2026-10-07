@@ -56,6 +56,7 @@ window.PG = window.PG || {};
           container.querySelectorAll('.funil__barra'),
           function (barra) { barra.style.width = barra.dataset.largura; }
         );
+        ajustarAoEspaco(container);
       });
     },
 
@@ -65,6 +66,41 @@ window.PG = window.PG || {};
 
   var LIMITE_COMPACTA = 26;  // % — abaixo disso, layout compacto (fonte menor), ainda dentro da barra
   var LIMITE_FORA = 12;      // % — abaixo disso, nem o layout compacto cabe: sai da barra
+
+  /* --------------------------------------------------------------------
+     O percentual acima é um palpite: 65% de uma tela de 1400px cabe o texto
+     inteiro, 65% de um celular de 320px não cabe. Depois que o navegador
+     calcula o layout, aqui se mede quantos PIXELS a barra terá de verdade e
+     se rebaixa o nível quando o texto não couber — é o que evita o conteúdo
+     cortado em telas estreitas, sem mexer no desktop (lá já cabe).
+     -------------------------------------------------------------------- */
+  function ajustarAoEspaco(container) {
+    Array.prototype.forEach.call(container.querySelectorAll('.funil__trilho'), function (trilho) {
+      var barra = trilho.querySelector('.funil__barra');
+      if (!barra) return;
+      var disponivel = trilho.clientWidth * (parseFloat(barra.dataset.largura) || 0) / 100;
+      // scrollWidth dá a largura do conteúdo mesmo durante a animação, em que
+      // a largura visível ainda está indo de 0% até o valor final.
+      if (barra.scrollWidth <= disponivel) return;
+
+      // 1º rebaixamento: fonte menor e percentual sem "da etapa anterior".
+      if (!barra.classList.contains('funil__barra--compacta')) {
+        barra.classList.add('funil__barra--compacta');
+        var conversao = barra.querySelector('.funil__conversao');
+        if (conversao && conversao.dataset.curto) conversao.textContent = conversao.dataset.curto;
+      }
+      if (barra.scrollWidth <= disponivel) return;
+
+      // 2º rebaixamento: o texto sai da barra e fica ao lado dela.
+      if (!trilho.dataset.fora) return;
+      barra.innerHTML = '';
+      barra.classList.remove('funil__barra--compacta');
+      var fora = Util.el('div', { 'class': 'funil__fora', texto: trilho.dataset.fora });
+      trilho.appendChild(fora);
+      var limite = trilho.clientWidth - fora.offsetWidth - 8;
+      fora.style.left = Math.max(0, Math.min(disponivel, limite)) + 'px';
+    });
+  }
 
   function desenharEtapa(etapa, indice, etapas, maior, metrica, resultado, filtros) {
     var base = metrica === 'valor' ? etapa.valor : etapa.quantidade;
@@ -84,7 +120,9 @@ window.PG = window.PG || {};
         ? Util.el('span', {
             'class': 'funil__conversao',
             // Compacto: só o percentual, sem "da etapa anterior" — a frase
-            // inteira não cabe nem no layout compacto.
+            // inteira não cabe nem no layout compacto. O texto curto fica
+            // guardado para ajustarAoEspaco poder rebaixar depois da medição.
+            'data-curto': F.percentual(etapa.conversao, 0),
             texto: compacta
               ? F.percentual(etapa.conversao, 0)
               : F.percentual(etapa.conversao, 0) + ' da etapa anterior'
@@ -98,14 +136,15 @@ window.PG = window.PG || {};
       estilo: { background: cor }
     }, conteudoBarra);
 
-    var trilho = Util.el('div', { 'class': 'funil__trilho' }, [barra]);
+    var textoFora = F.inteiro(etapa.quantidade) + ' · ' + F.moedaCurta(etapa.valor);
+    var trilho = Util.el('div', { 'class': 'funil__trilho', 'data-fora': textoFora }, [barra]);
 
     // Só nos casos extremos (< 12%) o texto sai para fora da barra.
     if (fora) {
       trilho.appendChild(Util.el('div', {
         'class': 'funil__fora',
         estilo: { left: largura + '%' },
-        texto: F.inteiro(etapa.quantidade) + ' · ' + F.moedaCurta(etapa.valor)
+        texto: textoFora
       }));
     }
 
