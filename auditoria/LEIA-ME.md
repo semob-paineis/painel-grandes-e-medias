@@ -14,7 +14,7 @@ Requisitos: Python 3 com openpyxl; Node com playwright (Chromium).
 | `e_csv_radar.js` | CSV exportado (colunas e somas) e integridade do Radar de Propostas. |
 | `f_assistente.py` (+ `f_assistente_runner.js`) | Assistente: gera ~9.000 perguntas com resposta conhecida — valores, contagens, entregas, funil, rankings (por proposta, empreendimento, proponente, município, UF, região, ano, tipologia, situação, estágio, modalidade, fonte e agente, por valor, por nº de propostas e por entrega) e a ficha de cada proposta da base, pelo número, pelo ID Governa e pela linha. Confere cada número contra um cálculo independente em Python. |
 | `h_responsivo.js` | Overflow horizontal e responsividade: em 10 larguras (320 a 1600), nos dois temas, com os blocos e menus abertos, mede se a página rola para o lado e lista todo elemento que ultrapassa a tela ou recorta conteúdo. |
-| `i_unidade_bi.js` | Unidade dos valores: varre o texto visível do painel, do Radar, das dicas e das respostas do assistente atrás de qualquer valor em R$ que não esteja em bilhões. |
+| `i_unidade_bi.js` | Unidade dos valores: varre o texto visível do painel, do Radar, das dicas e das respostas do assistente atrás de qualquer valor em R$ que não esteja em bilhões com duas casas decimais. |
 | `g_assistente_ui.js` | Assistente pela interface: abre a janela, pergunta, clica nos botões e confere se a tela (cartões, lista de empreendimentos, Propostas desta seleção) mostra os números da resposta — inclusive se o ranking de propostas é a mesma lista, na mesma ordem, da tabela “Propostas desta seleção”. |
 
 Como rodar:

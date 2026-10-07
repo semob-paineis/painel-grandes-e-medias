@@ -6,7 +6,10 @@ const { chromium } = require('playwright');
 const PROIBIDO = [
   /R\$\s*-?[\d.]+(,\d+)?\s*(mi|mil|milh|milhões|milhoes)\b/i,   // R$ 25,7 mi / R$ 600 mil
   /R\$\s*-?\d{1,3}(\.\d{3})+(,\d{2})?(?!\s*bi)/,                 // R$ 1.234.567,89
-  /\b\d+(,\d+)?\s+mi\b(?!lh)/                                      // "964,9 mi" sem R$
+  /\b\d+(,\d+)?\s+mi\b(?!lh)/,                                     // "964,9 mi" sem R$
+  /\d+,\d{3,}\s*bi\b/,                                            // mais de 2 casas: 0,965 bi
+  /\d+,\d\s*bi\b/,                                                // 1 casa: 17,0 bi
+  /\b\d+\s*bi\b(?<!,\d\d\s*bi)/                                     // sem casas: 2 bi
 ];
 (async () => {
   const base = process.argv[2];
@@ -68,7 +71,7 @@ const PROIBIDO = [
   console.log('cabeçalhos com R$ no Radar:', cab);
   console.log('telas varridas:', textos, '| dicas inspecionadas: até', alvos.length + 10);
   const unicos = [...new Set(achados)];
-  console.log(unicos.length ? 'VALORES FORA DE BILHÕES:\n - ' + unicos.join('\n - ') : 'Nenhum valor fora de bilhões.');
+  console.log(unicos.length ? 'VALORES FORA DO PADRÃO (bilhões, 2 casas):\n - ' + unicos.join('\n - ') : 'Todos os valores em bilhões, com duas casas.');
   await b.close();
   process.exit(unicos.length ? 1 : 0);
 })();

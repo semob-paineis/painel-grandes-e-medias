@@ -17,15 +17,19 @@ window.PG = window.PG || {};
     minimumFractionDigits: 1, maximumFractionDigits: 1
   });
   // Regras de casas decimais dos valores em bilhões (ver "VALORES EM R$").
+  // Duas casas decimais fixas em todo o painel (decisão da SEMOB, 07/10/2026).
   var BILHOES = {
-    padrao:  { significativos: 3, minimo: 2, maximo: 4 },
-    detalhe: { significativos: 4, minimo: 3, maximo: 5 }
+    padrao:  { significativos: 3, minimo: 2, maximo: 2 },
+    detalhe: { significativos: 3, minimo: 2, maximo: 2 }
   };
 
   /** "R$ 28,52 bi"; negativo como "-R$ 1,50 bi", à maneira brasileira. */
   function comPrefixo(v, regra) {
     var n = Number(v) || 0;
-    return (n < 0 ? '-' : '') + 'R$ ' + emBilhoes(Math.abs(n), regra) + ' bi';
+    var numero = emBilhoes(Math.abs(n), regra);
+    // "< R$ 0,01 bi", e não "R$ < 0,01 bi"
+    if (numero.indexOf('< ') === 0) return '< R$ ' + numero.slice(2) + ' bi';
+    return (n < 0 ? '-' : '') + 'R$ ' + numero + ' bi';
   }
 
   /** Número em bilhões (sem "R$" e sem "bi"), com as casas da regra. Um valor
@@ -66,18 +70,12 @@ window.PG = window.PG || {};
     },
 
     /* ----------------------------------------------------------------------
-       VALORES EM R$ — UMA SÓ UNIDADE: BILHÕES
+       VALORES EM R$ — BILHÕES, SEMPRE COM DUAS CASAS DECIMAIS
        Todo valor financeiro do painel, do Radar e do assistente sai em
-       bilhões, para que qualquer número possa ser comparado a qualquer outro
-       sem conversão de cabeça. Como a carteira vai de R$ 600 mil a R$ 7 bi,
-       o número de casas decimais acompanha a grandeza: o bastante para não
-       perder informação, sem sobrar zero à direita.
-         padrão   (cartões, listas, tabelas): 3 algarismos significativos,
-                   no mínimo 2 e no máximo 4 casas — 28,52 · 0,965 · 0,0257
-         detalhe  (dicas ao passar o mouse e Radar): 4 algarismos,
-                   no mínimo 3 e no máximo 5 casas — 28,523 · 0,9649
-         eixo     (gráficos): só as casas necessárias — 2 · 0,5 · 0,25
-       Para mudar a regra, mude só os números em BILHOES.
+       bilhões com duas casas: R$ 28,52 bi · R$ 0,96 bi · R$ 0,03 bi.
+       Um valor positivo abaixo de R$ 5 milhões arredondaria para "0,00" e
+       pareceria zero; ele aparece como "< R$ 0,01 bi". Para mudar a regra,
+       mude só os números em BILHOES.
        ---------------------------------------------------------------------- */
 
     /** Valor por proposta/linha no detalhe: R$ 28,523 bi. */
@@ -100,10 +98,11 @@ window.PG = window.PG || {};
       return emBilhoes(v, BILHOES.padrao) + ' bi';
     },
 
-    /** Marcas do eixo dos gráficos: 0 · 0,5 · 2 bi (sem zeros à direita). */
+    /** Marcas do eixo dos gráficos: 0,00 · 0,50 · 2,00 bi. */
     eixoBilhoes: function (v) {
       var n = (Number(v) || 0) / 1e9;
-      return new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 3 }).format(n) + ' bi';
+      return new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2,
+        maximumFractionDigits: 2 }).format(n) + ' bi';
     },
 
     km: function (v) {
