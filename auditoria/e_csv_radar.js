@@ -1,5 +1,6 @@
 /* AUDITORIA (e): CSV exportado pelo painel e integridade do Radar. */
 const { chromium } = require('playwright');
+const fs = require('fs');
 
 /** Parser CSV conforme RFC 4180: aspas, ponto e vírgula e quebras dentro
     do campo. Um split ingênuo erra em texto com ';'. */
@@ -19,6 +20,12 @@ function parseCSV(texto) {
   }
   if (campo || linha.length) { linha.push(campo); linhas.push(linha); }
   return linhas;
+}
+
+/** Mesmo formato do painel: R$ 28,05 bi. */
+function fmtBi(v) {
+  return 'R$ ' + new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2,
+    maximumFractionDigits: 2 }).format((v || 0) / 1e9) + ' bi';
 }
 
 (async () => {
@@ -90,11 +97,30 @@ function parseCSV(texto) {
       colunas: Array.from(document.querySelectorAll('thead th')).map(e => e.textContent.trim())
     };
   });
-  if (radar.total !== 139) problemas.push(`Radar: ${radar.total} propostas (esperado 139)`);
+  // O Radar e o painel leem a mesma aba: a contagem e os totais têm de bater
+  // com a base, e não com um número escrito aqui — que envelhece a cada
+  // atualização da planilha e deixa de testar o que importa.
+  const painel = JSON.parse(fs.readFileSync(process.argv[2] + '/dados.json', 'utf8'));
+  const universo = painel.registros.filter(r => r.noEscopo &&
+    ['contratado', 'aContratar', 'desistencia'].includes(r.etapa));
+  const selPainel = universo.reduce((a, r) =>
+    a + (r.tipo === 'Migrado Novo PAC' ? r.valorContratado : r.apoio), 0);
+  const conPainel = universo.filter(r => r.etapa === 'contratado')
+    .reduce((a, r) => a + (r.valorContratado || 0), 0);
+  if (radar.total !== universo.length) {
+    problemas.push(`Radar: ${radar.total} propostas, painel ${universo.length}`);
+  }
+  if (Math.abs(radar.apoio - selPainel) > 1) {
+    problemas.push(`Radar x painel (selecionado): ${radar.apoio.toFixed(2)} x ${selPainel.toFixed(2)}`);
+  }
+  if (Math.abs(radar.contratado - conPainel) > 1) {
+    problemas.push(`Radar x painel (contratado): ${radar.contratado.toFixed(2)} x ${conPainel.toFixed(2)}`);
+  }
   if (radar.selos.includes('Habilitados')) problemas.push('Radar: selo "Habilitados" ainda presente');
   if (!radar.colunas.some(c => /Migrado/.test(c))) problemas.push('Radar: sem a coluna Migrado');
-  if (!/28,5 bi|28,47|28,5/.test(radar.rodape)) {
-    problemas.push('Radar: rodapé com apoio inesperado — ' + radar.rodape);
+  const esperadoRodape = fmtBi(radar.apoio);
+  if (radar.rodape.indexOf(esperadoRodape) < 0) {
+    problemas.push(`Radar: rodapé sem o total ${esperadoRodape} — ` + radar.rodape);
   }
   if (radar.cartoes.length !== 3) {
     problemas.push('Radar: ' + radar.cartoes.length + ' cartões (esperado 3)');

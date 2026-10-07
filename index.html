@@ -8,15 +8,15 @@
       de transporte público do subeixo Mobilidade Grandes e Médias Cidades do
       Novo PAC — Ministério das Cidades / SEMOB.">
 
-<link rel="stylesheet" href="assets/css/tokens.css?v=20261007d">
-<link rel="stylesheet" href="assets/css/painel.css?v=20261007d">
+<link rel="stylesheet" href="assets/css/tokens.css?v=20261007e">
+<link rel="stylesheet" href="assets/css/painel.css?v=20261007e">
 
 <!-- Bibliotecas de terceiros em cópia local (ver assets/js/vendor/LEIA-ME.txt):
      o painel precisa abrir em máquina sem internet. Se algum arquivo faltar,
      gráficos e exportação avisam a indisponibilidade e o resto continua operando. -->
-<script src="assets/js/vendor/chart.umd.min.js?v=20261007d"></script>
-<script src="assets/js/vendor/html2canvas.min.js?v=20261007d" defer></script>
-<script src="assets/js/vendor/jspdf.umd.min.js?v=20261007d" defer></script>
+<script src="assets/js/vendor/chart.umd.min.js?v=20261007e"></script>
+<script src="assets/js/vendor/html2canvas.min.js?v=20261007e" defer></script>
+<script src="assets/js/vendor/jspdf.umd.min.js?v=20261007e" defer></script>
 </head>
 
 <body>
@@ -255,7 +255,7 @@
         </button>
 
         <div id="comoLerCorpo" class="oculto como-ler">
-          <h3>As três fontes da planilha</h3>
+          <h3>As duas fontes da planilha</h3>
           <dl class="como-ler__lista">
             <dt>BASEDEDADOS — uma linha por proposta</dt>
             <dd>Traz o dinheiro (apoio e valor contratado), a situação do
@@ -271,9 +271,11 @@
                 propostas; as quantidades ficam registradas uma única vez, na
                 proposta que o representa.</dd>
 
-            <dt>Lista de Projetos — uma linha por proposta</dt>
-            <dd>É a fonte do <a href="propostas.html">Radar de Propostas</a>.
-                Tem os mesmos 139 registros desta base, conferidos um a um.</dd>
+            <dd>É também a fonte do
+                <a href="propostas.html">Radar de Propostas</a>: desde 07/10/2026
+                as duas telas leem a mesma aba, de modo que não podem divergir.
+                A aba <em>Lista de Projetos</em> da planilha continua existindo
+                para consulta no Excel, mas não alimenta mais o painel.</dd>
           </dl>
 
           <h3>Regras que explicam as diferenças entre os blocos</h3>
@@ -347,22 +349,22 @@
 
 <!-- Base embutida: permite abrir o arquivo por duplo clique, sem servidor.
      Quando servido por HTTP, dados.json tem precedência (sempre a base mais nova). -->
-<script src="assets/js/dados-embutido.js?v=20261007d"></script>
-<script src="assets/js/geo-uf.js?v=20261007d"></script>
+<script src="assets/js/dados-embutido.js?v=20261007e"></script>
+<script src="assets/js/geo-uf.js?v=20261007e"></script>
 
-<script src="assets/js/nucleo/formato.js?v=20261007d"></script>
-<script src="assets/js/nucleo/dica.js?v=20261007d"></script>
-<script src="assets/js/nucleo/dados.js?v=20261007d"></script>
+<script src="assets/js/nucleo/formato.js?v=20261007e"></script>
+<script src="assets/js/nucleo/dica.js?v=20261007e"></script>
+<script src="assets/js/nucleo/dados.js?v=20261007e"></script>
 
-<script src="assets/js/componentes/indicadores.js?v=20261007d"></script>
-<script src="assets/js/componentes/funil.js?v=20261007d"></script>
-<script src="assets/js/componentes/infraestrutura.js?v=20261007d"></script>
-<script src="assets/js/componentes/graficos.js?v=20261007d"></script>
-<script src="assets/js/componentes/mapa.js?v=20261007d"></script>
-<script src="assets/js/componentes/tabelas.js?v=20261007d"></script>
-<script src="assets/js/componentes/exportar.js?v=20261007d"></script>
-<script src="assets/js/componentes/assistente.js?v=20261007d"></script>
+<script src="assets/js/componentes/indicadores.js?v=20261007e"></script>
+<script src="assets/js/componentes/funil.js?v=20261007e"></script>
+<script src="assets/js/componentes/infraestrutura.js?v=20261007e"></script>
+<script src="assets/js/componentes/graficos.js?v=20261007e"></script>
+<script src="assets/js/componentes/mapa.js?v=20261007e"></script>
+<script src="assets/js/componentes/tabelas.js?v=20261007e"></script>
+<script src="assets/js/componentes/exportar.js?v=20261007e"></script>
+<script src="assets/js/componentes/assistente.js?v=20261007e"></script>
 
-<script src="assets/js/painel.js?v=20261007d"></script>
+<script src="assets/js/painel.js?v=20261007e"></script>
 </body>
 </html>

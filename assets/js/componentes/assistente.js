@@ -165,6 +165,12 @@ window.PG = window.PG || {};
       if (!tem(n, nomes[i])) continue;
       var ehNomeDeUF = NOME_UF.some(function (p) { return p[0] === nomes[i]; });
       if (ehNomeDeUF && !pedeCidade(nomes[i])) continue;  // "São Paulo" = estado, salvo pedido
+      // "Rio Grande" é um município do RS, mas em "no Rio Grande do Sul" essas
+      // duas palavras são o começo do nome do estado, não a cidade.
+      var dentroDeUF = NOME_UF.some(function (par) {
+        return par[0] !== nomes[i] && par[0].indexOf(nomes[i]) >= 0 && tem(n, par[0]);
+      });
+      if (dentroDeUF && !pedeCidade(nomes[i])) continue;
       e.municipio = muns[nomes[i]];
       n = consumir(n, nomes[i]);
       break;
@@ -615,15 +621,16 @@ window.PG = window.PG || {};
                'indicadores de obra', 'lista de projetos', 'abas da planilha'],
       html: function () {
         var m = PG.Dados.meta || {};
-        return '<p>Tudo vem de uma planilha de acompanhamento, em três abas:</p>' + lista([
+        return '<p>Tudo vem de uma planilha de acompanhamento, em duas abas:</p>' + lista([
           '<strong>BASEDEDADOS</strong> — uma linha por proposta: valores (apoio e ' +
             'contratado), situação, localização. Alimenta os valores em R$, o funil, ' +
-            'o mapa e os gráficos.',
+            'o mapa, os gráficos e também o <a href="propostas.html">Radar de ' +
+            'Propostas</a> — as duas telas leem a mesma aba e por isso não divergem.',
           '<strong>Indicadores de Obra</strong> — uma linha por empreendimento: ' +
             'quilômetros, estações, veículos, OAE etc. Alimenta “O que o investimento ' +
             'entrega” e os cartões de extensão e material rodante.',
-          '<strong>Lista de Projetos</strong> — uma linha por proposta; é a fonte do ' +
-            '<a href="propostas.html">Radar de Propostas</a>.'
+          'A aba <strong>Lista de Projetos</strong> da planilha continua existindo para ' +
+            'consulta no Excel, mas desde 07/10/2026 não alimenta mais o painel.'
         ]) + '<p>Base atual: <strong>' + escHtml(m.origem || '—') + '</strong>, atualizada em <strong>' +
           escHtml(m.dataAtualizacao || '—') + '</strong>.</p>';
       },
