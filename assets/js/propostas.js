@@ -58,6 +58,19 @@
 
   function colunas() { return base.meta.colunas || []; }
 
+  /** Na tela os valores em R$ aparecem em bilhões (ver Formato.moeda), então o
+   *  cabeçalho diz "(R$ bi)". O CSV usa o título original, "(R$)", porque
+   *  exporta o valor cheio, em reais, para refazer contas numa planilha. */
+  /** As colunas em R$ ganham folga para o título "(R$ bi)" caber inteiro. */
+  function larguraNaTela(col) {
+    var px = parseInt(col.largura, 10);
+    return col.tipo === 'moeda' && px ? Math.max(px, 185) + 'px' : col.largura;
+  }
+
+  function tituloNaTela(col) {
+    return col.tipo === 'moeda' ? String(col.titulo).replace('(R$)', '(R$ bi)') : col.titulo;
+  }
+
   function valorDe(proposta, chave) {
     return proposta[chave];
   }
@@ -117,7 +130,7 @@
 
   function formatarCelula(proposta, col) {
     var v = valorDe(proposta, col.chave);
-    if (col.tipo === 'moeda') return v ? F.moeda(v) : '—';
+    if (col.tipo === 'moeda') return v ? F.moedaCurta(v) : '—';
     if (col.tipo === 'numero') return v ? F.inteiro(v) : '—';
     if (col.tipo === 'percentual') return v == null ? '—' : F.percentual(v, 0);
     return v == null || v === '' ? '—' : String(v);
@@ -132,7 +145,7 @@
       var th = Util.el('th', {
         'class': 'ordenavel' + (col.tipo === 'moeda' || col.tipo === 'percentual' ? ' n' : ''),
         scope: 'col',
-        style: col.largura && col.largura !== 'auto' ? 'width:' + col.largura : null
+        style: col.largura && col.largura !== 'auto' ? 'width:' + larguraNaTela(col) : null
       });
       if (ordenando) {
         th.setAttribute('aria-sort',
@@ -140,7 +153,7 @@
       }
 
       var interno = Util.el('div', { 'class': 'th-interno' }, [
-        Util.el('span', { texto: col.titulo }),
+        Util.el('span', { texto: tituloNaTela(col), title: tituloNaTela(col) }),
         Util.el('span', { 'class': 'th-seta',
           texto: ordenando ? (estado.ordem.direcao === 'asc' ? '▲' : '▼') : '▲' })
       ]);
@@ -240,7 +253,7 @@
       ['Local', (p.municipio || '—') + ' / ' + (p.uf || '—')],
       [p.migrado ? 'Apoio federal original' : 'Apoio', F.moeda(p.apoio)],
       [p.migrado ? 'Parcela migrada ao Novo PAC' : 'Contratado',
-        p.valorContratado ? F.moeda(p.valorContratado) : (p.migrado ? 'R$ 0 (sem parcela contratada)' : 'não contratado')]
+        p.valorContratado ? F.moeda(p.valorContratado) : (p.migrado ? F.moedaCurta(0) + ' (sem parcela contratada)' : 'não contratado')]
     ];
     if (p.migrado) {
       linhas.push(['Migrado / original',
@@ -356,9 +369,9 @@
     var partes = [
       'A seleção atual do Radar de Propostas traz <strong>' + F.inteiro(lista.length) +
         '</strong> proposta' + (lista.length === 1 ? '' : 's') + ', somando <strong>' +
-        F.moeda(apoio) + '</strong> em apoio' +
+        F.moedaCurta(apoio) + '</strong> em apoio' +
         (contratado > 0
-          ? ' e <strong>' + F.moeda(contratado) + '</strong> em valor contratado.'
+          ? ' e <strong>' + F.moedaCurta(contratado) + '</strong> em valor contratado.'
           : ', sem valor contratado registrado nesta seleção.'),
       migrados.length
         ? 'Inclui <strong>' + F.inteiro(migrados.length) + '</strong> empreendimento' +

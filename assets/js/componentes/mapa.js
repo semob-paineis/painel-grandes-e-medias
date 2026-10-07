@@ -133,7 +133,7 @@ window.PG = window.PG || {};
         return Paleta.escalaAzul(0.15 + t * 0.85);
       });
       container.innerHTML = '';
-      container.appendChild(Util.el('span', { texto: 'R$ 0' }));
+      container.appendChild(Util.el('span', { texto: F.moedaCurta(0) }));
       container.appendChild(Util.el('div', {
         'class': 'mapa__gradiente',
         estilo: { background: 'linear-gradient(90deg,' + paradas.join(',') + ')' }

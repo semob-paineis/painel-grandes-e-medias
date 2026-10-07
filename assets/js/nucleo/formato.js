@@ -16,9 +16,41 @@ window.PG = window.PG || {};
   var fmtDecimal = new Intl.NumberFormat('pt-BR', {
     minimumFractionDigits: 1, maximumFractionDigits: 1
   });
-  var fmtMoeda = new Intl.NumberFormat('pt-BR', {
-    style: 'currency', currency: 'BRL', maximumFractionDigits: 2
-  });
+  // Regras de casas decimais dos valores em bilhões (ver "VALORES EM R$").
+  var BILHOES = {
+    padrao:  { significativos: 3, minimo: 2, maximo: 4 },
+    detalhe: { significativos: 4, minimo: 3, maximo: 5 }
+  };
+
+  /** "R$ 28,52 bi"; negativo como "-R$ 1,50 bi", à maneira brasileira. */
+  function comPrefixo(v, regra) {
+    var n = Number(v) || 0;
+    return (n < 0 ? '-' : '') + 'R$ ' + emBilhoes(Math.abs(n), regra) + ' bi';
+  }
+
+  /** Número em bilhões (sem "R$" e sem "bi"), com as casas da regra. Um valor
+   *  positivo pequeno demais para a casa máxima vira "< 0,0001": mostrar
+   *  "0,0000" diria que é zero, e não é. */
+  function emBilhoes(v, regra) {
+    var n = (Number(v) || 0) / 1e9;
+    var abs = Math.abs(n);
+    if (abs === 0) {
+      return new Intl.NumberFormat('pt-BR', { minimumFractionDigits: regra.minimo,
+        maximumFractionDigits: regra.minimo }).format(0);
+    }
+    var menor = Math.pow(10, -regra.maximo);
+    if (abs < menor / 2) {
+      return (n < 0 ? '-' : '') + '< ' + new Intl.NumberFormat('pt-BR', {
+        minimumFractionDigits: regra.maximo, maximumFractionDigits: regra.maximo }).format(menor);
+    }
+    // Casas para mostrar N algarismos significativos: 28,5 tem 1 dígito antes
+    // da vírgula; 0,0257 tem o primeiro significativo na 2ª casa.
+    var ordem = Math.floor(Math.log10(abs));
+    var casas = Math.min(regra.maximo,
+      Math.max(regra.minimo, regra.significativos - 1 - ordem));
+    return new Intl.NumberFormat('pt-BR', {
+      minimumFractionDigits: casas, maximumFractionDigits: casas }).format(n);
+  }
 
   var Formato = {
 
@@ -33,29 +65,45 @@ window.PG = window.PG || {};
       }).format(Number(v) || 0);
     },
 
-    /** Valor cheio: R$ 1.234.567,89 — para tooltips e tabelas. */
+    /* ----------------------------------------------------------------------
+       VALORES EM R$ — UMA SÓ UNIDADE: BILHÕES
+       Todo valor financeiro do painel, do Radar e do assistente sai em
+       bilhões, para que qualquer número possa ser comparado a qualquer outro
+       sem conversão de cabeça. Como a carteira vai de R$ 600 mil a R$ 7 bi,
+       o número de casas decimais acompanha a grandeza: o bastante para não
+       perder informação, sem sobrar zero à direita.
+         padrão   (cartões, listas, tabelas): 3 algarismos significativos,
+                   no mínimo 2 e no máximo 4 casas — 28,52 · 0,965 · 0,0257
+         detalhe  (dicas ao passar o mouse e Radar): 4 algarismos,
+                   no mínimo 3 e no máximo 5 casas — 28,523 · 0,9649
+         eixo     (gráficos): só as casas necessárias — 2 · 0,5 · 0,25
+       Para mudar a regra, mude só os números em BILHOES.
+       ---------------------------------------------------------------------- */
+
+    /** Valor por proposta/linha no detalhe: R$ 28,523 bi. */
     moeda: function (v) {
-      return fmtMoeda.format(Number(v) || 0);
+      // A casa a mais só aparece quando acrescenta informação: 1,519 sim,
+      // mas 7,200 vira 7,20 e 0,02000 vira 0,0200.
+      var detalhe = emBilhoes(Math.abs(Number(v) || 0), BILHOES.detalhe);
+      var padrao = emBilhoes(Math.abs(Number(v) || 0), BILHOES.padrao);
+      var comoNumero = function (t) { return parseFloat(t.replace(/\./g, '').replace(',', '.')); };
+      var regra = (detalhe.indexOf('<') < 0 && comoNumero(detalhe) === comoNumero(padrao))
+        ? BILHOES.padrao : BILHOES.detalhe;
+      return comPrefixo(v, regra);
     },
 
-    /** Valor abreviado: R$ 18,1 bi — para cartões e eixos de gráfico. */
-    moedaCurta: function (v) {
-      var n = Number(v) || 0;
-      var sinal = n < 0 ? '-' : '';
-      n = Math.abs(n);
-      if (n >= 1e9) return sinal + 'R$ ' + fmtDecimal.format(n / 1e9) + ' bi';
-      if (n >= 1e6) return sinal + 'R$ ' + fmtDecimal.format(n / 1e6) + ' mi';
-      if (n >= 1e3) return sinal + 'R$ ' + fmtInteiro.format(n / 1e3) + ' mil';
-      return sinal + fmtMoeda.format(n);
-    },
+    /** Valor de cartões, listas e textos: R$ 28,52 bi. */
+    moedaCurta: function (v) { return comPrefixo(v, BILHOES.padrao); },
 
-    /** Apenas o número abreviado, sem o prefixo — usado quando o rótulo já diz. */
+    /** O mesmo valor sem o "R$" — quando o rótulo da coluna já diz. */
     numeroCurto: function (v) {
-      var n = Number(v) || 0;
-      if (n >= 1e9) return fmtDecimal.format(n / 1e9) + ' bi';
-      if (n >= 1e6) return fmtDecimal.format(n / 1e6) + ' mi';
-      if (n >= 1e3) return fmtInteiro.format(n / 1e3) + ' mil';
-      return fmtInteiro.format(n);
+      return emBilhoes(v, BILHOES.padrao) + ' bi';
+    },
+
+    /** Marcas do eixo dos gráficos: 0 · 0,5 · 2 bi (sem zeros à direita). */
+    eixoBilhoes: function (v) {
+      var n = (Number(v) || 0) / 1e9;
+      return new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 3 }).format(n) + ' bi';
     },
 
     km: function (v) {

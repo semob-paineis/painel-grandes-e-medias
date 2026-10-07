@@ -84,7 +84,7 @@ window.PG = window.PG || {};
           ticks: {
             color: corTexto, font: { size: 11 },
             callback: function (v) {
-              return config.eixoMoeda ? F.numeroCurto(v) : F.inteiro(v);
+              return config.eixoMoeda ? F.eixoBilhoes(v) : F.inteiro(v);
             }
           }
         }
@@ -129,7 +129,7 @@ window.PG = window.PG || {};
           border: { display: false },
           ticks: { color: x.ticks.color, font: { size: 11 },
                    callback: function (v) {
-                     return cfg.eixoMoeda ? F.numeroCurto(v) : F.inteiro(v);
+                     return cfg.eixoMoeda ? F.eixoBilhoes(v) : F.inteiro(v);
                    } }
         };
         opcoes.scales.y = {

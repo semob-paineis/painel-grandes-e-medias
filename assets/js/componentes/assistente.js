@@ -904,6 +904,25 @@ window.PG = window.PG || {};
       acoes: [{ rotulo: 'Ir ao mapa', tipo: 'bloco', titulo: 'Investimento por unidade da federação' }]
     },
     {
+      id: 'unidade',
+      titulo: 'Valores em bilhões',
+      chaves: ['bilhoes', 'bilhao', 'em bilhoes', 'unidade de medida', 'em que unidade', 'por que bi',
+               'o que significa bi', 'casas decimais', 'quanto e 0', 'converter para milhoes',
+               'milhoes', 'em milhoes'],
+      html: function () {
+        return '<p>Todo valor em R$ do painel, do Radar e das minhas respostas está em ' +
+          '<strong>bilhões</strong>, para qualquer número poder ser comparado a qualquer outro.</p>' +
+          lista([
+            'As casas decimais acompanham a grandeza: <strong>R$ 28,52 bi</strong>, ' +
+              '<strong>R$ 0,965 bi</strong> (= R$ 965 milhões), <strong>R$ 0,0257 bi</strong> ' +
+              '(= R$ 25,7 milhões), <strong>R$ 0,0006 bi</strong> (= R$ 600 mil).',
+            'Para ler em milhões, multiplique por 1.000: R$ 0,271 bi = R$ 271 milhões.',
+            'Ao passar o mouse, a dica mostra uma casa a mais de precisão.',
+            'O CSV exportado traz os valores cheios, em reais.'
+          ]);
+      }
+    },
+    {
       id: 'identificacao',
       titulo: 'Como uma proposta é identificada',
       chaves: ['id governa', 'idgoverna', 'governa', 'o que e s n', 'sem numero',
