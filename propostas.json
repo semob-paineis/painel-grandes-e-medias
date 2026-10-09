@@ -1,9 +1,9 @@
 {
  "meta": {
-  "dataAtualizacao": "07/10/2026",
-  "geradoEm": "2026-10-07T18:04:34-03:00",
-  "origem": "novo_07102026.xlsx",
-  "total": 139,
+  "dataAtualizacao": "09/10/2026",
+  "geradoEm": "2026-10-09T16:45:28-03:00",
+  "origem": "novo_09102026.xlsx",
+  "total": 141,
   "colunas": [
    {
     "chave": "grupo",
@@ -104,14 +104,14 @@
   "resumo": [
    {
     "grupo": "Contratados",
-    "quantidade": 121,
-    "apoio": 19410465097.89,
-    "contratado": 18080707231.43
+    "quantidade": 122,
+    "apoio": 19432689255.39,
+    "contratado": 18102931388.93
    },
    {
     "grupo": "A contratar",
-    "quantidade": 11,
-    "apoio": 8301562435.49,
+    "quantidade": 12,
+    "apoio": 8321121473.08,
     "contratado": 0.0
    },
    {
@@ -240,7 +240,7 @@
    "migrado": false,
    "pctMigrado": null,
    "situacao": "Contratada",
-   "situacaoExecucao": "Em resolutiva",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados"
   },
   {
@@ -300,7 +300,7 @@
    "migrado": false,
    "pctMigrado": null,
    "situacao": "Contratada",
-   "situacaoExecucao": "Em resolutiva",
+   "situacaoExecucao": "Em execução",
    "grupo": "Contratados"
   },
   {
@@ -1401,6 +1401,36 @@
   {
    "classificacao": "Selecionada",
    "tipo": "Grandes e Médias",
+   "uf": "SP",
+   "municipio": "São Carlos",
+   "proponente": "Prefeitura de São Carlos",
+   "empreendimento": "Implantação de terminais de integração de transporte público coletivo",
+   "apoio": 22593194.5,
+   "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
+   "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
+   "grupo": "A contratar"
+  },
+  {
+   "classificacao": "Selecionada",
+   "tipo": "Grandes e Médias",
+   "uf": "SP",
+   "municipio": "São Carlos",
+   "proponente": "Prefeitura de São Carlos",
+   "empreendimento": "Implantação de abrigos de ônibus no município de São Carlos",
+   "apoio": 19190000.59,
+   "valorContratado": 0.0,
+   "migrado": false,
+   "pctMigrado": null,
+   "situacao": "Em ação preparatória",
+   "situacaoExecucao": "Em contratação",
+   "grupo": "A contratar"
+  },
+  {
+   "classificacao": "Selecionada",
+   "tipo": "Grandes e Médias",
    "uf": "RN",
    "municipio": "Natal",
    "proponente": "Prefeitura de Natal",
@@ -1556,12 +1586,12 @@
    "proponente": "Prefeitura de Poços de Caldas",
    "empreendimento": "Implantação de abrigos de ônibus no município de Poços de Caldas",
    "apoio": 22224157.5,
-   "valorContratado": 0.0,
+   "valorContratado": 22224157.5,
    "migrado": false,
    "pctMigrado": null,
-   "situacao": "Em ação preparatória",
-   "situacaoExecucao": "Em contratação",
-   "grupo": "A contratar"
+   "situacao": "Contratada",
+   "situacaoExecucao": "Não iniciada",
+   "grupo": "Contratados"
   },
   {
    "classificacao": "Selecionada",

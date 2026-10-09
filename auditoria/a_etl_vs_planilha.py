@@ -34,6 +34,9 @@ def num(v):
     except ValueError: return 0.0
 
 erros = []
+avisos = []
+
+
 def check(cond, msg):
     if not cond: erros.append(msg)
 
@@ -63,6 +66,25 @@ regs = {r["id"]: r for r in pacote["registros"]}
 
 # ---- 1. campos de cada registro -------------------------------------------
 vistos = 0
+NOME_DA_UF = {
+    "AC": "Acre", "AL": "Alagoas", "AM": "Amazonas", "AP": "Amapá", "BA": "Bahia",
+    "CE": "Ceará", "DF": "Distrito Federal", "ES": "Espírito Santo", "GO": "Goiás",
+    "MA": "Maranhão", "MG": "Minas Gerais", "MS": "Mato Grosso do Sul",
+    "MT": "Mato Grosso", "PA": "Pará", "PB": "Paraíba", "PE": "Pernambuco",
+    "PI": "Piauí", "PR": "Paraná", "RJ": "Rio de Janeiro",
+    "RN": "Rio Grande do Norte", "RO": "Rondônia", "RR": "Roraima",
+    "RS": "Rio Grande do Sul", "SC": "Santa Catarina", "SE": "Sergipe",
+    "SP": "São Paulo", "TO": "Tocantins",
+}
+
+
+def sem_estado(municipio, uf):
+    if not municipio:
+        return municipio
+    sufixo = ", " + NOME_DA_UF.get((uf or "").strip().upper(), "\0")
+    return municipio[: -len(sufixo)].strip() if municipio.endswith(sufixo) else municipio
+
+
 for l in range(3, base.max_row + 1):
     tipo = txt(base.cell(l, C["tipo"]).value)
     if not tipo: continue
@@ -74,6 +96,11 @@ for l in range(3, base.max_row + 1):
     for campo, coluna in (("tipo", "tipo"), ("uf", "uf"), ("municipio", "municipio"),
                           ("situacao", "situacao"), ("empreendimento", "empreendimento")):
         esperado = txt(base.cell(l, C[coluna]).value)
+        if campo == "municipio":
+            # O ETL tira o nome do estado colado no do município
+            # ("Natal, Rio Grande do Norte" -> "Natal"), senão a mesma cidade
+            # conta duas vezes. A auditoria aplica a mesma regra ao esperado.
+            esperado = sem_estado(esperado, txt(base.cell(l, C["uf"]).value))
         check(r[campo] == esperado,
               f"linha {l}: {campo} planilha={esperado!r} json={r[campo]!r}")
     for campo in ("apoio", "valorContratado"):
@@ -96,9 +123,20 @@ check(vistos == len(regs), f"registros: planilha={vistos} json={len(regs)}")
 
 # ---- 2. entregas por empreendimento ---------------------------------------
 ws = wb["Indicadores de Obra"]
+# A aba cresce a cada levantamento novo: o fim dos dados é a linha de TOTAL
+# (ou a última preenchida), nunca um número fixo — com 136 cravado, as linhas
+# acrescentadas depois passavam despercebidas pela auditoria.
+COL_EMP_IND = next(c for c in range(1, ws.max_column + 1)
+                   if str(ws.cell(5, c).value or "").startswith("Empreendimento"))
+FIM_IND = 6
+for _l in range(6, ws.max_row + 2):
+    _v = str(ws.cell(_l, COL_EMP_IND).value or "").strip()
+    if not _v or _v.upper().startswith("TOTAL"):
+        FIM_IND = _l
+        break
 ancoras = {r["id"]: r for r in pacote["registros"] if r.get("entregas")}
 linhas_aba = 0
-for l in range(6, 136):
+for l in range(6, FIM_IND):
     ids = [int(n) for n in re.findall(r"\d+", str(ws.cell(l, 3).value or ""))]
     if not ids: continue
     linhas_aba += 1
@@ -117,9 +155,19 @@ for l in range(6, 136):
     # tipologia: igual em todos os registros do empreendimento
     tip = txt(ws.cell(l, 34).value)
     for i in ids:
-        if i in regs:
-            check(regs[i].get("tipologia") == tip,
-                  f"linha {l}: tipologia do registro {i} = {regs[i].get('tipologia')!r}, aba={tip!r}")
+        if i not in regs:
+            continue
+        if not tip:
+            # Empreendimento novo, ainda sem a coluna "Tipologia do
+            # empreendimento" preenchida: o ETL usa a reserva por modo e
+            # categoria. Vale registrar para a equipe preencher, mas não é
+            # divergência de cálculo.
+            avisos.append(f"linha {l}: sem tipologia na aba; o painel usou a "
+                          f"reserva '{regs[i].get('tipologia')}' "
+                          f"({(regs[i].get('empreendimento') or '')[:40]})")
+            continue
+        check(regs[i].get("tipologia") == tip,
+              f"linha {l}: tipologia do registro {i} = {regs[i].get('tipologia')!r}, aba={tip!r}")
 
 check(linhas_aba == len(ancoras),
       f"empreendimentos: aba={linhas_aba} ancoras no json={len(ancoras)}")
@@ -128,12 +176,16 @@ check(linhas_aba == len(ancoras),
 no_escopo = [r for r in pacote["registros"]
              if r["noEscopo"] and r["etapa"] in ("contratado", "aContratar", "desistencia")]
 ids_aba = set()
-for l in range(6, 136):
+for l in range(6, FIM_IND):
     ids_aba |= {int(n) for n in re.findall(r"\d+", str(ws.cell(l, 3).value or ""))}
 fora = [r["id"] for r in no_escopo if r["id"] not in ids_aba]
 check(not fora, f"registros no escopo sem empreendimento na aba: {fora}")
 
 print(f"registros conferidos: {vistos} · empreendimentos: {linhas_aba}")
+if avisos:
+    print(f"AVISOS ({len(avisos)}) — não são divergências de cálculo:")
+    for a in avisos:
+        print("  -", a)
 print(f"ERROS: {len(erros)}")
 for e in erros[:40]: print("  -", e)
 sys.exit(1 if erros else 0)
