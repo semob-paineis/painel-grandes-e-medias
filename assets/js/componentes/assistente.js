@@ -1118,6 +1118,32 @@ window.PG = window.PG || {};
     return null;
   }
 
+  /** Dimensão de uma LISTAGEM: vale o substantivo que aparece primeiro na frase.
+   *  Em "lista dos municípios com propostas contratadas" o objeto é município;
+   *  "propostas" ali só qualifica. (No ranking vale a ordem de DIMENSOES.) */
+  function dimensaoDaLista(n, ents) {
+    var fixa = {};
+    if (ents) {
+      if (ents.ufs.length) { fixa.uf = true; fixa.regiao = true; }
+      if (ents.regiao) fixa.regiao = true;
+      if (ents.ano) fixa.ano = true;
+      if (ents.tipologias.length) fixa.tipologia = true;
+      if (ents.municipio) { fixa.municipio = true; fixa.uf = true; }
+      if (ents.cenario) fixa.modalidade = true;
+    }
+    var melhor = null, pos = 1e9, t = ' ' + n + ' ';
+    DIMENSOES.forEach(function (d) {
+      if (fixa[d[0]]) return;
+      d[1].forEach(function (f) {
+        var i = t.indexOf(' ' + f + ' ');
+        if (i >= 0 && i < pos) { pos = i; melhor = d[0]; }
+      });
+    });
+    return melhor;
+  }
+
+  var VERBOS_DE_LISTA = /\b(lista|listas|liste|listar|listagem|relacao|relacione|relacionar|enumere|enumerar|apresente|apresentar|mostre|mostrar|exiba|exibir|quais|todos os|todas as|todo o|me de|me passe|me traga|traga|gostaria de ver|quero ver|preciso ver)\b/;
+
   /** O que está sendo comparado: valor em R$ (padrão) ou número de propostas.
    *  Devolve também o texto sem a expressão da métrica, para que o substantivo
    *  usado ali ("mais PROPOSTAS") não seja confundido com a dimensão. */
@@ -1547,6 +1573,67 @@ window.PG = window.PG || {};
     };
   }
 
+  /** Lista COMPLETA de uma dimensão ("liste os municípios com propostas
+   *  contratadas"): todos os itens do recorte, do maior valor ao menor, cada um
+   *  com valor e número de propostas, e o total conferível com o painel. */
+  function respostaListagem(ents, n, entregaChave, dimForcada) {
+    var dim = dimForcada || dimensaoDaLista(n, ents);
+    var entsR = {};
+    Object.keys(ents).forEach(function (k) { entsR[k] = ents[k]; });
+    if (dim === 'uf') { entsR.ufs = []; }
+    if (dim === 'regiao') { entsR.regiao = null; entsR.ufs = []; }
+    if (dim === 'ano') { entsR.ano = null; }
+    if (dim === 'tipologia') { entsR.tipologias = []; }
+    if (dim === 'municipio') { entsR.municipio = null; }
+    var esc = resolverEscopo(entsR), c = calcular(esc);
+    var nome = NOME_DIMENSAO[dim] || [dim, dim + 's'];
+    var d = null, fmt = F.moedaCurta, rotuloMetrica;
+    if (entregaChave) {
+      d = ((PG.Dados.meta.entregas || {}).dicionario || [])
+        .filter(function (x) { return x.chave === entregaChave; })[0] ||
+        { rotulo: entregaChave, unidade: 'un.' };
+      fmt = function (v) { return fmtEntrega(d.unidade, v); };
+      rotuloMetrica = d.rotulo;
+    } else {
+      rotuloMetrica = 'investimento ' + (esc.f.visao === 'selecionado' ? 'selecionado' : 'contratado');
+    }
+    var linhas = linhasDoRanking(c, dim, entregaChave ? 'entrega' : 'valor', entregaChave);
+    var contagem = {};
+    linhasDoRanking(c, dim, 'propostas', null).forEach(function (l) { contagem[l.id] = l.valor; });
+    // Sem métrica de valor (dim 'proposta' sem valor), o item continua listado.
+    linhas.sort(function (a, b) { return b.valor - a.valor; });
+    var total = Util.soma(linhas, function (l) { return l.valor; });
+    var html = descreverRecorte(esc);
+    if (!linhas.length) {
+      html += '<p>Não há ' + nome[1] + ' nesse recorte.</p>';
+    } else {
+      html += '<p><strong>' + plural(linhas.length, nome[0], nome[1]) + '</strong>' +
+        (esc.f.visao === 'selecionado' ? ' com propostas selecionadas' : ' com propostas contratadas') +
+        (entregaChave ? ' e com ' + escHtml(d.rotulo.toLowerCase()) : '') +
+        ' — ordenados por ' + escHtml(rotuloMetrica) + ':</p>' +
+        '<ol class="assistente__lista assistente__lista--rolavel">' + linhas.map(function (l) {
+          var np = contagem[l.id];
+          return '<li>' + escHtml(l.chave) + ': <strong>' + fmt(l.valor) + '</strong>' +
+            (np && dim !== 'proposta' && dim !== 'empreendimento' ? ' <span class="assistente__suave">· ' +
+              plural(np, 'proposta', 'propostas') + '</span>' : '') +
+            (l.contexto ? '<br><span class="assistente__suave">' + escHtml(l.contexto) + '</span>' : '') +
+            '</li>';
+        }).join('') + '</ol>' +
+        '<p class="assistente__suave">Total da lista: ' + fmt(total) +
+        (entregaChave ? '' : ' — o mesmo valor do painel para este recorte') + '.</p>';
+    }
+    return {
+      html: html,
+      fatos: { tipo: 'listagem', dimensao: dim, filtros: esc.f, municipio: esc.municipio,
+               entrega: entregaChave || null, itens: linhas.length, total: total,
+               linhas: linhas.map(function (l) { return { chave: l.chave, valor: l.valor }; }) },
+      acoes: acoesDoEscopo(esc, c),
+      sugestoes: dim === 'municipio'
+        ? ['Quais os maiores municípios?', 'Quais os proponentes?']
+        : ['Quais os municípios?', 'Qual a conversão em contratação?']
+    };
+  }
+
   function respostaFunil(ents) {
     var esc = resolverEscopo(ents), c = calcular(esc);
     // O funil do painel é calculado sobre o recorte (independe da visão).
@@ -1943,6 +2030,7 @@ window.PG = window.PG || {};
     'Qual a proposta de maior investimento?',
     'Quanto foi selecionado e contratado em SP?',
     'Quantos veículos há no recorte atual?',
+    'Liste os municípios com propostas contratadas',
     'Quais os maiores proponentes?',
     'Qual UF tem mais propostas?',
     'Qual a conversão em contratação?',
@@ -2038,6 +2126,11 @@ window.PG = window.PG || {};
     // A métrica sai do texto antes da dimensão: em "qual UF tem mais propostas",
     // "propostas" é o que se conta, e a dimensão é a UF.
     var dimRanking = dimensaoDoRanking(metricaDoRanking(ents.restante).texto, ents);
+    // Listagem: "liste/apresente/quais + <dimensão>" sem pedir maior/menor nem contar.
+    var dimLista = dimensaoDaLista(ents.restante, ents);
+    var pedeLista = !!dimLista && !pedeRanking && !pedeQuantidade && !pedeFunil && !ehConceito &&
+      (VERBOS_DE_LISTA.test(n) || new RegExp('^(os |as |em que |que )?(' +
+        DIMENSOES.map(function (d) { return d[1].join('|'); }).join('|') + ')\\b').test(n));
     var rankingDeEntrega = pedeEntrega && pedeRanking && dimRanking && !/\b(quantos|quantas)\b/.test(n);
     var pedeMigradoNum = ents.cenario === 'Migrado Novo PAC' && /\b(parcela|original|percentual)\b/.test(n) && !ehConceito;
     var temEntidade = ents.ufs.length || ents.regiao || ents.ano || ents.tipologias.length ||
@@ -2057,6 +2150,11 @@ window.PG = window.PG || {};
     else if (pedeResumo) { resp = respostaResumo(ents); ctx = { tipo: 'resumo' }; }
     // 3. Funil / conversão
     else if (pedeFunil && !pedeRanking) { resp = respostaFunil(ents); ctx = { tipo: 'funil' }; }
+    // 3b. Listagem completa ("liste os municípios com propostas contratadas")
+    else if (pedeLista) {
+      resp = respostaListagem(ents, n, pedeEntrega ? entr.chaves[0] : null, dimLista);
+      ctx = { tipo: 'lista', dim: dimLista, chave: pedeEntrega ? entr.chaves[0] : null };
+    }
     // 4. Ranking de uma entrega ("qual UF tem mais estações?")
     else if (rankingDeEntrega) {
       resp = respostaRanking(ents, n, entr.chaves[0]); ctx = { tipo: 'ranking' };
@@ -2086,6 +2184,7 @@ window.PG = window.PG || {};
         funil: function () { return respostaFunil(ents); },
         entrega: function () { return respostaEntrega(ents, u.chaves, {}); },
         ranking: function () { return respostaRanking(ents, n, null); },
+        lista: function () { return respostaListagem(ents, n, u.chave, u.dim); },
         contagem: function () { return respostaContagem(ents, n); },
         valor: function () { return respostaValor(ents); },
         migradoNumeros: function () { return respostaMigradoNumeros(ents); }

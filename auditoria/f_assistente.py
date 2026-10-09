@@ -152,6 +152,21 @@ def monta():
             if dim in SG:
                 Q.append((f"Qual {SG[dim]} tem mais propostas {fmt_scope(s)}?",
                           'ranking', dict(s, visao='selecionado'), {'dim': dim, 'metrica': 'propostas'}))
+    # Listagens completas ("me apresente a lista dos municípios com propostas contratadas")
+    FRASES_LISTA = [
+        ("Me apresente a lista dos {pl} com propostas contratadas {sc}", 'contratado'),
+        ("Liste os {pl} com propostas selecionadas {sc}", 'selecionado'),
+        ("Quais {pl} têm propostas contratadas {sc}?", 'contratado'),
+        ("Relação dos {pl} com propostas selecionadas {sc}", 'selecionado'),
+    ]
+    for dim in ('municipio', 'proponente', 'uf', 'regiao', 'tipologia'):
+        for s in escopos():
+            if dim in ('uf', 'regiao') and (s.get('uf') or s.get('municipio') or s.get('regiao')): continue
+            if dim == 'tipologia' and s.get('modo'): continue
+            if s.get('municipio'): continue
+            for modelo, v in FRASES_LISTA:
+                Q.append((modelo.format(pl=PL[dim], sc=fmt_scope(s)).replace('  ', ' ').strip(),
+                          'listagem', dict(s, visao=v), {'dim': dim, 'metrica': 'valor'}))
     # Rankings de uma entrega por dimensão ("qual UF tem mais estações")
     for dim in ('uf','regiao','tipologia','empreendimento','proposta','municipio'):
         for k in ('estacoes','veiculos','trilhosKm','corredorKm','abrigos','oae'):
@@ -271,11 +286,13 @@ def verificar(q, tipo, s, extra, resp, falhas):
         if not conf_filtros(ie['filtros'], ie['municipio']): return
         e = ent(uni, extra['chave'])
         if not igual(it['total'], e): falha(f"entrega {extra['chave']}: assistente {it['total']} x independente {e}")
-    elif tipo == 'ranking':
+    elif tipo in ('ranking', 'listagem'):
+        if f.get('tipo') != tipo:
+            falha(f"tipo de resposta {f.get('tipo')} x {tipo}"); return
         if f.get('dimensao') != extra['dim']:
             falha(f"dimensão {f.get('dimensao')} x {extra['dim']}"); return
         met = extra.get('metrica', 'valor')
-        if f.get('metrica') != met: falha(f"métrica {f.get('metrica')} x {met}")
+        if tipo == 'ranking' and f.get('metrica') != met: falha(f"métrica {f.get('metrica')} x {met}")
         # o ranking ignora o filtro da própria dimensão
         s2 = dict(s)
         if extra['dim'] in ('uf', 'regiao'): s2.pop('uf', None); s2.pop('regiao', None)
@@ -294,6 +311,14 @@ def verificar(q, tipo, s, extra, resp, falhas):
             if v > 0: linhas.append((k, v))
         linhas.sort(key=lambda kv: -kv[1])
         got = f['linhas']
+        if tipo == 'listagem':
+            if f['itens'] != len(linhas): falha(f"itens {f['itens']} x {len(linhas)}")
+            esperado = dict(linhas); obtido = {l['chave']: l['valor'] for l in got}
+            if set(esperado) != set(obtido): falha(f"conjunto difere: faltam {sorted(set(esperado)-set(obtido))[:3]} sobram {sorted(set(obtido)-set(esperado))[:3]}"); return
+            for k, v in esperado.items():
+                if not igual(obtido[k], v): falha(f"{k}: {obtido[k]} x {v}")
+            if not igual(f['total'], sum(esperado.values())): falha(f"total {f['total']} x {sum(esperado.values())}")
+            return
         if not igual(f['total'], sum(v for _, v in linhas)):
             falha(f"total do ranking {f['total']} x {sum(v for _, v in linhas)}")
         if len(got) > len(linhas):
