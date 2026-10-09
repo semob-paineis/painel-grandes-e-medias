@@ -1277,6 +1277,12 @@ window.PG = window.PG || {};
     };
   }
 
+  /** "Sergipe" está cadastrado como MUNICÍPIO na planilha (é o Estado). */
+  function ehSergipeMunicipio(r) { return String(r.municipio || '').trim().toLowerCase() === 'sergipe'; }
+  var NOTA_SERGIPE = '<p class="assistente__suave"><strong>Atenção:</strong> “Sergipe (SE)” aparece aqui como ' +
+    'município, mas é o próprio Estado, cadastrado assim na coluna Município da planilha. ' +
+    'Ele entra na contagem e no total de municípios; vale conferir o cadastro na base.</p>';
+
   function respostaContagem(ents, n) {
     var itens = expandirEscopos(ents), linhas = [], fatosItens = [];
     itens.forEach(function (it) {
@@ -1291,7 +1297,8 @@ window.PG = window.PG || {};
     var esc1 = itens[0].esc, c1 = calcular(esc1);
     var html = descreverRecorte(esc1, false, multiDe(itens, ents)) + lista(linhas) +
       '<p>Entre as propostas selecionadas (' + F.inteiro(c1.totSel.propostas) + '), ' +
-      F.inteiro(c1.totCon.propostas) + ' já estão contratadas.</p>';
+      F.inteiro(c1.totCon.propostas) + ' já estão contratadas.</p>' +
+      (c1.universo.some(ehSergipeMunicipio) ? NOTA_SERGIPE : '');
     return {
       html: html, fatos: { tipo: 'contagem', itens: fatosItens },
       acoes: acoesDoEscopo(esc1, c1),
@@ -2206,6 +2213,14 @@ window.PG = window.PG || {};
     }
     if (ctx) contexto.ultima = ctx;
     if (ultimosFatos && !resp.fatos) resp.fatos = ultimosFatos;
+    // Sergipe cadastrado como município: avisa em qualquer resposta que o mostre
+    // (lista/ranking por município, contagem ou ficha). "Estado de Sergipe" como
+    // proponente não conta: só o município de nome "Sergipe".
+    var f0 = resp.fatos || {};
+    var mostraSergipe = ((f0.tipo === 'listagem' || f0.tipo === 'ranking') && f0.dimensao === 'municipio' &&
+        (f0.linhas || []).some(function (l) { return (l.id || l.chave) === 'Sergipe (SE)'; })) ||
+      (resp.html && /(?<!\bd[eoa] )Sergipe\/SE/.test(resp.html));
+    if (mostraSergipe && resp.html.indexOf('Atenção:</strong> “Sergipe (SE)”') < 0) resp.html += NOTA_SERGIPE;
     return resp;
   }
 
