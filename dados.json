@@ -1,7 +1,7 @@
 {
  "meta": {
   "dataAtualizacao": "16/10/2026",
-  "geradoEm": "2026-10-16T12:24:21-03:00",
+  "geradoEm": "2026-10-16T12:40:42-03:00",
   "origem": "novo_16102026.xlsx",
   "escopo": {
    "tiposNoEscopo": [
@@ -94,7 +94,6 @@
    "categorias": [
     "Equipamentos",
     "Estudos e Projetos",
-    "Não classificado",
     "Obras"
    ],
    "fontes": [
@@ -120,24 +119,24 @@
     "Não levantado": 2
    },
    "totais": {
-    "viarioKm": 11.1,
-    "veiculos": 60.0,
-    "pontes": 17.0,
-    "terminais": 128.0,
-    "projetos": 41.0,
-    "corredorKm": 931.12,
     "cco": 12.0,
+    "passarelas": 57.0,
+    "pontes": 17.0,
+    "oae": 143.0,
+    "viadutos": 37.0,
+    "its": 230.0,
+    "terminais": 128.0,
+    "corredorKm": 931.12,
+    "projetos": 41.0,
+    "estacoes": 383.0,
+    "outrasOAE": 89.0,
     "abrigos": 2501.0,
+    "veiculos": 60.0,
+    "cicloKm": 241.61,
     "trilhosKm": 179.03,
     "patios": 2.0,
-    "estacoes": 383.0,
-    "viadutos": 37.0,
-    "outrasOAE": 89.0,
-    "passarelas": 57.0,
-    "cicloKm": 241.61,
-    "extProjetadaKm": 325.58,
-    "oae": 143.0,
-    "its": 230.0
+    "viarioKm": 11.1,
+    "extProjetadaKm": 325.58
    },
    "dicionario": [
     {
@@ -253,9 +252,8 @@
    "levantamentoIncompleto": "Indicadores de obra ainda não levantados por completo"
   },
   "qualidade": {
-   "registrosComAlerta": 13,
+   "registrosComAlerta": 8,
    "porTipo": {
-    "semModo": 5,
     "contratadaSemValor": 4,
     "unidadeSuspeita": 2,
     "levantamentoIncompleto": 2
@@ -931,8 +929,8 @@
    "agente": "CAIXA",
    "fonte": "FIN",
    "empreendimento": "Semáforos inteligentes para aumento da eficiência do BRT de Sorocaba",
-   "categoria": "Não classificado",
-   "modo": null,
+   "categoria": "Equipamentos",
+   "modo": "Sistemas",
    "item": "Semáforos inteligentes",
    "situacao": "Contratada",
    "etapa": "contratado",
@@ -972,9 +970,7 @@
     "outrasOAE": 0.0,
     "oae": 0.0
    },
-   "alertas": [
-    "semModo"
-   ],
+   "alertas": [],
    "tipologia": "Terminais e sistemas",
    "idGoverna": "121010"
   },
@@ -6645,8 +6641,8 @@
    "agente": "BNDES",
    "fonte": "FIN",
    "empreendimento": "Requalificação da Linha 7 Rubi no escopo da PPP do Trem Intercidades",
-   "categoria": "Não classificado",
-   "modo": null,
+   "categoria": "Obras",
+   "modo": "Trens",
    "item": "Trem Metropolitano",
    "situacao": "Em ação preparatória",
    "etapa": "aContratar",
@@ -6686,9 +6682,7 @@
     "outrasOAE": 0.0,
     "oae": 0.0
    },
-   "alertas": [
-    "semModo"
-   ],
+   "alertas": [],
    "tipologia": "Metrô e trens",
    "idGoverna": "141275"
   },
@@ -7407,8 +7401,8 @@
    "agente": "TED",
    "fonte": "OGU",
    "empreendimento": "Aquisição de 6  TUEs oriundos do Metrô BH, com sobressalentes e serviços correlatos",
-   "categoria": "Não classificado",
-   "modo": null,
+   "categoria": "Equipamentos",
+   "modo": "Trens",
    "item": "Trilhos - Material Rodante",
    "situacao": "Contratada",
    "etapa": "contratado",
@@ -7429,9 +7423,7 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": [
-    "semModo"
-   ],
+   "alertas": [],
    "tipologia": "Metrô e trens"
   },
   {
@@ -7449,8 +7441,8 @@
    "agente": "Descentralização",
    "fonte": "OGU",
    "empreendimento": "Viabilização da cessão de 5 Trens Unidade Elétrica (TUEs) da Trensurb para a CBTU/PE - logística, sobressalentes e treinamento",
-   "categoria": "Não classificado",
-   "modo": null,
+   "categoria": "Equipamentos",
+   "modo": "Trens",
    "item": "Trilhos - Material Rodante",
    "situacao": "Contratada",
    "etapa": "contratado",
@@ -7471,9 +7463,7 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": [
-    "semModo"
-   ],
+   "alertas": [],
    "tipologia": "Metrô e trens"
   },
   {
@@ -10051,8 +10041,8 @@
    "agente": "CAIXA",
    "fonte": "FIN",
    "empreendimento": "Trilho (3)",
-   "categoria": "Não classificado",
-   "modo": null,
+   "categoria": "Equipamentos",
+   "modo": "Trens",
    "item": "Trilhos - Material Rodante",
    "situacao": "Em andamento",
    "etapa": "contratado",
@@ -10073,10 +10063,8 @@
    "noEscopo": false,
    "migrado": false,
    "entregas": null,
-   "alertas": [
-    "semModo"
-   ],
-   "tipologia": "Terminais e sistemas"
+   "alertas": [],
+   "tipologia": "Metrô e trens"
   },
   {
    "id": 197,
@@ -10429,8 +10417,8 @@
    "agente": "CAIXA",
    "fonte": "FIN",
    "empreendimento": "Trilhos - 10 composições com 4 carros cada",
-   "categoria": "Não classificado",
-   "modo": null,
+   "categoria": "Equipamentos",
+   "modo": "Trens",
    "item": "Trilhos - Material Rodante",
    "situacao": "Em licitação",
    "etapa": "contratado",
@@ -10451,10 +10439,8 @@
    "noEscopo": false,
    "migrado": false,
    "entregas": null,
-   "alertas": [
-    "semModo"
-   ],
-   "tipologia": "Terminais e sistemas"
+   "alertas": [],
+   "tipologia": "Metrô e trens"
   },
   {
    "id": 206,
@@ -10977,8 +10963,8 @@
    "agente": "CAIXA",
    "fonte": "FIN",
    "empreendimento": "VLT (5)",
-   "categoria": "Não classificado",
-   "modo": null,
+   "categoria": "Equipamentos",
+   "modo": "Trens",
    "item": "Trilhos - Material Rodante",
    "situacao": "Habilitada",
    "etapa": "habilitada",
@@ -10999,10 +10985,8 @@
    "noEscopo": false,
    "migrado": false,
    "entregas": null,
-   "alertas": [
-    "semModo"
-   ],
-   "tipologia": "Terminais e sistemas"
+   "alertas": [],
+   "tipologia": "Metrô e trens"
   },
   {
    "id": 219,
@@ -24160,8 +24144,8 @@
    "agente": "CAIXA",
    "fonte": "OGU",
    "empreendimento": "Extensão da  Linha 9 CPTM - Grajaú-Varginha",
-   "categoria": "Não classificado",
-   "modo": null,
+   "categoria": "Obras",
+   "modo": "Trens",
    "item": "Trem Metropolitano",
    "situacao": "Contratada",
    "etapa": "contratado",
@@ -24201,9 +24185,7 @@
     "outrasOAE": 0.0,
     "oae": 0.0
    },
-   "alertas": [
-    "semModo"
-   ],
+   "alertas": [],
    "tipologia": "Metrô e trens",
    "idGoverna": "482"
   },

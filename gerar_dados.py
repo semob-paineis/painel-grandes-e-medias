@@ -213,6 +213,18 @@ ETAPAS_SELECIONADAS = ["contratado", "aContratar", "desistencia"]
 MODOS_LINEARES = ["Metrô", "VLTs", "Trens", "BRTs", "Corredores de Ônibus",
                   "Ciclovias", "Aeromóvel"]
 
+# Classificação definida pela SEMOB para itens sem categoria/modo na planilha:
+# item (minúsculo) -> (categoria do item, modo de transporte).
+CLASSIFICACAO_DE_ITEM = {
+    "semáforos inteligentes":    ("Equipamentos", "Sistemas"),   # Sorocaba
+    "trem metropolitano":        ("Obras",        "Trens"),      # Linhas 7 e 9, São Paulo
+    "trilhos - material rodante": ("Equipamentos", "Trens"),     # Recife
+}
+
+# Equipamentos medidos em unidades (material rodante) não são "unidade suspeita"
+# num modo linear: a unidade é o próprio veículo.
+ITENS_EM_UNIDADES = {"trilhos - material rodante"}
+
 # Rótulo aplicado a propostas anteriores ao Novo PAC (sem ano de portaria).
 ROTULO_SEM_ANO = "Anterior a 2023"
 
@@ -457,6 +469,14 @@ def ler_registros(caminho):
             if reg["categoria"] in (None, "", "Não classificado"):
                 reg["categoria"] = "Estudos e Projetos"
             reg["modo"] = reg["modo"] or "Estudos e Projetos"
+        # Itens que a planilha (16/10/2026) ainda traz sem categoria e sem modo.
+        # A classificação abaixo foi definida pela SEMOB: vale até as tabelas de
+        # apoio da planilha reconhecerem esses itens; depois, a planilha manda.
+        _cls = CLASSIFICACAO_DE_ITEM.get((reg["item"] or "").strip().lower())
+        if _cls:
+            if reg["categoria"] in (None, "", "Não classificado"):
+                reg["categoria"] = _cls[0]
+            reg["modo"] = reg["modo"] or _cls[1]
         reg["alertas"] = auditar(reg)
         registros.append(reg)
 
@@ -620,7 +640,8 @@ def auditar(reg):
         a.append("semModo")
     if reg["quantidade"] and not reg["unidadeOriginal"]:
         a.append("semUnidade")
-    if reg["modo"] in MODOS_LINEARES and reg["unidades"] > 0:
+    if reg["modo"] in MODOS_LINEARES and reg["unidades"] > 0 and \
+            (reg["item"] or "").strip().lower() not in ITENS_EM_UNIDADES:
         a.append("unidadeSuspeita")
     if reg["etapa"] == "contratado" and reg["valorContratado"] <= 0:
         a.append("contratadaSemValor")
