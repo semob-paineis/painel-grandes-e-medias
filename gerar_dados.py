@@ -229,6 +229,19 @@ COMPLEMENTO_DO_NOME = {
         " (inclui aquisição de 6 TUEs do Metrô de BH)",
 }
 
+# Alertas já conferidos pela SEMOB (16/10/2026): a situação é a esperada e o
+# registro não deve mais aparecer em "Qualidade da base". Chave: (nº da
+# proposta, alerta). Se o dado mudar a ponto de o alerta deixar de existir, a
+# entrada simplesmente não tem efeito; se mudar para outro problema, ele aparece.
+ALERTAS_CONFERIDOS = {
+    ("56000002550/2023", "contratadaSemValor"),   # Vila Velha
+    ("56000002277/2023", "contratadaSemValor"),   # São José dos Pinhais
+    ("40974880",         "contratadaSemValor"),   # Brasília (Migrado)
+    ("680974",           "contratadaSemValor"),   # Campinas (Migrado)
+    ("26744/2024",       "unidadeSuspeita"),      # Salvador, telecom. VLT
+    ("56000004011/2023", "unidadeSuspeita"),      # Salvador, telecom. VLT
+}
+
 # Equipamentos medidos em unidades (material rodante) não são "unidade suspeita"
 # num modo linear: a unidade é o próprio veículo.
 ITENS_EM_UNIDADES = {"trilhos - material rodante"}
@@ -488,6 +501,10 @@ def ler_registros(caminho):
         if reg["empreendimento"] in COMPLEMENTO_DO_NOME:
             reg["empreendimento"] += COMPLEMENTO_DO_NOME[reg["empreendimento"]]
         reg["alertas"] = auditar(reg)
+        _ok = [a for a in reg["alertas"] if (str(reg["proposta"]).strip(), a) in ALERTAS_CONFERIDOS]
+        if _ok:
+            reg["alertas"] = [a for a in reg["alertas"] if a not in _ok]
+            reg["alertasConferidos"] = _ok
         registros.append(reg)
 
     entregas_meta = anexar_entregas(wb, registros)

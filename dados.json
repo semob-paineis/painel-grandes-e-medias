@@ -1,7 +1,7 @@
 {
  "meta": {
   "dataAtualizacao": "16/10/2026",
-  "geradoEm": "2026-10-16T13:44:57-03:00",
+  "geradoEm": "2026-10-16T14:16:44-03:00",
   "origem": "novo_16102026.xlsx",
   "escopo": {
    "tiposNoEscopo": [
@@ -119,24 +119,24 @@
     "Não levantado": 2
    },
    "totais": {
-    "viarioKm": 11.1,
-    "estacoes": 383.0,
-    "veiculos": 60.0,
-    "corredorKm": 931.12,
     "cicloKm": 241.61,
-    "pontes": 17.0,
+    "cco": 12.0,
+    "its": 230.0,
     "outrasOAE": 89.0,
+    "veiculos": 60.0,
+    "pontes": 17.0,
+    "abrigos": 2501.0,
     "projetos": 41.0,
-    "trilhosKm": 179.03,
-    "passarelas": 57.0,
+    "patios": 2.0,
+    "terminais": 128.0,
     "extProjetadaKm": 325.58,
     "oae": 143.0,
-    "cco": 12.0,
-    "terminais": 128.0,
+    "trilhosKm": 179.03,
+    "corredorKm": 931.12,
+    "viarioKm": 11.1,
+    "passarelas": 57.0,
     "viadutos": 37.0,
-    "abrigos": 2501.0,
-    "its": 230.0,
-    "patios": 2.0
+    "estacoes": 383.0
    },
    "dicionario": [
     {
@@ -252,10 +252,8 @@
    "levantamentoIncompleto": "Indicadores de obra ainda não levantados por completo"
   },
   "qualidade": {
-   "registrosComAlerta": 8,
+   "registrosComAlerta": 2,
    "porTipo": {
-    "contratadaSemValor": 4,
-    "unidadeSuspeita": 2,
     "levantamentoIncompleto": 2
    }
   },
@@ -1130,7 +1128,8 @@
     "outrasOAE": 2.0,
     "oae": 2.0
    },
-   "alertas": [
+   "alertas": [],
+   "alertasConferidos": [
     "contratadaSemValor"
    ],
    "tipologia": "BRT e corredores de ônibus",
@@ -1192,7 +1191,8 @@
     "outrasOAE": 0.0,
     "oae": 0.0
    },
-   "alertas": [
+   "alertas": [],
+   "alertasConferidos": [
     "contratadaSemValor"
    ],
    "tipologia": "Estudos e projetos",
@@ -4575,7 +4575,8 @@
    "noEscopo": true,
    "migrado": false,
    "entregas": null,
-   "alertas": [
+   "alertas": [],
+   "alertasConferidos": [
     "unidadeSuspeita"
    ],
    "tipologia": "VLT"
@@ -4696,7 +4697,8 @@
     "outrasOAE": 0.0,
     "oae": 0.0
    },
-   "alertas": [
+   "alertas": [],
+   "alertasConferidos": [
     "unidadeSuspeita"
    ],
    "tipologia": "VLT",
@@ -24605,7 +24607,8 @@
     "outrasOAE": 0.0,
     "oae": 0.0
    },
-   "alertas": [
+   "alertas": [],
+   "alertasConferidos": [
     "contratadaSemValor"
    ],
    "tipologia": "Terminais e sistemas",
@@ -25087,7 +25090,8 @@
     "outrasOAE": 13.0,
     "oae": 13.0
    },
-   "alertas": [
+   "alertas": [],
+   "alertasConferidos": [
     "contratadaSemValor"
    ],
    "tipologia": "BRT e corredores de ônibus",
