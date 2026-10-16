@@ -1,15 +1,15 @@
 {
  "meta": {
-  "dataAtualizacao": "09/10/2026",
-  "geradoEm": "2026-10-09T16:46:42-03:00",
-  "origem": "novo_09102026.xlsx",
+  "dataAtualizacao": "16/10/2026",
+  "geradoEm": "2026-10-16T12:17:48-03:00",
+  "origem": "novo_16102026.xlsx",
   "escopo": {
    "tiposNoEscopo": [
     "Grandes e Médias",
     "Governadores",
     "Migrado Novo PAC"
    ],
-   "registrosTotais": 612,
+   "registrosTotais": 617,
    "registrosNoEscopo": 171
   },
   "conferencia": {
@@ -120,24 +120,24 @@
     "Não levantado": 2
    },
    "totais": {
-    "veiculos": 60.0,
-    "corredorKm": 931.12,
-    "viarioKm": 11.1,
-    "trilhosKm": 179.03,
+    "estacoes": 383.0,
     "extProjetadaKm": 325.58,
-    "cicloKm": 241.61,
-    "cco": 12.0,
-    "passarelas": 57.0,
     "oae": 143.0,
     "pontes": 17.0,
-    "viadutos": 37.0,
-    "its": 230.0,
-    "projetos": 41.0,
-    "estacoes": 383.0,
     "patios": 2.0,
-    "outrasOAE": 89.0,
+    "veiculos": 60.0,
     "abrigos": 2501.0,
-    "terminais": 128.0
+    "outrasOAE": 89.0,
+    "cicloKm": 241.61,
+    "viarioKm": 11.1,
+    "trilhosKm": 179.03,
+    "passarelas": 57.0,
+    "viadutos": 37.0,
+    "corredorKm": 931.12,
+    "terminais": 128.0,
+    "its": 230.0,
+    "cco": 12.0,
+    "projetos": 41.0
    },
    "dicionario": [
     {
@@ -1950,7 +1950,7 @@
    "portaria": "nº 767, de 26 de julho de 2024",
    "dataAssinatura": "2025-05-13",
    "pctFisico": 0.0,
-   "pctFinanceiro": 0.012,
+   "pctFinanceiro": 0.0,
    "observacoes": "Licitação em fase de conclusão e inserção no Transferegov, vão atender o prazo de 30/10/2026",
    "noEscopo": true,
    "migrado": false,
@@ -2074,7 +2074,7 @@
    "portaria": "nº 767, de 26 de julho de 2024",
    "dataAssinatura": "2024-11-14",
    "pctFisico": 0.0,
-   "pctFinanceiro": 0.018,
+   "pctFinanceiro": 0.0,
    "observacoes": "Autorização de Início de Objeto (AIO) emitida em:  25/06/2026",
    "noEscopo": true,
    "migrado": false,
@@ -12510,12 +12510,12 @@
    "categoria": "Equipamentos",
    "modo": null,
    "item": "Euro 6",
-   "situacao": "Em ação preparatória",
-   "etapa": "aContratar",
-   "execucao": "Em contratação",
+   "situacao": "Contratada",
+   "etapa": "contratado",
+   "execucao": "Em licitação",
    "apoio": 95000000.0,
    "contrapartida": 5000000.0,
-   "valorContratado": 0.0,
+   "valorContratado": 95000000.0,
    "valorLiberado": 0.0,
    "km": 0.0,
    "unidades": 100.0,
@@ -12524,10 +12524,10 @@
    "anoPortaria": 2026,
    "rotuloAno": "2026",
    "portaria": "nº 966, de 4 de agosto de 2026 / nº 1.330, de 30 de setembro de 2026",
-   "dataAssinatura": null,
+   "dataAssinatura": "2026-10-09",
    "pctFisico": 0.0,
    "pctFinanceiro": 0.0,
-   "observacoes": "Não possui resolução CGPAC",
+   "observacoes": "Não possui resolução CGPAC\nHouve redução da quantidade de ônibus para 75",
    "noEscopo": false,
    "migrado": false,
    "entregas": null,
@@ -13485,7 +13485,7 @@
    "apoio": 85303065.0,
    "contrapartida": 4489635.0,
    "valorContratado": 73874850.0,
-   "valorLiberado": 46904350.0,
+   "valorLiberado": 61976100.0,
    "km": 0.0,
    "unidades": 118.0,
    "unidadeOriginal": "unid",
@@ -13494,7 +13494,7 @@
    "rotuloAno": "2024",
    "portaria": "nº 1210, de 23 de outubro de 2024",
    "dataAssinatura": "2026-07-30",
-   "pctFisico": 0.5498553891351969,
+   "pctFisico": 0.7265401307678689,
    "pctFinanceiro": 0.0,
    "observacoes": "Só tem contrato de chassi. Estão contratando carrocerias (já foram contratadas). Serão só os 98.",
    "noEscopo": false,
@@ -13969,7 +13969,7 @@
    "apoio": 8550000.0,
    "contrapartida": 450000.0,
    "valorContratado": 6662120.0,
-   "valorLiberado": 4499400.0,
+   "valorLiberado": 5538120.0,
    "km": 0.0,
    "unidades": 10.0,
    "unidadeOriginal": "unid",
@@ -13978,7 +13978,7 @@
    "rotuloAno": "2024",
    "portaria": "nº 1385, de 9 de dezembro de 2024",
    "dataAssinatura": "2025-04-03",
-   "pctFisico": 0.526245614035088,
+   "pctFisico": 0.6477333333333329,
    "pctFinanceiro": 0.0,
    "observacoes": null,
    "noEscopo": false,
@@ -14937,7 +14937,7 @@
    "apoio": 15000000.0,
    "contrapartida": 789473.68,
    "valorContratado": 9298600.0,
-   "valorLiberado": 7374850.0,
+   "valorLiberado": 9298600.0,
    "km": 0.0,
    "unidades": 19.0,
    "unidadeOriginal": "unid",
@@ -14946,9 +14946,9 @@
    "rotuloAno": "2025",
    "portaria": "nº 311, de 27 de março de 2025",
    "dataAssinatura": "2025-07-16",
-   "pctFisico": 0.491656666666667,
+   "pctFisico": 0.6199066666666669,
    "pctFinanceiro": 0.0,
-   "observacoes": "PESADO? Biodisel",
+   "observacoes": null,
    "noEscopo": false,
    "migrado": false,
    "entregas": null,
@@ -15376,7 +15376,7 @@
    "execucao": "Equipamento em aquisição",
    "apoio": 23750000.0,
    "contrapartida": 1250000.0,
-   "valorContratado": 7852700.0,
+   "valorContratado": 14207060.0,
    "valorLiberado": 7852700.0,
    "km": 0.0,
    "unidades": 25.0,
@@ -15388,7 +15388,7 @@
    "dataAssinatura": "2025-07-30",
    "pctFisico": 0.33064,
    "pctFinanceiro": 0.0,
-   "observacoes": null,
+   "observacoes": "15 carrocerias em contratação (já totalizou 25)",
    "noEscopo": false,
    "migrado": false,
    "entregas": null,
@@ -16873,7 +16873,7 @@
    "apoio": 112765000.0,
    "contrapartida": 5935000.0,
    "valorContratado": 24719022.8,
-   "valorLiberado": 12004815.6,
+   "valorLiberado": 24585665.6,
    "km": 0.0,
    "unidades": 100.0,
    "unidadeOriginal": "unid",
@@ -16882,7 +16882,7 @@
    "rotuloAno": "2025",
    "portaria": "nº 684, de 8 de julho de 2025",
    "dataAssinatura": "2026-06-01",
-   "pctFisico": 0.10645870261162599,
+   "pctFisico": 0.21802567818028598,
    "pctFinanceiro": 0.0,
    "observacoes": null,
    "noEscopo": false,
@@ -17615,13 +17615,13 @@
    "categoria": "Equipamentos",
    "modo": null,
    "item": "Euro 6",
-   "situacao": "Contratada",
+   "situacao": "Em andamento",
    "etapa": "contratado",
-   "execucao": "Contratada",
+   "execucao": "Equipamento em aquisição",
    "apoio": 5244000.0,
    "contrapartida": 276000.0,
    "valorContratado": 2429524.8,
-   "valorLiberado": 0.0,
+   "valorLiberado": 1187524.8,
    "km": 0.0,
    "unidades": 6.0,
    "unidadeOriginal": "unid",
@@ -17630,7 +17630,7 @@
    "rotuloAno": "2025",
    "portaria": "nº 944, de 25 de agosto de 2025",
    "dataAssinatura": "2026-10-06",
-   "pctFisico": 0.0,
+   "pctFisico": 0.226454004576659,
    "pctFinanceiro": 0.0,
    "observacoes": null,
    "noEscopo": false,
@@ -19903,13 +19903,13 @@
    "categoria": "Equipamentos",
    "modo": null,
    "item": "Euro 6",
-   "situacao": "Em andamento",
+   "situacao": "Concluído",
    "etapa": "contratado",
-   "execucao": "Equipamento em aquisição",
+   "execucao": "Entregue",
    "apoio": 10212500.0,
    "contrapartida": 537500.0,
    "valorContratado": 10212500.0,
-   "valorLiberado": 8713400.0,
+   "valorLiberado": 9748900.0,
    "km": 0.0,
    "unidades": 10.0,
    "unidadeOriginal": "unid",
@@ -19918,7 +19918,7 @@
    "rotuloAno": "2025",
    "portaria": "nº 1269, de 3 de novembro de 2025",
    "dataAssinatura": "2025-11-24",
-   "pctFisico": 0.853209302325581,
+   "pctFisico": 0.9546046511627909,
    "pctFinanceiro": 0.0,
    "observacoes": null,
    "noEscopo": false,
@@ -21355,13 +21355,13 @@
    "categoria": "Equipamentos",
    "modo": null,
    "item": "Euro 6",
-   "situacao": "Contratada",
+   "situacao": "Em andamento",
    "etapa": "contratado",
-   "execucao": "Contratada",
+   "execucao": "Equipamento em aquisição",
    "apoio": 12953250.0,
    "contrapartida": 681750.0,
    "valorContratado": 12366435.0,
-   "valorLiberado": 0.0,
+   "valorLiberado": 6354360.0,
    "km": 0.0,
    "unidades": 15.0,
    "unidadeOriginal": "unid",
@@ -21370,7 +21370,7 @@
    "rotuloAno": "2026",
    "portaria": "nº 163, de 20 de fevereiro de 2026",
    "dataAssinatura": "2026-09-22",
-   "pctFisico": 0.0,
+   "pctFisico": 0.49056105610561096,
    "pctFinanceiro": 0.0,
    "observacoes": null,
    "noEscopo": false,
@@ -22908,7 +22908,7 @@
    "quantidade": 24.0,
    "anoPortaria": 2026,
    "rotuloAno": "2026",
-   "portaria": "nº 545, de 15 de maio de 2026",
+   "portaria": "nº 545, de 15 de maio de 2026 / nº 1.366, de 8 de outubro de 2026",
    "dataAssinatura": "2026-08-03",
    "pctFisico": 0.243473792394656,
    "pctFinanceiro": 0.0,
@@ -23115,13 +23115,13 @@
    "categoria": "Equipamentos",
    "modo": null,
    "item": "Euro 6",
-   "situacao": "Em andamento",
+   "situacao": "Concluído",
    "etapa": "contratado",
-   "execucao": "Equipamento em aquisição",
+   "execucao": "Entregue",
    "apoio": 7417600.0,
    "contrapartida": 390400.0,
    "valorContratado": 7353950.0,
-   "valorLiberado": 4703450.0,
+   "valorLiberado": 7353950.0,
    "km": 0.0,
    "unidades": 4.0,
    "unidadeOriginal": "Unid",
@@ -23130,7 +23130,7 @@
    "rotuloAno": "2026",
    "portaria": "nº 570, de 15 de maio de 2026",
    "dataAssinatura": "2026-06-12",
-   "pctFisico": 0.634093237704918,
+   "pctFisico": 0.991419057377049,
    "pctFinanceiro": 0.0,
    "observacoes": null,
    "noEscopo": false,
@@ -23605,7 +23605,7 @@
    "apoio": 6650000.0,
    "contrapartida": 350000.0,
    "valorContratado": 5516175.0,
-   "valorLiberado": 2822925.0,
+   "valorLiberado": 5516175.0,
    "km": 0.0,
    "unidades": 7.0,
    "unidadeOriginal": "unid",
@@ -23614,7 +23614,7 @@
    "rotuloAno": "2026",
    "portaria": "nº 812, de 9 de julho de 2026",
    "dataAssinatura": "2026-09-18",
-   "pctFisico": 0.42450000000000004,
+   "pctFisico": 0.8295,
    "pctFinanceiro": 0.0,
    "observacoes": "Resolução CGPAC nº 15, de 8 de setembro de 2026",
    "noEscopo": false,
@@ -23649,7 +23649,7 @@
    "apoio": 13300000.0,
    "contrapartida": 700000.0,
    "valorContratado": 7880250.0,
-   "valorLiberado": 4032750.0,
+   "valorLiberado": 7880250.0,
    "km": 0.0,
    "unidades": 14.0,
    "unidadeOriginal": "unid",
@@ -23658,7 +23658,7 @@
    "rotuloAno": "2026",
    "portaria": "nº 840, de 15 de julho de 2026",
    "dataAssinatura": "2026-09-16",
-   "pctFisico": 0.303214285714286,
+   "pctFisico": 0.5925,
    "pctFinanceiro": 0.0,
    "observacoes": "Resolução CGPAC nº 15, de 8 de setembro de 2026",
    "noEscopo": false,
@@ -23693,7 +23693,7 @@
    "apoio": 12350000.0,
    "contrapartida": 650000.0,
    "valorContratado": 3152100.0,
-   "valorLiberado": 1613100.0,
+   "valorLiberado": 3152100.0,
    "km": 0.0,
    "unidades": 13.0,
    "unidadeOriginal": "unid",
@@ -23702,7 +23702,7 @@
    "rotuloAno": "2026",
    "portaria": "nº 839, de 15 de julho de 2026",
    "dataAssinatura": "2026-09-14",
-   "pctFisico": 0.130615384615385,
+   "pctFisico": 0.255230769230769,
    "pctFinanceiro": 0.0,
    "observacoes": "Resolução CGPAC nº 15, de 8 de setembro de 2026",
    "noEscopo": false,
@@ -24309,7 +24309,7 @@
    "apoio": 21850000.0,
    "contrapartida": 1150000.0,
    "valorContratado": 17895150.0,
-   "valorLiberado": 8936650.0,
+   "valorLiberado": 17895150.0,
    "km": 0.0,
    "unidades": 23.0,
    "unidadeOriginal": "unid",
@@ -24318,7 +24318,7 @@
    "rotuloAno": "2026",
    "portaria": "nº 1.139, de 31 de agosto de 2026",
    "dataAssinatura": "2026-09-03",
-   "pctFisico": 0.409,
+   "pctFisico": 0.8190000000000001,
    "pctFinanceiro": 0.0,
    "observacoes": "Não possui resolução CGPAC",
    "noEscopo": false,
@@ -24397,7 +24397,7 @@
    "apoio": 15200000.0,
    "contrapartida": 800000.0,
    "valorContratado": 3940125.0,
-   "valorLiberado": 2016375.0,
+   "valorLiberado": 3940125.0,
    "km": 0.0,
    "unidades": 16.0,
    "unidadeOriginal": "unid",
@@ -24406,7 +24406,7 @@
    "rotuloAno": "2026",
    "portaria": "nº 1.138, de 31 de agosto de 2026",
    "dataAssinatura": "2026-09-16",
-   "pctFisico": 0.13265625,
+   "pctFisico": 0.25921875,
    "pctFinanceiro": 0.0,
    "observacoes": "Não possui resolução CGPAC",
    "noEscopo": false,
@@ -24435,13 +24435,13 @@
    "categoria": "Equipamentos",
    "modo": null,
    "item": "Euro 6",
-   "situacao": "Contratada",
+   "situacao": "Em andamento",
    "etapa": "contratado",
-   "execucao": "Contratada",
+   "execucao": "Equipamento em aquisição",
    "apoio": 68400000.0,
    "contrapartida": 3600000.0,
    "valorContratado": 63264813.0,
-   "valorLiberado": 0.0,
+   "valorLiberado": 37661097.0,
    "km": 0.0,
    "unidades": 80.0,
    "unidadeOriginal": "unid",
@@ -24450,7 +24450,7 @@
    "rotuloAno": "2026",
    "portaria": "nº 1.149, de 01 de setembro de 2026",
    "dataAssinatura": "2026-09-23",
-   "pctFisico": 0.0,
+   "pctFisico": 0.550600833333333,
    "pctFinanceiro": 0.0,
    "observacoes": "Não possui resolução CGPAC",
    "noEscopo": false,
@@ -24655,12 +24655,12 @@
    "categoria": "Equipamentos",
    "modo": null,
    "item": "Euro 6",
-   "situacao": "Em ação preparatória",
-   "etapa": "aContratar",
-   "execucao": "Em contratação",
+   "situacao": "Contratada",
+   "etapa": "contratado",
+   "execucao": "Contratada",
    "apoio": 20710000.0,
    "contrapartida": 1090000.0,
-   "valorContratado": 0.0,
+   "valorContratado": 1783720.0,
    "valorLiberado": 0.0,
    "km": 0.0,
    "unidades": 16.0,
@@ -24669,7 +24669,7 @@
    "anoPortaria": 2026,
    "rotuloAno": "2026",
    "portaria": "nº 1.245, de 17 de setembro de 2026",
-   "dataAssinatura": null,
+   "dataAssinatura": "2026-10-06",
    "pctFisico": 0.0,
    "pctFinanceiro": 0.0,
    "observacoes": "Não possui resolução CGPAC",
@@ -24859,6 +24859,226 @@
   },
   {
    "id": 524,
+   "proposta": "081/2026",
+   "anoProposta": 2026,
+   "contrato": null,
+   "tipo": "Refrota Privado",
+   "programa": "Novo PAC",
+   "uf": "RS",
+   "regiao": "Sul",
+   "municipio": "Porto Alegre",
+   "proponente": "Sudeste Transportes Coletivos Ltda",
+   "tipoProponente": "Privado",
+   "agente": "Banco Banrisul S/A",
+   "fonte": "FIN",
+   "empreendimento": "Euro 6 (24)",
+   "categoria": "Equipamentos",
+   "modo": null,
+   "item": "Euro 6",
+   "situacao": "Em ação preparatória",
+   "etapa": "aContratar",
+   "execucao": "Em contratação",
+   "apoio": 22184400.0,
+   "contrapartida": 1167600.0,
+   "valorContratado": 0.0,
+   "valorLiberado": 0.0,
+   "km": 0.0,
+   "unidades": 24.0,
+   "unidadeOriginal": "unid",
+   "quantidade": 24.0,
+   "anoPortaria": 2026,
+   "rotuloAno": "2026",
+   "portaria": "nº 1.366, de 8 de outubro de 2026",
+   "dataAssinatura": null,
+   "pctFisico": 0.0,
+   "pctFinanceiro": 0.0,
+   "observacoes": "Não possui resolução CGPAC",
+   "noEscopo": false,
+   "migrado": false,
+   "entregas": null,
+   "alertas": [
+    "semModo"
+   ],
+   "tipologia": "Terminais e sistemas"
+  },
+  {
+   "id": 525,
+   "proposta": "082/2026",
+   "anoProposta": 2026,
+   "contrato": null,
+   "tipo": "Refrota Privado",
+   "programa": "Novo PAC",
+   "uf": "ES",
+   "regiao": "Sudeste",
+   "municipio": "Linhares",
+   "proponente": "Via Norte Ltda.",
+   "tipoProponente": "Privado",
+   "agente": "Banco Mercedes Benz do Brasil S/A",
+   "fonte": "FIN",
+   "empreendimento": "Euro 6 (10)",
+   "categoria": "Equipamentos",
+   "modo": null,
+   "item": "Euro 6",
+   "situacao": "Em ação preparatória",
+   "etapa": "aContratar",
+   "execucao": "Em contratação",
+   "apoio": 8930000.0,
+   "contrapartida": 470000.0,
+   "valorContratado": 0.0,
+   "valorLiberado": 0.0,
+   "km": 0.0,
+   "unidades": 10.0,
+   "unidadeOriginal": "unid",
+   "quantidade": 10.0,
+   "anoPortaria": 2026,
+   "rotuloAno": "2026",
+   "portaria": "nº 1.400, de 15 de outubro de 2026",
+   "dataAssinatura": null,
+   "pctFisico": 0.0,
+   "pctFinanceiro": 0.0,
+   "observacoes": "Não possui resolução CGPAC",
+   "noEscopo": false,
+   "migrado": false,
+   "entregas": null,
+   "alertas": [
+    "semModo"
+   ],
+   "tipologia": "Terminais e sistemas"
+  },
+  {
+   "id": 526,
+   "proposta": "085/2026",
+   "anoProposta": 2026,
+   "contrato": null,
+   "tipo": "Refrota Privado",
+   "programa": "Novo PAC",
+   "uf": "ES",
+   "regiao": "Sudeste",
+   "municipio": "Cariacica",
+   "proponente": "Nova Transportes Ltda.",
+   "tipoProponente": "Privado",
+   "agente": "Banco Mercedes Benz do Brasil S/A",
+   "fonte": "FIN",
+   "empreendimento": "Euro 6 (36)",
+   "categoria": "Equipamentos",
+   "modo": null,
+   "item": "Euro 6",
+   "situacao": "Em ação preparatória",
+   "etapa": "aContratar",
+   "execucao": "Em contratação",
+   "apoio": 32870000.0,
+   "contrapartida": 1730000.0,
+   "valorContratado": 0.0,
+   "valorLiberado": 0.0,
+   "km": 0.0,
+   "unidades": 36.0,
+   "unidadeOriginal": "unid",
+   "quantidade": 36.0,
+   "anoPortaria": 2026,
+   "rotuloAno": "2026",
+   "portaria": "nº 1.401, de 15 de outubro de 2026",
+   "dataAssinatura": null,
+   "pctFisico": 0.0,
+   "pctFinanceiro": 0.0,
+   "observacoes": "Não possui resolução CGPAC",
+   "noEscopo": false,
+   "migrado": false,
+   "entregas": null,
+   "alertas": [
+    "semModo"
+   ],
+   "tipologia": "Terminais e sistemas"
+  },
+  {
+   "id": 527,
+   "proposta": "083/2026",
+   "anoProposta": 2026,
+   "contrato": null,
+   "tipo": "Refrota Privado",
+   "programa": "Novo PAC",
+   "uf": "SP",
+   "regiao": "Sudeste",
+   "municipio": "Itaquaquecetuba",
+   "proponente": "Quatai Transporte de Passageiros SPE S/A",
+   "tipoProponente": "Privado",
+   "agente": "Banco Bradesco S.A.",
+   "fonte": "FIN",
+   "empreendimento": "Euro 6 (15)",
+   "categoria": "Equipamentos",
+   "modo": null,
+   "item": "Euro 6",
+   "situacao": "Em ação preparatória",
+   "etapa": "aContratar",
+   "execucao": "Em contratação",
+   "apoio": 10358325.0,
+   "contrapartida": 545175.0,
+   "valorContratado": 0.0,
+   "valorLiberado": 0.0,
+   "km": 0.0,
+   "unidades": 15.0,
+   "unidadeOriginal": "unid",
+   "quantidade": 15.0,
+   "anoPortaria": 2026,
+   "rotuloAno": "2026",
+   "portaria": "nº 1.404, de 15 de outubro de 2026",
+   "dataAssinatura": null,
+   "pctFisico": 0.0,
+   "pctFinanceiro": 0.0,
+   "observacoes": "Não possui resolução CGPAC",
+   "noEscopo": false,
+   "migrado": false,
+   "entregas": null,
+   "alertas": [
+    "semModo"
+   ],
+   "tipologia": "Terminais e sistemas"
+  },
+  {
+   "id": 528,
+   "proposta": "084/2026",
+   "anoProposta": 2026,
+   "contrato": null,
+   "tipo": "Refrota Privado",
+   "programa": "Novo PAC",
+   "uf": "ES",
+   "regiao": "Sudeste",
+   "municipio": "Cariacica",
+   "proponente": "Santa Zita Transportes Ltda.",
+   "tipoProponente": "Privado",
+   "agente": "Banco Mercedes Benz do Brasil S/A",
+   "fonte": "FIN",
+   "empreendimento": "Euro 6 (21)",
+   "categoria": "Equipamentos",
+   "modo": null,
+   "item": "Euro 6",
+   "situacao": "Em ação preparatória",
+   "etapa": "aContratar",
+   "execucao": "Em contratação",
+   "apoio": 17157000.0,
+   "contrapartida": 903000.0,
+   "valorContratado": 0.0,
+   "valorLiberado": 0.0,
+   "km": 0.0,
+   "unidades": 21.0,
+   "unidadeOriginal": "unid",
+   "quantidade": 21.0,
+   "anoPortaria": 2026,
+   "rotuloAno": "2026",
+   "portaria": "nº 1.405, de 15 de outubro de 2026",
+   "dataAssinatura": null,
+   "pctFisico": 0.0,
+   "pctFinanceiro": 0.0,
+   "observacoes": "Não possui resolução CGPAC",
+   "noEscopo": false,
+   "migrado": false,
+   "entregas": null,
+   "alertas": [
+    "semModo"
+   ],
+   "tipologia": "Terminais e sistemas"
+  },
+  {
+   "id": 529,
    "proposta": 42123974,
    "anoProposta": null,
    "contrato": "042123974",
@@ -24920,7 +25140,7 @@
    "idGoverna": "473"
   },
   {
-   "id": 525,
+   "id": 530,
    "proposta": 692564,
    "anoProposta": null,
    "contrato": "043982554",
@@ -24982,7 +25202,7 @@
    "idGoverna": "488"
   },
   {
-   "id": 526,
+   "id": 531,
    "proposta": 43847494,
    "anoProposta": null,
    "contrato": "043847494",
@@ -25046,7 +25266,7 @@
    "idGoverna": "482"
   },
   {
-   "id": 527,
+   "id": 532,
    "proposta": 43653477,
    "anoProposta": null,
    "contrato": "043653477",
@@ -25108,7 +25328,7 @@
    "idGoverna": "479"
   },
   {
-   "id": 528,
+   "id": 533,
    "proposta": 42574827,
    "anoProposta": null,
    "contrato": "042574827",
@@ -25170,7 +25390,7 @@
    "idGoverna": "476"
   },
   {
-   "id": 529,
+   "id": 534,
    "proposta": 43653363,
    "anoProposta": null,
    "contrato": "679291",
@@ -25232,7 +25452,7 @@
    "idGoverna": "480"
   },
   {
-   "id": 530,
+   "id": 535,
    "proposta": 39847548,
    "anoProposta": null,
    "contrato": "680540",
@@ -25294,7 +25514,7 @@
    "idGoverna": "467"
   },
   {
-   "id": 531,
+   "id": 536,
    "proposta": 40209767,
    "anoProposta": null,
    "contrato": "040209767",
@@ -25356,7 +25576,7 @@
    "idGoverna": "470"
   },
   {
-   "id": 532,
+   "id": 537,
    "proposta": 43653582,
    "anoProposta": null,
    "contrato": "043653582",
@@ -25418,7 +25638,7 @@
    "idGoverna": "481"
   },
   {
-   "id": 533,
+   "id": 538,
    "proposta": 40974880,
    "anoProposta": null,
    "contrato": "040974880",
@@ -25482,7 +25702,7 @@
    "idGoverna": "472"
   },
   {
-   "id": 534,
+   "id": 539,
    "proposta": 44035597,
    "anoProposta": null,
    "contrato": "044035597",
@@ -25544,7 +25764,7 @@
    "idGoverna": "487"
   },
   {
-   "id": 535,
+   "id": 540,
    "proposta": 44042970,
    "anoProposta": null,
    "contrato": "044042970",
@@ -25606,7 +25826,7 @@
    "idGoverna": "486"
   },
   {
-   "id": 536,
+   "id": 541,
    "proposta": 39625769,
    "anoProposta": null,
    "contrato": "043857950",
@@ -25668,7 +25888,7 @@
    "idGoverna": "3040"
   },
   {
-   "id": 537,
+   "id": 542,
    "proposta": 41536600,
    "anoProposta": null,
    "contrato": "043509984",
@@ -25730,7 +25950,7 @@
    "idGoverna": "3049"
   },
   {
-   "id": 538,
+   "id": 543,
    "proposta": 39856088,
    "anoProposta": null,
    "contrato": "041099727",
@@ -25792,7 +26012,7 @@
    "idGoverna": "3039"
   },
   {
-   "id": 539,
+   "id": 544,
    "proposta": 41052066,
    "anoProposta": null,
    "contrato": "043919426",
@@ -25854,7 +26074,7 @@
    "idGoverna": "3041"
   },
   {
-   "id": 540,
+   "id": 545,
    "proposta": 41170404,
    "anoProposta": null,
    "contrato": "043799023",
@@ -25916,7 +26136,7 @@
    "idGoverna": "3043"
   },
   {
-   "id": 541,
+   "id": 546,
    "proposta": 680974,
    "anoProposta": null,
    "contrato": "042736769",
@@ -25980,7 +26200,7 @@
    "idGoverna": "4671"
   },
   {
-   "id": 542,
+   "id": 547,
    "proposta": 40847025,
    "anoProposta": null,
    "contrato": "044038998",
@@ -26042,7 +26262,7 @@
    "idGoverna": "3047"
   },
   {
-   "id": 543,
+   "id": 548,
    "proposta": 41119322,
    "anoProposta": null,
    "contrato": "044209252",
@@ -26104,7 +26324,7 @@
    "idGoverna": "3056"
   },
   {
-   "id": 544,
+   "id": 549,
    "proposta": 39665255,
    "anoProposta": null,
    "contrato": "044261130",
@@ -26166,7 +26386,7 @@
    "idGoverna": "3044"
   },
   {
-   "id": 545,
+   "id": 550,
    "proposta": 409099,
    "anoProposta": null,
    "contrato": "678533",
@@ -26208,7 +26428,7 @@
    "tipologia": "Metrô e trens"
   },
   {
-   "id": 546,
+   "id": 551,
    "proposta": 44016375,
    "anoProposta": null,
    "contrato": "047515286",
@@ -26270,7 +26490,7 @@
    "idGoverna": "3045"
   },
   {
-   "id": 547,
+   "id": 552,
    "proposta": 44334524,
    "anoProposta": null,
    "contrato": 47055871,
@@ -26332,7 +26552,7 @@
    "idGoverna": "3048"
   },
   {
-   "id": 548,
+   "id": 553,
    "proposta": 5315722,
    "anoProposta": null,
    "contrato": "5315722",
@@ -26394,7 +26614,7 @@
    "idGoverna": "120996, 120995, 3055, 471"
   },
   {
-   "id": 549,
+   "id": 554,
    "proposta": 39462569,
    "anoProposta": null,
    "contrato": "040330944",
@@ -26456,7 +26676,7 @@
    "idGoverna": "3050"
   },
   {
-   "id": 550,
+   "id": 555,
    "proposta": 39462904,
    "anoProposta": null,
    "contrato": 41694292,
@@ -26518,7 +26738,7 @@
    "idGoverna": "3053"
   },
   {
-   "id": 551,
+   "id": 556,
    "proposta": 41065483,
    "anoProposta": null,
    "contrato": 42688734,
@@ -26580,7 +26800,7 @@
    "idGoverna": "3042"
   },
   {
-   "id": 552,
+   "id": 557,
    "proposta": 39764138,
    "anoProposta": null,
    "contrato": 45966109,
@@ -26642,7 +26862,7 @@
    "idGoverna": "3070"
   },
   {
-   "id": 553,
+   "id": 558,
    "proposta": 41239033,
    "anoProposta": null,
    "contrato": "043355785",
@@ -26704,7 +26924,7 @@
    "idGoverna": "3052"
   },
   {
-   "id": 554,
+   "id": 559,
    "proposta": 41065598,
    "anoProposta": null,
    "contrato": "042689426",
@@ -26766,7 +26986,7 @@
    "idGoverna": "3066"
   },
   {
-   "id": 555,
+   "id": 560,
    "proposta": 39612560,
    "anoProposta": null,
    "contrato": "042796837",
@@ -26828,7 +27048,7 @@
    "idGoverna": "3046"
   },
   {
-   "id": 556,
+   "id": 561,
    "proposta": 44746791,
    "anoProposta": null,
    "contrato": "045896334",
@@ -26890,7 +27110,7 @@
    "idGoverna": "3054"
   },
   {
-   "id": 557,
+   "id": 562,
    "proposta": 41122162,
    "anoProposta": null,
    "contrato": "043380144",
@@ -26952,7 +27172,7 @@
    "idGoverna": "3051"
   },
   {
-   "id": 558,
+   "id": 563,
    "proposta": 54545763,
    "anoProposta": null,
    "contrato": "061032434",
@@ -27014,7 +27234,7 @@
    "idGoverna": "4672"
   },
   {
-   "id": 559,
+   "id": 564,
    "proposta": 39624627,
    "anoProposta": null,
    "contrato": "043782408",
@@ -27076,7 +27296,7 @@
    "idGoverna": "3059"
   },
   {
-   "id": 560,
+   "id": 565,
    "proposta": 51798673,
    "anoProposta": null,
    "contrato": "054047578",
@@ -27138,7 +27358,7 @@
    "idGoverna": "4673"
   },
   {
-   "id": 561,
+   "id": 566,
    "proposta": 44391961,
    "anoProposta": null,
    "contrato": "047012534",
@@ -27200,7 +27420,7 @@
    "idGoverna": "3068"
   },
   {
-   "id": 562,
+   "id": 567,
    "proposta": "425220212/2021",
    "anoProposta": 2021,
    "contrato": "061530620",
@@ -27244,7 +27464,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 563,
+   "id": 568,
    "proposta": "389520301/2019",
    "anoProposta": 2019,
    "contrato": "062298476",
@@ -27288,7 +27508,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 564,
+   "id": 569,
    "proposta": "424521211/2021",
    "anoProposta": 2021,
    "contrato": "062112665",
@@ -27332,7 +27552,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 565,
+   "id": 570,
    "proposta": "428123006/2022",
    "anoProposta": 2022,
    "contrato": "062299055",
@@ -27376,7 +27596,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 566,
+   "id": 571,
    "proposta": "430520711/2022",
    "anoProposta": 2022,
    "contrato": "062658190",
@@ -27420,7 +27640,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 567,
+   "id": 572,
    "proposta": "426720703/2022",
    "anoProposta": 2022,
    "contrato": "062657958",
@@ -27464,7 +27684,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 568,
+   "id": 573,
    "proposta": "419721111/2021",
    "anoProposta": 2021,
    "contrato": "062471888",
@@ -27508,7 +27728,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 569,
+   "id": 574,
    "proposta": "430022109/2022",
    "anoProposta": 2022,
    "contrato": "062412065",
@@ -27552,7 +27772,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 570,
+   "id": 575,
    "proposta": "4263242402/2022",
    "anoProposta": 2022,
    "contrato": "062459613",
@@ -27596,7 +27816,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 571,
+   "id": 576,
    "proposta": "420922909/2021",
    "anoProposta": 2023,
    "contrato": "062299273",
@@ -27640,7 +27860,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 572,
+   "id": 577,
    "proposta": "426823003/2022",
    "anoProposta": 2022,
    "contrato": "062769812",
@@ -27684,7 +27904,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 573,
+   "id": 578,
    "proposta": "434722804/2023",
    "anoProposta": 2023,
    "contrato": "062689815",
@@ -27728,7 +27948,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 574,
+   "id": 579,
    "proposta": "433521603/2023",
    "anoProposta": 2023,
    "contrato": "063407303",
@@ -27772,7 +27992,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 575,
+   "id": 580,
    "proposta": "427923005/2022",
    "anoProposta": 2022,
    "contrato": "062715112",
@@ -27816,7 +28036,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 576,
+   "id": 581,
    "proposta": "439022011/2023",
    "anoProposta": 2023,
    "contrato": "063309870",
@@ -27860,7 +28080,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 577,
+   "id": 582,
    "proposta": "438422010/2023",
    "anoProposta": 2023,
    "contrato": "064447135",
@@ -27904,7 +28124,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 578,
+   "id": 583,
    "proposta": "436221707/2023",
    "anoProposta": 2023,
    "contrato": "064465228",
@@ -27948,7 +28168,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 579,
+   "id": 584,
    "proposta": "436821309/2023",
    "anoProposta": 2023,
    "contrato": null,
@@ -27992,7 +28212,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 580,
+   "id": 585,
    "proposta": "436120507/2023",
    "anoProposta": 2023,
    "contrato": null,
@@ -28036,7 +28256,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 581,
+   "id": 586,
    "proposta": "437920309/2023",
    "anoProposta": 2023,
    "contrato": "064782351",
@@ -28080,7 +28300,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 582,
+   "id": 587,
    "proposta": "437520410/2023",
    "anoProposta": 2023,
    "contrato": "064572743",
@@ -28124,7 +28344,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 583,
+   "id": 588,
    "proposta": "440120811/2024",
    "anoProposta": 2024,
    "contrato": "064733658",
@@ -28168,7 +28388,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 584,
+   "id": 589,
    "proposta": "44122450302/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28212,7 +28432,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 585,
+   "id": 590,
    "proposta": "442422504/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28256,7 +28476,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 586,
+   "id": 591,
    "proposta": "447522107/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28300,7 +28520,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 587,
+   "id": 592,
    "proposta": "435922807/2023",
    "anoProposta": 2023,
    "contrato": null,
@@ -28344,7 +28564,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 588,
+   "id": 593,
    "proposta": "448322208/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28388,7 +28608,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 589,
+   "id": 594,
    "proposta": "447720208/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28432,7 +28652,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 590,
+   "id": 595,
    "proposta": "439920110/2024",
    "anoProposta": 2024,
    "contrato": null,
@@ -28476,7 +28696,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 591,
+   "id": 596,
    "proposta": "445421605/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28520,7 +28740,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 592,
+   "id": 597,
    "proposta": "444322504/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28564,7 +28784,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 593,
+   "id": 598,
    "proposta": "438520902/2024",
    "anoProposta": 2024,
    "contrato": null,
@@ -28608,7 +28828,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 594,
+   "id": 599,
    "proposta": "448821601/2026",
    "anoProposta": 2026,
    "contrato": null,
@@ -28652,7 +28872,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 595,
+   "id": 600,
    "proposta": "441821102/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28696,7 +28916,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 596,
+   "id": 601,
    "proposta": "444621305/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28740,7 +28960,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 597,
+   "id": 602,
    "proposta": "4476231009/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28784,7 +29004,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 598,
+   "id": 603,
    "proposta": "445220305/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28828,7 +29048,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 599,
+   "id": 604,
    "proposta": "445320505/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28872,7 +29092,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 600,
+   "id": 605,
    "proposta": "445020305/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28916,7 +29136,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 601,
+   "id": 606,
    "proposta": "445122008/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -28960,7 +29180,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 602,
+   "id": 607,
    "proposta": "4494242710/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -29004,7 +29224,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 603,
+   "id": 608,
    "proposta": "444021604/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -29048,7 +29268,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 604,
+   "id": 609,
    "proposta": "453621202/2026",
    "anoProposta": 2026,
    "contrato": null,
@@ -29092,7 +29312,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 605,
+   "id": 610,
    "proposta": "453721302/2026",
    "anoProposta": 2026,
    "contrato": null,
@@ -29136,7 +29356,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 606,
+   "id": 611,
    "proposta": "454720603/2026",
    "anoProposta": 2026,
    "contrato": null,
@@ -29180,7 +29400,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 607,
+   "id": 612,
    "proposta": "450320112/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -29224,7 +29444,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 608,
+   "id": 613,
    "proposta": "455620104/2026",
    "anoProposta": 2026,
    "contrato": null,
@@ -29268,7 +29488,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 609,
+   "id": 614,
    "proposta": "4460233005/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -29312,7 +29532,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 610,
+   "id": 615,
    "proposta": "4484241009/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -29356,7 +29576,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 611,
+   "id": 616,
    "proposta": "444823004/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -29400,7 +29620,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 612,
+   "id": 617,
    "proposta": "451422711/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -29444,7 +29664,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 613,
+   "id": 618,
    "proposta": "452521912/2025",
    "anoProposta": 2025,
    "contrato": null,
@@ -29488,7 +29708,7 @@
    "tipologia": "Terminais e sistemas"
   },
   {
-   "id": 614,
+   "id": 619,
    "proposta": "452923001/2026",
    "anoProposta": 2026,
    "contrato": null,
@@ -29499,17 +29719,17 @@
    "municipio": "Porto Ferreira",
    "proponente": "Prefeitura de Porto Ferreira",
    "tipoProponente": "Município",
-   "agente": null,
+   "agente": "CAIXA",
    "fonte": "FIN",
    "empreendimento": "Qualificação Viária do Município de Porto Ferreira/SP",
    "categoria": null,
    "modo": null,
    "item": null,
-   "situacao": "Habilitada",
-   "etapa": "habilitada",
-   "execucao": "Avaliação",
+   "situacao": "Em ação preparatória",
+   "etapa": "aContratar",
+   "execucao": "Em contratação",
    "apoio": 34763862.58,
-   "contrapartida": 0.0,
+   "contrapartida": 1829676.98,
    "valorContratado": 0.0,
    "valorLiberado": 0.0,
    "km": 0.0,
