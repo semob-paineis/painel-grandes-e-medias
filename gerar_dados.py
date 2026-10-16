@@ -221,6 +221,14 @@ CLASSIFICACAO_DE_ITEM = {
     "trilhos - material rodante": ("Equipamentos", "Trens"),     # Recife
 }
 
+# Complemento ao nome do empreendimento (definido pela SEMOB, 16/10/2026): o
+# levantamento de Recife consolida 4 linhas da base e registra 6 veículos (os
+# 6 TUEs do Metrô de BH), que o nome da linha principal não mencionava.
+COMPLEMENTO_DO_NOME = {
+    "Recuperação da infraestrutura do Metrô do Recife - substituição de trilhos e dormentes":
+        " (inclui aquisição de 6 TUEs do Metrô de BH)",
+}
+
 # Equipamentos medidos em unidades (material rodante) não são "unidade suspeita"
 # num modo linear: a unidade é o próprio veículo.
 ITENS_EM_UNIDADES = {"trilhos - material rodante"}
@@ -477,6 +485,8 @@ def ler_registros(caminho):
             if reg["categoria"] in (None, "", "Não classificado"):
                 reg["categoria"] = _cls[0]
             reg["modo"] = reg["modo"] or _cls[1]
+        if reg["empreendimento"] in COMPLEMENTO_DO_NOME:
+            reg["empreendimento"] += COMPLEMENTO_DO_NOME[reg["empreendimento"]]
         reg["alertas"] = auditar(reg)
         registros.append(reg)
 

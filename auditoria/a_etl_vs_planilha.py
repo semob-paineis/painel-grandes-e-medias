@@ -85,6 +85,8 @@ def sem_estado(municipio, uf):
     return municipio[: -len(sufixo)].strip() if municipio.endswith(sufixo) else municipio
 
 
+COMPLEMENTOS = {"Recuperação da infraestrutura do Metrô do Recife - substituição de trilhos e dormentes":
+                " (inclui aquisição de 6 TUEs do Metrô de BH)"}
 for l in range(3, base.max_row + 1):
     tipo = txt(base.cell(l, C["tipo"]).value)
     if not tipo: continue
@@ -101,6 +103,9 @@ for l in range(3, base.max_row + 1):
             # ("Natal, Rio Grande do Norte" -> "Natal"), senão a mesma cidade
             # conta duas vezes. A auditoria aplica a mesma regra ao esperado.
             esperado = sem_estado(esperado, txt(base.cell(l, C["uf"]).value))
+        if campo == "empreendimento":
+            # Complemento definido pela SEMOB (16/10/2026), aplicado pelo ETL.
+            esperado = esperado + COMPLEMENTOS.get(esperado, "")
         check(r[campo] == esperado,
               f"linha {l}: {campo} planilha={esperado!r} json={r[campo]!r}")
     for campo in ("apoio", "valorContratado"):

@@ -1,7 +1,7 @@
 {
  "meta": {
   "dataAtualizacao": "16/10/2026",
-  "geradoEm": "2026-10-16T12:40:42-03:00",
+  "geradoEm": "2026-10-16T13:44:57-03:00",
   "origem": "novo_16102026.xlsx",
   "escopo": {
    "tiposNoEscopo": [
@@ -119,24 +119,24 @@
     "Não levantado": 2
    },
    "totais": {
-    "cco": 12.0,
-    "passarelas": 57.0,
-    "pontes": 17.0,
-    "oae": 143.0,
-    "viadutos": 37.0,
-    "its": 230.0,
-    "terminais": 128.0,
-    "corredorKm": 931.12,
-    "projetos": 41.0,
-    "estacoes": 383.0,
-    "outrasOAE": 89.0,
-    "abrigos": 2501.0,
-    "veiculos": 60.0,
-    "cicloKm": 241.61,
-    "trilhosKm": 179.03,
-    "patios": 2.0,
     "viarioKm": 11.1,
-    "extProjetadaKm": 325.58
+    "estacoes": 383.0,
+    "veiculos": 60.0,
+    "corredorKm": 931.12,
+    "cicloKm": 241.61,
+    "pontes": 17.0,
+    "outrasOAE": 89.0,
+    "projetos": 41.0,
+    "trilhosKm": 179.03,
+    "passarelas": 57.0,
+    "extProjetadaKm": 325.58,
+    "oae": 143.0,
+    "cco": 12.0,
+    "terminais": 128.0,
+    "viadutos": 37.0,
+    "abrigos": 2501.0,
+    "its": 230.0,
+    "patios": 2.0
    },
    "dicionario": [
     {
@@ -988,7 +988,7 @@
    "tipoProponente": "Autarquia",
    "agente": "TED",
    "fonte": "OGU",
-   "empreendimento": "Recuperação da infraestrutura do Metrô do Recife - substituição de trilhos e dormentes",
+   "empreendimento": "Recuperação da infraestrutura do Metrô do Recife - substituição de trilhos e dormentes (inclui aquisição de 6 TUEs do Metrô de BH)",
    "categoria": "Obras",
    "modo": "Trens",
    "item": "Manutenção de via permanente",

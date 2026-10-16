@@ -1,7 +1,7 @@
 {
  "meta": {
   "dataAtualizacao": "16/10/2026",
-  "geradoEm": "2026-10-16T12:17:49-03:00",
+  "geradoEm": "2026-10-16T13:44:57-03:00",
   "origem": "novo_16102026.xlsx",
   "total": 141,
   "colunas": [
@@ -309,7 +309,7 @@
    "uf": "PE",
    "municipio": "Recife",
    "proponente": "CBTU",
-   "empreendimento": "Recuperação da infraestrutura do Metrô do Recife - substituição de trilhos e dormentes",
+   "empreendimento": "Recuperação da infraestrutura do Metrô do Recife - substituição de trilhos e dormentes (inclui aquisição de 6 TUEs do Metrô de BH)",
    "apoio": 136100000.0,
    "valorContratado": 136100000.0,
    "migrado": false,
