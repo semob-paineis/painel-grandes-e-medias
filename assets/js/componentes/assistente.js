@@ -1934,8 +1934,6 @@ window.PG = window.PG || {};
       partes.push('apoio ' + F.moedaCurta(r.apoio));
       if (r.valorContratado) partes.push('contratado ' + F.moedaCurta(r.valorContratado));
       if (r.contrapartida) partes.push('contrapartida ' + F.moedaCurta(r.contrapartida));
-      if (r.pctFisico) partes.push('físico ' + F.percentual(r.pctFisico, 1));
-      if (r.pctFinanceiro) partes.push('financeiro ' + F.percentual(r.pctFinanceiro, 1));
       partes.push('<span class="assistente__suave">linha ' + r.id + ' da base</span>');
       return partes.join(' · ');
     }));
