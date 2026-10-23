@@ -1,8 +1,8 @@
 {
  "meta": {
-  "dataAtualizacao": "16/10/2026",
-  "geradoEm": "2026-10-16T14:16:45-03:00",
-  "origem": "novo_16102026.xlsx",
+  "dataAtualizacao": "23/10/2026",
+  "geradoEm": "2026-10-23T15:53:25-03:00",
+  "origem": "novo_22102026.xlsx",
   "total": 141,
   "colunas": [
    {
@@ -443,7 +443,7 @@
    "tipo": "Grandes e Médias",
    "uf": "SP",
    "municipio": "Santo André",
-   "proponente": "Prefeitura de Santo Andre",
+   "proponente": "Prefeitura de Santo André",
    "empreendimento": "Faixa exclusiva - implantação nas av Santos Dumont e Giovanni Pirelli",
    "apoio": 37782000.02,
    "valorContratado": 37782000.02,
@@ -1440,7 +1440,7 @@
    "migrado": false,
    "pctMigrado": null,
    "situacao": "Contratada",
-   "situacaoExecucao": "Não iniciada",
+   "situacaoExecucao": "Em resolutiva",
    "grupo": "Contratados"
   },
   {
@@ -1590,7 +1590,7 @@
    "migrado": false,
    "pctMigrado": null,
    "situacao": "Contratada",
-   "situacaoExecucao": "Não iniciada",
+   "situacaoExecucao": "Em resolutiva",
    "grupo": "Contratados"
   },
   {
